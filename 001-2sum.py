@@ -16,7 +16,7 @@
 __Author__ = 'BONFY'
 
 
-class Solution(object):
+class Solution:
     def twoSum(self, nums, target):
         """
         :type nums: List[int]
@@ -28,9 +28,24 @@ class Solution(object):
                 return sorted([i, nums.index(target - nums[i])])
 
 
+# GOOD CASE
+class Solution2:
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        d = {}
+        for i, v in enumerate(nums):
+            if v in d:
+                return [d[v], i]
+            d[target-v] = i
+
+
 if __name__ == '__main__':
-    result = Solution().twoSum([3, 2, 4], 6)
+    result = Solution2().twoSum([3, 2, 4], 6)
     print(result)
 
-    result = Solution().twoSum([0, 2, 1, 0], 0)
+    result = Solution2().twoSum([0, 2, 1, 0], 0)
     print(result)
