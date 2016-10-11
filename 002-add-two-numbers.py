@@ -9,6 +9,10 @@
 
 # Definition for singly-linked list.
 
+# python version: Python 3
+
+__Author__ = 'BONFY'
+
 
 class ListNode(object):
     def __init__(self, x):
