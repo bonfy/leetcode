@@ -9,31 +9,11 @@ import time
 from pyquery import PyQuery as pq
 import re
 
-# import io
-# import sys
-# sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf8')    # 改变标准输出的默认编码  
-
-# all items
-# here we use algorithms and python
-# ALL_CATEGORIES = ['algorithms', 'database', 'shell']
-# ALL_LANGUAGES = ['cpp', 'java', 'python', 'c', 'csharp', 'javascript', 'ruby', 'bash', 'mysql']
-
-
 
 HOME = os.getcwd()
 CONFIG_FILE = os.path.join(HOME, 'config.cfg')
 
-# If you use proxy, please add this
-# _usr = 'username'
-# _pwd = 'password'
-# _encoded_pwd = urllib.parse.quote(_pwd)
-# proxies = {
-#     'http': 'http://{usr}:{pwd}@svwproxy.csvw.com:8080'.format(usr=_usr, pwd=_encoded_pwd),
-#     'https': 'http://{usr}:{pwd}@svwproxy.csvw.com:8080'.format(usr=_usr, pwd=_encoded_pwd),
-# }
-
 proxies = None
-
 HEADERS = {
         'Accept': '*/*',
         'Accept-Encoding': 'gzip,deflate,sdch',
@@ -132,10 +112,6 @@ class Leetcode:
         self.cookies = None
         self.is_login = False
 
-        # self.config = get_username_password_from_config()
-        # self.username = CONFIG['username']
-        # self.password = CONFIG['password']
-
     def login(self):
         login_url = self.base_url + '/accounts/login/'    # NOQA
 
@@ -144,7 +120,7 @@ class Leetcode:
 
         self.session.get(login_url, proxies=proxies)
         token = self.session.cookies['csrftoken']
-        print(token)
+        print('token:', token)
         login_data = {
             'csrfmiddlewaretoken': token,
             'login': CONFIG['username'],
@@ -240,7 +216,6 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
                                                                                        article=article, difficulty=item.difficulty)
         with open('Readme.md', 'w') as f:
             f.write(md)
-        print('finish write readme')
 
     def _generate_submissions_by_quiz(self, quiz):
         """Get the answer code by quizItem
@@ -254,9 +229,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
         if not quiz.pass_status:
             raise Exception('Quiz {title} not solve'.format(title=quiz.title))
         r = self.session.get(submissions_url, proxies=proxies)
-        # print(submissions_url)
         assert r.status_code == 200
-        # print(r.encoding)
         d = pq(r.text)
         trs = d('table#result-testcases>tbody>tr')
         for idx, tr in enumerate(trs):
@@ -287,7 +260,6 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
         sub_url = sub['url']
         r = self.session.get(sub_url, proxies=proxies)
         assert r.status_code == 200
-        # print(r.encoding)
         d = pq(r.text)
         question = d('html>head>meta[name=description]').attr('content').strip()
 
@@ -314,7 +286,6 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
         path = os.path.join(HOME, dirname)
         fname = '{title}.{ext}'.format(title=quiz.title, ext=FILE_EXT[CONFIG['language']])
         filename = os.path.join(path, fname)
-        # print(type(question))
         # quote question
         # quote_question = '\n'.join(['# '+i for i in question.split('\n')])
 
@@ -325,11 +296,6 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
             else:
                 l.append('# {item}'.format(item=item))
         quote_question = '\n'.join(l)
-        # print(type(quote_question))
-
-        # import codecs
-        # with codecs.open('a.html', 'w', 'utf-8') as f:
-        #     f.write(r.text)
 
         import codecs
         with codecs.open(filename, 'w', 'utf-8') as f:
@@ -361,16 +327,22 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
                 pool.submit(self.download_quiz_code_to_dir, quiz)
 
         pool.shutdown(wait=True)
-        print('finish dowload')
 
 
 def main():
     leetcode = Leetcode()
     leetcode.login()
+    print('Leetcode login')
     leetcode.load()
+    print('Leetcode load self info')
+
+    # simple download
     # leetcode.dowload()
+    # we use multi thread
     leetcode.download_with_thread_pool()
+    print('Leetcode finish dowload')
     leetcode.write_readme()
+    print('Leetcode finish write readme')
 
 if __name__ == '__main__':
     main()
