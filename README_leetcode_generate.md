@@ -1,5 +1,7 @@
 # leetcode_generate Usage
 
+![](https://github.com/bonfy/leetcode/blob/master/demo/leetcode.gif)
+
 ## Preparements:
 
 ```cmd
@@ -25,6 +27,7 @@ repo = https://github.com/bonfy/leetcode
 ```python
 python3 leetcode_generate.py
 ```
+Python 3 have tested
 
-Python 3 will be ok
-Python 2 perhaps
+Python 2 maybe
+
