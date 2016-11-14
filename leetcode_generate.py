@@ -203,7 +203,7 @@ class Leetcode:
         md = '''# :pencil2: Leetcode Solutions with {language}
 Update time:  {tm}
 
-Auto created by [leetcode_generate](https://github.com/bonfy/leetcode)
+Auto created by [leetcode_generate](https://github.com/bonfy/leetcode) [Usage](https://github.com/bonfy/leetcode/README_leetcode_generate.md)
 
 I have solved **{num_solved}   /   {num_total}** problems
 while there are **{num_lock}** problems still locked.

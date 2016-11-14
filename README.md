@@ -1,7 +1,7 @@
 # :pencil2: Leetcode Solutions with python
-Update time:  2016-11-14 19:09:29
+Update time:  2016-11-14 19:33:08
 
-Auto created by [leetcode_generate](https://github.com/bonfy/leetcode)
+Auto created by [leetcode_generate](https://github.com/bonfy/leetcode) [Usage](https://github.com/bonfy/leetcode/README_leetcode_generate.md)
 
 I have solved **32   /   421** problems
 while there are **77** problems still locked.
