@@ -1,19 +1,20 @@
 # coding:utf-8
 
 import requests
-import urllib
 import configparser
 import os
 import json
 import time
 from pyquery import PyQuery as pq
 import re
+import sys
 
 
 HOME = os.getcwd()
 CONFIG_FILE = os.path.join(HOME, 'config.cfg')
 
-proxies = None
+# If you have proxy, change PROXIES below
+PROXIES = None
 HEADERS = {
         'Accept': '*/*',
         'Accept-Encoding': 'gzip,deflate,sdch',
@@ -77,6 +78,7 @@ def check_and_make_dir(dirname):
     if not os.path.exists(dirname):
         os.mkdir(dirname)
 
+
 CONFIG = get_username_password_from_config()
 
 
@@ -108,7 +110,7 @@ class Leetcode:
         self.base_url = 'https://leetcode.com'
         self.session = requests.Session()
         self.session.headers.update(HEADERS)
-        self.session.proxies = proxies
+        self.session.proxies = PROXIES
         self.cookies = None
         self.is_login = False
 
@@ -118,7 +120,7 @@ class Leetcode:
         if not CONFIG['username'] or not CONFIG['password']:
             raise Exception('Leetcode - Please input your username and password in config.cfg.')
 
-        self.session.get(login_url, proxies=proxies)
+        self.session.get(login_url, proxies=PROXIES)
         token = self.session.cookies['csrftoken']
         print('token:', token)
         login_data = {
@@ -127,7 +129,7 @@ class Leetcode:
             'password': CONFIG['password']
         }
 
-        self.session.post(login_url, headers={'Referer': login_url}, proxies=proxies, data=login_data)
+        self.session.post(login_url, headers={'Referer': login_url}, proxies=PROXIES, data=login_data)
         if not self.session.cookies.get('PHPSESSID'):
             raise Exception('Login Error')
 
@@ -140,7 +142,7 @@ class Leetcode:
         if not self.is_login:
             self.login()
 
-        r = self.session.get(api_url, proxies=proxies)
+        r = self.session.get(api_url, proxies=PROXIES)
         assert r.status_code == 200
         rst = json.loads(r.text)
 
@@ -228,7 +230,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
         # example : 'https://leetcode.com/problems/two-sum/submissions/'
         if not quiz.pass_status:
             raise Exception('Quiz {title} not solve'.format(title=quiz.title))
-        r = self.session.get(submissions_url, proxies=proxies)
+        r = self.session.get(submissions_url, proxies=PROXIES)
         assert r.status_code == 200
         d = pq(r.text)
         trs = d('table#result-testcases>tbody>tr')
@@ -258,7 +260,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
         else:
             sub = min(submissions, key=lambda i: i['runTime'])
         sub_url = sub['url']
-        r = self.session.get(sub_url, proxies=proxies)
+        r = self.session.get(sub_url, proxies=PROXIES)
         assert r.status_code == 200
         d = pq(r.text)
         question = d('html>head>meta[name=description]').attr('content').strip()
@@ -308,24 +310,48 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
             content += '\n'
             f.write(content)
 
-    def download(self):
+    def _get_quiz_by_id(self, qid):
+        """ get quiz by quiz id
+
+        :param qid: type int
+        """
+        if not self.items:
+            raise Exception("Please load self info first")
         for quiz in self.items:
-            if not quiz.pass_status:
-                print('{id}-{title} not pass'.format(id=quiz.id, title=quiz.title))
-            else:
-                print('{id}-{title} pass'.format(id=quiz.id, title=quiz.title))
-                self.download_quiz_code_to_dir(quiz)
+            if quiz.id == qid:
+                return quiz
+        raise Exception("No quiz id:{id} find in leetcode.please confirm".format(id=qid))
+
+    def _download_quiz(self, quiz):
+        """ download quiz by QuizItem
+
+        :param quiz: type QuizItem
+        """
+        if not quiz.pass_status:
+            print('{id}-{title} not pass'.format(id=quiz.id, title=quiz.title))
+        else:
+            print('{id}-{title} pass'.format(id=quiz.id, title=quiz.title))
+            self.download_quiz_code_to_dir(quiz)
+
+    def download_by_id(self, qid):
+        """ download one quiz by quiz id
+
+        :param qid: type int
+        """
+        quiz = self._get_quiz_by_id(qid)
+        self._download_quiz(quiz)
+
+    def download(self):
+        """ download all quiz with single thread """
+        for quiz in self.items:
+            self._download_quiz(quiz)
 
     def download_with_thread_pool(self):
+        """ download all quiz with multi thread """
         from concurrent.futures import ThreadPoolExecutor
         pool = ThreadPoolExecutor(max_workers=4)
         for quiz in self.items:
-            if not quiz.pass_status:
-                print('{id}-{title} not pass'.format(id=quiz.id, title=quiz.title))
-            else:
-                print('{id}-{title} pass'.format(id=quiz.id, title=quiz.title))
-                pool.submit(self.download_quiz_code_to_dir, quiz)
-
+            pool.submit(self._download_quiz, quiz)
         pool.shutdown(wait=True)
 
 
@@ -336,13 +362,21 @@ def main():
     leetcode.load()
     print('Leetcode load self info')
 
-    # simple download
-    # leetcode.dowload()
-    # we use multi thread
-    leetcode.download_with_thread_pool()
+    if len(sys.argv) == 1:
+        # simple download
+        # leetcode.dowload()
+        # we use multi thread
+        print('download all leetcode solutions')
+        leetcode.download_with_thread_pool()
+    else:
+        for qid in sys.argv[1:]:
+            print('begin leetcode by id: {id}'.format(id=qid))
+            leetcode.download_by_id(int(qid))
+
     print('Leetcode finish dowload')
     leetcode.write_readme()
     print('Leetcode finish write readme')
+
 
 if __name__ == '__main__':
     main()
