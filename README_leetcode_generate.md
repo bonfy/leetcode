@@ -24,11 +24,19 @@ repo = https://github.com/bonfy/leetcode
 
 ## Run
 
+### Fully Download
 ```cmd
 python3 leetcode_generate.py
 ```
+Usually you can always run fully download
 
-
+### Download by id
+```
+python3 leetcode_generate.py 1
+python3 leetcode_generate.py 1 10 100
+```
+You can only download the solution you want.
+Add arguments just add the id behind (seperate by space)
 
 
 Python 3 have tested
