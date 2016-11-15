@@ -1,9 +1,9 @@
 # :pencil2: Leetcode Solutions with python
-Update time:  2016-11-14 19:39:08
+Update time:  2016-11-15 19:46:05
 
 Auto created by [leetcode_generate](https://github.com/bonfy/leetcode) [Usage](https://github.com/bonfy/leetcode/blob/master/README_leetcode_generate.md)
 
-I have solved **32   /   421** problems
+I have solved **34   /   421** problems
 while there are **77** problems still locked.
 
 If you have any question, please give me an [issue](https://github.com/bonfy/leetcode/issues).
@@ -54,7 +54,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |38|[count-and-say](https://leetcode.com/problems/count-and-say)|[python](https://github.com/bonfy/leetcode/blob/master/038-count-and-say/count-and-say.py)||Easy|
 |39|[combination-sum](https://leetcode.com/problems/combination-sum)|[python](https://github.com/bonfy/leetcode/blob/master/039-combination-sum/combination-sum.py)||Medium|
 |40|[combination-sum-ii](https://leetcode.com/problems/combination-sum-ii)|||Medium|
-|41|[first-missing-positive](https://leetcode.com/problems/first-missing-positive)|||Hard|
+|41|[first-missing-positive](https://leetcode.com/problems/first-missing-positive)|[python](https://github.com/bonfy/leetcode/blob/master/041-first-missing-positive/first-missing-positive.py)||Hard|
 |42|[trapping-rain-water](https://leetcode.com/problems/trapping-rain-water)|||Hard|
 |43|[multiply-strings](https://leetcode.com/problems/multiply-strings)|||Medium|
 |44|[wildcard-matching](https://leetcode.com/problems/wildcard-matching)|||Hard|
@@ -63,7 +63,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |47|[permutations-ii](https://leetcode.com/problems/permutations-ii)|||Medium|
 |48|[rotate-image](https://leetcode.com/problems/rotate-image)|||Medium|
 |49|[anagrams](https://leetcode.com/problems/anagrams)|||Medium|
-|50|[powx-n](https://leetcode.com/problems/powx-n)|||Medium|
+|50|[powx-n](https://leetcode.com/problems/powx-n)|[python](https://github.com/bonfy/leetcode/blob/master/050-powx-n/powx-n.py)||Medium|
 |51|[n-queens](https://leetcode.com/problems/n-queens)|||Hard|
 |52|[n-queens-ii](https://leetcode.com/problems/n-queens-ii)|||Hard|
 |53|[maximum-subarray](https://leetcode.com/problems/maximum-subarray)|||Medium|
