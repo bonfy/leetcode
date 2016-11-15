@@ -24,9 +24,12 @@ repo = https://github.com/bonfy/leetcode
 
 ## Run
 
-```python
+```cmd
 python3 leetcode_generate.py
 ```
+
+
+
 
 Python 3 have tested
 
