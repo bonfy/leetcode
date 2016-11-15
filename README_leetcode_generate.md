@@ -36,9 +36,10 @@ python3 leetcode_generate.py 1
 python3 leetcode_generate.py 1 10 100
 ```
 You can only download the solution you want.
-Add arguments just add the id behind (seperate by space)
+Just add the id arguments behind (seperate by space)
 
 
+## Attention
 Python 3 have tested
 
 Python 2 maybe
