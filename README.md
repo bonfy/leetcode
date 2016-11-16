@@ -1,9 +1,9 @@
 # :pencil2: Leetcode Solutions with python
-Update time:  2016-11-15 19:46:05
+Update time:  2016-11-16 21:10:10
 
 Auto created by [leetcode_generate](https://github.com/bonfy/leetcode) [Usage](https://github.com/bonfy/leetcode/blob/master/README_leetcode_generate.md)
 
-I have solved **34   /   421** problems
+I have solved **35   /   425** problems
 while there are **77** problems still locked.
 
 If you have any question, please give me an [issue](https://github.com/bonfy/leetcode/issues).
@@ -48,7 +48,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |32|[longest-valid-parentheses](https://leetcode.com/problems/longest-valid-parentheses)|||Hard|
 |33|[search-in-rotated-sorted-array](https://leetcode.com/problems/search-in-rotated-sorted-array)|||Hard|
 |34|[search-for-a-range](https://leetcode.com/problems/search-for-a-range)|[python](https://github.com/bonfy/leetcode/blob/master/034-search-for-a-range/search-for-a-range.py)||Medium|
-|35|[search-insert-position](https://leetcode.com/problems/search-insert-position)|||Medium|
+|35|[search-insert-position](https://leetcode.com/problems/search-insert-position)|[python](https://github.com/bonfy/leetcode/blob/master/035-search-insert-position/search-insert-position.py)||Medium|
 |36|[valid-sudoku](https://leetcode.com/problems/valid-sudoku)|||Easy|
 |37|[sudoku-solver](https://leetcode.com/problems/sudoku-solver)|||Hard|
 |38|[count-and-say](https://leetcode.com/problems/count-and-say)|[python](https://github.com/bonfy/leetcode/blob/master/038-count-and-say/count-and-say.py)||Easy|
@@ -435,3 +435,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |447|[number-of-boomerangs](https://leetcode.com/problems/number-of-boomerangs)|||Easy|
 |452|[minimum-number-of-arrows-to-burst-balloons](https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons)|||Medium|
 |453|[minimum-moves-to-equal-array-elements](https://leetcode.com/problems/minimum-moves-to-equal-array-elements)|||Easy|
+|454|[4sum-ii](https://leetcode.com/problems/4sum-ii)|||Medium|
+|455|[assign-cookies](https://leetcode.com/problems/assign-cookies)|||Easy|
+|456|[132-pattern](https://leetcode.com/problems/132-pattern)|||Medium|
+|459|[repeated-substring-pattern](https://leetcode.com/problems/repeated-substring-pattern)|||Easy|

@@ -23,11 +23,6 @@ class Solution(object):
         length = len(nums)
         if len(nums) == 0:
             return 1
-        if len(nums) == 1:
-            if nums[0] != 1:
-                return 1
-            else:
-                return 2
         lst = range(1, length+2)
         for i in nums:
             if i > 0 and i < length+1 and i in lst:
