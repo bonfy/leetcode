@@ -1,9 +1,9 @@
 # :pencil2: Leetcode Solutions with python
-Update time:  2016-11-16 21:10:10
+Update time:  2016-11-17 21:07:47
 
 Auto created by [leetcode_generate](https://github.com/bonfy/leetcode) [Usage](https://github.com/bonfy/leetcode/blob/master/README_leetcode_generate.md)
 
-I have solved **35   /   425** problems
+I have solved **36   /   425** problems
 while there are **77** problems still locked.
 
 If you have any question, please give me an [issue](https://github.com/bonfy/leetcode/issues).
@@ -35,7 +35,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |19|[remove-nth-node-from-end-of-list](https://leetcode.com/problems/remove-nth-node-from-end-of-list)|[python](https://github.com/bonfy/leetcode/blob/master/019-remove-nth-node-from-end-of-list/remove-nth-node-from-end-of-list.py)|[:memo:](https://leetcode.com/articles/remove-nth-node-end-list/)|Easy|
 |20|[valid-parentheses](https://leetcode.com/problems/valid-parentheses)|[python](https://github.com/bonfy/leetcode/blob/master/020-valid-parentheses/valid-parentheses.py)||Easy|
 |21|[merge-two-sorted-lists](https://leetcode.com/problems/merge-two-sorted-lists)|[python](https://github.com/bonfy/leetcode/blob/master/021-merge-two-sorted-lists/merge-two-sorted-lists.py)||Easy|
-|22|[generate-parentheses](https://leetcode.com/problems/generate-parentheses)|||Medium|
+|22|[generate-parentheses](https://leetcode.com/problems/generate-parentheses)|[python](https://github.com/bonfy/leetcode/blob/master/022-generate-parentheses/generate-parentheses.py)||Medium|
 |23|[merge-k-sorted-lists](https://leetcode.com/problems/merge-k-sorted-lists)|[python](https://github.com/bonfy/leetcode/blob/master/023-merge-k-sorted-lists/merge-k-sorted-lists.py)||Hard|
 |24|[swap-nodes-in-pairs](https://leetcode.com/problems/swap-nodes-in-pairs)|[python](https://github.com/bonfy/leetcode/blob/master/024-swap-nodes-in-pairs/swap-nodes-in-pairs.py)||Easy|
 |25|[reverse-nodes-in-k-group](https://leetcode.com/problems/reverse-nodes-in-k-group)|||Hard|
