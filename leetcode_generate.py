@@ -26,23 +26,30 @@ HEADERS = {
         'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36'  # NOQA
     }
 
+# TODO: define a class to put file ext and annotation
+
 FILE_EXT = {
-    'python': 'py',
-    'javascript': 'js',
-    'java': 'java',
-    'ruby': 'rb',
     'c++': 'cpp',
-    'swift': 'swift'
+    'java': 'java',
+    'python': 'py',
+    'c': 'c',
+    'c#': 'cs',
+    'javascript': 'js',
+    'ruby': 'rb',
+    'swift': 'swift',
+    'go': 'go'
 }
 
-
 FILE_ANNO = {
-    'python': '#',
-    'javascript': '//',
-    'java': '//',
-    'ruby': '#',
     'c++': '//',
-    'swift': '//'
+    'java': '//',
+    'python': '#',
+    'c': '//',
+    'c#': '//',
+    'javascript': '//',
+    'ruby': '#',
+    'swift': '//',
+    'go': '//'
 }
 
 
@@ -119,6 +126,9 @@ class Leetcode:
         self.num_total = 0
         self.num_lock = 0
 
+        self.solutions = []
+        self.language = 'python'
+
         self.base_url = 'https://leetcode.com'
         self.session = requests.Session()
         self.session.headers.update(HEADERS)
@@ -168,6 +178,10 @@ class Leetcode:
         self.items = list(self._generate_items_from_api(rst))
         self.items.reverse()
         self.num_lock = len([i for i in self.items if i.lock])
+
+    def load_solutions_by_language(self):
+        """only load passed solutions by language"""
+        pass
 
     def _generate_items_from_api(self, json_data):
         difficulty = {1: "Easy", 2: "Medium", 3: "Hard"}
