@@ -28,9 +28,21 @@ HEADERS = {
 
 FILE_EXT = {
     'python': 'py',
+    'javascript': 'js',
     'java': 'java',
     'ruby': 'rb',
-    'c++': 'cpp'
+    'c++': 'cpp',
+    'swift': 'swift'
+}
+
+
+FILE_ANNO = {
+    'python': '#',
+    'javascript': '//',
+    'java': '//',
+    'ruby': '#',
+    'c++': '//',
+    'swift': '//'
 }
 
 
@@ -253,7 +265,8 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
         submissions_language = [i for i in list(self._generate_submissions_by_quiz(quiz)) if i['language'].lower() == CONFIG['language']]
         submissions = [i for i in submissions_language if i['status']]
         if not submissions:
-            raise Exception('No pass {language} solution in question:{title}'.format(language=CONFIG['language'], title=quiz.title))
+            print('No pass {language} solution in question:{title}'.format(language=CONFIG['language'], title=quiz.title))
+            return None, None
 
         if len(submissions) == 1:
             sub = submissions[0]
@@ -277,7 +290,6 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
         return question, code
 
     def download_quiz_code_to_dir(self, quiz):
-
         question, code = self._get_quiz_and_code_by_language(quiz)
         if not question and not code:
             return
@@ -294,18 +306,17 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
         l = []
         for item in question.split('\n'):
             if item.strip() == '':
-                l.append('#')
+                l.append(FILE_ANNO[CONFIG['language']])
             else:
-                l.append('# {item}'.format(item=item))
+                l.append('{anno} {item}'.format(anno=FILE_ANNO[CONFIG['language']], item=item))
         quote_question = '\n'.join(l)
 
         import codecs
         with codecs.open(filename, 'w', 'utf-8') as f:
             print("begin to write file")
-            content = '# -*- coding:utf-8 -*-'
-            content += '\n'*3
+            content = '# -*- coding:utf-8 -*-' + '\n' * 3 if CONFIG['language'] == 'python' else ''
             content += quote_question
-            content += '\n'*3
+            content += '\n' * 3
             content += code
             content += '\n'
             f.write(content)
