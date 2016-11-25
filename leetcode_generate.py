@@ -26,32 +26,6 @@ HEADERS = {
         'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36'  # NOQA
     }
 
-# TODO: define a class to put file ext and annotation
-
-FILE_EXT = {
-    'c++': 'cpp',
-    'java': 'java',
-    'python': 'py',
-    'c': 'c',
-    'c#': 'cs',
-    'javascript': 'js',
-    'ruby': 'rb',
-    'swift': 'swift',
-    'go': 'go'
-}
-
-FILE_ANNO = {
-    'c++': '//',
-    'java': '//',
-    'python': '#',
-    'c': '//',
-    'c#': '//',
-    'javascript': '//',
-    'ruby': '#',
-    'swift': '//',
-    'go': '//'
-}
-
 
 def get_config_from_file():
     cp = configparser.ConfigParser()
@@ -98,6 +72,23 @@ def check_and_make_dir(dirname):
         os.mkdir(dirname)
 
 
+class ProgLang:
+    def __init__(self, language, ext, annotation):
+        self.language = language
+        self.ext = ext
+        self.annotation = annotation
+
+ProgLangList = [ProgLang('c++', 'cpp', '//'),
+                ProgLang('java', 'java', '//'),
+                ProgLang('python', 'py', '#'),
+                ProgLang('c', 'c', '//'),
+                ProgLang('c#', 'cs', '//'),
+                ProgLang('javascript', 'js', '//'),
+                ProgLang('ruby', 'rb', '#'),
+                ProgLang('swift', 'swift', '//'),
+                ProgLang('go', 'go', '//')]
+
+ProgLangDict = dict((item.language, item) for item in ProgLangList)
 CONFIG = get_config_from_file()
 
 
@@ -128,7 +119,7 @@ class Leetcode:
         self.num_lock = 0
 
         self.solutions = []
-        self.language = CONFIG['language']
+        self.proglang = ProgLangDict[CONFIG['language']]
 
         self.base_url = 'https://leetcode.com'
         self.session = requests.Session()
@@ -204,7 +195,7 @@ class Leetcode:
                 # runTime = -1 if runText == 'N/A' else int(runText[:-3])
                 language = i('tr>td:nth-child(5)').text().strip()
                 capital_title = i('tr>td:nth-child(2)').text().strip()
-                if pass_status and language == self.language:
+                if pass_status and language == self.proglang.language:
                     if capital_title not in self.solutions:
                         self.solutions.append(capital_title)
             next_page_flag = '$(".next").addClass("disabled");' in content
@@ -248,7 +239,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 (Notes: :lock: means you need to buy a book from Leetcode to unlock the problem)
 
 | # | Title | Source Code | Article | Difficulty |
-|:---:|:---:|:---:|:---:|:---:|'''.format(language=self.language,
+|:---:|:---:|:---:|:---:|:---:|'''.format(language=self.proglang.language,
                                           tm=time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())),
                                           num_solved=self.num_solved, num_total=self.num_total,
                                           num_lock=self.num_lock, repo=CONFIG['repo'])
@@ -262,9 +253,9 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
             else:
                 if item.pass_status and item.capital_title in self.solutions:
                     dirname = '{id}-{title}'.format(id=str(item.id).zfill(3), title=item.title)
-                    language = '[{language}]({repo}/blob/master/{dirname}/{title}.{ext})'.format(language=self.language, repo=CONFIG['repo'],
+                    language = '[{language}]({repo}/blob/master/{dirname}/{title}.{ext})'.format(language=self.proglang.language, repo=CONFIG['repo'],
                                                                                                  dirname=dirname, title=item.title,
-                                                                                                 ext=FILE_EXT[self.language])
+                                                                                                 ext=self.proglang.ext)
                 else:
                     language = ''
 
@@ -305,10 +296,10 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
             yield data
 
     def _get_quiz_and_code_by_language(self, quiz):
-        submissions_language = [i for i in list(self._generate_submissions_by_quiz(quiz)) if i['language'].lower() == self.language]
+        submissions_language = [i for i in list(self._generate_submissions_by_quiz(quiz)) if i['language'].lower() == self.proglang.language]
         submissions = [i for i in submissions_language if i['status']]
         if not submissions:
-            raise Exception('No pass {language} solution in question:{title}'.format(language=self.language, title=quiz.title))
+            raise Exception('No pass {language} solution in question:{title}'.format(language=self.proglang.language, title=quiz.title))
 
         if len(submissions) == 1:
             sub = submissions[0]
@@ -340,7 +331,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
         check_and_make_dir(dirname)
 
         path = os.path.join(HOME, dirname)
-        fname = '{title}.{ext}'.format(title=quiz.title, ext=FILE_EXT[self.language])
+        fname = '{title}.{ext}'.format(title=quiz.title, ext=self.proglang.ext)
         filename = os.path.join(path, fname)
         # quote question
         # quote_question = '\n'.join(['# '+i for i in question.split('\n')])
@@ -348,15 +339,15 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
         l = []
         for item in question.split('\n'):
             if item.strip() == '':
-                l.append(FILE_ANNO[self.language])
+                l.append(self.proglang.annotation)
             else:
-                l.append('{anno} {item}'.format(anno=FILE_ANNO[self.language], item=item))
+                l.append('{anno} {item}'.format(anno=self.proglang.annotation, item=item))
         quote_question = '\n'.join(l)
 
         import codecs
         with codecs.open(filename, 'w', 'utf-8') as f:
-            print("begin to write file")
-            content = '# -*- coding:utf-8 -*-' + '\n' * 3 if self.language == 'python' else ''
+            print('write to file ->', fname)
+            content = '# -*- coding:utf-8 -*-' + '\n' * 3 if self.proglang.language == 'python' else ''
             content += quote_question
             content += '\n' * 3
             content += code
@@ -384,7 +375,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
             print('{id}-{title} not pass'.format(id=quiz.id, title=quiz.title))
         else:
             if quiz.capital_title not in self.solutions:
-                print('{id}-{title} pass in other language not using {language}'.format(id=quiz.id, title=quiz.title, language=self.language))
+                print('{id}-{title} pass in other language not use {language}'.format(id=quiz.id, title=quiz.title, language=self.proglang.language))
             else:
                 print('{id}-{title} pass'.format(id=quiz.id, title=quiz.title))
                 self.download_quiz_code_to_dir(quiz)
