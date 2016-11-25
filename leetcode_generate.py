@@ -53,7 +53,7 @@ FILE_ANNO = {
 }
 
 
-def get_username_password_from_config():
+def get_config_from_file():
     cp = configparser.ConfigParser()
     cp.read(CONFIG_FILE)
 
@@ -98,13 +98,14 @@ def check_and_make_dir(dirname):
         os.mkdir(dirname)
 
 
-CONFIG = get_username_password_from_config()
+CONFIG = get_config_from_file()
 
 
 class QuizItem:
     def __init__(self, data):
         self.id = int(data['id'])
         self.title = data['title']
+        self.capital_title = data['capital_title']
         self.url = data['url']
         self.acceptance = data['acceptance']
         self.difficulty = data['difficulty']
@@ -127,7 +128,7 @@ class Leetcode:
         self.num_lock = 0
 
         self.solutions = []
-        self.language = 'python'
+        self.language = CONFIG['language']
 
         self.base_url = 'https://leetcode.com'
         self.session = requests.Session()
@@ -179,9 +180,36 @@ class Leetcode:
         self.items.reverse()
         self.num_lock = len([i for i in self.items if i.lock])
 
-    def load_solutions_by_language(self):
-        """only load passed solutions by language"""
-        pass
+        # set self.solutions
+        self._load_solutions_by_language()
+
+    def _load_solutions_by_language(self):
+        """only load passed solutions by language
+           set self.solutions
+        """
+        page = 0
+        while True:
+            page += 1
+            submissions_url = self.base_url + '/submissions/{page}/'.format(page=page)
+            r = self.session.get(submissions_url, proxies=PROXIES)
+            assert r.status_code == 200
+            content = r.text
+            d = pq(content)
+            trs = d('table#result-testcases>tbody>tr')
+            for idx, tr in enumerate(trs):
+                i = pq(tr)
+                pass_status = i('tr>td:nth-child(3)').text().strip() == 'Accepted'
+                # TODO: generate the whole downloading list
+                # runText = i('tr>td:nth-child(4)').text().strip()
+                # runTime = -1 if runText == 'N/A' else int(runText[:-3])
+                language = i('tr>td:nth-child(5)').text().strip()
+                capital_title = i('tr>td:nth-child(2)').text().strip()
+                if pass_status and language == self.language:
+                    if capital_title not in self.solutions:
+                        self.solutions.append(capital_title)
+            next_page_flag = '$(".next").addClass("disabled");' in content
+            if next_page_flag:
+                break
 
     def _generate_items_from_api(self, json_data):
         difficulty = {1: "Easy", 2: "Medium", 3: "Hard"}
@@ -190,6 +218,7 @@ class Leetcode:
                 continue
             data = {}
             data['title'] = quiz['stat']['question__title_slug']
+            data['capital_title'] = quiz['stat']['question__title']
             data['id'] = quiz['stat']['question_id']
             data['lock'] = not json_data['is_paid'] and quiz['paid_only']
             data['difficulty'] = difficulty[quiz['difficulty']['level']]
@@ -219,7 +248,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 (Notes: :lock: means you need to buy a book from Leetcode to unlock the problem)
 
 | # | Title | Source Code | Article | Difficulty |
-|:---:|:---:|:---:|:---:|:---:|'''.format(language=CONFIG['language'],
+|:---:|:---:|:---:|:---:|:---:|'''.format(language=self.language,
                                           tm=time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())),
                                           num_solved=self.num_solved, num_total=self.num_total,
                                           num_lock=self.num_lock, repo=CONFIG['repo'])
@@ -231,11 +260,11 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
             if item.lock:
                 language = ':lock:'
             else:
-                if item.pass_status:
+                if item.pass_status and item.capital_title in self.solutions:
                     dirname = '{id}-{title}'.format(id=str(item.id).zfill(3), title=item.title)
-                    language = '[{language}]({repo}/blob/master/{dirname}/{title}.{ext})'.format(language=CONFIG['language'], repo=CONFIG['repo'],
+                    language = '[{language}]({repo}/blob/master/{dirname}/{title}.{ext})'.format(language=self.language, repo=CONFIG['repo'],
                                                                                                  dirname=dirname, title=item.title,
-                                                                                                 ext=FILE_EXT[CONFIG['language']])
+                                                                                                 ext=FILE_EXT[self.language])
                 else:
                     language = ''
 
@@ -276,11 +305,10 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
             yield data
 
     def _get_quiz_and_code_by_language(self, quiz):
-        submissions_language = [i for i in list(self._generate_submissions_by_quiz(quiz)) if i['language'].lower() == CONFIG['language']]
+        submissions_language = [i for i in list(self._generate_submissions_by_quiz(quiz)) if i['language'].lower() == self.language]
         submissions = [i for i in submissions_language if i['status']]
         if not submissions:
-            print('No pass {language} solution in question:{title}'.format(language=CONFIG['language'], title=quiz.title))
-            return None, None
+            raise Exception('No pass {language} solution in question:{title}'.format(language=self.language, title=quiz.title))
 
         if len(submissions) == 1:
             sub = submissions[0]
@@ -312,7 +340,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
         check_and_make_dir(dirname)
 
         path = os.path.join(HOME, dirname)
-        fname = '{title}.{ext}'.format(title=quiz.title, ext=FILE_EXT[CONFIG['language']])
+        fname = '{title}.{ext}'.format(title=quiz.title, ext=FILE_EXT[self.language])
         filename = os.path.join(path, fname)
         # quote question
         # quote_question = '\n'.join(['# '+i for i in question.split('\n')])
@@ -320,15 +348,15 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
         l = []
         for item in question.split('\n'):
             if item.strip() == '':
-                l.append(FILE_ANNO[CONFIG['language']])
+                l.append(FILE_ANNO[self.language])
             else:
-                l.append('{anno} {item}'.format(anno=FILE_ANNO[CONFIG['language']], item=item))
+                l.append('{anno} {item}'.format(anno=FILE_ANNO[self.language], item=item))
         quote_question = '\n'.join(l)
 
         import codecs
         with codecs.open(filename, 'w', 'utf-8') as f:
             print("begin to write file")
-            content = '# -*- coding:utf-8 -*-' + '\n' * 3 if CONFIG['language'] == 'python' else ''
+            content = '# -*- coding:utf-8 -*-' + '\n' * 3 if self.language == 'python' else ''
             content += quote_question
             content += '\n' * 3
             content += code
@@ -355,8 +383,11 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
         if not quiz.pass_status:
             print('{id}-{title} not pass'.format(id=quiz.id, title=quiz.title))
         else:
-            print('{id}-{title} pass'.format(id=quiz.id, title=quiz.title))
-            self.download_quiz_code_to_dir(quiz)
+            if quiz.capital_title not in self.solutions:
+                print('{id}-{title} pass in other language not using {language}'.format(id=quiz.id, title=quiz.title, language=self.language))
+            else:
+                print('{id}-{title} pass'.format(id=quiz.id, title=quiz.title))
+                self.download_quiz_code_to_dir(quiz)
 
     def download_by_id(self, qid):
         """ download one quiz by quiz id
@@ -401,7 +432,6 @@ def main():
     print('Leetcode finish dowload')
     leetcode.write_readme()
     print('Leetcode finish write readme')
-
 
 if __name__ == '__main__':
     main()
