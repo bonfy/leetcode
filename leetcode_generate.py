@@ -1,5 +1,12 @@
 # coding:utf-8
 
+#
+# Author: BONFY<foreverbonfy@163.com>
+# Github: https://github.com/bonfy
+# repo:   https://github.com/bonfy/leetcode
+# Usage:  Leetcode solution downloader and auto generate readme 
+#
+
 import requests
 import configparser
 import os
