@@ -15,6 +15,7 @@ import time
 from pyquery import PyQuery as pq
 import re
 import sys
+from collections import namedtuple
 
 
 HOME = os.getcwd()
@@ -79,11 +80,7 @@ def check_and_make_dir(dirname):
         os.mkdir(dirname)
 
 
-class ProgLang:
-    def __init__(self, language, ext, annotation):
-        self.language = language
-        self.ext = ext
-        self.annotation = annotation
+ProgLang = namedtuple('ProgLang', ['language', 'ext', 'annotation'])
 
 ProgLangList = [ProgLang('c++', 'cpp', '//'),
                 ProgLang('java', 'java', '//'),
