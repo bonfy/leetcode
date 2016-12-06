@@ -1,10 +1,10 @@
-# :pencil2: Leetcode Solutions with python
-Update time:  2016-11-19 13:03:22
+# :pencil2: Leetcode Solutions with Python,Javascript
+Update time:  2016-12-06 20:03:14
 
 Auto created by [leetcode_generate](https://github.com/bonfy/leetcode) [Usage](https://github.com/bonfy/leetcode/blob/master/README_leetcode_generate.md)
 
-I have solved **38   /   425** problems
-while there are **77** problems still locked.
+I have solved **38   /   433** problems
+while there are **79** problems still locked.
 
 If you have any question, please give me an [issue](https://github.com/bonfy/leetcode/issues).
 
@@ -14,47 +14,47 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 
 | # | Title | Source Code | Article | Difficulty |
 |:---:|:---:|:---:|:---:|:---:|
-|1|[two-sum](https://leetcode.com/problems/two-sum)|[python](https://github.com/bonfy/leetcode/blob/master/001-two-sum/two-sum.py)|[:memo:](https://leetcode.com/articles/two-sum/)|Easy|
-|2|[add-two-numbers](https://leetcode.com/problems/add-two-numbers)|[python](https://github.com/bonfy/leetcode/blob/master/002-add-two-numbers/add-two-numbers.py)|[:memo:](https://leetcode.com/articles/add-two-numbers/)|Medium|
-|3|[longest-substring-without-repeating-characters](https://leetcode.com/problems/longest-substring-without-repeating-characters)|[python](https://github.com/bonfy/leetcode/blob/master/003-longest-substring-without-repeating-characters/longest-substring-without-repeating-characters.py)|[:memo:](https://leetcode.com/articles/longest-substring-without-repeating-characters/)|Medium|
-|4|[median-of-two-sorted-arrays](https://leetcode.com/problems/median-of-two-sorted-arrays)|[python](https://github.com/bonfy/leetcode/blob/master/004-median-of-two-sorted-arrays/median-of-two-sorted-arrays.py)||Hard|
-|5|[longest-palindromic-substring](https://leetcode.com/problems/longest-palindromic-substring)|[python](https://github.com/bonfy/leetcode/blob/master/005-longest-palindromic-substring/longest-palindromic-substring.py)|[:memo:](https://leetcode.com/articles/longest-palindromic-substring/)|Medium|
-|6|[zigzag-conversion](https://leetcode.com/problems/zigzag-conversion)|[python](https://github.com/bonfy/leetcode/blob/master/006-zigzag-conversion/zigzag-conversion.py)||Easy|
-|7|[reverse-integer](https://leetcode.com/problems/reverse-integer)|[python](https://github.com/bonfy/leetcode/blob/master/007-reverse-integer/reverse-integer.py)||Easy|
-|8|[string-to-integer-atoi](https://leetcode.com/problems/string-to-integer-atoi)|[python](https://github.com/bonfy/leetcode/blob/master/008-string-to-integer-atoi/string-to-integer-atoi.py)||Easy|
-|9|[palindrome-number](https://leetcode.com/problems/palindrome-number)|[python](https://github.com/bonfy/leetcode/blob/master/009-palindrome-number/palindrome-number.py)||Easy|
-|10|[regular-expression-matching](https://leetcode.com/problems/regular-expression-matching)|[python](https://github.com/bonfy/leetcode/blob/master/010-regular-expression-matching/regular-expression-matching.py)||Hard|
-|11|[container-with-most-water](https://leetcode.com/problems/container-with-most-water)|[python](https://github.com/bonfy/leetcode/blob/master/011-container-with-most-water/container-with-most-water.py)|[:memo:](https://leetcode.com/articles/container-most-water/)|Medium|
-|12|[integer-to-roman](https://leetcode.com/problems/integer-to-roman)|[python](https://github.com/bonfy/leetcode/blob/master/012-integer-to-roman/integer-to-roman.py)||Medium|
-|13|[roman-to-integer](https://leetcode.com/problems/roman-to-integer)|[python](https://github.com/bonfy/leetcode/blob/master/013-roman-to-integer/roman-to-integer.py)||Easy|
-|14|[longest-common-prefix](https://leetcode.com/problems/longest-common-prefix)|[python](https://github.com/bonfy/leetcode/blob/master/014-longest-common-prefix/longest-common-prefix.py)|[:memo:](https://leetcode.com/articles/longest-common-prefix/)|Easy|
-|15|[3sum](https://leetcode.com/problems/3sum)|[python](https://github.com/bonfy/leetcode/blob/master/015-3sum/3sum.py)||Medium|
-|16|[3sum-closest](https://leetcode.com/problems/3sum-closest)|[python](https://github.com/bonfy/leetcode/blob/master/016-3sum-closest/3sum-closest.py)||Medium|
-|17|[letter-combinations-of-a-phone-number](https://leetcode.com/problems/letter-combinations-of-a-phone-number)|[python](https://github.com/bonfy/leetcode/blob/master/017-letter-combinations-of-a-phone-number/letter-combinations-of-a-phone-number.py)||Medium|
-|18|[4sum](https://leetcode.com/problems/4sum)|[python](https://github.com/bonfy/leetcode/blob/master/018-4sum/4sum.py)||Medium|
-|19|[remove-nth-node-from-end-of-list](https://leetcode.com/problems/remove-nth-node-from-end-of-list)|[python](https://github.com/bonfy/leetcode/blob/master/019-remove-nth-node-from-end-of-list/remove-nth-node-from-end-of-list.py)|[:memo:](https://leetcode.com/articles/remove-nth-node-end-list/)|Easy|
-|20|[valid-parentheses](https://leetcode.com/problems/valid-parentheses)|[python](https://github.com/bonfy/leetcode/blob/master/020-valid-parentheses/valid-parentheses.py)||Easy|
-|21|[merge-two-sorted-lists](https://leetcode.com/problems/merge-two-sorted-lists)|[python](https://github.com/bonfy/leetcode/blob/master/021-merge-two-sorted-lists/merge-two-sorted-lists.py)||Easy|
-|22|[generate-parentheses](https://leetcode.com/problems/generate-parentheses)|[python](https://github.com/bonfy/leetcode/blob/master/022-generate-parentheses/generate-parentheses.py)||Medium|
-|23|[merge-k-sorted-lists](https://leetcode.com/problems/merge-k-sorted-lists)|[python](https://github.com/bonfy/leetcode/blob/master/023-merge-k-sorted-lists/merge-k-sorted-lists.py)||Hard|
-|24|[swap-nodes-in-pairs](https://leetcode.com/problems/swap-nodes-in-pairs)|[python](https://github.com/bonfy/leetcode/blob/master/024-swap-nodes-in-pairs/swap-nodes-in-pairs.py)||Easy|
+|1|[two-sum](https://leetcode.com/problems/two-sum)|[Python](https://github.com/bonfy/leetcode/blob/master/001-two-sum/two-sum.py) [Javascript](https://github.com/bonfy/leetcode/blob/master/001-two-sum/two-sum.js)|[:memo:](https://leetcode.com/articles/two-sum/)|Easy|
+|2|[add-two-numbers](https://leetcode.com/problems/add-two-numbers)|[Python](https://github.com/bonfy/leetcode/blob/master/002-add-two-numbers/add-two-numbers.py)|[:memo:](https://leetcode.com/articles/add-two-numbers/)|Medium|
+|3|[longest-substring-without-repeating-characters](https://leetcode.com/problems/longest-substring-without-repeating-characters)|[Python](https://github.com/bonfy/leetcode/blob/master/003-longest-substring-without-repeating-characters/longest-substring-without-repeating-characters.py)|[:memo:](https://leetcode.com/articles/longest-substring-without-repeating-characters/)|Medium|
+|4|[median-of-two-sorted-arrays](https://leetcode.com/problems/median-of-two-sorted-arrays)|[Python](https://github.com/bonfy/leetcode/blob/master/004-median-of-two-sorted-arrays/median-of-two-sorted-arrays.py)||Hard|
+|5|[longest-palindromic-substring](https://leetcode.com/problems/longest-palindromic-substring)|[Python](https://github.com/bonfy/leetcode/blob/master/005-longest-palindromic-substring/longest-palindromic-substring.py)|[:memo:](https://leetcode.com/articles/longest-palindromic-substring/)|Medium|
+|6|[zigzag-conversion](https://leetcode.com/problems/zigzag-conversion)|[Python](https://github.com/bonfy/leetcode/blob/master/006-zigzag-conversion/zigzag-conversion.py)||Easy|
+|7|[reverse-integer](https://leetcode.com/problems/reverse-integer)|[Python](https://github.com/bonfy/leetcode/blob/master/007-reverse-integer/reverse-integer.py)||Easy|
+|8|[string-to-integer-atoi](https://leetcode.com/problems/string-to-integer-atoi)|[Python](https://github.com/bonfy/leetcode/blob/master/008-string-to-integer-atoi/string-to-integer-atoi.py)||Easy|
+|9|[palindrome-number](https://leetcode.com/problems/palindrome-number)|[Python](https://github.com/bonfy/leetcode/blob/master/009-palindrome-number/palindrome-number.py)||Easy|
+|10|[regular-expression-matching](https://leetcode.com/problems/regular-expression-matching)|[Python](https://github.com/bonfy/leetcode/blob/master/010-regular-expression-matching/regular-expression-matching.py)||Hard|
+|11|[container-with-most-water](https://leetcode.com/problems/container-with-most-water)|[Python](https://github.com/bonfy/leetcode/blob/master/011-container-with-most-water/container-with-most-water.py)|[:memo:](https://leetcode.com/articles/container-most-water/)|Medium|
+|12|[integer-to-roman](https://leetcode.com/problems/integer-to-roman)|[Python](https://github.com/bonfy/leetcode/blob/master/012-integer-to-roman/integer-to-roman.py)||Medium|
+|13|[roman-to-integer](https://leetcode.com/problems/roman-to-integer)|[Python](https://github.com/bonfy/leetcode/blob/master/013-roman-to-integer/roman-to-integer.py)||Easy|
+|14|[longest-common-prefix](https://leetcode.com/problems/longest-common-prefix)|[Python](https://github.com/bonfy/leetcode/blob/master/014-longest-common-prefix/longest-common-prefix.py)|[:memo:](https://leetcode.com/articles/longest-common-prefix/)|Easy|
+|15|[3sum](https://leetcode.com/problems/3sum)|[Python](https://github.com/bonfy/leetcode/blob/master/015-3sum/3sum.py)||Medium|
+|16|[3sum-closest](https://leetcode.com/problems/3sum-closest)|[Python](https://github.com/bonfy/leetcode/blob/master/016-3sum-closest/3sum-closest.py)||Medium|
+|17|[letter-combinations-of-a-phone-number](https://leetcode.com/problems/letter-combinations-of-a-phone-number)|[Python](https://github.com/bonfy/leetcode/blob/master/017-letter-combinations-of-a-phone-number/letter-combinations-of-a-phone-number.py)||Medium|
+|18|[4sum](https://leetcode.com/problems/4sum)|[Python](https://github.com/bonfy/leetcode/blob/master/018-4sum/4sum.py)||Medium|
+|19|[remove-nth-node-from-end-of-list](https://leetcode.com/problems/remove-nth-node-from-end-of-list)|[Python](https://github.com/bonfy/leetcode/blob/master/019-remove-nth-node-from-end-of-list/remove-nth-node-from-end-of-list.py)|[:memo:](https://leetcode.com/articles/remove-nth-node-end-list/)|Easy|
+|20|[valid-parentheses](https://leetcode.com/problems/valid-parentheses)|[Python](https://github.com/bonfy/leetcode/blob/master/020-valid-parentheses/valid-parentheses.py)||Easy|
+|21|[merge-two-sorted-lists](https://leetcode.com/problems/merge-two-sorted-lists)|[Python](https://github.com/bonfy/leetcode/blob/master/021-merge-two-sorted-lists/merge-two-sorted-lists.py)||Easy|
+|22|[generate-parentheses](https://leetcode.com/problems/generate-parentheses)|[Python](https://github.com/bonfy/leetcode/blob/master/022-generate-parentheses/generate-parentheses.py)||Medium|
+|23|[merge-k-sorted-lists](https://leetcode.com/problems/merge-k-sorted-lists)|[Python](https://github.com/bonfy/leetcode/blob/master/023-merge-k-sorted-lists/merge-k-sorted-lists.py)||Hard|
+|24|[swap-nodes-in-pairs](https://leetcode.com/problems/swap-nodes-in-pairs)|[Python](https://github.com/bonfy/leetcode/blob/master/024-swap-nodes-in-pairs/swap-nodes-in-pairs.py)||Easy|
 |25|[reverse-nodes-in-k-group](https://leetcode.com/problems/reverse-nodes-in-k-group)|||Hard|
-|26|[remove-duplicates-from-sorted-array](https://leetcode.com/problems/remove-duplicates-from-sorted-array)|[python](https://github.com/bonfy/leetcode/blob/master/026-remove-duplicates-from-sorted-array/remove-duplicates-from-sorted-array.py)|[:memo:](https://leetcode.com/articles/remove-duplicates-sorted-array/)|Easy|
-|27|[remove-element](https://leetcode.com/problems/remove-element)|[python](https://github.com/bonfy/leetcode/blob/master/027-remove-element/remove-element.py)|[:memo:](https://leetcode.com/articles/remove-element/)|Easy|
-|28|[implement-strstr](https://leetcode.com/problems/implement-strstr)|[python](https://github.com/bonfy/leetcode/blob/master/028-implement-strstr/implement-strstr.py)||Easy|
+|26|[remove-duplicates-from-sorted-array](https://leetcode.com/problems/remove-duplicates-from-sorted-array)|[Python](https://github.com/bonfy/leetcode/blob/master/026-remove-duplicates-from-sorted-array/remove-duplicates-from-sorted-array.py)|[:memo:](https://leetcode.com/articles/remove-duplicates-sorted-array/)|Easy|
+|27|[remove-element](https://leetcode.com/problems/remove-element)|[Python](https://github.com/bonfy/leetcode/blob/master/027-remove-element/remove-element.py)|[:memo:](https://leetcode.com/articles/remove-element/)|Easy|
+|28|[implement-strstr](https://leetcode.com/problems/implement-strstr)|[Python](https://github.com/bonfy/leetcode/blob/master/028-implement-strstr/implement-strstr.py)||Easy|
 |29|[divide-two-integers](https://leetcode.com/problems/divide-two-integers)|||Medium|
 |30|[substring-with-concatenation-of-all-words](https://leetcode.com/problems/substring-with-concatenation-of-all-words)|||Hard|
 |31|[next-permutation](https://leetcode.com/problems/next-permutation)||[:memo:](https://leetcode.com/articles/next-permutation/)|Medium|
 |32|[longest-valid-parentheses](https://leetcode.com/problems/longest-valid-parentheses)|||Hard|
 |33|[search-in-rotated-sorted-array](https://leetcode.com/problems/search-in-rotated-sorted-array)|||Hard|
-|34|[search-for-a-range](https://leetcode.com/problems/search-for-a-range)|[python](https://github.com/bonfy/leetcode/blob/master/034-search-for-a-range/search-for-a-range.py)||Medium|
-|35|[search-insert-position](https://leetcode.com/problems/search-insert-position)|[python](https://github.com/bonfy/leetcode/blob/master/035-search-insert-position/search-insert-position.py)||Medium|
+|34|[search-for-a-range](https://leetcode.com/problems/search-for-a-range)|[Python](https://github.com/bonfy/leetcode/blob/master/034-search-for-a-range/search-for-a-range.py)||Medium|
+|35|[search-insert-position](https://leetcode.com/problems/search-insert-position)|[Python](https://github.com/bonfy/leetcode/blob/master/035-search-insert-position/search-insert-position.py)||Medium|
 |36|[valid-sudoku](https://leetcode.com/problems/valid-sudoku)|||Easy|
 |37|[sudoku-solver](https://leetcode.com/problems/sudoku-solver)|||Hard|
-|38|[count-and-say](https://leetcode.com/problems/count-and-say)|[python](https://github.com/bonfy/leetcode/blob/master/038-count-and-say/count-and-say.py)||Easy|
-|39|[combination-sum](https://leetcode.com/problems/combination-sum)|[python](https://github.com/bonfy/leetcode/blob/master/039-combination-sum/combination-sum.py)||Medium|
+|38|[count-and-say](https://leetcode.com/problems/count-and-say)|[Python](https://github.com/bonfy/leetcode/blob/master/038-count-and-say/count-and-say.py)||Easy|
+|39|[combination-sum](https://leetcode.com/problems/combination-sum)|[Python](https://github.com/bonfy/leetcode/blob/master/039-combination-sum/combination-sum.py)||Medium|
 |40|[combination-sum-ii](https://leetcode.com/problems/combination-sum-ii)|||Medium|
-|41|[first-missing-positive](https://leetcode.com/problems/first-missing-positive)|[python](https://github.com/bonfy/leetcode/blob/master/041-first-missing-positive/first-missing-positive.py)||Hard|
+|41|[first-missing-positive](https://leetcode.com/problems/first-missing-positive)|[Python](https://github.com/bonfy/leetcode/blob/master/041-first-missing-positive/first-missing-positive.py)||Hard|
 |42|[trapping-rain-water](https://leetcode.com/problems/trapping-rain-water)|||Hard|
 |43|[multiply-strings](https://leetcode.com/problems/multiply-strings)|||Medium|
 |44|[wildcard-matching](https://leetcode.com/problems/wildcard-matching)|||Hard|
@@ -63,7 +63,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |47|[permutations-ii](https://leetcode.com/problems/permutations-ii)|||Medium|
 |48|[rotate-image](https://leetcode.com/problems/rotate-image)|||Medium|
 |49|[anagrams](https://leetcode.com/problems/anagrams)|||Medium|
-|50|[powx-n](https://leetcode.com/problems/powx-n)|[python](https://github.com/bonfy/leetcode/blob/master/050-powx-n/powx-n.py)||Medium|
+|50|[powx-n](https://leetcode.com/problems/powx-n)|[Python](https://github.com/bonfy/leetcode/blob/master/050-powx-n/powx-n.py)||Medium|
 |51|[n-queens](https://leetcode.com/problems/n-queens)|||Hard|
 |52|[n-queens-ii](https://leetcode.com/problems/n-queens-ii)|||Hard|
 |53|[maximum-subarray](https://leetcode.com/problems/maximum-subarray)|||Medium|
@@ -120,11 +120,11 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |104|[maximum-depth-of-binary-tree](https://leetcode.com/problems/maximum-depth-of-binary-tree)|||Easy|
 |105|[construct-binary-tree-from-preorder-and-inorder-traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal)|||Medium|
 |106|[construct-binary-tree-from-inorder-and-postorder-traversal](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal)|||Medium|
-|107|[binary-tree-level-order-traversal-ii](https://leetcode.com/problems/binary-tree-level-order-traversal-ii)|[python](https://github.com/bonfy/leetcode/blob/master/107-binary-tree-level-order-traversal-ii/binary-tree-level-order-traversal-ii.py)||Easy|
+|107|[binary-tree-level-order-traversal-ii](https://leetcode.com/problems/binary-tree-level-order-traversal-ii)|[Python](https://github.com/bonfy/leetcode/blob/master/107-binary-tree-level-order-traversal-ii/binary-tree-level-order-traversal-ii.py)||Easy|
 |108|[convert-sorted-array-to-binary-search-tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree)|||Medium|
 |109|[convert-sorted-list-to-binary-search-tree](https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree)|||Medium|
 |110|[balanced-binary-tree](https://leetcode.com/problems/balanced-binary-tree)|||Easy|
-|111|[minimum-depth-of-binary-tree](https://leetcode.com/problems/minimum-depth-of-binary-tree)|[python](https://github.com/bonfy/leetcode/blob/master/111-minimum-depth-of-binary-tree/minimum-depth-of-binary-tree.py)||Easy|
+|111|[minimum-depth-of-binary-tree](https://leetcode.com/problems/minimum-depth-of-binary-tree)|[Python](https://github.com/bonfy/leetcode/blob/master/111-minimum-depth-of-binary-tree/minimum-depth-of-binary-tree.py)||Easy|
 |112|[path-sum](https://leetcode.com/problems/path-sum)|||Easy|
 |113|[path-sum-ii](https://leetcode.com/problems/path-sum-ii)|||Medium|
 |114|[flatten-binary-tree-to-linked-list](https://leetcode.com/problems/flatten-binary-tree-to-linked-list)|||Medium|
@@ -138,7 +138,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |122|[best-time-to-buy-and-sell-stock-ii](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii)||[:memo:](https://leetcode.com/articles/best-time-buy-and-sell-stock-ii/)|Medium|
 |123|[best-time-to-buy-and-sell-stock-iii](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii)|||Hard|
 |124|[binary-tree-maximum-path-sum](https://leetcode.com/problems/binary-tree-maximum-path-sum)|||Hard|
-|125|[valid-palindrome](https://leetcode.com/problems/valid-palindrome)|[python](https://github.com/bonfy/leetcode/blob/master/125-valid-palindrome/valid-palindrome.py)||Easy|
+|125|[valid-palindrome](https://leetcode.com/problems/valid-palindrome)|[Python](https://github.com/bonfy/leetcode/blob/master/125-valid-palindrome/valid-palindrome.py)||Easy|
 |126|[word-ladder-ii](https://leetcode.com/problems/word-ladder-ii)|||Hard|
 |127|[word-ladder](https://leetcode.com/problems/word-ladder)|||Medium|
 |128|[longest-consecutive-sequence](https://leetcode.com/problems/longest-consecutive-sequence)|||Hard|
@@ -224,7 +224,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |224|[basic-calculator](https://leetcode.com/problems/basic-calculator)|||Hard|
 |225|[implement-stack-using-queues](https://leetcode.com/problems/implement-stack-using-queues)||[:memo:](https://leetcode.com/articles/implement-stack-using-queues/)|Easy|
 |226|[invert-binary-tree](https://leetcode.com/problems/invert-binary-tree)||[:memo:](https://leetcode.com/articles/invert-binary-tree/)|Easy|
-|227|[basic-calculator-ii](https://leetcode.com/problems/basic-calculator-ii)|[python](https://github.com/bonfy/leetcode/blob/master/227-basic-calculator-ii/basic-calculator-ii.py)||Medium|
+|227|[basic-calculator-ii](https://leetcode.com/problems/basic-calculator-ii)|[Python](https://github.com/bonfy/leetcode/blob/master/227-basic-calculator-ii/basic-calculator-ii.py)||Medium|
 |228|[summary-ranges](https://leetcode.com/problems/summary-ranges)||[:memo:](https://leetcode.com/articles/summary-ranges/)|Medium|
 |229|[majority-element-ii](https://leetcode.com/problems/majority-element-ii)|||Medium|
 |230|[kth-smallest-element-in-a-bst](https://leetcode.com/problems/kth-smallest-element-in-a-bst)|||Medium|
@@ -416,13 +416,14 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |417|[pacific-atlantic-water-flow](https://leetcode.com/problems/pacific-atlantic-water-flow)|||Medium|
 |418|[sentence-screen-fitting](https://leetcode.com/problems/sentence-screen-fitting)|:lock:||Medium|
 |419|[battleships-in-a-board](https://leetcode.com/problems/battleships-in-a-board)|||Medium|
-|420|[strong-password-checker](https://leetcode.com/problems/strong-password-checker)|[python](https://github.com/bonfy/leetcode/blob/master/420-strong-password-checker/strong-password-checker.py)||Hard|
+|420|[strong-password-checker](https://leetcode.com/problems/strong-password-checker)|[Python](https://github.com/bonfy/leetcode/blob/master/420-strong-password-checker/strong-password-checker.py)||Hard|
 |421|[maximum-xor-of-two-numbers-in-an-array](https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array)|||Medium|
 |422|[valid-word-square](https://leetcode.com/problems/valid-word-square)|:lock:||Easy|
 |423|[reconstruct-original-digits-from-english](https://leetcode.com/problems/reconstruct-original-digits-from-english)|||Medium|
 |424|[longest-repeating-character-replacement](https://leetcode.com/problems/longest-repeating-character-replacement)|||Medium|
 |425|[word-squares](https://leetcode.com/problems/word-squares)|:lock:||Hard|
 |432|[all-oone-data-structure](https://leetcode.com/problems/all-oone-data-structure)|||Hard|
+|434|[number-of-segments-in-a-string](https://leetcode.com/problems/number-of-segments-in-a-string)|||Easy|
 |435|[non-overlapping-intervals](https://leetcode.com/problems/non-overlapping-intervals)|||Medium|
 |436|[find-right-interval](https://leetcode.com/problems/find-right-interval)|||Medium|
 |437|[path-sum-iii](https://leetcode.com/problems/path-sum-iii)|||Easy|
@@ -439,3 +440,10 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |455|[assign-cookies](https://leetcode.com/problems/assign-cookies)|||Easy|
 |456|[132-pattern](https://leetcode.com/problems/132-pattern)|||Medium|
 |459|[repeated-substring-pattern](https://leetcode.com/problems/repeated-substring-pattern)|||Easy|
+|462|[minimum-moves-to-equal-array-elements-ii](https://leetcode.com/problems/minimum-moves-to-equal-array-elements-ii)|||Medium|
+|463|[island-perimeter](https://leetcode.com/problems/island-perimeter)|||Easy|
+|464|[can-i-win](https://leetcode.com/problems/can-i-win)|||Medium|
+|465|[optimal-account-balancing](https://leetcode.com/problems/optimal-account-balancing)|:lock:||Hard|
+|466|[count-the-repetitions](https://leetcode.com/problems/count-the-repetitions)|||Hard|
+|467|[unique-substrings-in-wraparound-string](https://leetcode.com/problems/unique-substrings-in-wraparound-string)|||Medium|
+|469|[convex-polygon](https://leetcode.com/problems/convex-polygon)|:lock:||Medium|
