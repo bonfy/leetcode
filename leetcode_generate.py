@@ -163,7 +163,7 @@ class Leetcode:
         }
 
         self.session.post(login_url, headers={'Referer': login_url}, proxies=PROXIES, data=login_data)
-        if not self.session.cookies.get('PHPSESSID'):
+        if not self.session.cookies.get('LEETCODE_SESSION'):
             raise Exception('Login Error')
 
         self.cookies = dict(self.session.cookies)
