@@ -4,9 +4,21 @@
 
 ## Preparements:
 
+Use `selenium` and `PhantomJS`
+
+Install `PhantomJS` can follow [PhantomJS official website](http://phantomjs.org/download.html)
+
+For Mac User You can install `PhantomJS` using `Homebrew`
+
+``` cmd
+$ brew install phantomjs
+```
+
+Install essential packages
 ```cmd
 pip install requests
 pip install pyquery
+pip install selenium
 ```
 
 ## Config:
@@ -44,3 +56,4 @@ Python 3 have tested
 
 Python 2 maybe
 
+## Changelog
