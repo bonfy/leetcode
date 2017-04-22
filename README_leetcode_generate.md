@@ -6,9 +6,12 @@
 
 Use `selenium` and `PhantomJS`
 
-Install `PhantomJS` can follow [PhantomJS official website](http://phantomjs.org/download.html)
+> I think it's not the best way. But I can't find way leetcode encrypt the csrftoken.
+> If anyone find the encrypt algoristhm, please pull request to me. And I can change the login to requests
 
-For Mac User You can install `PhantomJS` using `Homebrew`
+Install `PhantomJS` please follow [PhantomJS official website](http://phantomjs.org/download.html)
+
+Mac Users can install `PhantomJS` by `Homebrew`
 
 ``` cmd
 $ brew install phantomjs
