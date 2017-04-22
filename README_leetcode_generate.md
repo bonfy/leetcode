@@ -14,11 +14,11 @@ For Mac User You can install `PhantomJS` using `Homebrew`
 $ brew install phantomjs
 ```
 
-Install essential packages
+Install essential packages: `requests`, `pyquery`,`selenium`
 ```cmd
-pip install requests
-pip install pyquery
-pip install selenium
+$ pyvenv venv   # create virtual environment
+$ source venv/bin/activate
+$ pip3 install -r req.txt
 ```
 
 ## Config:
@@ -57,3 +57,8 @@ Python 3 have tested
 Python 2 maybe
 
 ## Changelog
+
+- 2016-10-09 Download codes from Leetcode and generate Readme
+- 2016-11-25 Add multi language support
+- 2017-01-02 Fix the bug cause by Leetcode change website: `PHPSESSID` change to `LEETCODE_SESSION`
+- 2017-04-22 Fix the bug cause by Leetcode change website: csrftoken encrypt, submissions change from HTML to JSON
