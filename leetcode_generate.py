@@ -102,23 +102,48 @@ Solution = namedtuple('Solution', ['id', 'title', 'capital_title', 'pass_languag
 
 
 class QuizItem:
-    def __init__(self, data):
-        self.id = int(data['id'])
-        self.title = data['title']
-        self.capital_title = data['capital_title']
-        self.url = data['url']
-        self.acceptance = data['acceptance']
-        self.difficulty = data['difficulty']
-        self.lock = data['lock']
-        self.pass_status = True if data['pass'] == 'ac' else False  # 'None', 'ac', 'notac'
-        self.article = data['article']
-        self.sample_code = None
-        self.pass_language = []
+    """ QuizItem """
+    base_url = BASE_URL
+
+    def __init__(self, **data):
+        self.__dict__.update(data)
+        self.solutions = []
+
+    def __str__(self):
+        return '<Quiz: {question_id}-{question__title_slug}({difficulty})-{is_pass}>'.format(question_id=self.question_id,
+         question__title_slug=self.question__title_slug, difficulty=self.difficulty, is_pass=self.is_pass)
 
     def __repr__(self):
-        return '<Quiz: {id}-{title}({difficulty})-{pass_status}>'.format(
-            id=self.id, title=self.title, difficulty=self.difficulty, pass_status=self.pass_status)
+        return self.__str__()
 
+    @property
+    def json_object(self):
+        addition_properties = ['is_pass', 'difficulty', 'is_lock', 'url', 'acceptance']
+        dct = self.__dict__
+        for prop in addition_properties:
+            dct[prop] = getattr(self, prop)
+        return dct
+
+    @property
+    def is_pass(self):
+        return True if self.status == 'ac' else False
+
+    @property
+    def difficulty(self):
+        difficulty = {1: "Easy", 2: "Medium", 3: "Hard"}
+        return difficulty[self.level]
+
+    @property
+    def is_lock(self):
+        return not self.is_paid and self.paid_only
+
+    @property
+    def url(self):
+        return '{base_url}/problems/{question__title_slug}'.format(base_url=self.base_url,question__title_slug=self.question__title_slug)
+
+    @property
+    def acceptance(self):
+        return '%.1f%%' % (float(self.total_acs) * 100 / float(self.total_submitted))
 
 class Leetcode:
 
@@ -183,22 +208,23 @@ class Leetcode:
 
 
     def _generate_items_from_api(self, json_data):
-        difficulty = {1: "Easy", 2: "Medium", 3: "Hard"}
-        for quiz in json_data['stat_status_pairs']:
+        stat_status_pairs = json_data['stat_status_pairs']
+        for quiz in stat_status_pairs:
             if quiz['stat']['question__hide']:
                 continue
             data = {}
-            data['title'] = quiz['stat']['question__title_slug']
-            data['capital_title'] = quiz['stat']['question__title']
-            data['id'] = quiz['stat']['question_id']
-            data['lock'] = not json_data['is_paid'] and quiz['paid_only']
-            data['difficulty'] = difficulty[quiz['difficulty']['level']]
-            data['favorite'] = quiz['is_favor']
-            data['acceptance'] = "%.1f%%" % (float(quiz['stat']['total_acs']) * 100 / float(quiz['stat']['total_submitted']))
-            data['url'] = '{base}/problems/{title}'.format(base=self.base_url, title=quiz['stat']['question__title_slug'])
-            data['pass'] = quiz['status']
-            data['article'] = quiz['stat']['question__article__slug']
-            item = QuizItem(data)
+            data['question__title_slug'] = quiz['stat']['question__title_slug']
+            data['question__title'] = quiz['stat']['question__title']
+            data['question__article__slug'] = quiz['stat']['question__article__slug']
+            data['is_paid'] = json_data['is_paid']
+            data['paid_only'] = quiz['paid_only']
+            data['level'] = quiz['difficulty']['level']
+            data['is_favor'] = quiz['is_favor']
+            data['total_acs'] = quiz['stat']['total_acs']
+            data['total_submitted'] = quiz['stat']['total_submitted']
+            data['question_id'] = quiz['stat']['question_id']
+            data['status'] = quiz['status']
+            item = QuizItem(**data)
             yield item
 
     def _load_solution_language(self):
