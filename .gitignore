@@ -99,6 +99,5 @@ ENV/
 
 # bonfy add this
 
-config.cfg
 old/
 cookies.json
