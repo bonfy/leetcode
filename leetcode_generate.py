@@ -146,11 +146,6 @@ class Leetcode:
 
     def __init__(self):
 
-        # because only have capital_title in submissions
-        # quick find the problem solution by itemdict[capital_title]
-        # self.itemdict = {}
-
-        # generate items by itemdict.values()
         self.items = []
         self.submissions = []
         self.num_solved = 0
@@ -162,8 +157,6 @@ class Leetcode:
         self.languages = [x.strip() for x in CONFIG['language'].split(',')]
         proglangs = [ProgLangDict[x.strip()] for x in CONFIG['language'].split(',')]
         self.prolangdict = dict(zip(self.languages, proglangs))
-
-        # self.solutions = []
 
         self.base_url = BASE_URL
         self.session = requests.Session()
@@ -317,7 +310,6 @@ class Leetcode:
             title = solution['title']
             if title in itemdict.keys():
                 itemdict[title].solutions.append(solution)
-        # self.items = list(itemsdict.values())
 
     def _get_code_by_solution(self, solution):
         """
@@ -427,10 +419,12 @@ class Leetcode:
         md = '''# :pencil2: Leetcode Solutions with {language}
 Update time:  {tm}
 
-Auto created by [leetcode_generate](https://github.com/bonfy/leetcode) [Usage](https://github.com/bonfy/leetcode/blob/master/README_leetcode_generate.md)
+Auto created by [leetcode_generate](https://github.com/bonfy/leetcode)
 
 I have solved **{num_solved}   /   {num_total}** problems
 while there are **{num_lock}** problems still locked.
+
+If you want to use please follow this [Usage Guide](https://github.com/bonfy/leetcode/blob/master/README_leetcode_generate.md)
 
 If you have any question, please give me an [issue]({repo}/issues).
 
@@ -475,8 +469,6 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 def main():
     leetcode = Leetcode()
 
-    # leetcode.login()
-    # print('Leetcode login')
     leetcode.load()
     print('Leetcode load self info')
 
