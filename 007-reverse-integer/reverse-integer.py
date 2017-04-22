@@ -21,8 +21,11 @@
 # For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.
 #
 #
-# Update (2014-11-10):
-# Test cases had been added to test the overflow behavior.
+#
+#
+#
+# Note:
+# The input is assumed to be a 32-bit signed integer. Your function should return 0 when the reversed integer overflows.
 
 
 class Solution(object):

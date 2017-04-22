@@ -14,11 +14,6 @@
 #
 #
 # Your function should return length = 2, with the first two elements of nums being 2.
-#
-#
-#   Try two pointers.
-#   Did you use the property of "the order of elements can be changed"?
-#   What happens when the elements to remove are rare?
 
 
 class Solution(object):

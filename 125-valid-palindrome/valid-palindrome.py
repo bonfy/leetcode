@@ -23,5 +23,7 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        s = filter(str.isalnum, str(s.lower()))
+        s = "".join([c.lower() for c in s if c.isalnum()])
+        
         return s == s[::-1]
+        
