@@ -194,7 +194,7 @@ class Leetcode:
         time.sleep(5)
 
         webdriver_cookies = driver.get_cookies()
-        
+
         if 'LEETCODE_SESSION' not in [cookie['name'] for cookie in webdriver_cookies]:
             raise Exception('Please check your config or your network.')
 
@@ -256,38 +256,6 @@ class Leetcode:
             data['status'] = quiz['status']
             item = QuizItem(**data)
             yield item
-
-    def _load_solution_language(self):
-        """load the language to the solution
-           add languages to self.itemdict
-        """
-        page = 0
-        while True:
-            page += 1
-            submissions_url = self.base_url + '/submissions/{page}/'.format(page=page)
-            r = self.session.get(submissions_url, proxies=PROXIES)
-            assert r.status_code == 200
-            content = r.text
-            d = pq(content)
-            trs = d('table#result-testcases>tbody>tr')
-            for idx, tr in enumerate(trs):
-                i = pq(tr)
-                pass_status = i('tr>td:nth-child(3)').text().strip() == 'Accepted'
-                # TODO: generate the whole downloading list
-                # runText = i('tr>td:nth-child(4)').text().strip()
-                # runTime = -1 if runText == 'N/A' else int(runText[:-3])
-                language = i('tr>td:nth-child(5)').text().strip().lower()
-                capital_title = i('tr>td:nth-child(2)').text().strip()
-                if pass_status and language in self.languages:
-                    #
-                    if capital_title not in self.itemdict.keys():
-                        print('{capital_title} pass,but in the draft questions, not load to solutions'.format(capital_title=capital_title))
-                    else:
-                        if language not in self.itemdict[capital_title].pass_language:
-                            self.itemdict[capital_title].pass_language.append(language)
-            next_page_flag = '$(".next").addClass("disabled");' in content
-            if next_page_flag:
-                break
 
     @property
     def is_login(self):
