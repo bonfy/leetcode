@@ -183,7 +183,6 @@ class Leetcode:
 
         usr = CONFIG['username']
         pwd = CONFIG['password']
-        print(usr, pwd)
 
         driver = webdriver.PhantomJS()
         driver.get(LOGIN_URL)
@@ -195,8 +194,7 @@ class Leetcode:
         time.sleep(5)
 
         webdriver_cookies = driver.get_cookies()
-        print(webdriver_cookies)
-
+        
         if 'LEETCODE_SESSION' not in [cookie['name'] for cookie in webdriver_cookies]:
             raise Exception('Please check your config or your network.')
 
