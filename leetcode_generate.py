@@ -15,12 +15,14 @@ import time
 import re
 import sys
 
+from selenium import webdriver
 from pyquery import PyQuery as pq
 from collections import namedtuple, OrderedDict
 
 
 HOME = os.getcwd()
 CONFIG_FILE = os.path.join(HOME, 'config.cfg')
+COOKIE_PATH = 'cookies.json'
 
 # If you have proxy, change PROXIES below
 PROXIES = None
@@ -148,26 +150,37 @@ class Leetcode:
         self.is_login = False
 
     def login(self):
-        login_url = self.base_url + '/accounts/login/'    # NOQA
+        LOGIN_URL = self.base_url + '/accounts/login/'    # NOQA
 
         if not CONFIG['username'] or not CONFIG['password']:
             raise Exception('Leetcode - Please input your username and password in config.cfg.')
 
-        self.session.get(login_url, proxies=PROXIES)
-        token = self.session.cookies['csrftoken']
-        print('token:', token)
-        login_data = {
-            'csrfmiddlewaretoken': token,
-            'login': CONFIG['username'],
-            'password': CONFIG['password']
-        }
+        usr = CONFIG['username']
+        pwd = CONFIG['password']
+        print(usr, pwd)
 
-        self.session.post(login_url, headers={'Referer': login_url}, proxies=PROXIES, data=login_data)
-        if not self.session.cookies.get('LEETCODE_SESSION'):
-            raise Exception('Login Error')
+        driver = webdriver.PhantomJS()
+        driver.get(LOGIN_URL)
 
-        self.cookies = dict(self.session.cookies)
+        driver.find_element_by_id('id_login').send_keys(usr)
+        driver.find_element_by_id('id_password').send_keys(pwd)
+        driver.find_element_by_id('id_remember').click()
+        driver.find_element_by_xpath('//button[@type="submit"]').click()
+        time.sleep(5)
+
+        webdriver_cookies = driver.get_cookies()
+        print(webdriver_cookies)
+
+        if 'LEETCODE_SESSION' not in [cookie['name'] for cookie in webdriver_cookies]:
+            raise Exception('Please check your config or your network.')
+
+        with open(COOKIE_PATH, 'w') as f:
+            json.dump(webdriver_cookies, f, indent=2)
+
+        self.cookies = {str(cookie['name']): str(cookie['value']) for cookie in webdriver_cookies}
+        self.session.cookies.update(self.cookies)
         self.is_login = True
+
 
     def _generate_items_from_api(self, json_data):
         difficulty = {1: "Easy", 2: "Medium", 3: "Hard"}
