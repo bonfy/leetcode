@@ -23,6 +23,7 @@ from collections import namedtuple, OrderedDict
 HOME = os.getcwd()
 CONFIG_FILE = os.path.join(HOME, 'config.cfg')
 COOKIE_PATH = 'cookies.json'
+BASE_URL = 'https://leetcode.com'
 
 # If you have proxy, change PROXIES below
 PROXIES = None
@@ -167,7 +168,7 @@ class Leetcode:
 
         self.solutions = []
 
-        self.base_url = 'https://leetcode.com'
+        self.base_url = BASE_URL
         self.session = requests.Session()
         self.session.headers.update(HEADERS)
         self.session.proxies = PROXIES
@@ -259,10 +260,26 @@ class Leetcode:
             if next_page_flag:
                 break
 
+    def is_cookie_valid():
+        """ validate if the cookie exists and not overtime """
+        api_url = self.base_url + '/api/problems/algorithms/'    # NOQA
+
+        if not os.path.exists(COOKIE_PATH):
+            return False
+        with open(COOKIE_PATH, 'r') as f:
+            webdriver_cookies = json.load(f)
+        self.cookies = {str(cookie['name']): str(cookie['value']) for cookie in webdriver_cookies}
+        self.session.cookies.update(self.cookies)
+        r = self.session.get(api_url, proxies=PROXIES)
+        if r.status_code != 200:
+            return False
+        data = json.loads(r.text)
+        return 'user_name' in data and data['user_name'] != ''
+
     def load(self):
         api_url = self.base_url + '/api/problems/algorithms/'    # NOQA
 
-        if not self.is_login:
+        if not self.is_cookie_valid():
             self.login()
 
         r = self.session.get(api_url, proxies=PROXIES)
