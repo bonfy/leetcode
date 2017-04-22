@@ -98,10 +98,6 @@ ProgLangList = [ProgLang('c++', 'cpp', '//'),
 ProgLangDict = dict((item.language, item) for item in ProgLangList)
 CONFIG = get_config_from_file()
 
-
-Solution = namedtuple('Solution', ['id', 'title', 'capital_title', 'pass_language'])
-
-
 class QuizItem:
     """ QuizItem """
     base_url = BASE_URL
