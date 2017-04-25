@@ -47,7 +47,12 @@ def get_config_from_file():
         raise Exception('Please create config.cfg first.')
 
     username = cp.get('leetcode', 'username')
+    if os.getenv('leetcode_username'):
+        username = os.getenv('leetcode_user')
+
     password = cp.get('leetcode', 'password')
+    if os.getenv('leetcode_password'):
+        password = os.getenv('leetcode_password')
 
     if not username or not password:    # username and password not none
         raise Exception('Please input your username and password in config.cfg.')
