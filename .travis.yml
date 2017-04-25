@@ -9,6 +9,9 @@ before_install:
 install:
   - pip install -r req.txt
 
+before_script:
+  - cd bonfy/leetcode
+
 script:
   - python3 leetcode_generate.py
 
