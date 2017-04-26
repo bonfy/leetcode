@@ -1,0 +1,131 @@
+Traceback (most recent call last):
+  File "/root/leetcode/venv/lib/python3.5/site-packages/selenium/webdriver/common/service.py", line 74, in start
+    stdout=self.log_file, stderr=self.log_file)
+  File "/usr/lib/python3.5/subprocess.py", line 947, in __init__
+    restore_signals, start_new_session)
+  File "/usr/lib/python3.5/subprocess.py", line 1551, in _execute_child
+    raise child_exception_type(errno_num, err_msg)
+FileNotFoundError: [Errno 2] No such file or directory: 'phantomjs'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/leetcode/leetcode_generate.py", line 512, in <module>
+    do_job(leetcode)
+  File "/root/leetcode/leetcode_generate.py", line 488, in do_job
+    leetcode.load()
+  File "/root/leetcode/leetcode_generate.py", line 231, in load
+    self.login()
+  File "/root/leetcode/leetcode_generate.py", line 182, in login
+    driver = webdriver.PhantomJS()
+  File "/root/leetcode/venv/lib/python3.5/site-packages/selenium/webdriver/phantomjs/webdriver.py", line 52, in __init__
+    self.service.start()
+  File "/root/leetcode/venv/lib/python3.5/site-packages/selenium/webdriver/common/service.py", line 81, in start
+    os.path.basename(self.path), self.start_error_message)
+selenium.common.exceptions.WebDriverException: Message: 'phantomjs' executable needs to be in PATH. 
+
+Traceback (most recent call last):
+  File "/root/leetcode/venv/lib/python3.5/site-packages/selenium/webdriver/common/service.py", line 74, in start
+    stdout=self.log_file, stderr=self.log_file)
+  File "/usr/lib/python3.5/subprocess.py", line 947, in __init__
+    restore_signals, start_new_session)
+  File "/usr/lib/python3.5/subprocess.py", line 1551, in _execute_child
+    raise child_exception_type(errno_num, err_msg)
+FileNotFoundError: [Errno 2] No such file or directory: 'phantomjs'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/leetcode/leetcode_generate.py", line 512, in <module>
+    do_job(leetcode)
+  File "/root/leetcode/leetcode_generate.py", line 488, in do_job
+    leetcode.load()
+  File "/root/leetcode/leetcode_generate.py", line 231, in load
+    self.login()
+  File "/root/leetcode/leetcode_generate.py", line 182, in login
+    driver = webdriver.PhantomJS()
+  File "/root/leetcode/venv/lib/python3.5/site-packages/selenium/webdriver/phantomjs/webdriver.py", line 52, in __init__
+    self.service.start()
+  File "/root/leetcode/venv/lib/python3.5/site-packages/selenium/webdriver/common/service.py", line 81, in start
+    os.path.basename(self.path), self.start_error_message)
+selenium.common.exceptions.WebDriverException: Message: 'phantomjs' executable needs to be in PATH. 
+
+Traceback (most recent call last):
+  File "/root/leetcode/venv/lib/python3.5/site-packages/selenium/webdriver/common/service.py", line 74, in start
+    stdout=self.log_file, stderr=self.log_file)
+  File "/usr/lib/python3.5/subprocess.py", line 947, in __init__
+    restore_signals, start_new_session)
+  File "/usr/lib/python3.5/subprocess.py", line 1551, in _execute_child
+    raise child_exception_type(errno_num, err_msg)
+FileNotFoundError: [Errno 2] No such file or directory: 'phantomjs'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/leetcode/leetcode_generate.py", line 512, in <module>
+    do_job(leetcode)
+  File "/root/leetcode/leetcode_generate.py", line 488, in do_job
+    leetcode.load()
+  File "/root/leetcode/leetcode_generate.py", line 231, in load
+    self.login()
+  File "/root/leetcode/leetcode_generate.py", line 182, in login
+    driver = webdriver.PhantomJS()
+  File "/root/leetcode/venv/lib/python3.5/site-packages/selenium/webdriver/phantomjs/webdriver.py", line 52, in __init__
+    self.service.start()
+  File "/root/leetcode/venv/lib/python3.5/site-packages/selenium/webdriver/common/service.py", line 81, in start
+    os.path.basename(self.path), self.start_error_message)
+selenium.common.exceptions.WebDriverException: Message: 'phantomjs' executable needs to be in PATH. 
+
+Traceback (most recent call last):
+  File "/root/leetcode/venv/lib/python3.5/site-packages/selenium/webdriver/common/service.py", line 74, in start
+    stdout=self.log_file, stderr=self.log_file)
+  File "/usr/lib/python3.5/subprocess.py", line 947, in __init__
+    restore_signals, start_new_session)
+  File "/usr/lib/python3.5/subprocess.py", line 1551, in _execute_child
+    raise child_exception_type(errno_num, err_msg)
+FileNotFoundError: [Errno 2] No such file or directory: 'phantomjs'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/leetcode/leetcode_generate.py", line 512, in <module>
+    do_job(leetcode)
+  File "/root/leetcode/leetcode_generate.py", line 488, in do_job
+    leetcode.load()
+  File "/root/leetcode/leetcode_generate.py", line 231, in load
+    self.login()
+  File "/root/leetcode/leetcode_generate.py", line 182, in login
+    driver = webdriver.PhantomJS()
+  File "/root/leetcode/venv/lib/python3.5/site-packages/selenium/webdriver/phantomjs/webdriver.py", line 52, in __init__
+    self.service.start()
+  File "/root/leetcode/venv/lib/python3.5/site-packages/selenium/webdriver/common/service.py", line 81, in start
+    os.path.basename(self.path), self.start_error_message)
+selenium.common.exceptions.WebDriverException: Message: 'phantomjs' executable needs to be in PATH. 
+
+Traceback (most recent call last):
+  File "/root/leetcode/leetcode_generate.py", line 512, in <module>
+    do_job(leetcode)
+  File "/root/leetcode/leetcode_generate.py", line 488, in do_job
+    leetcode.load()
+  File "/root/leetcode/leetcode_generate.py", line 231, in load
+    self.login()
+  File "/root/leetcode/leetcode_generate.py", line 182, in login
+    driver = webdriver.PhantomJS()
+  File "/root/leetcode/venv/lib/python3.5/site-packages/selenium/webdriver/phantomjs/webdriver.py", line 52, in __init__
+    self.service.start()
+  File "/root/leetcode/venv/lib/python3.5/site-packages/selenium/webdriver/common/service.py", line 96, in start
+    self.assert_process_still_running()
+  File "/root/leetcode/venv/lib/python3.5/site-packages/selenium/webdriver/common/service.py", line 109, in assert_process_still_running
+    % (self.path, return_code)
+selenium.common.exceptions.WebDriverException: Message: Service phantomjs unexpectedly exited. Status code was: -6
+
+Traceback (most recent call last):
+  File "/root/leetcode/leetcode_generate.py", line 512, in <module>
+    do_job(leetcode)
+  File "/root/leetcode/leetcode_generate.py", line 488, in do_job
+    leetcode.load()
+  File "/root/leetcode/leetcode_generate.py", line 231, in load
+    self.login()
+  File "/root/leetcode/leetcode_generate.py", line 194, in login
+    raise Exception('Please check your config or your network.')
+Exception: Please check your config or your network.
