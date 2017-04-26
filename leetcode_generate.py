@@ -210,6 +210,8 @@ class Leetcode:
         if not rst['user_name']:
             raise Exception("Something wrong with your personal info.\n")
 
+        self.items = []  # destroy first ; for sake maybe needn't
+
         self.num_solved = rst['num_solved']
         self.num_total = rst['num_total']
         self.items = list(self._generate_items_from_api(rst))
