@@ -47,7 +47,7 @@ def get_config_from_file():
         raise Exception('Please create config.cfg first.')
 
     username = cp.get('leetcode', 'username')
-    if os.getenv('leetcode_username'):
+    if os.getenv('leetcode_user'):
         username = os.getenv('leetcode_user')
 
     password = cp.get('leetcode', 'password')
@@ -470,10 +470,18 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
         with open('Readme.md', 'w') as f:
             f.write(md)
 
+    def push_to_github(self):
+        strdate = datetime.datetime.now().strftime('%Y-%m-%d')
+        cmd_git_add = 'git add .'
+        cmd_git_commit = 'git commit -m "update at {date}"'.format(date=strdate)
+        cmd_git_push = 'git push -u origin master'
 
-def main():
-    leetcode = Leetcode()
+        os.system(cmd_git_add)
+        os.system(cmd_git_commit)
+        os.system(cmd_git_push)
 
+
+def do_job(leetcode):
     leetcode.load()
     print('Leetcode load self info')
 
@@ -491,7 +499,12 @@ def main():
     print('Leetcode finish dowload')
     leetcode.write_readme()
     print('Leetcode finish write readme')
+    leetcode.push_to_github()
+    print('push to github')
 
 
 if __name__ == '__main__':
-    main()
+    leetcode = Leetcode()
+    while True:
+        do_job(leetcode)
+        time.sleep(24 * 60 * 60)
