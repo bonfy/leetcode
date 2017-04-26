@@ -1,5 +1,5 @@
 # :pencil2: Leetcode Solutions with Python,Golang
-Update time:  2017-04-26 12:53:33
+Update time:  2017-04-26 13:07:24
 
 Auto created by [leetcode_generate](https://github.com/bonfy/leetcode)
 
