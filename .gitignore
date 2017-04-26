@@ -102,3 +102,4 @@ ENV/
 old/
 cookies.json
 log/
+*.err
