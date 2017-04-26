@@ -470,7 +470,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
             md += '|{id}|[{title}]({url})|{language}|{article}|{difficulty}|\n'.format(id=item.question_id, title=item.question__title_slug,
                                                                                        url=item.url, language=language,
                                                                                        article=article, difficulty=item.difficulty)
-        with open('Readme.md', 'w') as f:
+        with open('README.md', 'w') as f:
             f.write(md)
 
     def push_to_github(self):
