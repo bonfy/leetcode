@@ -1,5 +1,5 @@
 # :pencil2: Leetcode Solutions with Python,Golang
-Update time:  2017-04-26 19:01:48
+Update time:  2017-04-26 14:07:11
 
 Auto created by [leetcode_generate](https://github.com/bonfy/leetcode)
 
@@ -16,7 +16,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 
 | # | Title | Source Code | Article | Difficulty |
 |:---:|:---:|:---:|:---:|:---:|
-|1|[two-sum](https://leetcode.com/problems/two-sum)|[Golang](https://github.com/bonfy/leetcode/blob/master/001-two-sum/two-sum.go) [Python](https://github.com/bonfy/leetcode/blob/master/001-two-sum/two-sum.py)|[:memo:](https://leetcode.com/articles/two-sum/)|Easy|
+|1|[two-sum](https://leetcode.com/problems/two-sum)|[Python](https://github.com/bonfy/leetcode/blob/master/001-two-sum/two-sum.py) [Golang](https://github.com/bonfy/leetcode/blob/master/001-two-sum/two-sum.go)|[:memo:](https://leetcode.com/articles/two-sum/)|Easy|
 |2|[add-two-numbers](https://leetcode.com/problems/add-two-numbers)|[Python](https://github.com/bonfy/leetcode/blob/master/002-add-two-numbers/add-two-numbers.py)|[:memo:](https://leetcode.com/articles/add-two-numbers/)|Medium|
 |3|[longest-substring-without-repeating-characters](https://leetcode.com/problems/longest-substring-without-repeating-characters)|[Python](https://github.com/bonfy/leetcode/blob/master/003-longest-substring-without-repeating-characters/longest-substring-without-repeating-characters.py)|[:memo:](https://leetcode.com/articles/longest-substring-without-repeating-characters/)|Medium|
 |4|[median-of-two-sorted-arrays](https://leetcode.com/problems/median-of-two-sorted-arrays)|[Python](https://github.com/bonfy/leetcode/blob/master/004-median-of-two-sorted-arrays/median-of-two-sorted-arrays.py)||Hard|
