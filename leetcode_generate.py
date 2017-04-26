@@ -48,8 +48,8 @@ def get_config_from_file():
         raise Exception('Please create config.cfg first.')
 
     username = cp.get('leetcode', 'username')
-    if os.getenv('leetcode_user'):
-        username = os.getenv('leetcode_user')
+    if os.getenv('leetcode_username'):
+        username = os.getenv('leetcode_username')
 
     password = cp.get('leetcode', 'password')
     if os.getenv('leetcode_password'):
