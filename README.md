@@ -1,9 +1,9 @@
 # :pencil2: Leetcode Solutions with Python,Golang
-Update time:  2017-04-26 14:07:11
+Update time:  2017-04-27 14:29:01
 
 Auto created by [leetcode_generate](https://github.com/bonfy/leetcode)
 
-I have solved **93   /   519** problems
+I have solved **95   /   519** problems
 while there are **95** problems still locked.
 
 If you want to use this tool please follow this [Usage Guide](https://github.com/bonfy/leetcode/blob/master/README_leetcode_generate.md)
@@ -261,8 +261,8 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |259|[3sum-smaller](https://leetcode.com/problems/3sum-smaller)|:lock:|[:memo:](https://leetcode.com/articles/3sum-smaller/)|Medium|
 |260|[single-number-iii](https://leetcode.com/problems/single-number-iii)|||Medium|
 |261|[graph-valid-tree](https://leetcode.com/problems/graph-valid-tree)|:lock:||Medium|
-|263|[ugly-number](https://leetcode.com/problems/ugly-number)|||Easy|
-|264|[ugly-number-ii](https://leetcode.com/problems/ugly-number-ii)|||Medium|
+|263|[ugly-number](https://leetcode.com/problems/ugly-number)|[Python](https://github.com/bonfy/leetcode/blob/master/263-ugly-number/ugly-number.py)||Easy|
+|264|[ugly-number-ii](https://leetcode.com/problems/ugly-number-ii)|[Python](https://github.com/bonfy/leetcode/blob/master/264-ugly-number-ii/ugly-number-ii.py)||Medium|
 |265|[paint-house-ii](https://leetcode.com/problems/paint-house-ii)|:lock:||Hard|
 |266|[palindrome-permutation](https://leetcode.com/problems/palindrome-permutation)|:lock:||Easy|
 |267|[palindrome-permutation-ii](https://leetcode.com/problems/palindrome-permutation-ii)|:lock:||Medium|
