@@ -94,6 +94,7 @@ ProgLang = namedtuple('ProgLang', ['language', 'ext', 'annotation'])
 ProgLangList = [ProgLang('c++', 'cpp', '//'),
                 ProgLang('java', 'java', '//'),
                 ProgLang('python', 'py', '#'),
+                ProgLang('python3', 'py', '#'),
                 ProgLang('c', 'c', '//'),
                 ProgLang('c#', 'cs', '//'),
                 ProgLang('javascript', 'js', '//'),
