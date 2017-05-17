@@ -21,10 +21,15 @@ class Solution(object):
         :type q: TreeNode
         :rtype: bool
         """
-        if p is None and q is None:
-            return True
-        if p is None and q:
-            return False
-        if q is None and p:
-            return False
-        return p.val == q.val and self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
+        stack = [(p, q)]
+        while stack:
+            node1, node2 = stack.pop()
+            if not node1 and not node2:
+                continue
+            if None in (node1, node2) or node1.val != node2.val:
+                return False
+            if node1.val == node2.val:
+                stack.append((node1.left, node2.left))
+                stack.append((node1.right, node2.right))
+        
+        return True
