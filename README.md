@@ -1,5 +1,5 @@
 # :pencil2: Leetcode Solutions with Python,Golang
-Update time:  2017-05-23 09:02:49
+Update time:  2017-05-24 09:05:22
 
 Auto created by [leetcode_generate](https://github.com/bonfy/leetcode)
 
@@ -488,7 +488,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |502|[ipo](https://leetcode.com/problems/ipo)|||Hard|
 |503|[next-greater-element-ii](https://leetcode.com/problems/next-greater-element-ii)||[:memo:](https://leetcode.com/articles/next-greater-element-ii/)|Medium|
 |504|[base-7](https://leetcode.com/problems/base-7)|||Easy|
-|505|[the-maze-ii](https://leetcode.com/problems/the-maze-ii)|:lock:||Medium|
+|505|[the-maze-ii](https://leetcode.com/problems/the-maze-ii)|:lock:|[:memo:](https://leetcode.com/articles/the-maze-ii/)|Medium|
 |506|[relative-ranks](https://leetcode.com/problems/relative-ranks)|[Python](https://github.com/bonfy/leetcode/blob/master/506-relative-ranks/relative-ranks.py)||Easy|
 |507|[perfect-number](https://leetcode.com/problems/perfect-number)||[:memo:](https://leetcode.com/articles/perfect-number/)|Easy|
 |508|[most-frequent-subtree-sum](https://leetcode.com/problems/most-frequent-subtree-sum)|||Medium|
