@@ -1,5 +1,5 @@
 # :pencil2: Leetcode Solutions with Python,Golang
-Update time:  2017-05-26 09:10:29
+Update time:  2017-05-27 09:13:04
 
 Auto created by [leetcode_generate](https://github.com/bonfy/leetcode)
 
@@ -550,4 +550,4 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |588|[design-in-memory-file-system](https://leetcode.com/problems/design-in-memory-file-system)||[:memo:](https://leetcode.com/articles/design-in-memory-file-system/)|Hard|
 |592|[fraction-addition-and-subtraction](https://leetcode.com/problems/fraction-addition-and-subtraction)||[:memo:](https://leetcode.com/articles/kill-process-3/)|Medium|
 |593|[valid-square](https://leetcode.com/problems/valid-square)||[:memo:](https://leetcode.com/articles/kill-process-2/)|Medium|
-|594|[longest-harmonious-subsequence](https://leetcode.com/problems/longest-harmonious-subsequence)||[:memo:](https://leetcode.com/articles/kill-process-4/)|Easy|
+|594|[longest-harmonious-subsequence](https://leetcode.com/problems/longest-harmonious-subsequence)||[:memo:](https://leetcode.com/articles/longest-harmonious-subsequence/)|Easy|
