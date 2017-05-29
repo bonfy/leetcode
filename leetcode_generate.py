@@ -91,12 +91,12 @@ def check_and_make_dir(dirname):
 
 ProgLang = namedtuple('ProgLang', ['language', 'ext', 'annotation'])
 
-ProgLangList = [ProgLang('c++', 'cpp', '//'),
+ProgLangList = [ProgLang('cpp', 'cpp', '//'),
                 ProgLang('java', 'java', '//'),
                 ProgLang('python', 'py', '#'),
                 ProgLang('python3', 'py', '#'),
                 ProgLang('c', 'c', '//'),
-                ProgLang('c#', 'cs', '//'),
+                ProgLang('csharp', 'cs', '//'),
                 ProgLang('javascript', 'js', '//'),
                 ProgLang('ruby', 'rb', '#'),
                 ProgLang('swift', 'swift', '//'),
