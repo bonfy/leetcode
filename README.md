@@ -1,5 +1,5 @@
 # :pencil2: Leetcode Solutions with Python,Golang
-Update time:  2017-05-28 09:15:45
+Update time:  2017-05-29 03:55:08
 
 Auto created by [leetcode_generate](https://github.com/bonfy/leetcode)
 
@@ -16,7 +16,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 
 | # | Title | Source Code | Article | Difficulty |
 |:---:|:---:|:---:|:---:|:---:|
-|1|[two-sum](https://leetcode.com/problems/two-sum)|[Python](https://github.com/bonfy/leetcode/blob/master/001-two-sum/two-sum.py) [Golang](https://github.com/bonfy/leetcode/blob/master/001-two-sum/two-sum.go)|[:memo:](https://leetcode.com/articles/two-sum/)|Easy|
+|1|[two-sum](https://leetcode.com/problems/two-sum)|[Golang](https://github.com/bonfy/leetcode/blob/master/001-two-sum/two-sum.go) [Python](https://github.com/bonfy/leetcode/blob/master/001-two-sum/two-sum.py)|[:memo:](https://leetcode.com/articles/two-sum/)|Easy|
 |2|[add-two-numbers](https://leetcode.com/problems/add-two-numbers)|[Python](https://github.com/bonfy/leetcode/blob/master/002-add-two-numbers/add-two-numbers.py)|[:memo:](https://leetcode.com/articles/add-two-numbers/)|Medium|
 |3|[longest-substring-without-repeating-characters](https://leetcode.com/problems/longest-substring-without-repeating-characters)|[Python](https://github.com/bonfy/leetcode/blob/master/003-longest-substring-without-repeating-characters/longest-substring-without-repeating-characters.py)|[:memo:](https://leetcode.com/articles/longest-substring-without-repeating-characters/)|Medium|
 |4|[median-of-two-sorted-arrays](https://leetcode.com/problems/median-of-two-sorted-arrays)|[Python](https://github.com/bonfy/leetcode/blob/master/004-median-of-two-sorted-arrays/median-of-two-sorted-arrays.py)||Hard|
@@ -550,7 +550,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |587|[erect-the-fence](https://leetcode.com/problems/erect-the-fence)||[:memo:](https://leetcode.com/articles/erect-the-fence/)|Hard|
 |588|[design-in-memory-file-system](https://leetcode.com/problems/design-in-memory-file-system)||[:memo:](https://leetcode.com/articles/design-in-memory-file-system/)|Hard|
 |592|[fraction-addition-and-subtraction](https://leetcode.com/problems/fraction-addition-and-subtraction)||[:memo:](https://leetcode.com/articles/kill-process-3/)|Medium|
-|593|[valid-square](https://leetcode.com/problems/valid-square)||[:memo:](https://leetcode.com/articles/kill-process-2/)|Medium|
+|593|[valid-square](https://leetcode.com/problems/valid-square)||[:memo:](https://leetcode.com/articles/valid-square/)|Medium|
 |594|[longest-harmonious-subsequence](https://leetcode.com/problems/longest-harmonious-subsequence)||[:memo:](https://leetcode.com/articles/longest-harmonious-subsequence/)|Easy|
 |598|[range-addition-ii](https://leetcode.com/problems/range-addition-ii)||[:memo:](https://leetcode.com/articles/range-addition-ii/)|Easy|
 |599|[minimum-index-sum-of-two-lists](https://leetcode.com/problems/minimum-index-sum-of-two-lists)||[:memo:](https://leetcode.com/articles/minimum-index-sum-of-two-lists/)|Easy|
