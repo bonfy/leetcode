@@ -1,5 +1,5 @@
 # :pencil2: Leetcode Solutions with Python,Golang
-Update time:  2017-06-01 04:03:22
+Update time:  2017-06-02 04:05:58
 
 Auto created by [leetcode_generate](https://github.com/bonfy/leetcode)
 
@@ -57,7 +57,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |39|[combination-sum](https://leetcode.com/problems/combination-sum)|[Python](https://github.com/bonfy/leetcode/blob/master/039-combination-sum/combination-sum.py)||Medium|
 |40|[combination-sum-ii](https://leetcode.com/problems/combination-sum-ii)|||Medium|
 |41|[first-missing-positive](https://leetcode.com/problems/first-missing-positive)|[Python](https://github.com/bonfy/leetcode/blob/master/041-first-missing-positive/first-missing-positive.py)||Hard|
-|42|[trapping-rain-water](https://leetcode.com/problems/trapping-rain-water)|||Hard|
+|42|[trapping-rain-water](https://leetcode.com/problems/trapping-rain-water)||[:memo:](https://leetcode.com/articles/trapping-rain-water/)|Hard|
 |43|[multiply-strings](https://leetcode.com/problems/multiply-strings)|||Medium|
 |44|[wildcard-matching](https://leetcode.com/problems/wildcard-matching)|||Hard|
 |45|[jump-game-ii](https://leetcode.com/problems/jump-game-ii)|||Hard|
