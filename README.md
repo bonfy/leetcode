@@ -1,5 +1,5 @@
 # :pencil2: Leetcode Solutions with Python,Golang
-Update time:  2017-06-02 04:05:58
+Update time:  2017-06-03 04:08:43
 
 Auto created by [leetcode_generate](https://github.com/bonfy/leetcode)
 
@@ -64,7 +64,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |46|[permutations](https://leetcode.com/problems/permutations)|||Medium|
 |47|[permutations-ii](https://leetcode.com/problems/permutations-ii)|||Medium|
 |48|[rotate-image](https://leetcode.com/problems/rotate-image)|[Python](https://github.com/bonfy/leetcode/blob/master/048-rotate-image/rotate-image.py)||Medium|
-|49|[anagrams](https://leetcode.com/problems/anagrams)|||Medium|
+|49|[group-anagrams](https://leetcode.com/problems/group-anagrams)|||Medium|
 |50|[powx-n](https://leetcode.com/problems/powx-n)|[Python](https://github.com/bonfy/leetcode/blob/master/050-powx-n/powx-n.py)||Medium|
 |51|[n-queens](https://leetcode.com/problems/n-queens)|||Hard|
 |52|[n-queens-ii](https://leetcode.com/problems/n-queens-ii)|||Hard|
