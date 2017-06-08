@@ -1,5 +1,5 @@
 # :pencil2: Leetcode Solutions with Python,Golang
-Update time:  2017-06-07 04:19:44
+Update time:  2017-06-08 04:22:27
 
 Auto created by [leetcode_generate](https://github.com/bonfy/leetcode)
 
@@ -264,7 +264,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |263|[ugly-number](https://leetcode.com/problems/ugly-number)|[Python](https://github.com/bonfy/leetcode/blob/master/263-ugly-number/ugly-number.py)||Easy|
 |264|[ugly-number-ii](https://leetcode.com/problems/ugly-number-ii)|[Python](https://github.com/bonfy/leetcode/blob/master/264-ugly-number-ii/ugly-number-ii.py)||Medium|
 |265|[paint-house-ii](https://leetcode.com/problems/paint-house-ii)|:lock:||Hard|
-|266|[palindrome-permutation](https://leetcode.com/problems/palindrome-permutation)|:lock:||Easy|
+|266|[palindrome-permutation](https://leetcode.com/problems/palindrome-permutation)|:lock:|[:memo:](https://leetcode.com/articles/palindrome-permutation/)|Easy|
 |267|[palindrome-permutation-ii](https://leetcode.com/problems/palindrome-permutation-ii)|:lock:||Medium|
 |268|[missing-number](https://leetcode.com/problems/missing-number)|||Easy|
 |269|[alien-dictionary](https://leetcode.com/problems/alien-dictionary)|:lock:||Hard|
@@ -469,7 +469,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |481|[magical-string](https://leetcode.com/problems/magical-string)|||Medium|
 |482|[license-key-formatting](https://leetcode.com/problems/license-key-formatting)|||Medium|
 |483|[smallest-good-base](https://leetcode.com/problems/smallest-good-base)|||Hard|
-|484|[find-permutation](https://leetcode.com/problems/find-permutation)|:lock:||Medium|
+|484|[find-permutation](https://leetcode.com/problems/find-permutation)|:lock:|[:memo:](https://leetcode.com/articles/find-permutation/)|Medium|
 |485|[max-consecutive-ones](https://leetcode.com/problems/max-consecutive-ones)|[Python](https://github.com/bonfy/leetcode/blob/master/485-max-consecutive-ones/max-consecutive-ones.py)||Easy|
 |486|[predict-the-winner](https://leetcode.com/problems/predict-the-winner)|||Medium|
 |487|[max-consecutive-ones-ii](https://leetcode.com/problems/max-consecutive-ones-ii)|:lock:||Medium|
