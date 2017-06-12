@@ -1,9 +1,9 @@
 # :pencil2: Leetcode Solutions with Python,Golang
-Update time:  2017-06-11 04:29:23
+Update time:  2017-06-12 04:32:03
 
 Auto created by [leetcode_generate](https://github.com/bonfy/leetcode)
 
-I have solved **96   /   543** problems
+I have solved **96   /   547** problems
 while there are **97** problems still locked.
 
 If you want to use this tool please follow this [Usage Guide](https://github.com/bonfy/leetcode/blob/master/README_leetcode_generate.md)
@@ -265,7 +265,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |264|[ugly-number-ii](https://leetcode.com/problems/ugly-number-ii)|[Python](https://github.com/bonfy/leetcode/blob/master/264-ugly-number-ii/ugly-number-ii.py)||Medium|
 |265|[paint-house-ii](https://leetcode.com/problems/paint-house-ii)|:lock:||Hard|
 |266|[palindrome-permutation](https://leetcode.com/problems/palindrome-permutation)|:lock:|[:memo:](https://leetcode.com/articles/palindrome-permutation/)|Easy|
-|267|[palindrome-permutation-ii](https://leetcode.com/problems/palindrome-permutation-ii)|:lock:||Medium|
+|267|[palindrome-permutation-ii](https://leetcode.com/problems/palindrome-permutation-ii)|:lock:|[:memo:](https://leetcode.com/articles/palindrome-permutation-ii/)|Medium|
 |268|[missing-number](https://leetcode.com/problems/missing-number)|||Easy|
 |269|[alien-dictionary](https://leetcode.com/problems/alien-dictionary)|:lock:||Hard|
 |270|[closest-binary-search-tree-value](https://leetcode.com/problems/closest-binary-search-tree-value)|:lock:||Easy|
@@ -556,6 +556,10 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |598|[range-addition-ii](https://leetcode.com/problems/range-addition-ii)||[:memo:](https://leetcode.com/articles/range-addition-ii/)|Easy|
 |599|[minimum-index-sum-of-two-lists](https://leetcode.com/problems/minimum-index-sum-of-two-lists)||[:memo:](https://leetcode.com/articles/minimum-index-sum-of-two-lists/)|Easy|
 |600|[non-negative-integers-without-consecutive-ones](https://leetcode.com/problems/non-negative-integers-without-consecutive-ones)||[:memo:](https://leetcode.com/articles/non-negative-integers-without-consecutive-ones/)|Hard|
+|604|[design-compressed-string-iterator](https://leetcode.com/problems/design-compressed-string-iterator)||[:memo:](https://leetcode.com/articles/desing-compressed-string-iterator/)|Easy|
 |605|[can-place-flowers](https://leetcode.com/problems/can-place-flowers)||[:memo:](https://leetcode.com/articles/can-place-flowers/)|Easy|
 |606|[construct-string-from-binary-tree](https://leetcode.com/problems/construct-string-from-binary-tree)||[:memo:](https://leetcode.com/articles/construct-string-from-binary-tree/)|Easy|
 |609|[find-duplicate-file-in-system](https://leetcode.com/problems/find-duplicate-file-in-system)||[:memo:](https://leetcode.com/articles/find-duplicate/)|Medium|
+|611|[valid-triangle-number](https://leetcode.com/problems/valid-triangle-number)||[:memo:](https://leetcode.com/articles/valid-triangle-number/)|Medium|
+|616|[add-bold-tag-in-string](https://leetcode.com/problems/add-bold-tag-in-string)||[:memo:](https://leetcode.com/articles/add-bold-tag-in-a-string/)|Medium|
+|617|[merge-two-binary-trees](https://leetcode.com/problems/merge-two-binary-trees)||[:memo:](https://leetcode.com/articles/merge-two-binary-trees/)|Easy|
