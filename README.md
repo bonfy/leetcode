@@ -1,9 +1,9 @@
 # :pencil2: Leetcode Solutions with Python,Golang
-Update time:  2017-06-18 04:43:31
+Update time:  2017-06-19 04:43:54
 
 Auto created by [leetcode_generate](https://github.com/bonfy/leetcode)
 
-I have solved **96   /   550** problems
+I have solved **96   /   551** problems
 while there are **101** problems still locked.
 
 If you want to use this tool please follow this [Usage Guide](https://github.com/bonfy/leetcode/blob/master/README_leetcode_generate.md)
@@ -563,6 +563,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |611|[valid-triangle-number](https://leetcode.com/problems/valid-triangle-number)||[:memo:](https://leetcode.com/articles/valid-triangle-number/)|Medium|
 |616|[add-bold-tag-in-string](https://leetcode.com/problems/add-bold-tag-in-string)|:lock:|[:memo:](https://leetcode.com/articles/add-bold-tag-in-a-string/)|Medium|
 |617|[merge-two-binary-trees](https://leetcode.com/problems/merge-two-binary-trees)||[:memo:](https://leetcode.com/articles/merge-two-binary-trees/)|Easy|
+|621|[task-scheduler](https://leetcode.com/problems/task-scheduler)||[:memo:](https://leetcode.com/articles/task-scheduler/)|Medium|
 |623|[add-one-row-to-tree](https://leetcode.com/problems/add-one-row-to-tree)||[:memo:](https://leetcode.com/articles/add-one-row-in-a-tree/)|Medium|
 |624|[maximum-distance-in-arrays](https://leetcode.com/problems/maximum-distance-in-arrays)||[:memo:](https://leetcode.com/articles/maximum-distance-in-array/)|Easy|
 |625|[minimum-factorization](https://leetcode.com/problems/minimum-factorization)||[:memo:](https://leetcode.com/articles/minimum-factorization/)|Medium|
