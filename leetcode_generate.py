@@ -497,7 +497,7 @@ def do_job(leetcode):
         leetcode.download_with_thread_pool()
     else:
         for qid in sys.argv[1:]:
-            print('begin leetcode by id: {id}'.format(id=sid))
+            print('begin leetcode by id: {id}'.format(id=qid))
             leetcode.download_by_id(int(qid))
 
     print('Leetcode finish dowload')
