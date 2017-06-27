@@ -1,5 +1,5 @@
 # :pencil2: Leetcode Solutions with Python,Golang
-Update time:  2017-06-26 13:08:46
+Update time:  2017-06-27 13:09:08
 
 Auto created by [leetcode_generate](https://github.com/bonfy/leetcode)
 
@@ -570,4 +570,4 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |628|[maximum-product-of-three-numbers](https://leetcode.com/problems/maximum-product-of-three-numbers)||[:memo:](https://leetcode.com/articles/maximmum-product-of-three-numbers/)|Easy|
 |629|[k-inverse-pairs-array](https://leetcode.com/problems/k-inverse-pairs-array)||[:memo:](https://leetcode.com/articles/k-inverse-pairs-array/)|Medium|
 |630|[course-schedule-iii](https://leetcode.com/problems/course-schedule-iii)||[:memo:](https://leetcode.com/articles/course-schedule-iii/)|Medium|
-|631|[design-excel-sum-formula](https://leetcode.com/problems/design-excel-sum-formula)|||Hard|
+|631|[design-excel-sum-formula](https://leetcode.com/problems/design-excel-sum-formula)||[:memo:](https://leetcode.com/articles/design-excel-sum-formula/)|Hard|
