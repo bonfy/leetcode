@@ -1,5 +1,5 @@
 # :pencil2: Leetcode Solutions with Python,Golang
-Update time:  2017-06-27 13:09:08
+Update time:  2017-06-28 13:09:31
 
 Auto created by [leetcode_generate](https://github.com/bonfy/leetcode)
 
@@ -446,7 +446,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |453|[minimum-moves-to-equal-array-elements](https://leetcode.com/problems/minimum-moves-to-equal-array-elements)||[:memo:](https://leetcode.com/articles/minimum-moves-to-equal-array-elements/)|Easy|
 |454|[4sum-ii](https://leetcode.com/problems/4sum-ii)|[Python](https://github.com/bonfy/leetcode/blob/master/454-4sum-ii/4sum-ii.py)||Medium|
 |455|[assign-cookies](https://leetcode.com/problems/assign-cookies)|[Python](https://github.com/bonfy/leetcode/blob/master/455-assign-cookies/assign-cookies.py)||Easy|
-|456|[132-pattern](https://leetcode.com/problems/132-pattern)|||Medium|
+|456|[132-pattern](https://leetcode.com/problems/132-pattern)||[:memo:](https://leetcode.com/articles/132-pattern/)|Medium|
 |459|[repeated-substring-pattern](https://leetcode.com/problems/repeated-substring-pattern)|||Easy|
 |460|[lfu-cache](https://leetcode.com/problems/lfu-cache)|||Hard|
 |461|[hamming-distance](https://leetcode.com/problems/hamming-distance)|[Python](https://github.com/bonfy/leetcode/blob/master/461-hamming-distance/hamming-distance.py)||Easy|
