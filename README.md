@@ -1,5 +1,5 @@
 # :pencil2: Leetcode Solutions with Python,Golang
-Update time:  2017-07-12 13:14:59
+Update time:  2017-07-13 13:15:23
 
 Auto created by [leetcode_generate](https://github.com/bonfy/leetcode)
 
@@ -411,7 +411,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |410|[split-array-largest-sum](https://leetcode.com/problems/split-array-largest-sum)|||Hard|
 |411|[minimum-unique-word-abbreviation](https://leetcode.com/problems/minimum-unique-word-abbreviation)|:lock:||Hard|
 |412|[fizz-buzz](https://leetcode.com/problems/fizz-buzz)|||Easy|
-|413|[arithmetic-slices](https://leetcode.com/problems/arithmetic-slices)|||Medium|
+|413|[arithmetic-slices](https://leetcode.com/problems/arithmetic-slices)||[:memo:](https://leetcode.com/articles/arithmetic-slices/)|Medium|
 |414|[third-maximum-number](https://leetcode.com/problems/third-maximum-number)|||Easy|
 |415|[add-strings](https://leetcode.com/problems/add-strings)|||Easy|
 |416|[partition-equal-subset-sum](https://leetcode.com/problems/partition-equal-subset-sum)|||Medium|
