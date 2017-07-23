@@ -1,9 +1,9 @@
 # :pencil2: Leetcode Solutions with Python,Golang
-Update time:  2017-07-22 13:17:49
+Update time:  2017-07-23 13:18:04
 
 Auto created by [leetcode_generate](https://github.com/bonfy/leetcode)
 
-I have solved **96   /   569** problems
+I have solved **96   /   573** problems
 while there are **107** problems still locked.
 
 If you want to use this tool please follow this [Usage Guide](https://github.com/bonfy/leetcode/blob/master/README_leetcode_generate.md)
@@ -585,3 +585,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |642|[design-search-autocomplete-system](https://leetcode.com/problems/design-search-autocomplete-system)|:lock:|[:memo:](https://leetcode.com/articles/design-search-autocomplete-system/)|Hard|
 |643|[maximum-average-subarray-i](https://leetcode.com/problems/maximum-average-subarray-i)||[:memo:](https://leetcode.com/articles/maximum-average-subarray/)|Easy|
 |644|[maximum-average-subarray-ii](https://leetcode.com/problems/maximum-average-subarray-ii)||[:memo:](https://leetcode.com/articles/maximum-average-subarray-ii/)|Hard|
+|645|[set-mismatch](https://leetcode.com/problems/set-mismatch)|||Easy|
+|646|[maximum-length-of-pair-chain](https://leetcode.com/problems/maximum-length-of-pair-chain)|||Medium|
+|647|[palindromic-substrings](https://leetcode.com/problems/palindromic-substrings)|||Medium|
+|648|[replace-words](https://leetcode.com/problems/replace-words)|||Medium|
