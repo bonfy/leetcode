@@ -1,9 +1,9 @@
 # :pencil2: Leetcode Solutions with Python,Golang
-Update time:  2017-07-29 13:19:31
+Update time:  2017-07-30 13:19:42
 
 Auto created by [leetcode_generate](https://github.com/bonfy/leetcode)
 
-I have solved **96   /   573** problems
+I have solved **96   /   577** problems
 while there are **107** problems still locked.
 
 If you want to use this tool please follow this [Usage Guide](https://github.com/bonfy/leetcode/blob/master/README_leetcode_generate.md)
@@ -589,3 +589,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |646|[maximum-length-of-pair-chain](https://leetcode.com/problems/maximum-length-of-pair-chain)|||Medium|
 |647|[palindromic-substrings](https://leetcode.com/problems/palindromic-substrings)|||Medium|
 |648|[replace-words](https://leetcode.com/problems/replace-words)|||Medium|
+|649|[dota2-senate](https://leetcode.com/problems/dota2-senate)|||Medium|
+|650|[2-keys-keyboard](https://leetcode.com/problems/2-keys-keyboard)|||Medium|
+|651|[4-keys-keyboard](https://leetcode.com/problems/4-keys-keyboard)|||Medium|
+|652|[find-duplicate-subtrees](https://leetcode.com/problems/find-duplicate-subtrees)|||Medium|
