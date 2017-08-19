@@ -13,13 +13,13 @@
 # bool isMatch(const char *s, const char *p)
 #
 # Some examples:
-# isMatch("aa","a") ? false
-# isMatch("aa","aa") ? true
-# isMatch("aaa","aa") ? false
-# isMatch("aa", "a*") ? true
-# isMatch("aa", ".*") ? true
-# isMatch("ab", ".*") ? true
-# isMatch("aab", "c*a*b") ? true
+# isMatch("aa","a") &rarr; false
+# isMatch("aa","aa") &rarr; true
+# isMatch("aaa","aa") &rarr; false
+# isMatch("aa", "a*") &rarr; true
+# isMatch("aa", ".*") &rarr; true
+# isMatch("ab", ".*") &rarr; true
+# isMatch("aab", "c*a*b") &rarr; true
 
 
 class Solution(object):
