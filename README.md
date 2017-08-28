@@ -1,10 +1,10 @@
 # :pencil2: Leetcode Solutions with Python,Javascript
-Update time:  2017-08-27 11:28:50
+Update time:  2017-08-28 11:29:01
 
 Auto created by [leetcode_generate](https://github.com/bonfy/leetcode)
 
 I have solved **96   /   593** problems
-while there are **110** problems still locked.
+while there are **113** problems still locked.
 
 If you want to use this tool please follow this [Usage Guide](https://github.com/bonfy/leetcode/blob/master/README_leetcode_generate.md)
 
@@ -600,12 +600,12 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |657|[judge-route-circle](https://leetcode.com/problems/judge-route-circle)|||Easy|
 |658|[find-k-closest-elements](https://leetcode.com/problems/find-k-closest-elements)||[:memo:](https://leetcode.com/articles/find-k-closest-elements/)|Medium|
 |659|[split-array-into-consecutive-subsequences](https://leetcode.com/problems/split-array-into-consecutive-subsequences)|||Medium|
-|660|[remove-9](https://leetcode.com/problems/remove-9)|||Hard|
+|660|[remove-9](https://leetcode.com/problems/remove-9)|:lock:||Hard|
 |661|[image-smoother](https://leetcode.com/problems/image-smoother)|||Easy|
 |662|[maximum-width-of-binary-tree](https://leetcode.com/problems/maximum-width-of-binary-tree)|||Medium|
-|663|[equal-tree-partition](https://leetcode.com/problems/equal-tree-partition)|||Medium|
+|663|[equal-tree-partition](https://leetcode.com/problems/equal-tree-partition)|:lock:||Medium|
 |664|[strange-printer](https://leetcode.com/problems/strange-printer)|||Hard|
 |665|[non-decreasing-array](https://leetcode.com/problems/non-decreasing-array)|||Easy|
-|666|[path-sum-iv](https://leetcode.com/problems/path-sum-iv)|||Medium|
+|666|[path-sum-iv](https://leetcode.com/problems/path-sum-iv)|:lock:||Medium|
 |667|[beautiful-arrangement-ii](https://leetcode.com/problems/beautiful-arrangement-ii)|||Medium|
-|668|[kth-largest-number-in-multiplication-table](https://leetcode.com/problems/kth-largest-number-in-multiplication-table)|||Hard|
+|668|[kth-smallest-number-in-multiplication-table](https://leetcode.com/problems/kth-smallest-number-in-multiplication-table)|||Hard|
