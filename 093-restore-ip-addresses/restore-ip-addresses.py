@@ -5,10 +5,10 @@
 #
 #
 # For example:
-# Given &quot;25525511135&quot;,
+# Given "25525511135",
 #
 #
-# return [&quot;255.255.11.135&quot;, &quot;255.255.111.35&quot;]. (Order does not matter)
+# return ["255.255.11.135", "255.255.111.35"]. (Order does not matter)
 
 
 class Solution(object):

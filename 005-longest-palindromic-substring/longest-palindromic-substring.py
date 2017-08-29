@@ -5,19 +5,19 @@
 #
 # Example:
 #
-# Input: &quot;babad&quot;
+# Input: "babad"
 #
-# Output: &quot;bab&quot;
+# Output: "bab"
 #
-# Note: &quot;aba&quot; is also a valid answer.
+# Note: "aba" is also a valid answer.
 #
 #
 #
 # Example:
 #
-# Input: &quot;cbbd&quot;
+# Input: "cbbd"
 #
-# Output: &quot;bb&quot;
+# Output: "bb"
 #
 
 

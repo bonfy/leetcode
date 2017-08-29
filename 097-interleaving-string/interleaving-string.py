@@ -8,12 +8,12 @@
 #
 # For example,
 # Given:
-# s1 = &quot;aabcc&quot;,
-# s2 = &quot;dbbca&quot;,
+# s1 = "aabcc",
+# s2 = "dbbca",
 #
 #
-# When s3 = &quot;aadbbcbcac&quot;, return true.
-# When s3 = &quot;aadbbbaccc&quot;, return false.
+# When s3 = "aadbbcbcac", return true.
+# When s3 = "aadbbbaccc", return false.
 
 
 class Solution(object):

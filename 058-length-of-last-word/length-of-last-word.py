@@ -9,7 +9,7 @@
 #
 #
 # For example, 
-# Given s = &quot;Hello World&quot;,
+# Given s = "Hello World",
 # return 5.
 
 

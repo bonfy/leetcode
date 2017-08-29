@@ -20,7 +20,7 @@
 # 26
 #
 # Output:
-# &quot;1a&quot;
+# "1a"
 #
 #
 #
@@ -30,7 +30,7 @@
 # -1
 #
 # Output:
-# &quot;ffffffff&quot;
+# "ffffffff"
 #
 
 

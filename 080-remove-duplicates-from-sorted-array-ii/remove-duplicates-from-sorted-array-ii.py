@@ -2,7 +2,7 @@
 
 
 #
-# Follow up for &quot;Remove Duplicates&quot;:
+# Follow up for "Remove Duplicates":
 # What if duplicates are allowed at most twice?
 #
 #

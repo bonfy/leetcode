@@ -5,7 +5,7 @@
 # Given a 2D board and a word, find if the word exists in the grid.
 #
 #
-# The word can be constructed from letters of sequentially adjacent cell, where &quot;adjacent&quot; cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once.
+# The word can be constructed from letters of sequentially adjacent cell, where "adjacent" cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once.
 #
 #
 #
@@ -19,9 +19,9 @@
 # ]
 #
 #
-# word = &quot;ABCCED&quot;, -&gt; returns true,
-# word = &quot;SEE&quot;, -&gt; returns true,
-# word = &quot;ABCB&quot;, -&gt; returns false.
+# word = "ABCCED", -&gt; returns true,
+# word = "SEE", -&gt; returns true,
+# word = "ABCB", -&gt; returns false.
 
 
 class Solution(object):

@@ -7,8 +7,8 @@
 #
 #
 # For example,
-# &quot;A man, a plan, a canal: Panama&quot; is a palindrome.
-# &quot;race a car&quot; is not a palindrome.
+# "A man, a plan, a canal: Panama" is a palindrome.
+# "race a car" is not a palindrome.
 #
 #
 #

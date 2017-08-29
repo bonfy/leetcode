@@ -7,9 +7,9 @@
 #
 #
 # For example,
-# a = &quot;11&quot;
-# b = &quot;1&quot;
-# Return &quot;100&quot;.
+# a = "11"
+# b = "1"
+# Return "100".
 
 
 class Solution(object):

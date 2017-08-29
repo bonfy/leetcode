@@ -10,29 +10,29 @@
 # Example 1:
 #
 # Input:
-# s: &quot;cbaebabacd&quot; p: &quot;abc&quot;
+# s: "cbaebabacd" p: "abc"
 #
 # Output:
 # [0, 6]
 #
 # Explanation:
-# The substring with start index = 0 is &quot;cba&quot;, which is an anagram of &quot;abc&quot;.
-# The substring with start index = 6 is &quot;bac&quot;, which is an anagram of &quot;abc&quot;.
+# The substring with start index = 0 is "cba", which is an anagram of "abc".
+# The substring with start index = 6 is "bac", which is an anagram of "abc".
 #
 #
 #
 # Example 2:
 #
 # Input:
-# s: &quot;abab&quot; p: &quot;ab&quot;
+# s: "abab" p: "ab"
 #
 # Output:
 # [0, 1, 2]
 #
 # Explanation:
-# The substring with start index = 0 is &quot;ab&quot;, which is an anagram of &quot;ab&quot;.
-# The substring with start index = 1 is &quot;ba&quot;, which is an anagram of &quot;ab&quot;.
-# The substring with start index = 2 is &quot;ab&quot;, which is an anagram of &quot;ab&quot;.
+# The substring with start index = 0 is "ab", which is an anagram of "ab".
+# The substring with start index = 1 is "ba", which is an anagram of "ab".
+# The substring with start index = 2 is "ab", which is an anagram of "ab".
 #
 
 
