@@ -17,7 +17,6 @@ import re
 import sys
 
 from selenium import webdriver
-from pyquery import PyQuery as pq
 from collections import namedtuple, OrderedDict
 
 
@@ -329,8 +328,13 @@ class Leetcode:
         solution_url = solution['submission_url']
         r = self.session.get(solution_url, proxies=PROXIES)
         assert r.status_code == 200
-        d = pq(r.text)
-        question = d('html>head>meta[name=description]').attr('content').strip()
+
+        pattern = re.compile(r'<meta name=\"description\" content=\"(?P<question>.*)\r\n\" />\n', re.S)
+        m1 = pattern.search(r.text)
+        question = m1.groupdict()['question'] if m1 else None
+
+        if not question:
+            raise Exception('Can not find question descript in question:{title}'.format(title=solution['title']))
 
         pattern = re.compile(r'submissionCode: \'(?P<code>.*)\',\n  editCodeUrl', re.S)
         m1 = pattern.search(r.text)
