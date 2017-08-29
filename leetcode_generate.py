@@ -15,6 +15,7 @@ import time
 import datetime
 import re
 import sys
+import html
 
 from selenium import webdriver
 from collections import namedtuple, OrderedDict
@@ -336,8 +337,8 @@ class Leetcode:
         if not question:
             raise Exception('Can not find question descript in question:{title}'.format(title=solution['title']))
 
-        # remove &quot;
-        question = question.replace('&quot;', '\"')
+        # html.unescape to remove &quot; &#39;
+        question = html.unescape(question)
 
         pattern = re.compile(r'submissionCode: \'(?P<code>.*)\',\n  editCodeUrl', re.S)
         m1 = pattern.search(r.text)
