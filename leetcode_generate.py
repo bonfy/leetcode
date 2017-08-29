@@ -336,6 +336,9 @@ class Leetcode:
         if not question:
             raise Exception('Can not find question descript in question:{title}'.format(title=solution['title']))
 
+        # remove &quot;
+        question = question.replace('&quot;', '\"')
+
         pattern = re.compile(r'submissionCode: \'(?P<code>.*)\',\n  editCodeUrl', re.S)
         m1 = pattern.search(r.text)
         code = m1.groupdict()['code'] if m1 else None
