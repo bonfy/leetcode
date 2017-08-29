@@ -10,7 +10,7 @@
 #
 #
 #
-# Return the starting gas station&#39;s index if you can travel around the circuit once, otherwise return -1.
+# Return the starting gas station's index if you can travel around the circuit once, otherwise return -1.
 #
 #
 #

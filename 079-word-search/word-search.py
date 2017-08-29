@@ -13,15 +13,15 @@
 # Given board = 
 #
 # [
-#   [&#39;A&#39;,&#39;B&#39;,&#39;C&#39;,&#39;E&#39;],
-#   [&#39;S&#39;,&#39;F&#39;,&#39;C&#39;,&#39;S&#39;],
-#   [&#39;A&#39;,&#39;D&#39;,&#39;E&#39;,&#39;E&#39;]
+#   ['A','B','C','E'],
+#   ['S','F','C','S'],
+#   ['A','D','E','E']
 # ]
 #
 #
-# word = "ABCCED", -&gt; returns true,
-# word = "SEE", -&gt; returns true,
-# word = "ABCB", -&gt; returns false.
+# word = "ABCCED", -> returns true,
+# word = "SEE", -> returns true,
+# word = "ABCB", -> returns false.
 
 
 class Solution(object):

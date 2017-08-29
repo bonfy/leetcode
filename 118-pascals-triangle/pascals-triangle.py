@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 
 
-# Given numRows, generate the first numRows of Pascal&#39;s triangle.
+# Given numRows, generate the first numRows of Pascal's triangle.
 #
 #
 # For example, given numRows = 5,

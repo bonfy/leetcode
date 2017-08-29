@@ -14,7 +14,7 @@
 #
 # Note:
 #
-# N is a positive integer and won&#39;t exceed 10,000.
+# N is a positive integer and won't exceed 10,000.
 # All the scores of athletes are guaranteed to be unique.
 #
 #

@@ -8,7 +8,7 @@
 # Note:
 #
 # All letters in hexadecimal (a-f) must be in lowercase.
-# The hexadecimal string must not contain extra leading 0s. If the number is zero, it is represented by a single zero character &#39;0&#39;; otherwise, the first character in the hexadecimal string will not be the zero character.
+# The hexadecimal string must not contain extra leading 0s. If the number is zero, it is represented by a single zero character '0'; otherwise, the first character in the hexadecimal string will not be the zero character.
 # The given number is guaranteed to fit within the range of a 32-bit signed integer.
 # You must not use any method provided by the library which converts/formats the number to hex directly.
 #

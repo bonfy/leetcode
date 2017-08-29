@@ -1,11 +1,11 @@
 # -*- coding:utf-8 -*-
 
 
-# Implement regular expression matching with support for &#39;.&#39; and &#39;*&#39;.
+# Implement regular expression matching with support for '.' and '*'.
 #
 #
-# &#39;.&#39; Matches any single character.
-# &#39;*&#39; Matches zero or more of the preceding element.
+# '.' Matches any single character.
+# '*' Matches zero or more of the preceding element.
 #
 # The matching should cover the entire input string (not partial).
 #
@@ -13,13 +13,13 @@
 # bool isMatch(const char *s, const char *p)
 #
 # Some examples:
-# isMatch("aa","a") &amp;rarr; false
-# isMatch("aa","aa") &amp;rarr; true
-# isMatch("aaa","aa") &amp;rarr; false
-# isMatch("aa", "a*") &amp;rarr; true
-# isMatch("aa", ".*") &amp;rarr; true
-# isMatch("ab", ".*") &amp;rarr; true
-# isMatch("aab", "c*a*b") &amp;rarr; true
+# isMatch("aa","a") &rarr; false
+# isMatch("aa","aa") &rarr; true
+# isMatch("aaa","aa") &rarr; false
+# isMatch("aa", "a*") &rarr; true
+# isMatch("aa", ".*") &rarr; true
+# isMatch("ab", ".*") &rarr; true
+# isMatch("aab", "c*a*b") &rarr; true
 
 
 class Solution(object):
