@@ -1,11 +1,11 @@
 # -*- coding:utf-8 -*-
 
 
-# Implement regular expression matching with support for '.' and '*'.
+# Implement regular expression matching with support for &#39;.&#39; and &#39;*&#39;.
 #
 #
-# '.' Matches any single character.
-# '*' Matches zero or more of the preceding element.
+# &#39;.&#39; Matches any single character.
+# &#39;*&#39; Matches zero or more of the preceding element.
 #
 # The matching should cover the entire input string (not partial).
 #
@@ -13,13 +13,13 @@
 # bool isMatch(const char *s, const char *p)
 #
 # Some examples:
-# isMatch("aa","a") &rarr; false
-# isMatch("aa","aa") &rarr; true
-# isMatch("aaa","aa") &rarr; false
-# isMatch("aa", "a*") &rarr; true
-# isMatch("aa", ".*") &rarr; true
-# isMatch("ab", ".*") &rarr; true
-# isMatch("aab", "c*a*b") &rarr; true
+# isMatch(&quot;aa&quot;,&quot;a&quot;) &amp;rarr; false
+# isMatch(&quot;aa&quot;,&quot;aa&quot;) &amp;rarr; true
+# isMatch(&quot;aaa&quot;,&quot;aa&quot;) &amp;rarr; false
+# isMatch(&quot;aa&quot;, &quot;a*&quot;) &amp;rarr; true
+# isMatch(&quot;aa&quot;, &quot;.*&quot;) &amp;rarr; true
+# isMatch(&quot;ab&quot;, &quot;.*&quot;) &amp;rarr; true
+# isMatch(&quot;aab&quot;, &quot;c*a*b&quot;) &amp;rarr; true
 
 
 class Solution(object):

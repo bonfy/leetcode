@@ -1,6 +1,7 @@
 # -*- coding:utf-8 -*-
 
 
+#
 # Given an array with n objects colored red, white or blue, sort them so that objects of the same color are adjacent, with the colors in the order red, white and blue.
 #
 #
@@ -10,7 +11,7 @@
 #
 #
 # Note:
-# You are not suppose to use the library's sort function for this problem.
+# You are not suppose to use the library&#39;s sort function for this problem.
 #
 #
 # click to show follow up.
@@ -18,8 +19,9 @@
 #
 # Follow up:
 # A rather straight forward solution is a two-pass algorithm using counting sort.
-# First, iterate the array counting number of 0's, 1's, and 2's, then overwrite array with total number of 0's, then 1's and followed by 2's.
+# First, iterate the array counting number of 0&#39;s, 1&#39;s, and 2&#39;s, then overwrite array with total number of 0&#39;s, then 1&#39;s and followed by 2&#39;s.
 # Could you come up with an one-pass algorithm using only constant space?
+#
 
 
 class Solution(object):

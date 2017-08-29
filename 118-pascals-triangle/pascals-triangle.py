@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 
 
-# Given numRows, generate the first numRows of Pascal's triangle.
+# Given numRows, generate the first numRows of Pascal&#39;s triangle.
 #
 #
 # For example, given numRows = 5,
@@ -14,6 +14,7 @@
 #   [1,3,3,1],
 #  [1,4,6,4,1]
 # ]
+#
 
 
 class Solution(object):

@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 
 
-# Given an index k, return the kth row of the Pascal's triangle.
+# Given an index k, return the kth row of the Pascal&#39;s triangle.
 #
 #
 # For example, given k = 3,

@@ -1,7 +1,8 @@
 # -*- coding:utf-8 -*-
 
 
-# Given a binary tree and a sum, find all root-to-leaf paths where each path's sum equals the given sum.
+#
+# Given a binary tree and a sum, find all root-to-leaf paths where each path&#39;s sum equals the given sum.
 #
 #
 # For example:
@@ -23,6 +24,7 @@
 #    [5,4,11,2],
 #    [5,8,4,5]
 # ]
+#
 
 
 # Definition for a binary tree node.

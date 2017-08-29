@@ -5,19 +5,20 @@
 #
 # Example:
 #
-# Input: "babad"
+# Input: &quot;babad&quot;
 #
-# Output: "bab"
+# Output: &quot;bab&quot;
 #
-# Note: "aba" is also a valid answer.
+# Note: &quot;aba&quot; is also a valid answer.
 #
 #
 #
 # Example:
 #
-# Input: "cbbd"
+# Input: &quot;cbbd&quot;
 #
-# Output: "bb"
+# Output: &quot;bb&quot;
+#
 
 
 class Solution(object):

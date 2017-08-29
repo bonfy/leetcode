@@ -1,6 +1,7 @@
 # -*- coding:utf-8 -*-
 
 
+#
 # Given a non-empty array of integers, return the k most frequent elements.
 #
 # For example,
@@ -9,8 +10,8 @@
 #
 # Note: 
 #
-# You may assume k is always valid, 1 &le; k &le; number of unique elements.
-# Your algorithm's time complexity must be better than O(n log n), where n is the array's size.
+# You may assume k is always valid, 1 &amp;le; k &amp;le; number of unique elements.
+# Your algorithm&#39;s time complexity must be better than O(n log n), where n is the array&#39;s size.
 
 
 class Solution(object):

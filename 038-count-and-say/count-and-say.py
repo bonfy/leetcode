@@ -11,9 +11,9 @@
 #
 #
 #
-# 1 is read off as "one 1" or 11.
-# 11 is read off as "two 1s" or 21.
-# 21 is read off as "one 2, then one 1" or 1211.
+# 1 is read off as &quot;one 1&quot; or 11.
+# 11 is read off as &quot;two 1s&quot; or 21.
+# 21 is read off as &quot;one 2, then one 1&quot; or 1211.
 #
 #
 #
@@ -27,14 +27,15 @@
 # Example 1:
 #
 # Input: 1
-# Output: "1"
+# Output: &quot;1&quot;
 #
 #
 #
 # Example 2:
 #
 # Input: 4
-# Output: "1211"
+# Output: &quot;1211&quot;
+#
 
 
 class Solution(object):

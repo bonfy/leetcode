@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 
 
-# Given a string s consists of upper/lower-case alphabets and empty space characters ' ', return the length of last word in the string.
+# Given a string s consists of upper/lower-case alphabets and empty space characters &#39; &#39;, return the length of last word in the string.
 #
 # If the last word does not exist, return 0.
 #
@@ -9,7 +9,7 @@
 #
 #
 # For example, 
-# Given s = "Hello World",
+# Given s = &quot;Hello World&quot;,
 # return 5.
 
 

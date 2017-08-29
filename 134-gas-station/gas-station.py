@@ -1,6 +1,7 @@
 # -*- coding:utf-8 -*-
 
 
+#
 # There are N gas stations along a circular route, where the amount of gas at station i is gas[i].
 #
 #
@@ -9,7 +10,7 @@
 #
 #
 #
-# Return the starting gas station's index if you can travel around the circuit once, otherwise return -1.
+# Return the starting gas station&#39;s index if you can travel around the circuit once, otherwise return -1.
 #
 #
 #

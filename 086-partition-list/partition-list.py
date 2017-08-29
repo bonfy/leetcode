@@ -8,8 +8,8 @@
 #
 #
 # For example,
-# Given 1->4->3->2->5->2 and x = 3,
-# return 1->2->2->4->3->5.
+# Given 1-&gt;4-&gt;3-&gt;2-&gt;5-&gt;2 and x = 3,
+# return 1-&gt;2-&gt;2-&gt;4-&gt;3-&gt;5.
 
 
 # Definition for singly-linked list.

@@ -1,6 +1,7 @@
 # -*- coding:utf-8 -*-
 
 
+#
 # Implement strStr().
 #
 #

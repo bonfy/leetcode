@@ -1,9 +1,9 @@
 # -*- coding:utf-8 -*-
 
 
-# Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+# Given a string containing just the characters &#39;(&#39;, &#39;)&#39;, &#39;{&#39;, &#39;}&#39;, &#39;[&#39; and &#39;]&#39;, determine if the input string is valid.
 #
-# The brackets must close in the correct order, "()" and "()[]{}" are all valid but "(]" and "([)]" are not.
+# The brackets must close in the correct order, &quot;()&quot; and &quot;()[]{}&quot; are all valid but &quot;(]&quot; and &quot;([)]&quot; are not.
 
 
 class Solution(object):
