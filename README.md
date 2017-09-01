@@ -1,5 +1,5 @@
 # :pencil2: Leetcode Solutions with Python,Javascript
-Update time:  2017-08-31 16:01:49
+Update time:  2017-09-01 16:02:01
 
 Auto created by [leetcode_generate](https://github.com/bonfy/leetcode)
 
@@ -24,7 +24,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |6|[zigzag-conversion](https://leetcode.com/problems/zigzag-conversion)|[Python](https://github.com/bonfy/leetcode/blob/master/006-zigzag-conversion/zigzag-conversion.py)||Medium|
 |7|[reverse-integer](https://leetcode.com/problems/reverse-integer)|[Python](https://github.com/bonfy/leetcode/blob/master/007-reverse-integer/reverse-integer.py)||Easy|
 |8|[string-to-integer-atoi](https://leetcode.com/problems/string-to-integer-atoi)|[Python](https://github.com/bonfy/leetcode/blob/master/008-string-to-integer-atoi/string-to-integer-atoi.py)||Medium|
-|9|[palindrome-number](https://leetcode.com/problems/palindrome-number)|[Python](https://github.com/bonfy/leetcode/blob/master/009-palindrome-number/palindrome-number.py)||Easy|
+|9|[palindrome-number](https://leetcode.com/problems/palindrome-number)|[Python](https://github.com/bonfy/leetcode/blob/master/009-palindrome-number/palindrome-number.py)|[:memo:](https://leetcode.com/articles/palindrome-number/)|Easy|
 |10|[regular-expression-matching](https://leetcode.com/problems/regular-expression-matching)|[Python](https://github.com/bonfy/leetcode/blob/master/010-regular-expression-matching/regular-expression-matching.py)||Hard|
 |11|[container-with-most-water](https://leetcode.com/problems/container-with-most-water)|[Python](https://github.com/bonfy/leetcode/blob/master/011-container-with-most-water/container-with-most-water.py)|[:memo:](https://leetcode.com/articles/container-most-water/)|Medium|
 |12|[integer-to-roman](https://leetcode.com/problems/integer-to-roman)|[Python](https://github.com/bonfy/leetcode/blob/master/012-integer-to-roman/integer-to-roman.py)||Medium|
@@ -151,7 +151,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |133|[clone-graph](https://leetcode.com/problems/clone-graph)|||Medium|
 |134|[gas-station](https://leetcode.com/problems/gas-station)|[Python](https://github.com/bonfy/leetcode/blob/master/134-gas-station/gas-station.py)||Medium|
 |135|[candy](https://leetcode.com/problems/candy)||[:memo:](https://leetcode.com/articles/candy/)|Hard|
-|136|[single-number](https://leetcode.com/problems/single-number)|[Python](https://github.com/bonfy/leetcode/blob/master/136-single-number/single-number.py)||Easy|
+|136|[single-number](https://leetcode.com/problems/single-number)|[Python](https://github.com/bonfy/leetcode/blob/master/136-single-number/single-number.py)|[:memo:](https://leetcode.com/articles/single-number/)|Easy|
 |137|[single-number-ii](https://leetcode.com/problems/single-number-ii)|[Python](https://github.com/bonfy/leetcode/blob/master/137-single-number-ii/single-number-ii.py)||Medium|
 |138|[copy-list-with-random-pointer](https://leetcode.com/problems/copy-list-with-random-pointer)|||Medium|
 |139|[word-break](https://leetcode.com/problems/word-break)||[:memo:](https://leetcode.com/articles/word-break/)|Medium|
