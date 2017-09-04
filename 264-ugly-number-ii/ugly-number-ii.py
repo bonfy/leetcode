@@ -1,6 +1,7 @@
 # -*- coding:utf-8 -*-
 
 
+#
 # Write a program to find the n-th ugly number.
 #
 #

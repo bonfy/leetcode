@@ -18,6 +18,7 @@
 #   [1,3],
 #   [1,4],
 # ]
+#
 
 
 class Solution(object):

@@ -18,6 +18,7 @@
 # All the scores of athletes are guaranteed to be unique.
 #
 #
+#
 
 
 class Solution(object):

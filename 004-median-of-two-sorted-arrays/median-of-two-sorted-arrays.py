@@ -21,6 +21,7 @@
 #
 # The median is (2 + 3)/2 = 2.5
 #
+#
 
 
 class Solution(object):

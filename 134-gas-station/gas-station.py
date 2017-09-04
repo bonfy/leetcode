@@ -16,6 +16,7 @@
 #
 # Note:
 # The solution is guaranteed to be unique.
+#
 
 
 class Solution(object):

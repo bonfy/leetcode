@@ -15,6 +15,7 @@
 #
 # There is a more generic way of solving this problem.
 #
+#
 
 
 class Solution(object):

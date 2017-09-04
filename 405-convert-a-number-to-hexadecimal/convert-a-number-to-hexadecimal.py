@@ -32,6 +32,7 @@
 # Output:
 # "ffffffff"
 #
+#
 
 
 class Solution(object):

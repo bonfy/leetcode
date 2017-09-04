@@ -22,6 +22,7 @@
 #   [1,2],
 #   []
 # ]
+#
 
 
 class Solution(object):
