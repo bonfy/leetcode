@@ -330,7 +330,7 @@ class Leetcode:
         r = self.session.get(solution_url, proxies=PROXIES)
         assert r.status_code == 200
 
-        pattern = re.compile(r'<meta name=\"description\" content=\"(?P<question>.*)\r\n\" />\n', re.S)
+        pattern = re.compile(r'<meta name=\"description\" content=\"(?P<question>.*)\" />\n    <meta property=\"og:image\"', re.S)
         m1 = pattern.search(r.text)
         question = m1.groupdict()['question'] if m1 else None
 
