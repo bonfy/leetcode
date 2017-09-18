@@ -1,9 +1,9 @@
 # :pencil2: Leetcode Solutions with Python,Javascript
-Update time:  2017-09-06 11:13:47
+Update time:  2017-09-18 12:22:12
 
 Auto created by [leetcode_generate](https://github.com/bonfy/leetcode)
 
-I have solved **96   /   597** problems
+I have solved **96   /   605** problems
 while there are **113** problems still locked.
 
 If you want to use this tool please follow this [Usage Guide](https://github.com/bonfy/leetcode/blob/master/README_leetcode_generate.md)
@@ -25,7 +25,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |7|[reverse-integer](https://leetcode.com/problems/reverse-integer)|[Python](https://github.com/bonfy/leetcode/blob/master/007-reverse-integer/reverse-integer.py)||Easy|
 |8|[string-to-integer-atoi](https://leetcode.com/problems/string-to-integer-atoi)|[Python](https://github.com/bonfy/leetcode/blob/master/008-string-to-integer-atoi/string-to-integer-atoi.py)||Medium|
 |9|[palindrome-number](https://leetcode.com/problems/palindrome-number)|[Python](https://github.com/bonfy/leetcode/blob/master/009-palindrome-number/palindrome-number.py)|[:memo:](https://leetcode.com/articles/palindrome-number/)|Easy|
-|10|[regular-expression-matching](https://leetcode.com/problems/regular-expression-matching)|[Python](https://github.com/bonfy/leetcode/blob/master/010-regular-expression-matching/regular-expression-matching.py)||Hard|
+|10|[regular-expression-matching](https://leetcode.com/problems/regular-expression-matching)|[Python](https://github.com/bonfy/leetcode/blob/master/010-regular-expression-matching/regular-expression-matching.py)|[:memo:](https://leetcode.com/articles/regular-expression-matching/)|Hard|
 |11|[container-with-most-water](https://leetcode.com/problems/container-with-most-water)|[Python](https://github.com/bonfy/leetcode/blob/master/011-container-with-most-water/container-with-most-water.py)|[:memo:](https://leetcode.com/articles/container-most-water/)|Medium|
 |12|[integer-to-roman](https://leetcode.com/problems/integer-to-roman)|[Python](https://github.com/bonfy/leetcode/blob/master/012-integer-to-roman/integer-to-roman.py)||Medium|
 |13|[roman-to-integer](https://leetcode.com/problems/roman-to-integer)|[Python](https://github.com/bonfy/leetcode/blob/master/013-roman-to-integer/roman-to-integer.py)||Easy|
@@ -38,7 +38,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |20|[valid-parentheses](https://leetcode.com/problems/valid-parentheses)|[Python](https://github.com/bonfy/leetcode/blob/master/020-valid-parentheses/valid-parentheses.py)||Easy|
 |21|[merge-two-sorted-lists](https://leetcode.com/problems/merge-two-sorted-lists)|[Python](https://github.com/bonfy/leetcode/blob/master/021-merge-two-sorted-lists/merge-two-sorted-lists.py)||Easy|
 |22|[generate-parentheses](https://leetcode.com/problems/generate-parentheses)|[Python](https://github.com/bonfy/leetcode/blob/master/022-generate-parentheses/generate-parentheses.py)||Medium|
-|23|[merge-k-sorted-lists](https://leetcode.com/problems/merge-k-sorted-lists)|[Python](https://github.com/bonfy/leetcode/blob/master/023-merge-k-sorted-lists/merge-k-sorted-lists.py)||Hard|
+|23|[merge-k-sorted-lists](https://leetcode.com/problems/merge-k-sorted-lists)|[Python](https://github.com/bonfy/leetcode/blob/master/023-merge-k-sorted-lists/merge-k-sorted-lists.py)|[:memo:](https://leetcode.com/articles/merge-k-sorted-list/)|Hard|
 |24|[swap-nodes-in-pairs](https://leetcode.com/problems/swap-nodes-in-pairs)|[Python](https://github.com/bonfy/leetcode/blob/master/024-swap-nodes-in-pairs/swap-nodes-in-pairs.py)||Medium|
 |25|[reverse-nodes-in-k-group](https://leetcode.com/problems/reverse-nodes-in-k-group)|[Python](https://github.com/bonfy/leetcode/blob/master/025-reverse-nodes-in-k-group/reverse-nodes-in-k-group.py)||Hard|
 |26|[remove-duplicates-from-sorted-array](https://leetcode.com/problems/remove-duplicates-from-sorted-array)|[Python](https://github.com/bonfy/leetcode/blob/master/026-remove-duplicates-from-sorted-array/remove-duplicates-from-sorted-array.py)|[:memo:](https://leetcode.com/articles/remove-duplicates-sorted-array/)|Easy|
@@ -64,12 +64,12 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |46|[permutations](https://leetcode.com/problems/permutations)|||Medium|
 |47|[permutations-ii](https://leetcode.com/problems/permutations-ii)|||Medium|
 |48|[rotate-image](https://leetcode.com/problems/rotate-image)|[Python](https://github.com/bonfy/leetcode/blob/master/048-rotate-image/rotate-image.py)||Medium|
-|49|[group-anagrams](https://leetcode.com/problems/group-anagrams)|||Medium|
+|49|[group-anagrams](https://leetcode.com/problems/group-anagrams)||[:memo:](https://leetcode.com/articles/group-anagrams/)|Medium|
 |50|[powx-n](https://leetcode.com/problems/powx-n)|[Python](https://github.com/bonfy/leetcode/blob/master/050-powx-n/powx-n.py)||Medium|
 |51|[n-queens](https://leetcode.com/problems/n-queens)|||Hard|
 |52|[n-queens-ii](https://leetcode.com/problems/n-queens-ii)|||Hard|
 |53|[maximum-subarray](https://leetcode.com/problems/maximum-subarray)|[Python](https://github.com/bonfy/leetcode/blob/master/053-maximum-subarray/maximum-subarray.py)||Easy|
-|54|[spiral-matrix](https://leetcode.com/problems/spiral-matrix)|[Python](https://github.com/bonfy/leetcode/blob/master/054-spiral-matrix/spiral-matrix.py)||Medium|
+|54|[spiral-matrix](https://leetcode.com/problems/spiral-matrix)|[Python](https://github.com/bonfy/leetcode/blob/master/054-spiral-matrix/spiral-matrix.py)|[:memo:](https://leetcode.com/articles/spiral-matrix/)|Medium|
 |55|[jump-game](https://leetcode.com/problems/jump-game)|[Python](https://github.com/bonfy/leetcode/blob/master/055-jump-game/jump-game.py)|[:memo:](https://leetcode.com/articles/jump-game/)|Medium|
 |56|[merge-intervals](https://leetcode.com/problems/merge-intervals)|[Python](https://github.com/bonfy/leetcode/blob/master/056-merge-intervals/merge-intervals.py)||Medium|
 |57|[insert-interval](https://leetcode.com/problems/insert-interval)|[Python](https://github.com/bonfy/leetcode/blob/master/057-insert-interval/insert-interval.py)||Hard|
@@ -605,11 +605,19 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |662|[maximum-width-of-binary-tree](https://leetcode.com/problems/maximum-width-of-binary-tree)|||Medium|
 |663|[equal-tree-partition](https://leetcode.com/problems/equal-tree-partition)|:lock:||Medium|
 |664|[strange-printer](https://leetcode.com/problems/strange-printer)|||Hard|
-|665|[non-decreasing-array](https://leetcode.com/problems/non-decreasing-array)|||Easy|
+|665|[non-decreasing-array](https://leetcode.com/problems/non-decreasing-array)||[:memo:](https://leetcode.com/articles/non-decreasing-array/)|Easy|
 |666|[path-sum-iv](https://leetcode.com/problems/path-sum-iv)|:lock:||Medium|
-|667|[beautiful-arrangement-ii](https://leetcode.com/problems/beautiful-arrangement-ii)|||Medium|
-|668|[kth-smallest-number-in-multiplication-table](https://leetcode.com/problems/kth-smallest-number-in-multiplication-table)|||Hard|
-|669|[trim-a-binary-search-tree](https://leetcode.com/problems/trim-a-binary-search-tree)|||Easy|
-|670|[maximum-swap](https://leetcode.com/problems/maximum-swap)|||Medium|
-|671|[second-minimum-node-in-a-binary-tree](https://leetcode.com/problems/second-minimum-node-in-a-binary-tree)|||Easy|
+|667|[beautiful-arrangement-ii](https://leetcode.com/problems/beautiful-arrangement-ii)||[:memo:](https://leetcode.com/articles/beautiful-arrangement-ii/)|Medium|
+|668|[kth-smallest-number-in-multiplication-table](https://leetcode.com/problems/kth-smallest-number-in-multiplication-table)||[:memo:](https://leetcode.com/articles/kth-smallest-number-in-multiplication-table/)|Hard|
+|669|[trim-a-binary-search-tree](https://leetcode.com/problems/trim-a-binary-search-tree)||[:memo:](https://leetcode.com/articles/trim-a-binary-search-tree/)|Easy|
+|670|[maximum-swap](https://leetcode.com/problems/maximum-swap)||[:memo:](https://leetcode.com/articles/maximum-swap/)|Medium|
+|671|[second-minimum-node-in-a-binary-tree](https://leetcode.com/problems/second-minimum-node-in-a-binary-tree)||[:memo:](https://leetcode.com/articles/second-minimum-node-in-a-binary-tree/)|Easy|
 |672|[bulb-switcher-ii](https://leetcode.com/problems/bulb-switcher-ii)|||Medium|
+|673|[number-of-longest-increasing-subsequence](https://leetcode.com/problems/number-of-longest-increasing-subsequence)|||Medium|
+|674|[longest-continuous-increasing-subsequence](https://leetcode.com/problems/longest-continuous-increasing-subsequence)|||Easy|
+|675|[cut-off-trees-for-golf-event](https://leetcode.com/problems/cut-off-trees-for-golf-event)|||Hard|
+|676|[implement-magic-dictionary](https://leetcode.com/problems/implement-magic-dictionary)|||Medium|
+|677|[map-sum-pairs](https://leetcode.com/problems/map-sum-pairs)||[:memo:](https://leetcode.com/articles/map-sum/)|Medium|
+|678|[valid-parenthesis-string](https://leetcode.com/problems/valid-parenthesis-string)||[:memo:](https://leetcode.com/articles/valid-string/)|Medium|
+|679|[24-game](https://leetcode.com/problems/24-game)||[:memo:](https://leetcode.com/articles/24-game/)|Hard|
+|680|[valid-palindrome-ii](https://leetcode.com/problems/valid-palindrome-ii)||[:memo:](https://leetcode.com/articles/valid-palindrome-ii/)|Easy|
