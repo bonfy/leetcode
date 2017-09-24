@@ -1,9 +1,9 @@
 # :pencil2: Leetcode Solutions with Python,Javascript
-Update time:  2017-09-23 12:23:08
+Update time:  2017-09-24 12:23:18
 
 Auto created by [leetcode_generate](https://github.com/bonfy/leetcode)
 
-I have solved **96   /   605** problems
+I have solved **96   /   609** problems
 while there are **113** problems still locked.
 
 If you want to use this tool please follow this [Usage Guide](https://github.com/bonfy/leetcode/blob/master/README_leetcode_generate.md)
@@ -621,3 +621,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |678|[valid-parenthesis-string](https://leetcode.com/problems/valid-parenthesis-string)||[:memo:](https://leetcode.com/articles/valid-string/)|Medium|
 |679|[24-game](https://leetcode.com/problems/24-game)||[:memo:](https://leetcode.com/articles/24-game/)|Hard|
 |680|[valid-palindrome-ii](https://leetcode.com/problems/valid-palindrome-ii)||[:memo:](https://leetcode.com/articles/valid-palindrome-ii/)|Easy|
+|681|[next-closest-time](https://leetcode.com/problems/next-closest-time)|||Medium|
+|682|[baseball-game](https://leetcode.com/problems/baseball-game)|||Easy|
+|683|[k-empty-slots](https://leetcode.com/problems/k-empty-slots)|||Hard|
+|684|[redundant-connection](https://leetcode.com/problems/redundant-connection)|||Medium|
