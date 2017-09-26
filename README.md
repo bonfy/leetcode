@@ -1,5 +1,5 @@
 # :pencil2: Leetcode Solutions with Python,Javascript
-Update time:  2017-09-25 12:23:29
+Update time:  2017-09-26 12:23:40
 
 Auto created by [leetcode_generate](https://github.com/bonfy/leetcode)
 
@@ -538,7 +538,6 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |562|[longest-line-of-consecutive-one-in-matrix](https://leetcode.com/problems/longest-line-of-consecutive-one-in-matrix)|:lock:|[:memo:](https://leetcode.com/articles/longest-line-of-consecutive-one-in-a-matrix/)|Medium|
 |563|[binary-tree-tilt](https://leetcode.com/problems/binary-tree-tilt)||[:memo:](https://leetcode.com/articles/binary-tree-tilt/)|Easy|
 |564|[find-the-closest-palindrome](https://leetcode.com/problems/find-the-closest-palindrome)||[:memo:](https://leetcode.com/articles/find-the-closest-palindrome/)|Hard|
-|565|[array-nesting](https://leetcode.com/problems/array-nesting)||[:memo:](https://leetcode.com/articles/array-nesting/)|Medium|
 |566|[reshape-the-matrix](https://leetcode.com/problems/reshape-the-matrix)||[:memo:](https://leetcode.com/articles/reshape-the-matrix/)|Easy|
 |567|[permutation-in-string](https://leetcode.com/problems/permutation-in-string)||[:memo:](https://leetcode.com/articles/short-permutation-in-a-long-string/)|Medium|
 |568|[maximum-vacation-days](https://leetcode.com/problems/maximum-vacation-days)|:lock:|[:memo:](https://leetcode.com/articles/maximum-vacation-days/)|Hard|
@@ -625,3 +624,4 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |682|[baseball-game](https://leetcode.com/problems/baseball-game)|||Easy|
 |683|[k-empty-slots](https://leetcode.com/problems/k-empty-slots)|||Hard|
 |684|[redundant-connection](https://leetcode.com/problems/redundant-connection)|||Medium|
+|685|[redundant-connection-ii](https://leetcode.com/problems/redundant-connection-ii)|||Hard|
