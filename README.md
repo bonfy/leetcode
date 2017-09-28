@@ -1,5 +1,5 @@
 # :pencil2: Leetcode Solutions with Python,Javascript
-Update time:  2017-09-27 12:23:52
+Update time:  2017-09-28 12:24:03
 
 Auto created by [leetcode_generate](https://github.com/bonfy/leetcode)
 
@@ -620,8 +620,8 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |678|[valid-parenthesis-string](https://leetcode.com/problems/valid-parenthesis-string)||[:memo:](https://leetcode.com/articles/valid-string/)|Medium|
 |679|[24-game](https://leetcode.com/problems/24-game)||[:memo:](https://leetcode.com/articles/24-game/)|Hard|
 |680|[valid-palindrome-ii](https://leetcode.com/problems/valid-palindrome-ii)||[:memo:](https://leetcode.com/articles/valid-palindrome-ii/)|Easy|
-|681|[next-closest-time](https://leetcode.com/problems/next-closest-time)|||Medium|
-|682|[baseball-game](https://leetcode.com/problems/baseball-game)|||Easy|
-|683|[k-empty-slots](https://leetcode.com/problems/k-empty-slots)|||Hard|
-|684|[redundant-connection](https://leetcode.com/problems/redundant-connection)|||Medium|
+|681|[next-closest-time](https://leetcode.com/problems/next-closest-time)||[:memo:](https://leetcode.com/articles/next-closest-time/)|Medium|
+|682|[baseball-game](https://leetcode.com/problems/baseball-game)||[:memo:](https://leetcode.com/articles/baseball-game/)|Easy|
+|683|[k-empty-slots](https://leetcode.com/problems/k-empty-slots)||[:memo:](https://leetcode.com/articles/k-empty-slots/)|Hard|
+|684|[redundant-connection](https://leetcode.com/problems/redundant-connection)||[:memo:](https://leetcode.com/articles/redundant-connection/)|Medium|
 |685|[redundant-connection-ii](https://leetcode.com/problems/redundant-connection-ii)|||Hard|
