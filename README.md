@@ -1,9 +1,9 @@
 # :pencil2: Leetcode Solutions with Python,Javascript
-Update time:  2017-09-28 12:24:03
+Update time:  2017-09-29 12:24:14
 
 Auto created by [leetcode_generate](https://github.com/bonfy/leetcode)
 
-I have solved **96   /   609** problems
+I have solved **96   /   610** problems
 while there are **113** problems still locked.
 
 If you want to use this tool please follow this [Usage Guide](https://github.com/bonfy/leetcode/blob/master/README_leetcode_generate.md)
@@ -625,3 +625,4 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |683|[k-empty-slots](https://leetcode.com/problems/k-empty-slots)||[:memo:](https://leetcode.com/articles/k-empty-slots/)|Hard|
 |684|[redundant-connection](https://leetcode.com/problems/redundant-connection)||[:memo:](https://leetcode.com/articles/redundant-connection/)|Medium|
 |685|[redundant-connection-ii](https://leetcode.com/problems/redundant-connection-ii)|||Hard|
+|690|[employee-importance](https://leetcode.com/problems/employee-importance)|||Easy|
