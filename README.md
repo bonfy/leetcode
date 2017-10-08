@@ -1,10 +1,10 @@
 # :pencil2: Leetcode Solutions with Python,Javascript
-Update time:  2017-10-07 12:25:39
+Update time:  2017-10-08 12:25:48
 
 Auto created by [leetcode_generate](https://github.com/bonfy/leetcode)
 
-I have solved **96   /   614** problems
-while there are **113** problems still locked.
+I have solved **96   /   618** problems
+while there are **114** problems still locked.
 
 If you want to use this tool please follow this [Usage Guide](https://github.com/bonfy/leetcode/blob/master/README_leetcode_generate.md)
 
@@ -630,3 +630,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |688|[knight-probability-in-chessboard](https://leetcode.com/problems/knight-probability-in-chessboard)||[:memo:](https://leetcode.com/articles/knight-probability-in-chessboard/)|Medium|
 |689|[maximum-sum-of-3-non-overlapping-subarrays](https://leetcode.com/problems/maximum-sum-of-3-non-overlapping-subarrays)||[:memo:](https://leetcode.com/articles/maximum-sum-of-3-non-overlapping-intervals/)|Hard|
 |690|[employee-importance](https://leetcode.com/problems/employee-importance)|||Easy|
+|691|[stickers-to-spell-word](https://leetcode.com/problems/stickers-to-spell-word)||[:memo:](https://leetcode.com/articles/stickers-to-spell-word/)|Hard|
+|693|[binary-number-with-alternating-bits](https://leetcode.com/problems/binary-number-with-alternating-bits)||[:memo:](https://leetcode.com/articles/binary-number-with-alternating-bits/)|Easy|
+|694|[number-of-distinct-islands](https://leetcode.com/problems/number-of-distinct-islands)|:lock:|[:memo:](https://leetcode.com/articles/number-of-distinct-islands/)|Medium|
+|695|[max-area-of-island](https://leetcode.com/problems/max-area-of-island)||[:memo:](https://leetcode.com/articles/max-area-of-island/)|Easy|
