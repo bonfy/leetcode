@@ -1,9 +1,9 @@
 # :pencil2: Leetcode Solutions with Python,Javascript
-Update time:  2017-10-15 12:27:07
+Update time:  2017-10-16 12:27:18
 
 Auto created by [leetcode_generate](https://github.com/bonfy/leetcode)
 
-I have solved **96   /   622** problems
+I have solved **96   /   623** problems
 while there are **114** problems still locked.
 
 If you want to use this tool please follow this [Usage Guide](https://github.com/bonfy/leetcode/blob/master/README_leetcode_generate.md)
@@ -637,4 +637,5 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |695|[max-area-of-island](https://leetcode.com/problems/max-area-of-island)||[:memo:](https://leetcode.com/articles/max-area-of-island/)|Easy|
 |696|[count-binary-substrings](https://leetcode.com/problems/count-binary-substrings)||[:memo:](https://leetcode.com/articles/count-binary-substrings/)|Easy|
 |697|[degree-of-an-array](https://leetcode.com/problems/degree-of-an-array)||[:memo:](https://leetcode.com/articles/degree-of-an-array/)|Easy|
+|698|[partition-to-k-equal-sum-subsets](https://leetcode.com/problems/partition-to-k-equal-sum-subsets)||[:memo:](https://leetcode.com/articles/partition-to-k-equal-sum-subsets/)|Medium|
 |699|[falling-squares](https://leetcode.com/problems/falling-squares)||[:memo:](https://leetcode.com/articles/falling-squares/)|Hard|
