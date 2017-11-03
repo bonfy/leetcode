@@ -19,7 +19,7 @@ class Solution(object):
         :rtype: int
         """
 
-        longest, start, visited = 0, 0, [False for _ in range(256)]
+        longest, start, visited = 0, 0, [False for _ in xrange(256)]
         for ind, val in enumerate(s):
             if not visited[ord(val)]:
                 visited[ord(val)] = True
