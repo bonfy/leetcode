@@ -19,7 +19,7 @@ class Solution(object):
         p = strs[0]
         idx, rest = 0, strs[1:]
         while len(p) > 0:
-            while idx < len(rest) and len(p) <= len(rest[idx]) and p == rest[idx][:len(p)]:
+            while idx < len(rest) and p == rest[idx][:len(p)]:
                 idx += 1
             if idx == len(rest):
                 return p
