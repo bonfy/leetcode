@@ -33,8 +33,7 @@ class Solution(object):
         }
 
         builder = []
-        components = [1, 4, 5, 9, 10, 10, 40, 50, 90, 100, 400, 500, 900, 1000]
-        for item in reversed(components):
+        for item in reversed(sorted(int2roman.keys())):
             while num >= item:
                 builder.append(int2roman[item])
                 num -= item
