@@ -99,6 +99,7 @@ ProgLangList = [ProgLang('cpp', 'cpp', '//'),
                 ProgLang('csharp', 'cs', '//'),
                 ProgLang('javascript', 'js', '//'),
                 ProgLang('ruby', 'rb', '#'),
+                ProgLang('kotlin', 'kt', '//'),
                 ProgLang('swift', 'swift', '//'),
                 ProgLang('golang', 'go', '//')]
 
