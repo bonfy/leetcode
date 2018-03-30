@@ -103,3 +103,5 @@ old/
 cookies.json
 log/
 *.err
+
+.vscode/

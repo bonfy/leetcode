@@ -7,10 +7,11 @@
 #
 # Note: A word is defined as a character sequence consists of non-space characters only.
 #
+# Example:
 #
-# For example, 
-# Given s = "Hello World",
-# return 5.
+# Input: "Hello World"
+# Output: 5
+#
 #
 
 

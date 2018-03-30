@@ -5,20 +5,25 @@
 #
 # Example:
 #
-# Input: "babad"
 #
-# Output: "bab"
+# Input: &quot;babad&quot;
 #
-# Note: "aba" is also a valid answer.
+# Output: &quot;bab&quot;
+#
+# Note: &quot;aba&quot; is also a valid answer.
 #
 #
+# &nbsp;
 #
 # Example:
 #
-# Input: "cbbd"
 #
-# Output: "bb"
+# Input: &quot;cbbd&quot;
 #
+# Output: &quot;bb&quot;
+#
+#
+# &nbsp;
 #
 
 
