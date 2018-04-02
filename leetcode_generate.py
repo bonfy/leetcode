@@ -581,7 +581,8 @@ def do_job(leetcode):
         # leetcode.dowload()
         # we use multi thread
         print('download all leetcode solutions')
-        leetcode.download_with_thread_pool()
+        # leetcode.download_with_thread_pool()
+        leetcode.download()
     else:
         for qid in sys.argv[1:]:
             print('begin leetcode by id: {id}'.format(id=qid))
