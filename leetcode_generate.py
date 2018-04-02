@@ -59,11 +59,14 @@ def get_config_from_file():
     if not repo:
         raise Exception('Please input your Github repo address')
 
+    driverpath = cp.get('leetcode', 'driverpath')
+
     rst = dict(
         username=username,
         password=password,
         language=language.lower(),
         repo=repo,
+        driverpath=driverpath,
     )
     return rst
 
@@ -193,9 +196,9 @@ class Leetcode:
         pwd = CONFIG['password']
         # driver = webdriver.PhantomJS()
         options = webdriver.ChromeOptions()
-        # options.add_argument('headless')
+        options.add_argument('headless')
         options.add_argument('--disable-gpu')
-        executable_path = '/usr/local/bin/chromedriver'
+        executable_path = CONFIG.get('driverpath')
         driver = webdriver.Chrome(
             chrome_options=options, executable_path=executable_path
         )
@@ -473,14 +476,13 @@ class Leetcode:
         """ download all solutions with single thread """
         ac_items = [i for i in self.items if i.is_pass]
         for quiz in ac_items:
+            time.sleep(1)
             self._download_code_by_quiz(quiz)
 
     def download_with_thread_pool(self):
         """ download all solutions with multi thread """
         ac_items = [i for i in self.items if i.is_pass]
-
         from concurrent.futures import ThreadPoolExecutor
-
         pool = ThreadPoolExecutor(max_workers=4)
         for quiz in ac_items:
             pool.submit(self._download_code_by_quiz, quiz)

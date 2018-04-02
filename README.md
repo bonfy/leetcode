@@ -1,9 +1,9 @@
 # :pencil2: Leetcode Solutions with Python,Javascript
-Update time:  2018-03-30 15:19:58
+Update time:  2018-04-02 09:55:57
 
 Auto created by [leetcode_generate](https://github.com/bonfy/leetcode)
 
-I have solved **97   /   722** problems
+I have solved **97   /   726** problems
 while there are **133** problems still locked.
 
 If you want to use this tool please follow this [Usage Guide](https://github.com/bonfy/leetcode/blob/master/README_leetcode_generate.md)
@@ -738,3 +738,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |823|[split-array-with-same-average](https://leetcode.com/problems/split-array-with-same-average)||[:memo:](https://leetcode.com/articles/split-array-with-same-average/)|Hard|
 |824|[number-of-lines-to-write-string](https://leetcode.com/problems/number-of-lines-to-write-string)||[:memo:](https://leetcode.com/articles/number-of-lines-to-write-string/)|Easy|
 |825|[max-increase-to-keep-city-skyline](https://leetcode.com/problems/max-increase-to-keep-city-skyline)||[:memo:](https://leetcode.com/articles/max-increase-to-keep-city-skyline/)|Medium|
+|826|[soup-servings](https://leetcode.com/problems/soup-servings)||[:memo:](https://leetcode.com/articles/soup-servings/)|Medium|
+|827|[expressive-words](https://leetcode.com/problems/expressive-words)||[:memo:](https://leetcode.com/articles/expressive-words/)|Medium|
+|828|[chalkboard-xor-game](https://leetcode.com/problems/chalkboard-xor-game)||[:memo:](https://leetcode.com/articles/chalkboard-xor-game/)|Hard|
+|829|[subdomain-visit-count](https://leetcode.com/problems/subdomain-visit-count)||[:memo:](https://leetcode.com/articles/subdomain-visit-count/)|Easy|
