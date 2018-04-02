@@ -4,17 +4,15 @@
 
 ## Preparements:
 
-Use `selenium` and `PhantomJS`
+Use `selenium` and `chromedriver`
 
 > I think it's not the best way. But I can't find way leetcode encrypt the csrftoken.
 > If anyone find the encrypt algoristhm, please pull request to me. And I can change the login to requests
 
-Install `PhantomJS` please follow [PhantomJS official website](http://phantomjs.org/download.html)
-
-Mac Users can install `PhantomJS` by `Homebrew`
+Mac Users can install `Chromedriver` by `Homebrew`
 
 ``` cmd
-$ brew install phantomjs
+$ brew install chromedriver
 ```
 
 Install essential packages: `requests`, `pyquery`,`selenium`
@@ -23,10 +21,17 @@ $ pyvenv venv   # create virtual environment
 $ source venv/bin/activate
 $ pip3 install -r req.txt
 ```
+or if you use Pipenv
+
+```
+$ pipenv install
+```
 
 ## Config:
 
 Edit your own username, password, language and repo in the **config.cfg** file
+
+driverpath - Please input the path of your chromedriver
 
 ```
 [leetcode]
@@ -35,6 +40,7 @@ username = username
 password = password
 language = python
 repo = https://github.com/bonfy/leetcode
+driverpath = /usr/local/bin/chromedriver
 ```
 
 ## Run
@@ -65,3 +71,4 @@ Python 2 maybe
 - 2016-11-25 Add multi language support
 - 2017-01-02 Fix the bug cause by Leetcode change website: `PHPSESSID` change to `LEETCODE_SESSION`
 - 2017-04-22 Fix the bug cause by Leetcode change website: csrftoken encrypt, submissions change from HTML to JSON
+- 2018-04-02 Modify Phantomjs to Chromedriver. Add time.sleep when download otherwise would be forbidden by leetcode.
