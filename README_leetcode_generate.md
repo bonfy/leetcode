@@ -65,6 +65,10 @@ Python 3 have tested
 
 Python 2 maybe
 
+## Sponsor
+
+![support](http://7i7k6w.com1.z0.glb.clouddn.com/weixin_alipay_new.jpg)
+
 ## Changelog
 
 - 2016-10-09 Download codes from Leetcode and generate Readme
