@@ -105,3 +105,5 @@ log/
 *.err
 
 .vscode/
+*.out
+.envrc
