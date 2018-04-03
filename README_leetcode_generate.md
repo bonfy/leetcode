@@ -15,6 +15,19 @@ Mac Users can install `Chromedriver` by `Homebrew`
 $ brew install chromedriver
 ```
 
+Centos users install `chromedriver`
+
+```
+# 安装 chromium
+$ sudo yum install -y chromium
+
+# 安装 chromedriver
+$ yum install -y chromedriver
+
+# 如果要用default config 配置软连接
+$ ln -s /usr/bin/chromedriver /usr/local/bin/chromedriver
+```
+
 Install essential packages: `requests`, `pyquery`,`selenium`
 ```cmd
 $ pyvenv venv   # create virtual environment
