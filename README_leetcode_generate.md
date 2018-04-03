@@ -18,13 +18,13 @@ $ brew install chromedriver
 Centos users install `chromedriver`
 
 ```
-# 安装 chromium
+# Install chromium
 $ sudo yum install -y chromium
 
-# 安装 chromedriver
+# Install chromedriver
 $ yum install -y chromedriver
 
-# 如果要用default config 配置软连接
+# soft link
 $ ln -s /usr/bin/chromedriver /usr/local/bin/chromedriver
 ```
 
