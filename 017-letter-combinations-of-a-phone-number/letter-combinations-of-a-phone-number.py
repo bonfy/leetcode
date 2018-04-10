@@ -3,15 +3,13 @@
 
 # Given a digit string, return all possible letter combinations that the number could represent.
 #
-#
-#
 # A mapping of digit to letters (just like on the telephone buttons) is given below.
 #
 #
 #
-# Input:Digit string "23"
-# Output: ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"].
 #
+# Input:Digit string &quot;23&quot;
+# Output: [&quot;ad&quot;, &quot;ae&quot;, &quot;af&quot;, &quot;bd&quot;, &quot;be&quot;, &quot;bf&quot;, &quot;cd&quot;, &quot;ce&quot;, &quot;cf&quot;].
 #
 #
 # Note:

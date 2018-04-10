@@ -3,12 +3,10 @@
 
 # Given a string containing only digits, restore it by returning all possible valid IP address combinations.
 #
-#
 # For example:
-# Given "25525511135",
+# Given &quot;25525511135&quot;,
 #
-#
-# return ["255.255.11.135", "255.255.111.35"]. (Order does not matter)
+# return [&quot;255.255.11.135&quot;, &quot;255.255.111.35&quot;]. (Order does not matter)
 #
 
 
