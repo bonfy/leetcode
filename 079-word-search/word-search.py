@@ -1,27 +1,24 @@
 # -*- coding:utf-8 -*-
 
 
-#
 # Given a 2D board and a word, find if the word exists in the grid.
 #
+# The word can be constructed from letters of sequentially adjacent cell, where &quot;adjacent&quot; cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once.
 #
-# The word can be constructed from letters of sequentially adjacent cell, where "adjacent" cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once.
+# Example:
 #
 #
-#
-# For example,
-# Given board = 
-#
+# board =
 # [
-#   ['A','B','C','E'],
-#   ['S','F','C','S'],
-#   ['A','D','E','E']
+#   [&#39;A&#39;,&#39;B&#39;,&#39;C&#39;,&#39;E&#39;],
+#   [&#39;S&#39;,&#39;F&#39;,&#39;C&#39;,&#39;S&#39;],
+#   [&#39;A&#39;,&#39;D&#39;,&#39;E&#39;,&#39;E&#39;]
 # ]
 #
+# Given word = &quot;ABCCED&quot;, return true.
+# Given word = &quot;SEE&quot;, return true.
+# Given word = &quot;ABCB&quot;, return false.
 #
-# word = "ABCCED", -> returns true,
-# word = "SEE", -> returns true,
-# word = "ABCB", -> returns false.
 #
 
 

@@ -1,24 +1,26 @@
 # -*- coding:utf-8 -*-
 
 
+# Given a binary tree and a sum, find all root-to-leaf paths where each path&#39;s sum equals the given sum.
 #
-# Given a binary tree and a sum, find all root-to-leaf paths where each path's sum equals the given sum.
+# Note:&nbsp;A leaf is a node with no children.
 #
+# Example:
 #
-# For example:
 # Given the below binary tree and sum = 22,
 #
-#               5
-#              / \
-#             4   8
-#            /   / \
-#           11  13  4
-#          /  \    / \
-#         7    2  5   1
+#
+#       5
+#      / \
+#     4   8
+#    /   / \
+#   11  13  4
+#  /  \    / \
+# 7    2  5   1
 #
 #
+# Return:
 #
-# return
 #
 # [
 #    [5,4,11,2],

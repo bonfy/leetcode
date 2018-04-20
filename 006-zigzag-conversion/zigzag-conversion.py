@@ -11,16 +11,29 @@
 #
 # And then read line by line: &quot;PAHNAPLSIIGYIR&quot;
 #
-# &nbsp;
-#
 # Write the code that will take a string and make this conversion given a number of rows:
 #
 #
-# string convert(string text, int nRows);
+# string convert(string s, int numRows);
 #
-# convert(&quot;PAYPALISHIRING&quot;, 3) should return &quot;PAHNAPLSIIGYIR&quot;.
+# Example 1:
 #
-# &nbsp;
+#
+# Input: s = &quot;PAYPALISHIRING&quot;, numRows = 3
+# Output: &quot;PAHNAPLSIIGYIR&quot;
+#
+#
+# Example 2:
+#
+#
+# Input: s = &quot;PAYPALISHIRING&quot;, numRows =&nbsp;4
+# Output:&nbsp;&quot;PINALSIGYAHRPI&quot;
+# Explanation:
+#
+# P     I    N
+# A   L S  I G
+# Y A   H R
+# P     I
 #
 
 

@@ -1,27 +1,37 @@
 # -*- coding:utf-8 -*-
 
 
+# Given a set of candidate numbers (candidates) (without duplicates) and a target number (target), find all unique combinations in candidates&nbsp;where the candidate numbers sums to target.
 #
-# Given a set of candidate numbers (C) (without duplicates) and a target number (T), find all unique combinations in C where the candidate numbers sums to T. 
-#
-#
-# The same repeated number may be chosen from C unlimited number of times.
-#
+# The same repeated number may be chosen from candidates&nbsp;unlimited number of times.
 #
 # Note:
 #
-# All numbers (including target) will be positive integers.
-# The solution set must not contain duplicate combinations.
+#
+# 	All numbers (including target) will be positive integers.
+# 	The solution set must not contain duplicate combinations.
 #
 #
+# Example 1:
 #
 #
-# For example, given candidate set [2, 3, 6, 7] and target 7, 
-# A solution set is: 
-#
+# Input: candidates = [2,3,6,7], target = 7,
+# A solution set is:
 # [
 #   [7],
-#   [2, 2, 3]
+#   [2,2,3]
+# ]
+#
+#
+# Example 2:
+#
+#
+# Input: candidates = [2,3,5], target = 8,
+# A solution set is:
+# [
+# &nbsp; [2,2,2,2],
+# &nbsp; [2,3,3],
+# &nbsp; [3,5]
 # ]
 #
 #

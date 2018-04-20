@@ -3,13 +3,19 @@
 
 # Given s1, s2, s3, find whether s3 is formed by the interleaving of s1 and s2.
 #
-# For example,
-# Given:
-# s1 = &quot;aabcc&quot;,
-# s2 = &quot;dbbca&quot;,
+# Example 1:
 #
-# When s3 = &quot;aadbbcbcac&quot;, return true.
-# When s3 = &quot;aadbbbaccc&quot;, return false.
+#
+# Input: s1 = &quot;aabcc&quot;, s2 = &quot;dbbca&quot;, s3 = &quot;aadbbcbcac&quot;
+# Output: true
+#
+#
+# Example 2:
+#
+#
+# Input: s1 = &quot;aabcc&quot;, s2 = &quot;dbbca&quot;, s3 = &quot;aadbbbaccc&quot;
+# Output: false
+#
 #
 
 

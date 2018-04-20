@@ -3,14 +3,21 @@
 
 # Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.
 #
-# For example,
-# &quot;A man, a plan, a canal: Panama&quot; is a palindrome.
-# &quot;race a car&quot; is not a palindrome.
+# Note:&nbsp;For the purpose of this problem, we define empty string as valid palindrome.
 #
-# Note:
-# Have you consider that the string might be empty? This is a good question to ask during an interview.
+# Example 1:
 #
-# For the purpose of this problem, we define empty string as valid palindrome.
+#
+# Input: &quot;A man, a plan, a canal: Panama&quot;
+# Output: true
+#
+#
+# Example 2:
+#
+#
+# Input: &quot;race a car&quot;
+# Output: false
+#
 #
 
 

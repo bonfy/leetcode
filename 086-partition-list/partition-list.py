@@ -5,9 +5,12 @@
 #
 # You should preserve the original relative order of the nodes in each of the two partitions.
 #
-# For example,
-# Given 1-&gt;4-&gt;3-&gt;2-&gt;5-&gt;2 and x = 3,
-# return 1-&gt;2-&gt;2-&gt;4-&gt;3-&gt;5.
+# Example:
+#
+#
+# Input: head = 1-&gt;4-&gt;3-&gt;2-&gt;5-&gt;2, x = 3
+# Output: 1-&gt;2-&gt;2-&gt;4-&gt;3-&gt;5
+#
 #
 
 

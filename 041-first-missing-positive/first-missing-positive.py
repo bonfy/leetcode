@@ -1,18 +1,32 @@
 # -*- coding:utf-8 -*-
 
 
+# Given an unsorted integer array, find the smallest missing&nbsp;positive integer.
 #
-# Given an unsorted integer array, find the first missing positive integer.
-#
-#
-#
-# For example,
-# Given [1,2,0] return 3,
-# and [3,4,-1,1] return 2.
+# Example 1:
 #
 #
+# Input: [1,2,0]
+# Output: 3
 #
-# Your algorithm should run in O(n) time and uses constant space.
+#
+# Example 2:
+#
+#
+# Input: [3,4,-1,1]
+# Output: 2
+#
+#
+# Example 3:
+#
+#
+# Input: [7,8,9,11,12]
+# Output: 1
+#
+#
+# Note:
+#
+# Your algorithm should run in O(n) time and uses constant extra space.
 #
 
 
