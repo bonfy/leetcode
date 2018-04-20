@@ -6,14 +6,14 @@
 # Example 1:
 #
 #
-# Input: s1 = &quot;aabcc&quot;, s2 = &quot;dbbca&quot;, s3 = &quot;aadbbcbcac&quot;
+# Input: s1 = "aabcc", s2 = "dbbca", s3 = "aadbbcbcac"
 # Output: true
 #
 #
 # Example 2:
 #
 #
-# Input: s1 = &quot;aabcc&quot;, s2 = &quot;dbbca&quot;, s3 = &quot;aadbbbaccc&quot;
+# Input: s1 = "aabcc", s2 = "dbbca", s3 = "aadbbbaccc"
 # Output: false
 #
 #

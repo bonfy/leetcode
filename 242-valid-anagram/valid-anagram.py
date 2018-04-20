@@ -4,8 +4,8 @@
 # Given two strings s and t, write a function to determine if t is an anagram of s.
 #
 # For example,
-# s = &quot;anagram&quot;, t = &quot;nagaram&quot;, return true.
-# s = &quot;rat&quot;, t = &quot;car&quot;, return false.
+# s = "anagram", t = "nagaram", return true.
+# s = "rat", t = "car", return false.
 #
 # Note:
 # You may assume the string contains only lowercase alphabets.

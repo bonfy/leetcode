@@ -60,7 +60,6 @@ def get_config_from_file():
         raise Exception('Please input your Github repo address')
 
     driverpath = cp.get('leetcode', 'driverpath')
-
     rst = dict(
         username=username,
         password=password,
@@ -316,7 +315,6 @@ class Leetcode:
                 raise Exception('Get submissions wrong, Check network\n')
 
             self.submissions += data['submissions_dump']
-
             if data['has_next']:
                 offset += limit
             else:
@@ -374,7 +372,9 @@ class Leetcode:
         r = self.session.get(solution_url, proxies=PROXIES)
         assert r.status_code == 200
         pattern = re.compile(
-            r'<meta name=\"description\" content=\"(?P<question>.*)\" />\n    \n    <meta property=\"og:image\"', re.S)
+            r'<meta name=\"description\" content=\"(?P<question>.*)\" />\n    \n    <meta property=\"og:image\"',
+            re.S,
+        )
         m1 = pattern.search(r.text)
         question = m1.groupdict()['question'] if m1 else None
         if not question:
@@ -412,7 +412,8 @@ class Leetcode:
             else:
                 lines.append(
                     '{anno} {line}'.format(
-                        anno=self.prolangdict[language].annotation, line=line
+                        anno=self.prolangdict[language].annotation,
+                        line=html.unescape(line),
                     )
                 )
         quote_question = '\n'.join(lines)
@@ -484,6 +485,7 @@ class Leetcode:
         """ download all solutions with multi thread """
         ac_items = [i for i in self.items if i.is_pass]
         from concurrent.futures import ThreadPoolExecutor
+
         pool = ThreadPoolExecutor(max_workers=4)
         for quiz in ac_items:
             pool.submit(self._download_code_by_quiz, quiz)

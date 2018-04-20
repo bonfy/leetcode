@@ -1,9 +1,9 @@
 # -*- coding:utf-8 -*-
 
 
-# Given a set of candidate numbers (candidates) (without duplicates) and a target number (target), find all unique combinations in candidates&nbsp;where the candidate numbers sums to target.
+# Given a set of candidate numbers (candidates) (without duplicates) and a target number (target), find all unique combinations in candidates where the candidate numbers sums to target.
 #
-# The same repeated number may be chosen from candidates&nbsp;unlimited number of times.
+# The same repeated number may be chosen from candidates unlimited number of times.
 #
 # Note:
 #
@@ -29,9 +29,9 @@
 # Input: candidates = [2,3,5], target = 8,
 # A solution set is:
 # [
-# &nbsp; [2,2,2,2],
-# &nbsp; [2,3,3],
-# &nbsp; [3,5]
+#   [2,2,2,2],
+#   [2,3,3],
+#   [3,5]
 # ]
 #
 #

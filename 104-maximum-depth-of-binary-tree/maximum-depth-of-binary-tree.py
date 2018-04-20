@@ -5,7 +5,7 @@
 #
 # The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
 #
-# Note:&nbsp;A leaf is a node with no children.
+# Note: A leaf is a node with no children.
 #
 # Example:
 #

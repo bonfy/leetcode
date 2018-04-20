@@ -6,7 +6,7 @@
 # Given two integers x and y, calculate the Hamming distance.
 #
 # Note:
-# 0 &le; x, y &lt; 231.
+# 0 ≤ x, y < 231.
 #
 #
 # Example:
@@ -18,7 +18,7 @@
 # Explanation:
 # 1   (0 0 0 1)
 # 4   (0 1 0 0)
-#        &uarr;   &uarr;
+#        ↑   ↑
 #
 # The above arrows point to positions where the corresponding bits are different.
 #

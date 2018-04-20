@@ -8,8 +8,8 @@
 # Example:
 #
 #
-# Input: head = 1-&gt;4-&gt;3-&gt;2-&gt;5-&gt;2, x = 3
-# Output: 1-&gt;2-&gt;2-&gt;4-&gt;3-&gt;5
+# Input: head = 1->4->3->2->5->2, x = 3
+# Output: 1->2->2->4->3->5
 #
 #
 

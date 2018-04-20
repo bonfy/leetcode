@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 
 
-# Implement pow(x, n), which calculates&nbsp;x raised to the power n (xn).
+# Implement pow(x, n), which calculates x raised to the power n (xn).
 #
 # Example 1:
 #
@@ -28,8 +28,8 @@
 # Note:
 #
 #
-# 	-100.0 &lt; x &lt; 100.0
-# 	n is a 32-bit signed integer, within the range&nbsp;[&minus;231,&nbsp;231&nbsp;&minus; 1]
+# 	-100.0 < x < 100.0
+# 	n is a 32-bit signed integer, within the range [−231, 231 − 1]
 #
 #
 

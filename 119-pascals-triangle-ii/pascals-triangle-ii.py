@@ -1,12 +1,12 @@
 # -*- coding:utf-8 -*-
 
 
-# Given a non-negative&nbsp;index k&nbsp;where k &le;&nbsp;33, return the kth&nbsp;index row of the Pascal&#39;s triangle.
+# Given a non-negative index k where k ≤ 33, return the kth index row of the Pascal's triangle.
 #
-# Note that the row index starts from&nbsp;0.
+# Note that the row index starts from 0.
 #
 #
-# In Pascal&#39;s triangle, each number is the sum of the two numbers directly above it.
+# In Pascal's triangle, each number is the sum of the two numbers directly above it.
 #
 # Example:
 #

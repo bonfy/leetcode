@@ -6,7 +6,7 @@
 # Example:
 #
 #
-# Input:&nbsp;n = 4, k = 2
+# Input: n = 4, k = 2
 # Output:
 # [
 #   [2,4],

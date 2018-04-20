@@ -3,19 +3,19 @@
 
 # Given two binary strings, return their sum (also a binary string).
 #
-# The input strings are both non-empty and contains only characters 1 or&nbsp;0.
+# The input strings are both non-empty and contains only characters 1 or 0.
 #
 # Example 1:
 #
 #
-# Input: a = &quot;11&quot;, b = &quot;1&quot;
-# Output: &quot;100&quot;
+# Input: a = "11", b = "1"
+# Output: "100"
 #
 # Example 2:
 #
 #
-# Input: a = &quot;1010&quot;, b = &quot;1011&quot;
-# Output: &quot;10101&quot;
+# Input: a = "1010", b = "1011"
+# Output: "10101"
 #
 
 

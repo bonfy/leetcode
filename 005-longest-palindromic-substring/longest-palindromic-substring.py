@@ -6,16 +6,16 @@
 # Example 1:
 #
 #
-# Input: &quot;babad&quot;
-# Output: &quot;bab&quot;
-# Note: &quot;aba&quot; is also a valid answer.
+# Input: "babad"
+# Output: "bab"
+# Note: "aba" is also a valid answer.
 #
 #
 # Example 2:
 #
 #
-# Input: &quot;cbbd&quot;
-# Output: &quot;bb&quot;
+# Input: "cbbd"
+# Output: "bb"
 #
 #
 

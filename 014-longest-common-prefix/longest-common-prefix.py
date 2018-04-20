@@ -3,20 +3,20 @@
 
 # Write a function to find the longest common prefix string amongst an array of strings.
 #
-# If there is no common prefix, return an empty string &quot;&quot;.
+# If there is no common prefix, return an empty string "".
 #
 # Example 1:
 #
 #
-# Input: [&quot;flower&quot;,&quot;flow&quot;,&quot;flight&quot;]
-# Output: &quot;fl&quot;
+# Input: ["flower","flow","flight"]
+# Output: "fl"
 #
 #
 # Example 2:
 #
 #
-# Input: [&quot;dog&quot;,&quot;racecar&quot;,&quot;car&quot;]
-# Output: &quot;&quot;
+# Input: ["dog","racecar","car"]
+# Output: ""
 # Explanation: There is no common prefix among the input strings.
 #
 #

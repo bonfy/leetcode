@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 
 
-# Determine whether an integer is a palindrome. An integer&nbsp;is&nbsp;a&nbsp;palindrome when it&nbsp;reads the same backward as forward.
+# Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.
 #
 # Example 1:
 #
@@ -28,7 +28,7 @@
 #
 # Follow up:
 #
-# Coud you solve&nbsp;it without converting the integer to a string?
+# Coud you solve it without converting the integer to a string?
 #
 
 
