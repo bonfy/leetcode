@@ -42,7 +42,7 @@ $ pipenv install
 
 ## Config:
 
-Edit your own username, password, language and repo in the **config.cfg** file
+Edit your own username, password, language and repo in the **config.cfg.example** file and then rename it to **config.cfg**.
 
 driverpath - Please input the path of your chromedriver
 
