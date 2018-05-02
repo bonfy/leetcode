@@ -107,3 +107,6 @@ log/
 .vscode/
 *.out
 .envrc
+
+# Do not push sensitive files
+config.cfg
