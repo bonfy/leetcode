@@ -110,3 +110,5 @@ log/
 
 # Do not push sensitive files
 config.cfg
+chromedriver
+.DS_*
