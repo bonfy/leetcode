@@ -8,6 +8,8 @@
 # 	Integers in each column are sorted in ascending from top to bottom.
 #
 #
+# Example:
+#
 # Consider the following matrix:
 #
 #
@@ -20,19 +22,9 @@
 # ]
 #
 #
-# Example 1:
+# Given target = 5, return true.
 #
-#
-# Input: matrix, target = 5
-# Output: true
-#
-#
-# Example 2:
-#
-#
-# Input: matrix, target = 20
-# Output: false
-#
+# Given target = 20, return false.
 #
 
 
