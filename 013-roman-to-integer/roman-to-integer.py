@@ -48,7 +48,7 @@
 #
 # Input: "LVIII"
 # Output: 58
-# Explanation: C = 100, L = 50, XXX = 30 and III = 3.
+# Explanation: L = 50, V= 5, III = 3.
 #
 #
 # Example 5:
