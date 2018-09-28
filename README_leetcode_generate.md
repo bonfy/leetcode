@@ -89,3 +89,4 @@ Python 2 maybe
 - 2017-01-02 Fix the bug cause by Leetcode change website: `PHPSESSID` change to `LEETCODE_SESSION`
 - 2017-04-22 Fix the bug cause by Leetcode change website: csrftoken encrypt, submissions change from HTML to JSON
 - 2018-04-02 Modify Phantomjs to Chromedriver. Add time.sleep when download otherwise would be forbidden by leetcode.
+- 2018-09-27 Fix the login bug caused by Leetcode change its login page
