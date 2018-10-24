@@ -310,6 +310,8 @@ class Leetcode:
     def load_submissions(self):
         """ load all submissions from leetcode """
         # set limit a big num
+        print('API load submissions request 2 seconds per request')
+        print('Please wait ...')
         limit = 20
         offset = 0
         last_key = ''
@@ -320,7 +322,7 @@ class Leetcode:
             )
             
             resp = self.session.get(submissions_url, proxies=PROXIES)
-            print(submissions_url, ':', resp.status_code)
+            # print(submissions_url, ':', resp.status_code)
             assert resp.status_code == 200
             data = resp.json()
             if 'has_next' not in data.keys():
@@ -330,7 +332,7 @@ class Leetcode:
             if data['has_next']:
                 offset += limit
                 last_key = data['last_key']
-                print('last_key:', last_key)
+                # print('last_key:', last_key)
                 time.sleep(2)
             else:
                 break
