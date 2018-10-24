@@ -316,7 +316,7 @@ class Leetcode:
         offset = 0
         last_key = ''
         while True:
-
+            print('try to load submissions from ', offset, ' to ', offset+limit)
             submissions_url = '{}/api/submissions/?format=json&limit={}&offset={}&last_key={}'.format(
                 self.base_url, limit, offset, last_key
             )
@@ -333,7 +333,7 @@ class Leetcode:
                 offset += limit
                 last_key = data['last_key']
                 # print('last_key:', last_key)
-                time.sleep(2)
+                time.sleep(2.5)
             else:
                 break
 
