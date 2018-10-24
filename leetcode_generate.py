@@ -312,11 +312,15 @@ class Leetcode:
         # set limit a big num
         limit = 20
         offset = 0
+        last_key = ''
         while True:
-            submissions_url = '{}/api/submissions/?format=json&limit={}&offset={}'.format(
-                self.base_url, limit, offset
+
+            submissions_url = '{}/api/submissions/?format=json&limit={}&offset={}&last_key={}'.format(
+                self.base_url, limit, offset, last_key
             )
+            
             resp = self.session.get(submissions_url, proxies=PROXIES)
+            print(submissions_url, ':', resp.status_code)
             assert resp.status_code == 200
             data = resp.json()
             if 'has_next' not in data.keys():
@@ -325,6 +329,9 @@ class Leetcode:
             self.submissions += data['submissions_dump']
             if data['has_next']:
                 offset += limit
+                last_key = data['last_key']
+                print('last_key:', last_key)
+                time.sleep(2)
             else:
                 break
 

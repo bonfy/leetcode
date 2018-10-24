@@ -46,7 +46,6 @@
 # Output: true 
 # Explanation: self crossing
 #
-#
 
 
 class Solution(object):

@@ -18,7 +18,6 @@
 # 	1 is typically treated as an ugly number.
 # 	n does not exceed 1690.
 #
-#
 
 
 class Solution(object):
