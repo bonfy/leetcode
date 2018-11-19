@@ -519,7 +519,7 @@ If you have any question, please give me an [issue]({repo}/issues).
 If you are loving solving problems in leetcode, please contact me to enjoy it together!  
 (Notes: :lock: means you need to buy a book from Leetcode to unlock the problem)  
 | # | Title | Source Code | Article | Difficulty |  
-|:---:|:---:|:---:|:---:|:---:|  '''.format(
+|:---:|:---:|:---:|:---:|:---:|'''.format(
             language=languages_readme,
             tm=time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())),
             num_solved=self.num_solved,
@@ -561,7 +561,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
                 else:
                     language = ''
             language = language.strip()
-            md += '|{id}|[{title}]({url})|{language}|{article}|{difficulty}|  \n'.format(
+            md += '|{id}|[{title}]({url})|{language}|{article}|{difficulty}|\n'.format(
                 id=item.question_id,
                 title=item.question__title_slug,
                 url=item.url,
