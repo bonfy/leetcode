@@ -202,10 +202,18 @@ class Leetcode:
             chrome_options=options, executable_path=executable_path
         )
         driver.get(LOGIN_URL)
-        driver.find_element_by_id('id_login').send_keys(usr)
-        driver.find_element_by_id('id_password').send_keys(pwd)
+
+        # Wait for update
+        time.sleep(10)
+
+        driver.find_element_by_name('login').send_keys(usr)
+        driver.find_element_by_name('password').send_keys(pwd)
         # driver.find_element_by_id('id_remember').click()
-        driver.find_element_by_xpath('//button[@type="submit"]').click()
+        btns = driver.find_elements_by_tag_name('button')
+        # print(btns)
+        submit_btn = btns[1]
+        submit_btn.click()
+
         time.sleep(5)
         webdriver_cookies = driver.get_cookies()
         driver.close()
@@ -243,7 +251,6 @@ class Leetcode:
     def load(self):
         """
         load: all in one
-
         login -> load api -> load submissions -> solutions to items
         return `all in one items`
         """
@@ -302,13 +309,19 @@ class Leetcode:
     def load_submissions(self):
         """ load all submissions from leetcode """
         # set limit a big num
-        limit = 20
+        print('API load submissions request 2 seconds per request')
+        print('Please wait ...')
+        limit = 1000
         offset = 0
+        last_key = ''
         while True:
-            submissions_url = '{}/api/submissions/?format=json&limit={}&offset={}'.format(
-                self.base_url, limit, offset
+            print('try to load submissions from ', offset, ' to ', offset+limit)
+            submissions_url = '{}/api/submissions/?format=json&limit={}&offset={}&last_key={}'.format(
+                self.base_url, limit, offset, last_key
             )
+            
             resp = self.session.get(submissions_url, proxies=PROXIES)
+            # print(submissions_url, ':', resp.status_code)
             assert resp.status_code == 200
             data = resp.json()
             if 'has_next' not in data.keys():
@@ -317,13 +330,15 @@ class Leetcode:
             self.submissions += data['submissions_dump']
             if data['has_next']:
                 offset += limit
+                last_key = data['last_key']
+                # print('last_key:', last_key)
+                time.sleep(2.5)
             else:
                 break
 
     def load_solutions_to_items(self):
         """
         load all solutions to items
-
         combine submission's `runtime` `title` `lang` `submission_url` to items
         """
         titles = [i.question__title for i in self.items]
@@ -364,7 +379,6 @@ class Leetcode:
     def _get_code_by_solution(self, solution):
         """
         get code by solution
-
         solution: type dict
         """
         solution_url = solution['submission_url']
@@ -496,20 +510,13 @@ class Leetcode:
         languages_readme = ','.join([x.capitalize() for x in self.languages])
         md = '''# :pencil2: Leetcode Solutions with {language}
 Update time:  {tm}
-
 Auto created by [leetcode_generate](https://github.com/bonfy/leetcode)
-
 I have solved **{num_solved}   /   {num_total}** problems
 while there are **{num_lock}** problems still locked.
-
 If you want to use this tool please follow this [Usage Guide](https://github.com/bonfy/leetcode/blob/master/README_leetcode_generate.md)
-
 If you have any question, please give me an [issue]({repo}/issues).
-
 If you are loving solving problems in leetcode, please contact me to enjoy it together!
-
 (Notes: :lock: means you need to buy a book from Leetcode to unlock the problem)
-
 | # | Title | Source Code | Article | Difficulty |
 |:---:|:---:|:---:|:---:|:---:|'''.format(
             language=languages_readme,
