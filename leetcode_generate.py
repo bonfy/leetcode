@@ -103,7 +103,7 @@ ProgLangList = [
     ProgLang('swift', 'swift', '//'),
     ProgLang('golang', 'go', '//'),
     ProgLang('scala', 'scala', '//'),
-    Proglang('rust', 'rs', '//'),
+    ProgLang('rust', 'rs', '//'),
 ]
 ProgLangDict = dict((item.language, item) for item in ProgLangList)
 CONFIG = get_config_from_file()
