@@ -102,6 +102,8 @@ ProgLangList = [
     ProgLang('kotlin', 'kt', '//'),
     ProgLang('swift', 'swift', '//'),
     ProgLang('golang', 'go', '//'),
+    ProgLang('scala', 'scala', '//'),
+    Proglang('rust', 'rs', '//'),
 ]
 ProgLangDict = dict((item.language, item) for item in ProgLangList)
 CONFIG = get_config_from_file()
