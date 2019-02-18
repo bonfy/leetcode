@@ -4,6 +4,6 @@ cssselect==1.0.3
 idna==2.6
 lxml==4.2.1
 pyquery==1.4.0
-requests==2.18.4
+requests==2.21.0
 selenium==3.11.0
-urllib3==1.22
+urllib3==1.24.1

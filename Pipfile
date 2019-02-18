@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-requests = "==2.18.4"
+requests = ">=2.20.0"
 selenium = "==3.11.0"
 certifi = "==2018.1.18"
 chardet = "==3.0.4"
@@ -12,9 +12,9 @@ cssselect = "==1.0.3"
 idna = "==2.6"
 lxml = "==4.2.1"
 pyquery = "==1.4.0"
-"urllib3" = "==1.22"
+"urllib3" = ">=1.23"
 
 [dev-packages]
 
 [requires]
-python_version = "3.6"
+python_version = "3.7"
