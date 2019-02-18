@@ -26,10 +26,10 @@
 class Solution {
 public:
     bool canJump(vector<int>& nums) {
-        int pos = nums.size() - 1;
-        for (int i = nums.size() - 2; i >= 0; i--) {
-            pos = nums[i] + i >= pos? i: pos;
+        for (int i = 0, dist = 0; i <= dist; i++) {
+            dist = max(dist, i + nums[i]);
+            if (dist >= nums.size() - 1) return true;
         }
-        return pos == 0;
+        return false;
     }
 };

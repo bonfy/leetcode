@@ -31,17 +31,21 @@
 class Solution {
 public:
     vector<string> binaryTreePaths(TreeNode* root) {
+        if (!root) return {};
         vector<string> ans;
-        addpath(root, "", ans);
+        find(root, "", ans);
         return ans;
     }
-    void addpath(TreeNode* root, string path, vector<string>& ans) {
-        if (!root) return;
+    void find(TreeNode* root, string path, vector<string>& ans) {
         path += to_string(root->val);
         if (!root->left && !root->right) {
             ans.emplace_back(path);
         }
-        addpath(root->left, path + "->", ans);
-        addpath(root->right, path + "->", ans);
+        if (root->left) {
+            find(root->left, path + "->", ans);
+        }
+        if (root->right) {
+            find(root->right, path + "->", ans);
+        }
     }
 };

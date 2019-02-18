@@ -25,25 +25,28 @@
 class Solution {
 public:
     ListNode* mergeKLists(vector<ListNode*>& lists) {
-        ListNode* dummy = new ListNode(0);
-        ListNode* h = dummy;
-        auto cmp = [](ListNode* a, ListNode* b) {
-            return a->val > b->val;
-        };
-        priority_queue<ListNode*, vector<ListNode*>, decltype(cmp)> pq(cmp);
-        for (auto l: lists) {
-            if (!l) continue;
-            pq.emplace(l);
-        }
-        while (!pq.empty()) {
-            ListNode* p = pq.top();
-            pq.pop();
-            h->next = p;
-            h = h->next;
-            if (p->next) {
-                pq.emplace(p->next);
+        if (lists.empty()) return nullptr;
+        int j = lists.size() - 1;
+        while (j > 0) {
+            for (int i = 0; i < j; ++i, --j) {
+                lists[i] = merge2(lists[i], lists[j]);
             }
         }
-        return dummy->next;
+        return lists[0];
+    }
+    ListNode* merge2(ListNode* a, ListNode* b) {
+        ListNode dummy(0);
+        auto p = &dummy;
+        while (a || b) {
+            if (!b || (a && b && a->val < b->val)) {
+                p->next = a;
+                a = a->next;
+            } else {
+                p->next = b;
+                b = b->next;
+            }
+            p = p->next;
+        }
+        return dummy.next;
     }
 };
