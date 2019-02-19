@@ -112,3 +112,4 @@ log/
 config.cfg
 chromedriver
 .DS_*
+nohup.out

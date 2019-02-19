@@ -40,25 +40,22 @@ public:
     vector<int> exclusiveTime(int n, vector<string>& logs) {
         vector<int> ans(n, 0);
         stack<int> stk;
-        int running = stoi(logs[0]);
-        int clock = stoi(logs[0].substr(logs[0].find_last_of(':') + 1));
-        stk.emplace(running);
-        for (int i = 1; i < logs.size(); ++i) {
-            auto& s = logs[i];
-            int id = stoi(s);
-            auto p = s.find_last_of(':');
-            int t = stoi(s.substr(p + 1));
-            if (s.find("start") != string::npos) {
-                ans[running] += t - clock;
+        int running = 0, prev = 0;
+        for (auto log: logs) {
+            int fn = stoi(log);
+            int t = stoi(log.substr(log.rfind(":") + 1));
+            auto pos = log.find("start");
+            if (pos != string::npos) {
+                ans[running] += t - prev;
                 stk.emplace(running);
-                running = id;
+                running = fn;
             } else {
                 t += 1;
-                ans[running] += t - clock;
-                {running = stk.top();
-                stk.pop();}
+                ans[running] += t - prev;
+                running = stk.top();
+                stk.pop();
             }
-            clock = t;
+            prev = t;
         }
         return ans;
     }

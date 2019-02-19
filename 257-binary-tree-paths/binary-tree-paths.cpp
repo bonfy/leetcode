@@ -33,19 +33,20 @@ public:
     vector<string> binaryTreePaths(TreeNode* root) {
         if (!root) return {};
         vector<string> ans;
-        find(root, "", ans);
+        dfs(root, "", ans);
         return ans;
     }
-    void find(TreeNode* root, string path, vector<string>& ans) {
+    void dfs(TreeNode* root, string path, vector<string>& ans) {
         path += to_string(root->val);
         if (!root->left && !root->right) {
             ans.emplace_back(path);
-        }
-        if (root->left) {
-            find(root->left, path + "->", ans);
-        }
-        if (root->right) {
-            find(root->right, path + "->", ans);
+        } else {
+            if (root->left) {
+                dfs(root->left, path + "->", ans);
+            }
+            if (root->right) {
+                dfs(root->right, path + "->", ans);
+            }
         }
     }
 };

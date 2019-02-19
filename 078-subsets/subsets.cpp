@@ -23,16 +23,16 @@
 class Solution {
 public:
     vector<vector<int>> subsets(vector<int>& nums) {
-        vector<vector<int>> ans;
-        back(nums, 0, {}, ans);
-        return ans;
-    }
-    void back(vector<int>& nums, int idx, vector<int> path, vector<vector<int>>& ans) {
-        ans.emplace_back(path);
-        for (int i = idx; i < nums.size(); i++) {
-            path.emplace_back(nums[i]);
-            back(nums, i + 1, path, ans);
-            path.pop_back();
+        int n = nums.size();
+        int nr = pow(2, n);
+        vector<vector<int>> ans(nr);
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < nr; j++) {
+                if ((j >> i) & 1) {
+                    ans[j].emplace_back(nums[i]);
+                }
+            }
         }
+        return ans;
     }
 };
