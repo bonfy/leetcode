@@ -19,26 +19,31 @@
 class Solution {
 public:
     string minWindow(string s, string t) {
-        int minlen = INT_MAX, head = 0;
-        vector<int> dict(256, 0);
-        for (char c: t) {
-            dict[c]++;
-        }
-        for (int slow = 0, fast = 0, cnt = 0; fast < s.size(); fast++) {
-            if (dict[s[fast]]-- > 0) {
-                cnt++;
+        vector<int> letterofT(128, 0);
+        for (char c: t) letterofT[c]++;
+        int d = INT_MAX, head = 0;
+        // counter: 多少个字符在t中
+        for (int b = 0, e = 0, counter = 0; e < s.size(); e++) {
+            // e遇到了t中字符
+            if (letterofT[s[e]] > 0) {
+                counter++;
             }
-            while (cnt == t.size()) {
-                int len = fast - slow + 1;
-                if (len < minlen) {
-                    head = slow;
-                    minlen = len;
+            // 使非t字符小于0， 或者标记已使用的t字符
+            letterofT[s[e]]--;
+            while (counter == t.size()) {
+                int tmp = e - b + 1;
+                if (tmp < d) {
+                    d = tmp;
+                    head = b;
                 }
-                if (++dict[s[slow++]] > 0) {
-                    cnt--;
+                letterofT[s[b]]++;
+                // 将要跳过的是t字符
+                if (letterofT[s[b]] > 0) {
+                    counter--;
                 }
+                b++;
             }
         }
-        return minlen == INT_MAX? "": s.substr(head, minlen);
+        return d == INT_MAX? "": s.substr(head, d);
     }
 };

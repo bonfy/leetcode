@@ -35,31 +35,22 @@
 class Solution {
 public:
     vector<vector<int>> levelOrder(TreeNode* root) {
-        queue<TreeNode*> tree;
+        if (!root) return {};
         vector<vector<int>> ans;
-        vector<int> level;
-        if (!root) {
-            return ans;
-        }
-        tree.emplace(root);
-        tree.emplace(nullptr);
-        TreeNode* p = root;
-        while(p || !tree.empty()) {
-            p = tree.front();
-            tree.pop();
-            if (!p) {
-                ans.emplace_back(level);
-                level.clear();
-                if (!tree.empty()) {
-                    tree.emplace(nullptr);
-                }
-            } else {
-                level.emplace_back(p->val);
+        queue<TreeNode*> q;
+        q.emplace(root);
+        while (!q.empty()) {
+            ans.emplace_back(vector<int>{});
+            int n = q.size();
+            for (int i = 0; i < n; i++) {
+                auto p = q.front();
+                q.pop();
+                ans.back().emplace_back(p->val);
                 if (p->left) {
-                    tree.emplace(p->left);
+                    q.emplace(p->left);
                 }
                 if (p->right) {
-                    tree.emplace(p->right);
+                    q.emplace(p->right);
                 }
             }
         }
