@@ -90,7 +90,7 @@ def rep_unicode_in_code(code):
 def check_and_make_dir(dirname):
     p = Path(dirname)
     if not p.exists():
-        p.mkdir(parents=true)
+        p.mkdir(parents=True)
 
 
 ProgLang = namedtuple('ProgLang', ['language', 'ext', 'annotation'])
