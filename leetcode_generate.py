@@ -23,7 +23,7 @@ HOME = Path.cwd()
 SOLUTION_FOLDER_NAME = 'solutions'
 SOLUTION_FOLDER = Path.joinpath(HOME, SOLUTION_FOLDER_NAME)
 CONFIG_FILE = Path.joinpath(HOME, 'config.cfg')
-COOKIE_PATH = 'cookies.json'
+COOKIE_PATH = Path.joinpath(HOME, 'cookies.json')
 BASE_URL = 'https://leetcode.com'
 # If you have proxy, change PROXIES below
 PROXIES = None
@@ -467,7 +467,7 @@ class Leetcode:
 
         qname = '{id}-{title}'.format(id=str(qid).zfill(3), title=qtitle)
         print('begin download ' + qname)
-        path = Path.joinpath(SOLUTION_FOLDER, ,qname)
+        path = Path.joinpath(SOLUTION_FOLDER, qname)
         check_and_make_dir(path)
         for slt in slts:
             fname = '{title}.{ext}'.format(
