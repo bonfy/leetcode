@@ -88,8 +88,9 @@ def rep_unicode_in_code(code):
 
 
 def check_and_make_dir(dirname):
-    if not Path.exists(dirname):
-        Path.mkdir(dirname, parents=true)
+    p = Path(dirname)
+    if not p.exists():
+        p.make_dir(parents=true)
 
 
 ProgLang = namedtuple('ProgLang', ['language', 'ext', 'annotation'])
@@ -295,7 +296,7 @@ class Leetcode:
     def is_login(self):
         """ validate if the cookie exists and not overtime """
         api_url = self.base_url + '/api/problems/algorithms/'  # NOQA
-        if not Path.exists(COOKIE_PATH):
+        if not COOKIE_PATH.exists():
             return False
 
         with open(COOKIE_PATH, 'r') as f:
