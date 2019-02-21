@@ -27,29 +27,31 @@
 class Solution {
 public:
     void reorderList(ListNode* head) {
-        if (!head) return;
-        auto slow = head, fast = head;
-        while (fast && fast->next) {
-            slow = slow->next;
-            fast = fast->next->next;
+        if (!head || !head->next) return;
+        ListNode* p1 = head;
+        ListNode* p2 = head;
+        while (p2->next && p2->next->next) {
+            p1 = p1->next;
+            p2 = p2->next->next;
         }
-        fast = slow->next;
-        slow->next = nullptr;
-        slow = head;
-        ListNode* r = nullptr;
-        while (fast) {
-            auto next = fast->next;
-            fast->next = r;
-            r = fast;
-            fast = next;
+        ListNode* mid = p1;
+        p2 = nullptr;
+        p1 = p1->next;
+        mid->next = nullptr;
+        while (p1) {
+            ListNode* next = p1->next;
+            p1->next = p2;
+            p2 = p1;
+            p1 = next;
         }
-        while (r) {
-            auto r_next = r->next;
-            auto s_next = slow->next;
-            slow->next = r;
-            r->next = s_next;
-            slow = s_next;
-            r = r_next;
+        p1 = head;
+        while (p2) {
+            ListNode* n1 = p1->next;
+            ListNode* n2 = p2->next;
+            p1->next = p2;
+            p2->next = n1;
+            p1 = n1;
+            p2 = n2;
         }
     }
 };
