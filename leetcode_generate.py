@@ -20,7 +20,8 @@ from selenium import webdriver
 from collections import namedtuple, OrderedDict
 
 HOME = Path.cwd()
-SOLUTION_FOLDER = Path.joinpath(HOME, 'solutions')
+SOLUTION_FOLDER_NAME = 'solutions'
+SOLUTION_FOLDER = Path.joinpath(HOME, SOLUTION_FOLDER_NAME)
 CONFIG_FILE = Path.joinpath(HOME, 'config.cfg')
 COOKIE_PATH = 'cookies.json'
 BASE_URL = 'https://leetcode.com'
@@ -551,7 +552,8 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
                 language = ':lock:'
             else:
                 if item.solutions:
-                    dirname = 'solutions/{id}-{title}'.format(
+                    dirname = '{folder}/{id}-{title}'.format(
+                        folder=SOLUTION_FOLDER_NAME,
                         id=str(item.question_id).zfill(3),
                         title=item.question__title_slug,
                     )
