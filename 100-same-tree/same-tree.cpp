@@ -52,19 +52,30 @@
 class Solution {
 public:
     bool isSameTree(TreeNode* p, TreeNode* q) {
-        if (p == nullptr && q == nullptr) {
-            return true;
+        if (!p && !q) return true;
+        if (!p || !q) return false;
+        queue<TreeNode*> dp, dq;
+        dp.emplace(p);
+        dq.emplace(q);
+        while (!dp.empty() && !dq.empty()) {
+            TreeNode* a = dp.front();
+            dp.pop();
+            TreeNode* b = dq.front();
+            dq.pop();
+            if (a->val != b->val) return false;
+            if (a->left && b->left) {
+                dp.emplace(a->left);
+                dq.emplace(b->left);
+            } else if (a->left || b->left){
+                return false;
+            }
+            if (a->right && b->right) {
+                dp.emplace(a->right);
+                dq.emplace(b->right);
+            } else if (a->right || b->right){
+                return false;
+            }
         }
-        if (p == nullptr && q != nullptr) {
-            return false;
-        }
-        if (p != nullptr && q == nullptr) {
-            return false;
-        }
-        if (p->val != q->val) {
-            return false;
-        }
-        return isSameTree(p->left, q->left) && isSameTree(p->right, q->right);
-        
+        return dp.empty() && dq.empty();
     }
 };

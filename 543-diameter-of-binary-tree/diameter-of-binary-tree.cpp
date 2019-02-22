@@ -34,18 +34,15 @@
 class Solution {
 public:
     int diameterOfBinaryTree(TreeNode* root) {
-        int maxi = 0;
-        dfs(root, maxi);
-        return maxi;
+        int imax = 0;
+        search(root, imax);
+        return imax;
     }
-    int dfs(TreeNode* r, int& maxi) {
-        if (!r) {
-            return 0;
-        }
-        int lmax = 0, rmax = 0;
-        int ld = dfs(r->left, lmax);
-        int rd = dfs(r->right, rmax);
-        maxi = max(max(lmax, rmax), ld+rd);
-        return 1 + max(ld, rd);
+    int search(TreeNode* root, int& imax) {
+        if (!root) return 0;
+        int l = search(root->left, imax);
+        int r = search(root->right, imax);
+        imax = max(imax, l + r);
+        return 1 + max(l, r);
     }
 };

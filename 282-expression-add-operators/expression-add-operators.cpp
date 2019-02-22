@@ -38,23 +38,23 @@ class Solution {
 public:
     vector<string> addOperators(string num, int target) {
         vector<string> ans;
-        search(num, target, 0, 0, 0, "", ans);
+        search(num, target, "", 0, 0, 0, ans);
         return ans;
     }
-    void search(string num, int target, int idx, long val, long prev, string path, vector<string>& ans) {
+    void search(string num, int target, string path, int idx, long val, long last_v, vector<string>& ans) {
         if (idx == num.size() && val == target) {
             ans.emplace_back(path);
         }
         for (int i = idx; i < num.size(); i++) {
             if (num[idx] == '0' && i > idx) break;
-            auto s = num.substr(idx, i - idx + 1);
-            auto v = stol(s);
+            string str_n = num.substr(idx, i - idx + 1);
+            long v = stol(str_n);
             if (idx == 0) {
-                search(num, target, i + 1, v, v, s, ans);
+                search(num, target, str_n, i + 1, v, v, ans);
             } else {
-                search(num, target, i + 1, val + v, v, path + "+" + s, ans);
-                search(num, target, i + 1, val - v, -v, path + "-" + s, ans);
-                search(num, target, i + 1, val - prev + prev * v, prev * v, path + "*" + s, ans);
+                search(num, target, path + "+" + str_n, i + 1, val + v, v, ans);
+                search(num, target, path + "-" + str_n, i + 1, val - v, -v, ans);
+                search(num, target, path + "*" + str_n, i + 1, val - last_v + last_v * v, last_v * v, ans);
             }
         }
     }
