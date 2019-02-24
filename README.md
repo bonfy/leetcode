@@ -1,14 +1,14 @@
-# :pencil2: Leetcode Solutions with Cpp,Python,Python3
-Update time:  2019-02-23 22:04:02
-Auto created by [leetcode_generate](https://github.com/bonfy/leetcode)
-I have solved **722   /   945** problems
-while there are **140** problems still locked.
-If you want to use this tool please follow this [Usage Guide](https://github.com/bonfy/leetcode/blob/master/README_leetcode_generate.md)
-If you have any question, please give me an [issue](https://github.com/fr42k/leetcode/issues).
-If you are loving solving problems in leetcode, please contact me to enjoy it together!
-(Notes: :lock: means you need to buy a book from Leetcode to unlock the problem)
+# :pencil2: Leetcode Solutions with Cpp,Python,Python3  
+Update time:  2019-02-23 22:22:00  
+Auto created by [leetcode_generate](https://github.com/bonfy/leetcode)  
+I have solved **726   /   949** problems  
+while there are **140** problems still locked.  
+If you want to use this tool please follow this [Usage Guide](https://github.com/bonfy/leetcode/blob/master/README_leetcode_generate.md)  
+If you have any question, please give me an [issue](https://github.com/fr42k/leetcode/issues).  
+If you are loving solving problems in leetcode, please contact me to enjoy it together!  
+(Notes: :lock: means you need to buy a book from Leetcode to unlock the problem)  
 
-| # | Title | My Solution | Official Solution | Difficulty |
+| # | Title | My Solution | Official Solution | Difficulty |  
 |:---:|:---:|:---:|:---:|:---:|
 |1|[two-sum](https://leetcode.com/problems/two-sum)||[:memo:](https://leetcode.com/articles/two-sum/)|Easy|
 |2|[add-two-numbers](https://leetcode.com/problems/add-two-numbers)||[:memo:](https://leetcode.com/articles/add-two-numbers/)|Medium|
@@ -955,3 +955,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |1036|[rotting-oranges](https://leetcode.com/problems/rotting-oranges)||[:memo:](https://leetcode.com/articles/rotting-oranges/)|Easy|
 |1037|[minimum-number-of-k-consecutive-bit-flips](https://leetcode.com/problems/minimum-number-of-k-consecutive-bit-flips)||[:memo:](https://leetcode.com/articles/minimum-number-of-k-consecutive-bit-flips/)|Hard|
 |1038|[number-of-squareful-arrays](https://leetcode.com/problems/number-of-squareful-arrays)||[:memo:](https://leetcode.com/articles/number-of-squareful-arrays/)|Hard|
+|1039|[find-the-town-judge](https://leetcode.com/problems/find-the-town-judge)|[Cpp](https://github.com/fr42k/leetcode/blob/master/1039-find-the-town-judge/find-the-town-judge.cpp)||Easy|
+|1040|[maximum-binary-tree-ii](https://leetcode.com/problems/maximum-binary-tree-ii)|[Cpp](https://github.com/fr42k/leetcode/blob/master/1040-maximum-binary-tree-ii/maximum-binary-tree-ii.cpp)||Medium|
+|1041|[available-captures-for-rook](https://leetcode.com/problems/available-captures-for-rook)|[Cpp](https://github.com/fr42k/leetcode/blob/master/1041-available-captures-for-rook/available-captures-for-rook.cpp)||Easy|
+|1043|[grid-illumination](https://leetcode.com/problems/grid-illumination)|[Cpp](https://github.com/fr42k/leetcode/blob/master/1043-grid-illumination/grid-illumination.cpp)||Hard|

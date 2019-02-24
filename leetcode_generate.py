@@ -509,17 +509,17 @@ class Leetcode:
     def write_readme(self):
         """Write Readme to current folder"""
         languages_readme = ','.join([x.capitalize() for x in self.languages])
-        md = '''# :pencil2: Leetcode Solutions with {language}
-Update time:  {tm}
-Auto created by [leetcode_generate](https://github.com/bonfy/leetcode)
-I have solved **{num_solved}   /   {num_total}** problems
-while there are **{num_lock}** problems still locked.
-If you want to use this tool please follow this [Usage Guide](https://github.com/bonfy/leetcode/blob/master/README_leetcode_generate.md)
-If you have any question, please give me an [issue]({repo}/issues).
-If you are loving solving problems in leetcode, please contact me to enjoy it together!
-(Notes: :lock: means you need to buy a book from Leetcode to unlock the problem)
+        md = '''# :pencil2: Leetcode Solutions with {language}  
+Update time:  {tm}  
+Auto created by [leetcode_generate](https://github.com/bonfy/leetcode)  
+I have solved **{num_solved}   /   {num_total}** problems  
+while there are **{num_lock}** problems still locked.  
+If you want to use this tool please follow this [Usage Guide](https://github.com/bonfy/leetcode/blob/master/README_leetcode_generate.md)  
+If you have any question, please give me an [issue]({repo}/issues).  
+If you are loving solving problems in leetcode, please contact me to enjoy it together!  
+(Notes: :lock: means you need to buy a book from Leetcode to unlock the problem)  
 
-| # | Title | My Solution | Official Solution | Difficulty |
+| # | Title | My Solution | Official Solution | Difficulty |  
 |:---:|:---:|:---:|:---:|:---:|'''.format(
             language=languages_readme,
             tm=time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())),
