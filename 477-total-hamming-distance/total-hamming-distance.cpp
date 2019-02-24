@@ -26,19 +26,19 @@
 class Solution {
 public:
     int totalHammingDistance(vector<int>& nums) {
-        vector<int> zero(2, 0);
         int ans = 0;
         while (true) {
-            zero[0] = 0;
-            zero[1] = 0;
-            int cnt0 = 0;
-            for (int i = 0; i < nums.size(); i++) {
-                if (!nums[i]) cnt0++;
-                zero[nums[i]%2]++;
-                nums[i] = nums[i] >> 1;
+            int cnt = 0;
+            vector<int> pos(2, 0);
+            for (int& n: nums) {
+                if (!n) {
+                    cnt++;
+                }
+                pos[n & 1]++;
+                n >>= 1;
             }
-            ans += zero[0] * zero[1];
-            if (cnt0 == nums.size()) return ans;
+            ans += pos[0] * pos[1];
+            if (cnt == nums.size()) return ans;
         }
     }
 };

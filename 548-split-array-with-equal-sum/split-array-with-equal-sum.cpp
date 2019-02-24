@@ -27,29 +27,26 @@
 //
 
 
+
 class Solution {
 public:
     bool splitArray(vector<int>& nums) {
-        int i=0, j=nums.size()-2;
-        int s=0; vector<int> sum;
-        for(auto x: nums)
-        {
-            s+=x;
-            sum.push_back(s);
+        vector<int> sum(nums);
+        for (int i = 1; i < nums.size(); ++i) {
+            sum[i] += sum[i - 1];
         }
-        int total = sum.back();
-        for(j=nums.size()-2; j>i; j--)
-        {
-            for(i=0; i<j-1; i++)
-            {
-                if(sum[i]==total-sum[j]) //found i+1 = x, j = z
-                {
-                    int y = total - 4*sum[i] - nums[i+1] - nums[j]; 
-                    for(int k = i+1+1; k < j-1; k++)
-                        if(nums[k] == y) return true;
+        unordered_set<int> partsum;
+        for (int j = 3; j + 3 < nums.size(); ++j) {
+            if (j > 3 and nums[j] == 0 and nums[j - 1] == 0) continue;
+            partsum.clear();
+            for (int i = 1; i + 1 < j; ++i) {
+                if (sum[i - 1] == sum[j - 1] - sum[i]) {
+                    partsum.emplace(sum[i - 1]);
                 }
             }
-            i=0;
+            for (int k = j + 2; k + 1 < nums.size(); ++k) {
+                if (sum[k - 1] - sum[j] == sum.back() - sum[k] and partsum.count(sum.back() - sum[k])) return true; 
+            }
         }
         return false;
     }

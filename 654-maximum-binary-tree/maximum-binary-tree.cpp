@@ -47,20 +47,20 @@ public:
     TreeNode* constructMaximumBinaryTree(vector<int>& nums) {
         TreeNode* root = nullptr;
         stack<TreeNode*> stk;
-        for (int n: nums) {
-            TreeNode* nd = new TreeNode(n);
+        for (int i = 0; i < nums.size(); ++i) {
             TreeNode* left = nullptr;
-            while (!stk.empty() && n > stk.top()->val) {
+            while (stk.size() && stk.top()->val < nums[i]) {
                 left = stk.top();
                 stk.pop();
             }
-            nd->left = left;
+            TreeNode* cur = new TreeNode(nums[i]);
+            cur->left = left;
             if (stk.empty()) {
-                root = nd;
+                root = cur;
             } else {
-                stk.top()->right = nd;
+                stk.top()->right = cur;
             }
-            stk.emplace(nd);
+            stk.emplace(cur);
         }
         return root;
     }

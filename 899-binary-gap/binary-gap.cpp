@@ -81,22 +81,20 @@
 class Solution {
 public:
     int binaryGap(int N) {
+        int dist = 0;
         int imax = 0;
-        int f1 = -1, f2 = -1;
-        int i = 0;
-        while (N) {
-            int d = N & 1;
-            if (d) {
-                if (f1 == -1) {
-                    f1 = i;
-                } else {
-                    if (f2 != -1) f1 = f2;
-                    f2 = i;
-                }
-                imax = max(imax, f2 - f1);
-            }
+        while (N % 2 == 0) {
             N >>= 1;
-            i++;
+        }
+        while (N) {
+            N >>= 1;
+            dist++;
+            if (N & 1) {
+                if (dist > imax) {
+                    imax = dist;
+                }
+                dist = 0;
+            }
         }
         return imax;
     }

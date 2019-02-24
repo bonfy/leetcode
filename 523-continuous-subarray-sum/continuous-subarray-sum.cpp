@@ -31,15 +31,17 @@
 class Solution {
 public:
     bool checkSubarraySum(vector<int>& nums, int k) {
-        unordered_map<int, int> pos;
-        pos[0] = -1;
+        unordered_map<int, int> mp;
+        mp[0] = -1;
         for (int i = 0, sum = 0; i < nums.size(); i++) {
             sum += nums[i];
             if (k) sum %= k;
-            if (pos.count(sum)) {
-                if (i - pos[sum] > 1) return true;
+            if (mp.count(sum)) {
+                if (i - mp[sum] > 1) {
+                    return true;
+                }
             } else {
-                pos[sum] = i;
+                mp[sum] = i;
             }
         }
         return false;

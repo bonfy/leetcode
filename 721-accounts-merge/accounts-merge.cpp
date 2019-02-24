@@ -27,33 +27,35 @@
 class Solution {
 public:
     vector<vector<string>> accountsMerge(vector<vector<string>>& accounts) {
-        unordered_map<string, string> uf, owner;
-        unordered_map<string, set<string>> mails;
-        for (auto act: accounts) {
-            owner[act[1]] = act[0];
-            for (int i = 1; i < act.size(); i++) {
-                uf[act[i]] = act[i];
+        map<string, string> uf;
+        map<string, string> owner;
+        map<string, set<string>> acct;
+        for (int i = 0; i < accounts.size(); i++) {
+            owner[accounts[i][1]] = accounts[i][0];
+            for (int j = 1; j < accounts[i].size(); j++) {
+                uf[accounts[i][j]] = accounts[i][j];
             }
         }
-        for (auto act: accounts) {
-            auto r = ufind(uf, act[1]);
-            for (int i = 2; i < act.size(); i++) {
-                uf[ufind(uf, act[i])] = r;
+        for (int i = 0; i < accounts.size(); i++) {
+            string p = ufind(uf, accounts[i][1]);
+            for (int j = 2; j < accounts[i].size(); j++) {
+                uf[ufind(uf, accounts[i][j])] = p;
             }
         }
-        for (auto act: accounts) {
-            for (int i = 1; i < act.size(); i++) {
-                mails[ufind(uf, act[i])].emplace(act[i]);
+        for (int i = 0; i < accounts.size(); i++) {
+            for (int j = 1; j < accounts[i].size(); j++) {
+                acct[ufind(uf, accounts[i][j])].emplace(accounts[i][j]);
             }
         }
         vector<vector<string>> ans;
-        for (auto mail: mails) {
-            ans.emplace_back(mail.second.begin(), mail.second.end());
-            ans.back().insert(ans.back().begin(), owner[mail.first]);
+        for (auto p: acct) {
+            vector<string> mails(p.second.begin(), p.second.end());
+            mails.insert(mails.begin(), owner[p.first]);
+            ans.emplace_back(mails);
         }
         return ans;
     }
-    string ufind(unordered_map<string, string>& uf, string k) {
+    string& ufind(map<string, string>& uf, string& k) {
         if (uf[k] != k) {
             uf[k] = ufind(uf, uf[k]);
         }

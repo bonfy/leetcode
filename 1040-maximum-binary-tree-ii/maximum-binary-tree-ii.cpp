@@ -71,21 +71,18 @@
  */
 class Solution {
 public:
-    TreeNode* insertIntoMaxTree(TreeNode* root, int val, TreeNode* prev = nullptr) {
-        if (!root) {
-            if (prev)
-            prev->right = new TreeNode(val);
-            return nullptr;
+    TreeNode* insertIntoMaxTree(TreeNode* root, int val) {
+        auto node = new TreeNode(val);
+        auto cur = root;
+        if (cur->val < val) {
+            node->left = cur;
+            return node;
         }
-        if (val > root->val) {
-            auto nr = new TreeNode(val);
-            nr->left = root;
-            
-            if (prev) prev->right = nr;
-            return nr;
-        } else {
-            insertIntoMaxTree(root->right, val, root);
-            return root;
+        while (cur->right && cur->right->val > val) {
+            cur = cur->right;
         }
+        node->left = cur->right;
+        cur->right = node;
+        return root;
     }
 };

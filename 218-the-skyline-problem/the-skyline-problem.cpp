@@ -23,22 +23,22 @@
 class Solution {
 public:
     vector<pair<int, int>> getSkyline(vector<vector<int>>& buildings) {
-        map<int, set<int>> points;
+        map<int, set<int>> point_height;
         for (auto v: buildings) {
-            points[v[0]].emplace(v[2]);
-            points[v[1]].emplace(-v[2]);
+            point_height[v[0]].emplace(v[2]);
+            point_height[v[1]].emplace(-v[2]);
         }
-        int prev = 0;
         multiset<int> p_q;
+        int prev = 0;
         p_q.emplace(prev);
         vector<pair<int, int>> ans;
-        for (auto it: points) {
-            int x = it.first;
-            for (auto candi: it.second) {
-                if (candi > 0) {
-                    p_q.emplace(candi);
+        for (auto p: point_height) {
+            int x = p.first;
+            for (int y: p.second) {
+                if (y > 0) {
+                    p_q.emplace(y);
                 } else {
-                    p_q.erase(p_q.find(-candi));
+                    p_q.erase(p_q.find(-y));
                 }
             }
             int y = *p_q.rbegin();
