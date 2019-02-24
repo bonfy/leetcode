@@ -21,30 +21,29 @@
 class Solution {
 public:
     int findKthLargest(vector<int>& nums, int k) {
-        int n = nums.size();
-        if (!n) return -1;
-        int l = 0, h = n - 1;
+        return findk(nums, nums.size() - k, 0, nums.size() - 1);
+    }
+    int findk(vector<int>& nums, int k, int lo, int hi) {
+        int l = lo, h = hi;
         while (l < h) {
-            int m = partition(nums, l, h);
-            if (m == k - 1) {
-                return nums[m];
-            } else if (m < k - 1) {
-                l = m + 1;
+            int p = partition(nums, l, h);
+            if (p == k) return nums[p];
+            if (p < k) {
+                l = p + 1;
             } else {
-                h = m - 1;
+                h = p - 1;
             }
         }
         return nums[l];
     }
-    int partition(vector<int>& nums, int l, int h) {
-        int idx = rand() % (h - l + 1) + l;
-        swap(nums[idx], nums[l]);
+    int partition(vector<int>& nums, int lo, int hi) {
+        int l = lo, h = hi;
         int pivot = nums[l];
         while (l < h) {
-            while (l < h && pivot > nums[h]) --h;
-            if (l < h) swap(nums[l++], nums[h]);
-            while (l < h && nums[l] > pivot) ++l;
-            if (l < h) swap(nums[l], nums[h--]);
+            while (l < h && pivot < nums[h]) h--;
+            if (l < h) nums[l++] = nums[h];
+            while (l < h && nums[l] < pivot) l++;
+            if (l < h) nums[h--] = nums[l];
         }
         nums[l] = pivot;
         return l;

@@ -25,20 +25,18 @@
 class Solution {
 public:
     int findMaxLength(vector<int>& nums) {
-        for (int i = 0; i < nums.size(); i++) {
-            if (!nums[i]) nums[i] = -1;
-        }
-        int sum = 0, maxi = 0;
-        unordered_map<int, int> sum_idx;
-        sum_idx[0] = -1;
-        for (int i = 0; i < nums.size(); i++) {
-            sum += nums[i];
-            if (sum_idx.count(sum)) {
-                maxi = max(maxi, i - sum_idx[sum]);
+        int n = nums.size();
+        unordered_map<int, int> pos;
+        pos[0] = -1;
+        int imax = 0;
+        for (int i = 0, sum = 0; i < n; i++) {
+            sum += nums[i]? 1: -1;
+            if (pos.count(sum)) {
+                imax = max(imax, i - pos[sum]);
             } else {
-                sum_idx[sum] = i;
+                pos[sum] = i;
             }
         }
-        return maxi;
+        return imax;
     }
 };

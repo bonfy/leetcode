@@ -29,17 +29,17 @@
 class Solution {
 public:
     vector<Interval> merge(vector<Interval>& intervals) {
-        auto cmp = [](Interval a, Interval b) {return a.start < b.start || (a.start == b.start && a.end < b.end);};
-        sort(intervals.begin(), intervals.end(), cmp);
         int n = intervals.size();
         if (!n) return {};
+        sort(intervals.begin(), intervals.end(), [](Interval& a, Interval& b){return a.start < b.start;});
         vector<Interval> ans;
         ans.emplace_back(intervals[0]);
         for (int i = 1; i < n; i++) {
-            if (intervals[i].start > ans.back().end) {
+            int ts = intervals[i].start, te = intervals[i].end;
+            if (ans.back().end < ts) {
                 ans.emplace_back(intervals[i]);
             } else {
-                ans.back().end = max(ans.back().end, intervals[i].end);
+                ans.back().end = max(ans.back().end, te);
             }
         }
         return ans;

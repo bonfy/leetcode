@@ -35,9 +35,9 @@ public:
             p2 = p2->next->next;
         }
         ListNode* mid = p1;
-        p2 = nullptr;
         p1 = p1->next;
         mid->next = nullptr;
+        p2 = nullptr;
         while (p1) {
             ListNode* next = p1->next;
             p1->next = p2;

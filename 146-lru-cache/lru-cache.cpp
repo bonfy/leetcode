@@ -29,37 +29,37 @@
 
 class LRUCache {
 public:
-    LRUCache(int capacity): cap(capacity) {
+    LRUCache(int capacity): c(capacity) {
         
     }
     
     int get(int key) {
-        if (admin.count(key)) {
-            auto slice = admin[key];
-            mem.splice(mem.begin(), mem, slice);
-            return slice->second;
+        if (mem.count(key)) {
+            auto it = mem[key];
+            cache.splice(cache.begin(), cache, it);
+            return it->second;
         }
         return -1;
     }
     
     void put(int key, int value) {
-        if (admin.count(key)) {
-            auto slice = admin[key];
-            mem.splice(mem.begin(), mem, slice);
-            slice->second = value;
-            return;
+        if (mem.count(key)) {
+            auto it = mem[key];
+            cache.splice(cache.begin(), cache, it);
+            it->second = value;
+        } else {
+            if (c == mem.size()) {
+                auto to_del = cache.back().first;
+                cache.pop_back();
+                mem.erase(to_del);
+            }
+            cache.emplace_front(key, value);
+            mem[key] = cache.begin();
         }
-        if (cap == admin.size()) {
-            int to_del = mem.back().first;
-            mem.pop_back();
-            admin.erase(to_del);
-        }
-        mem.emplace_front(key, value);
-        admin[key] = mem.begin();
     }
-    int cap;
-    list<pair<int, int>> mem;
-    unordered_map<int, list<pair<int, int>>::iterator> admin;
+    int c;
+    unordered_map<int, list<pair<int, int>>::iterator> mem;
+    list<pair<int, int>> cache;
 };
 
 /**

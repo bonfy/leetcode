@@ -30,21 +30,20 @@
 class Solution {
 public:
     vector<Interval> insert(vector<Interval>& intervals, Interval newInterval) {
-        int s = newInterval.start, e = newInterval.end, i = 0, n = intervals.size();
+        int s = newInterval.start, e = newInterval.end;
+        auto iter = intervals.begin();
         vector<Interval> ans;
-        while (i < n) {
-            if (intervals[i].start > e) break;
-            if (intervals[i].end < s) {
-                ans.emplace_back(intervals[i]);
-            } else {
-                s = min(s, intervals[i].start);
-                e = max(e, intervals[i].end);
+        for (; iter != intervals.end(); iter++) {
+            if (iter->start > e) break;
+            else if (iter->end < s) ans.emplace_back(*iter);
+            else {
+                s = min(iter->start, s);
+                e = max(iter->end, e);
             }
-            i++;
         }
         ans.emplace_back(Interval(s, e));
-        while (i < n) {
-            ans.emplace_back(intervals[i++]);
+        for (; iter != intervals.end(); iter++) {
+            ans.emplace_back(*iter);
         }
         return ans;
     }

@@ -27,14 +27,14 @@ public:
     int pick(int target) {
         int ans = -1;
         int t = 0;
-        for (int i = 0; i < cache.size(); i++) {
-            if (cache[i] == target) {
-                if (ans == -1) {
-                    ans = i;
-                    t = 1;
+        for (int idx = 0; idx < cache.size(); ++idx) {
+            if (cache[idx] == target) {
+                if (t == 0) {
+                    ans = idx;
+                    ++t;
                 } else {
                     if (rand() % ++t == 0) {
-                        ans = i;
+                        ans = idx;
                     }
                 }
             }

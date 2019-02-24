@@ -33,37 +33,33 @@
 class Solution {
 public:
     int calculate(string s) {
-        long ans = 0, last_num = 0;
-        char sym = 0;
-        for (int i = 0; i < s.size(); i++) {
+        long ans = 0, last = 0;
+        char opr = 0;
+        for (int i = 0; i < s.size(); ++i) {
             if (s[i] == ' ') continue;
             if (isdigit(s[i])) {
-                int num = 0;
+                long tmp = 0;
                 while (i < s.size() && isdigit(s[i])) {
-                    num = num * 10 + s[i++] - '0';
+                    tmp = tmp * 10 + s[i++] - '0';
                 }
-                i--;
-                if (!sym) {
-                    ans = num;
-                    last_num = num;
-                } else {
-                    if (sym == '+') {
-                        ans += num;
-                        last_num = num;
-                    } else if (sym == '-') {
-                        ans -= num;
-                        last_num = -num;
-                    } else if (sym == '*') {
-                        ans = ans - last_num + last_num * num;
-                        last_num = last_num * num;
-                    } else if (sym == '/') {
-                        ans = ans - last_num + last_num / num;
-                        last_num = last_num / num;
-                    }
-                    sym = 0;
+                --i;
+                if (opr == '+') {
+                    ans += tmp;
+                    last = tmp;
+                } else if (opr == '-') {
+                    ans -= tmp;
+                    last = -tmp;
+                } else if (opr == '*') {
+                    ans += last * (tmp - 1);
+                    last *= tmp;
+                } else if (opr == '/') {
+                    ans = ans - last + last / tmp;
+                    last /= tmp;
+                } else if (opr == 0) {
+                    ans = last = tmp;
                 }
             } else {
-                sym = s[i];
+                opr = s[i];
             }
         }
         return ans;

@@ -21,17 +21,25 @@
 class Solution {
 public:
     int lengthOfLIS(vector<int>& nums) {
-        int n = nums.size();
-        if (!n) return 0;
-        vector<int> sorted;
-        for (int& e: nums) {
-            auto pos = lower_bound(sorted.begin(), sorted.end(), e);
-            if (pos == sorted.end()) {
-                sorted.emplace_back(e);
+        vector<int> LIS;
+        for (int n: nums) {
+            find_pos(LIS, n);
+        }
+        return LIS.size();
+    }
+    void find_pos(vector<int>& LIS, int n) {
+        int l = 0, h = LIS.size();
+        while (l < h) {
+            int m = l + (h - l) / 2;
+            if (LIS[m] < n) {
+                l = m + 1;
             } else {
-                *pos = e;
+                h = m;
             }
         }
-        return sorted.size();
+        if (l == LIS.size()) LIS.emplace_back(n);
+        else {
+            LIS[l] = n;
+        }
     }
 };

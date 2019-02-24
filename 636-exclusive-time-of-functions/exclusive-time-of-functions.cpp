@@ -43,9 +43,9 @@ public:
         int running = 0, prev = 0;
         for (auto log: logs) {
             int fn = stoi(log);
+            auto p = log.find("start");
             int t = stoi(log.substr(log.rfind(":") + 1));
-            auto pos = log.find("start");
-            if (pos != string::npos) {
+            if (p != string::npos) {
                 ans[running] += t - prev;
                 stk.emplace(running);
                 running = fn;
