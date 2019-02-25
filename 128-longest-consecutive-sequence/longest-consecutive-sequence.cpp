@@ -15,16 +15,15 @@
 class Solution {
 public:
     int longestConsecutive(vector<int>& nums) {
-        int ans = 0;
         unordered_map<int, int> bound;
+        int len = 0;
         for (int n: nums) {
             if (bound[n]) continue;
-            int left = bound[n - 1];
-            int right = bound[n + 1];
+            int left = bound[n - 1], right = bound[n + 1];
             bound[n] = left + right + 1;
+            len = max(len, bound[n]);
             bound[n - left] = bound[n + right] = bound[n];
-            ans = max(ans, bound[n]);
         }
-        return ans;
+        return len;
     }
 };

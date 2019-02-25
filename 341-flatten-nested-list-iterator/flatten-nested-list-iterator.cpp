@@ -44,36 +44,36 @@
  */
 class NestedIterator {
 public:
-        void init(vector<NestedInteger> &nestedList) {
-        int n = nestedList.size();
-        for (int i = n - 1; i >= 0; i--) {
-            stk.emplace(nestedList[i]);
-        }
-    }
     NestedIterator(vector<NestedInteger> &nestedList) {
-        init(nestedList);
+        fillstk(nestedList);
     }
 
     int next() {
-        int ans = stk.top().getInteger();
+        int n = stk.top().getInteger();
         stk.pop();
-        return ans;
+        return n;
     }
-
 
     bool hasNext() {
         while (!stk.empty()) {
-            if (stk.top().isInteger()) {
+            auto p = stk.top();
+            if (p.isInteger()) {
                 return true;
             } else {
-                auto v = stk.top().getList();
                 stk.pop();
-                init(v);
+                auto lst = p.getList();
+                fillstk(lst);
             }
         }
         return false;
     }
     stack<NestedInteger> stk;
+    void fillstk(vector<NestedInteger> &nestedList) {
+        int n = nestedList.size();
+        for (int i = n - 1; i >= 0; i--) {
+            stk.emplace(nestedList[i]);
+        }
+    }
 };
 
 /**

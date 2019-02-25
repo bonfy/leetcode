@@ -51,32 +51,30 @@ class Solution {
 public:
     int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
         unordered_set<string> dict(wordList.begin(), wordList.end());
-        if (!dict.count(endWord)) return 0;
-        int dist = 0;
         queue<string> q;
         q.emplace(beginWord);
+        int dist = 1;
         while (!q.empty()) {
             int n = q.size();
-            dist++;
             for (int i = 0; i < n; i++) {
                 auto p = q.front();
                 q.pop();
                 if (p == endWord) return dist;
-                dict.erase(p);
                 search(p, dict, q);
             }
+            dist++;
         }
         return 0;
     }
     void search(string s, unordered_set<string>& dict, queue<string>& q) {
+        dict.erase(s);
         for (int i = 0; i < s.size(); i++) {
             char c = s[i];
             for (int j = 0; j < 26; j++) {
                 s[i] = 'a' + j;
-                if (s[i] == c) continue;
                 if (dict.count(s)) {
-                    dict.erase(s);
                     q.emplace(s);
+                    dict.erase(s);
                 }
             }
             s[i] = c;

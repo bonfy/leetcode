@@ -35,18 +35,25 @@
 class Solution {
 public:
     vector<vector<int>> levelOrder(TreeNode* root) {
+        if (!root) return {};
         vector<vector<int>> ans;
-        helper(root, 0, ans);
-        return ans;
-    }
-    void helper(TreeNode* root, int d, vector<vector<int>>& ans) {
-        if (!root) return;
-        if (ans.size() <= d) {
-            ans.emplace_back(vector<int>{root->val});
-        } else {
-            ans[d].emplace_back(root->val);
+        vector<int> level;
+        queue<TreeNode*> q;
+        q.emplace(root);
+        q.emplace(nullptr);
+        while (!q.empty()) {
+            auto p = q.front();
+            q.pop();
+            if (p) {
+                level.emplace_back(p->val);
+                if (p->left) q.emplace(p->left);
+                if (p->right) q.emplace(p->right);
+            } else {
+                ans.emplace_back(level);
+                level.clear();
+                if (!q.empty()) q.emplace(p);
+            }
         }
-        helper(root->left, d + 1, ans);
-        helper(root->right, d + 1, ans);
+        return ans;
     }
 };

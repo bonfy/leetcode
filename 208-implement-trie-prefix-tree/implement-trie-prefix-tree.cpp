@@ -24,11 +24,12 @@
 
 class TrieNode {
 public:
-    TrieNode(): w(false) {
-        v.resize(26, nullptr);
-    }
     bool w;
-    vector<TrieNode*> v;
+    vector<TrieNode*> next;
+    TrieNode() {
+        w = false;
+        next.resize(26, nullptr);
+    }
 };
 class Trie {
 public:
@@ -40,38 +41,37 @@ public:
     /** Inserts a word into the trie. */
     void insert(string word) {
         auto p = root;
-        for (auto c: word) {
-            if (!p->v[c - 'a']) {
-                p->v[c - 'a'] = new TrieNode();
+        for (char c: word) {
+            if (!p->next[c - 'a']) {
+                p->next[c - 'a'] = new TrieNode();
             }
-            p = p->v[c - 'a'];
+            p = p->next[c - 'a'];
         }
         p->w = true;
     }
     
     /** Returns if the word is in the trie. */
     bool search(string word) {
-        auto p = query(word);
+        auto p = query(root, word);
         return p && p->w;
     }
     
     /** Returns if there is any word in the trie that starts with the given prefix. */
     bool startsWith(string prefix) {
-        auto p = query(prefix);
+        auto p = query(root, prefix);
         return p;
     }
     
-    TrieNode* query(string word) {
-        auto p = root;
-        for (auto c: word) {
-            if (!p->v[c - 'a']) {
+    TrieNode* query(TrieNode* r, string s) {
+        auto p = r;
+        for (char c: s) {
+            if (!p->next[c - 'a']) {
                 return nullptr;
             }
-            p = p->v[c - 'a'];
+            p = p->next[c - 'a'];
         }
         return p;
     }
-    
     TrieNode* root;
 };
 

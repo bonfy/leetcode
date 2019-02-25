@@ -23,14 +23,12 @@
 class Solution {
 public:
     vector<vector<int>> subsets(vector<int>& nums) {
-        int n = nums.size();
-        int nr = pow(2, n);
-        vector<vector<int>> ans(nr);
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < nr; j++) {
-                if ((j >> i) & 1) {
-                    ans[j].emplace_back(nums[i]);
-                }
+        vector<vector<int>> ans;
+        ans.emplace_back(vector<int>{});
+        for (int i = 0; i < nums.size(); ++i) {
+            for (int j = ans.size() - 1; j >= 0; --j) {
+                ans.emplace_back(ans[j]);
+                ans.back().emplace_back(nums[i]);
             }
         }
         return ans;

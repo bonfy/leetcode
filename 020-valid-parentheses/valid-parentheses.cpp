@@ -49,17 +49,13 @@
 class Solution {
 public:
     bool isValid(string s) {
-        int n = s.size();
-        if (n % 2) return false;
         unordered_map<char, char> mp{{')', '('}, {']', '['}, {'}', '{'}};
         stack<char> stk;
         for (char c: s) {
             if (mp.count(c)) {
-                if (!stk.empty() && mp[c] == stk.top()) {
-                    stk.pop();
-                } else {
-                    return false;
-                }
+                if (stk.empty()) return false;
+                if (stk.top() != mp[c]) return false;
+                stk.pop();
             } else {
                 stk.emplace(c);
             }

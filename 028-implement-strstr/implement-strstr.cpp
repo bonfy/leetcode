@@ -27,15 +27,36 @@
 class Solution {
 public:
     int strStr(string haystack, string needle) {
-        if (needle.empty()) return 0;
-        for (int i = 0; i < haystack.size(); i++) {
-            int j = 0, k = i;
-            while (k < haystack.size() && j < needle.size() && haystack[k] == needle[j]) {
-                k++;
-                j++;
+        /*
+        int m = haystack.size(), n = needle.size();
+        if (!n) return 0;
+        for (int i = 0; i <= m - n; i++) {
+            int j = 0;
+            for (; j < n; j++) {
+                if (haystack[i + j] != needle[j]) {
+                    break;
+                }
             }
-            if (j == needle.size()) return i;
+            if (j == n) return i;
         }
+        return -1;
+        */
+        int i = 0, j = -1;
+        int m = haystack.size(), n = needle.size();
+        vector<int> fail(n, -1);
+        while (i + 1 < n) {
+            if (j == -1 || needle[i] == needle[j]) {
+                fail[++i] = ++j;
+            } else {
+                j = fail[j];
+            }
+        }
+        for (i = 0, j = 0; i < m && j < n; i++, j++) {
+            while (j >= 0 && haystack[i] != needle[j]) {
+                j = fail[j];
+            }
+        }
+        if (j == n) return i - j;
         return -1;
     }
 };

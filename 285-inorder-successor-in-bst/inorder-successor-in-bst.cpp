@@ -43,11 +43,15 @@
 class Solution {
 public:
     TreeNode* inorderSuccessor(TreeNode* root, TreeNode* p) {
-        if (!root) return nullptr;
-        if (root->val > p->val) {
-            return inorderSuccessor(root->left, p)? inorderSuccessor(root->left, p): root;
-        } else {
-            return inorderSuccessor(root->right, p);
+        TreeNode* cand = nullptr;
+        while (root) {
+            if (root->val > p->val) {
+                cand = root;
+                root = root->left;
+            } else {
+                root = root->right;
+            }
         }
+        return cand;
     }
 };
