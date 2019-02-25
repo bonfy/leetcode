@@ -23,23 +23,24 @@ public:
     int lengthOfLIS(vector<int>& nums) {
         vector<int> LIS;
         for (int n: nums) {
-            find_pos(LIS, n);
+            fitLIS(LIS, n);
         }
         return LIS.size();
     }
-    void find_pos(vector<int>& LIS, int n) {
-        int l = 0, h = LIS.size();
+    void fitLIS(vector<int>& nums, int n) {
+        int l = 0, h = nums.size();
         while (l < h) {
             int m = l + (h - l) / 2;
-            if (LIS[m] < n) {
+            if (nums[m] < n) {
                 l = m + 1;
             } else {
                 h = m;
             }
         }
-        if (l == LIS.size()) LIS.emplace_back(n);
-        else {
-            LIS[l] = n;
+        if (l == nums.size()) {
+            nums.emplace_back(n);
+        } else {
+            nums[l] = n;
         }
     }
 };

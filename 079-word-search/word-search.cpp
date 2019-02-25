@@ -22,13 +22,14 @@
 class Solution {
 public:
     bool exist(vector<vector<char>>& board, string word) {
+        if (word.empty()) return true;
         int m = board.size();
         if (!m) return false;
         int n = board[0].size();
         if (!n) return false;
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                if (dfs(board, word, i, j, 0)) {
+                if (search(board, i, j, m, n, word, 0)) {
                     return true;
                 }
             }
@@ -36,18 +37,13 @@ public:
         return false;
     }
     vector<int> dir{0, 1, 0, -1, 0};
-    bool dfs(vector<vector<char>>& board, string word, int i, int j, int idx) {
-        if (i < 0 || j < 0 || i >= board.size() || j >= board[0].size() || idx >= word.size() || board[i][j] != word[idx]) {
-            return false;
-        }
-        if (idx == word.size() - 1) {
-            return true;
-        }
-        char c = board[i][j];
-        board[i][j] = '#';
+    bool search(vector<vector<char>>& board, int i, int j, int m, int n, string& word, int idx) {
+        if (idx == word.size()) return true;
+        if (i < 0 || j < 0 || i >= m || j >= n || board[i][j] != word[idx]) return false;
+        auto c = board[i][j];
+        board[i][j] = -1;
         for (int k = 0; k < 4; k++) {
-            if (dfs(board, word, i + dir[k], j + dir[k + 1], idx + 1)) {
-                board[i][j] = c;
+            if (search(board, i + dir[k], j + dir[k + 1], m, n, word, idx + 1)) {
                 return true;
             }
         }

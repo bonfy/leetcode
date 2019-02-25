@@ -33,33 +33,38 @@
 class Solution {
 public:
     int calculate(string s) {
-        long ans = 0, last = 0;
-        char opr = 0;
-        for (int i = 0; i < s.size(); ++i) {
+        int ans = 0, last_v = 0;
+        char sym = 0;
+        int n = s.size();
+        for (int i = 0; i < n; i++) {
             if (s[i] == ' ') continue;
             if (isdigit(s[i])) {
-                long tmp = 0;
-                while (i < s.size() && isdigit(s[i])) {
-                    tmp = tmp * 10 + s[i++] - '0';
+                int num = 0;
+                while (i < n && isdigit(s[i])) {
+                    num = num * 10 + s[i++] - '0';
                 }
-                --i;
-                if (opr == '+') {
-                    ans += tmp;
-                    last = tmp;
-                } else if (opr == '-') {
-                    ans -= tmp;
-                    last = -tmp;
-                } else if (opr == '*') {
-                    ans += last * (tmp - 1);
-                    last *= tmp;
-                } else if (opr == '/') {
-                    ans = ans - last + last / tmp;
-                    last /= tmp;
-                } else if (opr == 0) {
-                    ans = last = tmp;
+                i--;
+                if (sym == 0) {
+                    ans = num;
+                    last_v = num;
+                } else {
+                    if (sym == '+') {
+                        ans += num;
+                        last_v = num;
+                    } else if (sym == '-') {
+                        ans -= num;
+                        last_v = -num;
+                    } else if (sym == '*') {
+                        ans = ans - last_v + last_v * num;
+                        last_v *= num;
+                    } else if (sym == '/') {
+                        ans = ans - last_v + last_v / num;
+                        last_v /= num;
+                    }
+                    sym = 0;
                 }
             } else {
-                opr = s[i];
+                sym = s[i];
             }
         }
         return ans;

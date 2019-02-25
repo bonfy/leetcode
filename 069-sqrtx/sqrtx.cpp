@@ -25,15 +25,10 @@
 class Solution {
 public:
     int mySqrt(int x) {
-        int l = 0, h = x;
-        while (l < h) {
-            long m = l + (h - l) / 2 + 1;
-            if (m * m > x) {
-                h = m - 1;
-            } else {
-                l = m;
-            }
+        long r = x;
+        while (r * r > x) {
+            r = (r + x / r) / 2;
         }
-        return l;
+        return r;
     }
 };
