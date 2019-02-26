@@ -34,20 +34,26 @@ class Solution {
 public:
     vector<double> averageOfLevels(TreeNode* root) {
         if (!root) return {};
+        double level = 0.0;
+        int cnt = 0;
+        vector<double> ans;
         queue<TreeNode*> q;
         q.emplace(root);
-        vector<double> ans;
+        q.emplace(nullptr);
         while (!q.empty()) {
-            double avg = 0.0;
-            int n = q.size();
-            for (int i = 0; i < n; i++) {
-                auto p = q.front();
-                q.pop();
-                avg += p->val;
+            auto p = q.front();
+            q.pop();
+            if (p) {
+                level += p->val;
+                cnt++;
                 if (p->left) q.emplace(p->left);
                 if (p->right) q.emplace(p->right);
+            } else {
+                ans.emplace_back(level / cnt);
+                level = 0.0;
+                cnt = 0;
+                if (!q.empty()) q.emplace(p);
             }
-            ans.emplace_back(avg / n);
         }
         return ans;
     }

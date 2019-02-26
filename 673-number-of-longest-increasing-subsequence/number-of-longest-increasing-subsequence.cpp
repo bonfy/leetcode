@@ -27,25 +27,24 @@ class Solution {
 public:
     int findNumberOfLIS(vector<int>& nums) {
         int n = nums.size();
-        if (!n) return 0;
+        if (n <= 1) return n;
         vector<pair<int, int>> dp(n, {1, 1});
-        int ans = 1, maxlen = 1;
-        for (int i = 1; i < n; ++i) {
-            for (int j = 0; j < i; ++j) {
-                if (nums[j] < nums[i]) {
-                    if (dp[j].first + 1 > dp[i].first) {
-                        dp[i].first = dp[j].first + 1;
-                        dp[i].second = dp[j].second;
-                    } else if (dp[j].first + 1 == dp[i].first) {
+        int maxlen = 0, ans = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < i; j++) {
+                if (nums[i] > nums[j]) {
+                    if (dp[i].first == dp[j].first + 1) {
                         dp[i].second += dp[j].second;
+                    } else if (dp[i].first < dp[j].first + 1) {
+                        dp[i] = {dp[j].first + 1, dp[j].second};
                     }
                 }
             }
-            if (maxlen < dp[i].first) {
+            if (maxlen == dp[i].first) {
+                ans += dp[i].second;
+            } else if (maxlen < dp[i].first) {
                 maxlen = dp[i].first;
                 ans = dp[i].second;
-            } else if (maxlen == dp[i].first) {
-                ans += dp[i].second;
             }
         }
         return ans;

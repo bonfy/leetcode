@@ -28,23 +28,8 @@ class Solution {
 public:
     vector<string> removeInvalidParentheses(string s) {
         vector<string> ans;
-        rm(s, 0, 0, ans, {'(', ')'});
-        //cout << rm_fb(s, 0, {'(', ')'}) << endl;
+        rm(s, 0, 0, ans, {'(',')'});
         return ans;
-    }
-    string rm_fb(string s, int last_i, vector<char> par) {
-        for (int i = last_i, stk = 0; i < s.size(); i++) {
-            if (s[i] == par[0]) stk++;
-            if (s[i] == par[1]) stk--;
-            if (stk >= 0) continue;
-            return rm_fb(s.substr(0, i) + s.substr(i + 1), i, par);
-        }
-        string rs(s.rbegin(), s.rend());
-        if (par[1] == ')') {
-            return rm_fb(rs, 0, {')', '('});
-        } else {
-            return rs;
-        }
     }
     void rm(string s, int last_i, int last_j, vector<string>& ans, vector<char> par) {
         for (int i = last_i, stk = 0; i < s.size(); i++) {
@@ -59,7 +44,7 @@ public:
             return;
         }
         string rs(s.rbegin(), s.rend());
-        if (par[1] == ')') {
+        if (par[0] == '(') {
             rm(rs, 0, 0, ans, {')', '('});
         } else {
             ans.emplace_back(rs);

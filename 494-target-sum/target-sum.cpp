@@ -34,7 +34,7 @@ class Solution {
 public:
     int findTargetSumWays(vector<int>& nums, int S) {
         int sum = accumulate(nums.begin(), nums.end(), 0);
-        if (sum < S || (sum + S) & 1) return 0;
+        if (sum < S || (sum + S) % 2) return 0;
         return subsum(nums, (sum + S) / 2);
     }
     int subsum(vector<int>& nums, int s) {
@@ -42,7 +42,7 @@ public:
         dp[0] = 1;
         for (int n: nums) {
             for (int i = s; i >= n; i--) {
-                    dp[i] += dp[i - n];
+                dp[i] += dp[i - n];
             }
         }
         return dp[s];

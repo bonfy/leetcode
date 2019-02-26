@@ -70,21 +70,19 @@ public:
     bool isMatch(string s, string p) {
         int m = s.size(), n = p.size();
         int i = 0, j = 0, last_i = -1, last_star = -1;
-        while (i < m) {
+        while (i < s.size()) {
             if (j < n && (s[i] == p[j] || p[j] == '?')) {
-                i++;
-                j++;
-            } else if (j < n && p[j] == '*') {
+                ++i;
+                ++j;
+            } else if (j < n &&  p[j] == '*') {
                 last_i = i;
                 last_star = j++;
-            } else if (last_star >= 0) {
+            } else if (last_star != -1) {
                 i = ++last_i;
                 j = last_star + 1;
-            } else {
-                return false;
-            }
+            } else return false;
         }
-        while (j < n && p[j] == '*') j++;
-        return j == n;
+        while (j < p.size() && p[j] == '*') ++j;
+        return j == p.size();
     }
 };

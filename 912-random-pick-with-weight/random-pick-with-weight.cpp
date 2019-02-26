@@ -43,9 +43,17 @@ public:
     }
     
     int pickIndex() {
-        int r = rand() % lim;
-        auto pos = upper_bound(sum.begin(), sum.end(), r);
-        return pos - sum.begin();
+        int r = 1 + rand() % lim;
+        int l = 0, h = sum.size() - 1;
+        while (l < h) {
+            int m = l + (h - l) / 2;
+            if (sum[m] < r) {
+                l = m + 1;
+            } else {
+                h = m;
+            }
+        }
+        return l;
     }
     vector<int> sum;
     int lim;

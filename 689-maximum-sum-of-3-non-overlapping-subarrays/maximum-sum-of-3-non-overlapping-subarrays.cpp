@@ -26,8 +26,8 @@
 class Solution {
 public:
     vector<int> maxSumOfThreeSubarrays(vector<int>& nums, int k) {
-        int n = nums.size();
-        vector<int> sum(n + 1, 0), posl(n, 0), posr(n, n - k), ans(0, 3);
+        int n = nums.size(), maxs = INT_MIN;
+        vector<int> sum(n + 1, 0), lpos(n, 0), rpos(n, n - k), ans(3);
         for (int i = 0; i < n; i++) {
             sum[i + 1] = sum[i] + nums[i];
         }
@@ -35,26 +35,25 @@ public:
             int tmp = sum[i] - sum[i - k];
             if (tmp > lmax) {
                 lmax = tmp;
-                posl[i] = i - k;
+                lpos[i] = i - k;
             } else {
-                posl[i] = posl[i - 1];
+                lpos[i] = lpos[i - 1];
             }
         }
         for (int i = n - 2 * k - 1, rmax = sum[n] - sum[n - k]; i >= k; i--) {
             int tmp = sum[i + 2 * k] - sum[i + k];
             if (tmp > rmax) {
                 rmax = tmp;
-                posr[i] = i + k;
+                rpos[i] = i + k;
             } else {
-                posr[i] = posr[i + 1];
+                rpos[i] = rpos[i + 1];
             }
         }
-        int imax = INT_MIN;
         for (int i = k; i <= n - 2 * k; i++) {
-            int l = posl[i], r = posr[i];
+            int l = lpos[i], r = rpos[i];
             int tmp = sum[l + k] - sum[l] + sum[i + k] - sum[i] + sum[r + k] - sum[r];
-            if (tmp > imax) {
-                imax = tmp;
+            if (tmp > maxs) {
+                maxs = tmp;
                 ans = {l, i, r};
             }
         }

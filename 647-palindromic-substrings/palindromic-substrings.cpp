@@ -36,19 +36,18 @@ class Solution {
 public:
     int countSubstrings(string s) {
         int ans = 0;
-        int n = s.size();
-        for (int i = 0; i < n; i++) {
-            ans += cntPal(s, i, i);
-            ans += cntPal(s, i, i + 1);
-        }
-        return ans;
-    }
-    int cntPal(string s, int l, int h) {
-        int ans = 0;
-        while (0 <= l && h < s.size() && s[l] == s[h]) {
-            ans++;
-            l--;
-            h++;
+        function<int (int, int)> cnt = [&](int l, int h) {
+            int k = 0;
+            while (0 <= l and h < s.size() and s[l] == s[h]) {
+                ++k;
+                --l;
+                ++h;
+            }
+            return k;
+        };
+        for (int i = 0; i < s.size(); ++i) {
+            ans += cnt(i, i);
+            ans += cnt(i, i + 1);
         }
         return ans;
     }

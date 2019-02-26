@@ -19,15 +19,14 @@
 class Solution {
 public:
     string addBinary(string a, string b) {
-        int i = a.size() - 1, j = b.size() - 1;
-        int carry = 0;
         string ans;
-        while (i >= 0 || j >= 0 || carry) {
-            int sum = carry;
-            if (i >= 0) sum += a[i--] - '0';
-            if (j >= 0) sum += b[j--] - '0';
-            carry = sum / 2;
-            ans.insert(ans.begin(), (sum % 2) + '0');
+        int la = a.size() - 1, lb = b.size() - 1, c = 0;
+        while (la >= 0 || lb >= 0 || c) {
+            int sum = c;
+            if (la >= 0) sum += a[la--] - '0';
+            if (lb >= 0) sum += b[lb--] - '0';
+            c = sum / 2;
+            ans.insert(ans.begin(), 1, sum % 2 + '0');
         }
         return ans;
     }

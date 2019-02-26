@@ -40,41 +40,20 @@ class Solution {
 public:
     int numberOfArithmeticSlices(vector<int>& A) {
         int n = A.size();
-        if (n <= 2) return 0;
-        vector<unordered_map<int, int>> dp(n);
-        // 等差数列个数
+        if (n < 3) return 0;
         int ans = 0;
-        // 最长等差数列
-        // int maxlen = 0, last = -1, df = 0;
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < i; j++) {
-                long diff = (long)A[i] - (long)A[j];
+        vector<unordered_map<int, int>> dp(n);
+        for (int i = 1; i < n; ++i) {
+            for (int j = 0; j < i; ++j) {
+                long diff = long(A[i]) - long(A[j]);
                 if (diff > INT_MAX || diff < INT_MIN) continue;
-                // dp[i][diff] + 1: 结尾为A[i], 公差为diff的等差数列的长度
                 dp[i][diff] += 1;
                 if (dp[j].count(diff)) {
                     dp[i][diff] += dp[j][diff];
                     ans += dp[j][diff];
                 }
-                /* 最长等差数列
-                if (dp[i][diff] > maxlen) {
-                    maxlen = dp[i][diff];
-                    df = diff;
-                    last = A[i];
-                }
-                */
             }
         }
-        /* 最长等差数列
-        vector<int> as(maxlen + 1);
-        for (int i = maxlen; i >= 0; i--) {
-            as[i] = last;
-            last -= df;
-        }
-        for (int v: as) {
-            cout << v << endl;
-        }
-        */
         return ans;
     }
 };
