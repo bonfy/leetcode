@@ -16,14 +16,17 @@
 class Solution {
 public:
     int minSubArrayLen(int s, vector<int>& nums) {
-        int minlen = INT_MAX;
+        int imin = INT_MAX;
         for (int slow = 0, fast = 0, sum = 0; fast < nums.size(); fast++) {
             sum += nums[fast];
             while (sum >= s) {
-                minlen = min(minlen, fast - slow + 1);
+                int len = fast - slow + 1;
+                if (len < imin) {
+                    imin = len;
+                }
                 sum -= nums[slow++];
             }
         }
-        return minlen == INT_MAX? 0: minlen;
+        return imin == INT_MAX? 0 : imin;
     }
 };

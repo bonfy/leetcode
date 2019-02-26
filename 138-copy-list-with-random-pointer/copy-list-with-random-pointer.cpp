@@ -26,25 +26,32 @@
 //
 
 
-/**
- * Definition for singly-linked list with a random pointer.
- * struct RandomListNode {
- *     int label;
- *     RandomListNode *next, *random;
- *     RandomListNode(int x) : label(x), next(NULL), random(NULL) {}
- * };
- */
+/*
+// Definition for a Node.
+class Node {
+public:
+    int val;
+    Node* next;
+    Node* random;
+
+    Node() {}
+
+    Node(int _val, Node* _next, Node* _random) {
+        val = _val;
+        next = _next;
+        random = _random;
+    }
+};
+*/
 class Solution {
 public:
-    RandomListNode *copyRandomList(RandomListNode *head) {
+    Node* copyRandomList(Node* head) {
         if (!head) return head;
-        unordered_map<RandomListNode*, RandomListNode*> image;
-        for (RandomListNode* l = head; l; l = l->next) {
-            if (!image.count(l)) {
-                image[l] = new RandomListNode(l->label);
-            }
+        unordered_map<Node*, Node*> image;
+        for (auto l = head; l; l = l->next) {
+            image[l] = new Node(l->val, nullptr, nullptr);
         }
-        for (RandomListNode* l = head; l; l = l->next) {
+        for (auto l = head; l; l = l->next) {
             image[l]->next = image[l->next];
             image[l]->random = image[l->random];
         }

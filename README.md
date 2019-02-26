@@ -1,5 +1,5 @@
 # :pencil2: Leetcode Solutions with Cpp,Python,Python3  
-Update time:  2019-02-26 07:45:47  
+Update time:  2019-02-26 14:01:24  
 Auto created by [leetcode_generate](https://github.com/bonfy/leetcode)  
 I have solved **728   /   949** problems  
 while there are **140** problems still locked.  
@@ -155,7 +155,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |143|[reorder-list](https://leetcode.com/problems/reorder-list)|[Cpp](https://github.com/fr42k/leetcode/blob/master/143-reorder-list/reorder-list.cpp)||Medium|
 |144|[binary-tree-preorder-traversal](https://leetcode.com/problems/binary-tree-preorder-traversal)||[:memo:](https://leetcode.com/articles/binary-tree-preorder-transversal/)|Medium|
 |145|[binary-tree-postorder-traversal](https://leetcode.com/problems/binary-tree-postorder-traversal)|[Cpp](https://github.com/fr42k/leetcode/blob/master/145-binary-tree-postorder-traversal/binary-tree-postorder-traversal.cpp)|[:memo:](https://leetcode.com/articles/binary-tree-postorder-transversal/)|Hard|
-|146|[lru-cache](https://leetcode.com/problems/lru-cache)|[Cpp](https://github.com/fr42k/leetcode/blob/master/146-lru-cache/lru-cache.cpp)||Hard|
+|146|[lru-cache](https://leetcode.com/problems/lru-cache)|[Cpp](https://github.com/fr42k/leetcode/blob/master/146-lru-cache/lru-cache.cpp)|[:memo:](https://leetcode.com/articles/lru-cache/)|Hard|
 |147|[insertion-sort-list](https://leetcode.com/problems/insertion-sort-list)|||Medium|
 |148|[sort-list](https://leetcode.com/problems/sort-list)|||Medium|
 |149|[max-points-on-a-line](https://leetcode.com/problems/max-points-on-a-line)||[:memo:](https://leetcode.com/articles/max-points-on-a-line/)|Hard|
@@ -814,7 +814,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |889|[buddy-strings](https://leetcode.com/problems/buddy-strings)||[:memo:](https://leetcode.com/articles/buddy-strings/)|Easy|
 |890|[lemonade-change](https://leetcode.com/problems/lemonade-change)||[:memo:](https://leetcode.com/articles/lemonade-change/)|Easy|
 |891|[score-after-flipping-matrix](https://leetcode.com/problems/score-after-flipping-matrix)||[:memo:](https://leetcode.com/articles/score-after-flipping-matrix/)|Medium|
-|892|[shortest-subarray-with-sum-at-least-k](https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k)||[:memo:](https://leetcode.com/articles/shortest-subarray-with-sum-atleast-k/)|Hard|
+|892|[shortest-subarray-with-sum-at-least-k](https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k)|[Cpp](https://github.com/fr42k/leetcode/blob/master/892-shortest-subarray-with-sum-at-least-k/shortest-subarray-with-sum-at-least-k.cpp)|[:memo:](https://leetcode.com/articles/shortest-subarray-with-sum-atleast-k/)|Hard|
 |893|[all-nodes-distance-k-in-binary-tree](https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree)||[:memo:](https://leetcode.com/articles/all-nodes-distance-k-in-binary-tree/)|Medium|
 |894|[random-pick-with-blacklist](https://leetcode.com/problems/random-pick-with-blacklist)||[:memo:](https://leetcode.com/articles/random-pick-with-blacklist/)|Hard|
 |895|[shortest-path-to-get-all-keys](https://leetcode.com/problems/shortest-path-to-get-all-keys)||[:memo:](https://leetcode.com/articles/shortest-path-to-get-all-keys/)|Hard|
