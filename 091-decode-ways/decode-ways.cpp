@@ -29,21 +29,22 @@
 class Solution {
 public:
     int numDecodings(string s) {
-        if (s.empty()) return 0;
-        int f2 = 1, f1 = decode(s.substr(0, 1));
-        for (int i = 1; i < s.size(); i++) {
-            int cur = f1 * decode(s.substr(i, 1)) + f2 * decode(s.substr(i - 1, 2));
+        int n = s.size();
+        if (!n) return 0;
+        int f2 = 1, f1 = decodew(s.substr(0, 1));
+        for (int i = 1; i < n; i++) {
+            int f3 = f1 * decodew(s.substr(i, 1)) + f2 * decodew(s.substr(i - 1, 2));
             f2 = f1;
-            f1 = cur;
+            f1 = f3;
         }
         return f1;
     }
-    int decode(string s) {
+    int decodew(string s) {
         if (s.size() == 1) {
-            return s == "0"? 0: 1;
+            return s[0] == '0'? 0: 1;
         } else {
             int n = stoi(s);
-            return 10 <= n && n <= 26;
+            return 10 <= n && n <= 26? 1: 0;
         }
     }
 };

@@ -69,26 +69,26 @@ class Solution {
 public:
     vector<string> fullJustify(vector<string>& words, int maxWidth) {
         vector<string> ans;
-        int n = words.size();
-        for (int i = 0, j = 0; i < n; i = j) {
-            int width = 0;
-            for (j = i; j < n && words[j].size() + width + j - i <= maxWidth; j++) {
+        for (int i = 0, j = 0; i < words.size(); i = j) {
+            int width = words[i].size();
+            for (j = i + 1; j < words.size() && width + words[j].size() + j - i <= maxWidth; j++) {
                 width += words[j].size();
             }
             int gap = 1, extra = 0;
-            if (j != i + 1 && j < n) {
-                int u = maxWidth - width;
-                int d = j - i - 1;
-                gap = u / d;
-                extra = u % d;
+            if (j < words.size() && j != i + 1) {
+                gap = (maxWidth - width) / (j - i - 1);
+                extra = (maxWidth - width) % (j - i - 1);
             }
-            string line(words[i]);
+            string line = words[i];
             for (int k = i + 1; k < j; k++) {
                 line += string(gap, ' ');
-                if (extra-- > 0) line += " ";
+                if (extra > 0) {
+                    extra--;
+                    line += " ";
+                }
                 line += words[k];
             }
-            if (maxWidth - line.size() > 0) {
+            if (line.size() < maxWidth) {
                 line += string(maxWidth - line.size(), ' ');
             }
             ans.emplace_back(line);

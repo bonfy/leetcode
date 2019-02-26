@@ -26,11 +26,11 @@
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
-        int p10 = 0, p11= INT_MIN;
-        for (int p: prices) {
-            p10 = max(p10, p11 + p);
-            p11 = max(p11, -p);
+        int p_i10 = 0, p_i11 = INT_MIN;
+        for (int n: prices) {
+            p_i10 = max(p_i10, p_i11 + n);
+            p_i11 = max(p_i11, -n);
         }
-        return p10;
+        return p_i10;
     }
 };

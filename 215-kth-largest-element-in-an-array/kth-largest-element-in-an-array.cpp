@@ -21,29 +21,28 @@
 class Solution {
 public:
     int findKthLargest(vector<int>& nums, int k) {
-        return findk(nums, nums.size() - k, 0, nums.size() - 1);
-    }
-    int findk(vector<int>& nums, int k, int lo, int hi) {
-        int l = lo, h = hi;
+        int l = 0, h = nums.size() - 1;
+        k -= 1;
         while (l < h) {
-            int p = partition(nums, l, h);
-            if (p == k) return nums[p];
-            if (p < k) {
-                l = p + 1;
+            int idx = partition(nums, l, h);
+            if (idx == k) return nums[idx];
+            if (idx < k) {
+                l = idx + 1;
             } else {
-                h = p - 1;
+                h = idx - 1;
             }
         }
         return nums[l];
     }
-    int partition(vector<int>& nums, int lo, int hi) {
-        int l = lo, h = hi;
+    int partition(vector<int>& nums, int l, int h) {
+        int ix = random() % (h - l + 1) + l;
+        swap(nums[l], nums[ix]);
         int pivot = nums[l];
         while (l < h) {
-            while (l < h && pivot < nums[h]) h--;
-            if (l < h) nums[l++] = nums[h];
-            while (l < h && nums[l] < pivot) l++;
-            if (l < h) nums[h--] = nums[l];
+            while (l < h && pivot > nums[h]) h--;
+            if (l < h) swap(nums[l++], nums[h]); 
+            while (l < h && nums[l] > pivot) l++;
+            if (l < h) swap(nums[l], nums[h--]); // 此处h-- 对边界更改 不可少
         }
         nums[l] = pivot;
         return l;

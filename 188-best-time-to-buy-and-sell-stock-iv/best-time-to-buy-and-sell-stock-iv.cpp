@@ -27,22 +27,23 @@ class Solution {
 public:
     int maxProfit(int k, vector<int>& prices) {
         int n = prices.size();
-        if (n < 2) return 0;
         if (k >= n / 2) {
-            int ans = 0;
-            for (int i = 1; i < n; i++) {
-                ans += max(0, prices[i] - prices[i - 1]);
+            int p10 = 0, p11 = INT_MIN;
+            for (int p: prices) {
+                int old_p10 = p10;
+                p10 = max(p10, p11 + p);
+                p11 = max(p11, old_p10 - p);
             }
-            return ans;
-        }
-        vector<vector<int>> dp(k + 1, vector<int>(n, 0));
-        for (int i = 1; i <= k; i++) {
-            int localp = dp[i - 1][0] - prices[0];
-            for (int j = 1; j < n; j++) {
-                dp[i][j] = max(dp[i][j - 1], localp + prices[j]);
-                localp = max(localp, dp[i - 1][j] - prices[j]);
+            return p10;
+        } else {
+            vector<int> p0(k + 1, 0), p1(k + 1, INT_MIN);
+            for (int p: prices) {
+                for (int t = k; t >= 1; t--) {
+                    p0[t] = max(p0[t], p1[t] + p);
+                    p1[t] = max(p1[t], p0[t - 1] - p);
+                }
             }
+            return p0[k];
         }
-        return dp[k][n - 1];
     }
 };

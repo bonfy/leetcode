@@ -25,16 +25,18 @@
 class Solution {
 public:
     int sumOfLeftLeaves(TreeNode* root) {
-        int ans = 0;
-        queue<TreeNode*> q;
         if (!root) return 0;
+        /*
+        if (root->left && !root->left->left && !root->left->right) return root->left->val + sumOfLeftLeaves(root->right);
+        return sumOfLeftLeaves(root->left) + sumOfLeftLeaves(root->right);
+        */
+        queue<TreeNode*> q;
         q.emplace(root);
+        int ans = 0;
         while (!q.empty()) {
             auto p = q.front();
             q.pop();
-            if (p->left and !p->left->left and !p->left->right) {
-                ans += p->left->val;
-            }
+            if (p->left && !p->left->left && !p->left->right) ans += p->left->val;
             if (p->left) q.emplace(p->left);
             if (p->right) q.emplace(p->right);
         }

@@ -29,11 +29,13 @@ class Solution {
 public:
     bool isPalindrome(ListNode* head) {
         if (!head || !head->next) return true;
-        auto slow = head, fast = head;
+        auto slow = head;
+        auto fast = head;
         while (fast->next && fast->next->next) {
             slow = slow->next;
             fast = fast->next->next;
         }
+        auto mid = slow;
         slow = slow->next;
         fast = nullptr;
         while (slow) {

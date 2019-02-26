@@ -20,28 +20,25 @@
 
 class Solution {
 public:
-    Solution(vector<int> nums): cache(nums) {
+    Solution(vector<int> nums): n(nums) {
         
     }
     
     int pick(int target) {
         int ans = -1;
-        int t = 0;
-        for (int idx = 0; idx < cache.size(); ++idx) {
-            if (cache[idx] == target) {
-                if (t == 0) {
-                    ans = idx;
-                    ++t;
+        for (int i = 0, cnt = 0; i < n.size(); i++) {
+            if (n[i] == target) {
+                if (cnt == 0) {
+                    ans = i;
+                    cnt++;
                 } else {
-                    if (rand() % ++t == 0) {
-                        ans = idx;
-                    }
+                    if (rand() % ++cnt == 0) ans = i;
                 }
             }
         }
         return ans;
     }
-    vector<int> cache;
+    vector<int> n;
 };
 
 /**

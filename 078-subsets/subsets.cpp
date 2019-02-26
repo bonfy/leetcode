@@ -23,10 +23,11 @@
 class Solution {
 public:
     vector<vector<int>> subsets(vector<int>& nums) {
-        vector<vector<int>> ans;
-        ans.emplace_back(vector<int>{});
-        for (int i = 0; i < nums.size(); ++i) {
-            for (int j = ans.size() - 1; j >= 0; --j) {
+        sort(nums.begin(), nums.end());
+        vector<vector<int>> ans(1, vector<int>{});
+        for (int i = 0; i < nums.size(); i++) {
+            int n = ans.size();
+            for (int j = 0; j < n; j++) {
                 ans.emplace_back(ans[j]);
                 ans.back().emplace_back(nums[i]);
             }

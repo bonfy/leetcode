@@ -20,23 +20,21 @@ public:
         int m = matrix.size();
         if (!m) return 0;
         int n = matrix[0].size();
-        vector<int> dp(n, 0);
-        int len = 0;
+        if (!n) return 0;
+        int lefttop = 0, maxedge = 0;
+        vector<int> dp(n + 1, 0);
         for (int i = 0; i < m; i++) {
-            int prev = dp[0];
-            dp[0] = matrix[i][0] == '1';
-            len = max(len, dp[0]);
-            for (int j = 1; j < n; j++) {
-                int top = dp[j];
-                if (matrix[i][j] == '1') {
-                    dp[j] = 1 + min(dp[j - 1], min(top, prev));
-                    len = max(len, dp[j]);
+            for (int j = 1; j <= n; j++) {
+                int tmp = dp[j];
+                if (matrix[i][j - 1] == '1') {
+                    dp[j] = 1 + min(dp[j - 1], min(lefttop, dp[j]));
+                    maxedge = max(maxedge, dp[j]);
                 } else {
                     dp[j] = 0;
                 }
-                prev = top;
+                lefttop = tmp;
             }
         }
-        return len * len;
+        return maxedge * maxedge;
     }
 };

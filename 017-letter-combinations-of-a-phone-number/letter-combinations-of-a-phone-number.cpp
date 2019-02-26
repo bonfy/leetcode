@@ -25,12 +25,13 @@ public:
         vector<string> ans;
         ans.emplace_back("");
         for (char c: digits) {
-            if (c<'0' || c>'9') continue;
-            auto s = dict[c - '0'];
+            if (c < '0' || c > '9') continue;
+            auto keys = dict[c - '0'];
+            if (keys.empty()) continue;
             vector<string> tmp;
-            for (char w: s) {
-                for (int i = 0; i < ans.size(); i++) {
-                    tmp.emplace_back(ans[i] + w);
+            for (int i = 0; i < ans.size(); i++) {
+                for (int j = 0; j < keys.size(); j++) {
+                    tmp.emplace_back(ans[i] + keys[j]);
                 }
             }
             ans.swap(tmp);

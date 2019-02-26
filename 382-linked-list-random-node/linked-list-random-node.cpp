@@ -30,22 +30,20 @@ class Solution {
 public:
     /** @param head The linked list's head.
         Note that the head is guaranteed to be not null, so it contains at least one node. */
-    Solution(ListNode* head): root(head) {
+    Solution(ListNode* head): r(head) {
         
     }
     
     /** Returns a random node's value. */
     int getRandom() {
-        int ans = INT_MIN;
-        auto p = root;
-        for (int i = 1; p; i++, p = p->next) {
-            if (rand() % i == 0) {
-                ans = p->val;
-            }
+        int ans = 0;
+        auto p = r;
+        for (int len = 1; p; len++, p = p->next) {
+            if (rand() % len == 0) ans = p->val;
         }
         return ans;
     }
-    ListNode* root;
+    ListNode* r;
 };
 
 /**

@@ -53,14 +53,18 @@ class Solution {
 public:
     int eraseOverlapIntervals(vector<Interval>& intervals) {
         if (intervals.empty()) {return 0;}
-        auto cmp = [](Interval a, Interval b){return a.end < b.end;};
+        auto cmp = [](Interval a, Interval b){return a.start < b.start;};
         sort(intervals.begin(), intervals.end(), cmp);
         int cnt = 0;
         int end = intervals[0].end;
         for (int i = 1; i < intervals.size(); i++) {
             if (intervals[i].start < end) {
+                if (intervals[i].end < end) {
+                    end = intervals[i].end;
+                }
                 cnt++;
-            } else {
+            } else
+            {
                 end = intervals[i].end;
             }
         }

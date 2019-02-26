@@ -36,7 +36,7 @@
 
 
 /**
- * Definition for binary tree
+ * Definition for a binary tree node.
  * struct TreeNode {
  *     int val;
  *     TreeNode *left;
@@ -46,44 +46,44 @@
  */
 class BSTIterator {
 public:
-    BSTIterator(TreeNode *root) {
+    BSTIterator(TreeNode* root) {
         p = root;
     }
-
-    /** @return whether we have a next smallest number */
-    bool hasNext() {
-        return p;
-    }
-
+    
     /** @return the next smallest number */
     int next() {
-        while (p) {
-            if (!p->left) {
+        if (!p->left) {
+            int ans = p->val;
+            p = p->right;
+            return ans;
+        } else {
+            auto tmp = p->left;
+            while (tmp->right && tmp->right != p) {
+                tmp = tmp->right;
+            }
+            if (!tmp->right) {
+                tmp->right = p;
+                p = p->left;
+                return next();
+            } else {
+                tmp->right = nullptr;
                 int ans = p->val;
                 p = p->right;
                 return ans;
-            } else {
-                auto tmp = p->left;
-                while (tmp->right && tmp->right != p) {
-                    tmp = tmp->right;
-                }
-                if (!tmp->right) {
-                    tmp->right = p;
-                    p = p->left;
-                } else {
-                    tmp->right = nullptr;
-                    int ans = p->val;
-                    p = p->right;
-                    return ans;
-                }
             }
         }
+    }
+    
+    /** @return whether we have a next smallest number */
+    bool hasNext() {
+        return p;
     }
     TreeNode* p;
 };
 
 /**
- * Your BSTIterator will be called like this:
- * BSTIterator i = BSTIterator(root);
- * while (i.hasNext()) cout << i.next();
+ * Your BSTIterator object will be instantiated and called as such:
+ * BSTIterator* obj = new BSTIterator(root);
+ * int param_1 = obj->next();
+ * bool param_2 = obj->hasNext();
  */

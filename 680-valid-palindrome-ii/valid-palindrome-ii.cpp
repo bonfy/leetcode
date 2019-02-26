@@ -28,23 +28,22 @@
 class Solution {
 public:
     bool validPalindrome(string s) {
-        if (s.empty()) return true;
+        if (s.size() <= 1) return true;
         int l = 0, h = s.size() - 1;
         while (l < h) {
             if (s[l] != s[h]) {
-                return pal(s.substr(l, h - l)) || pal(s.substr(l + 1, h - l));
+                return ispali(s, l, h - 1) || ispali(s, l + 1, h);
             }
             l++;
             h--;
         }
         return true;
     }
-    bool pal(string s) {
-        int l = 0, h = s.size() - 1;
+    bool ispali(string s, int l, int h) {
         while (l < h) {
-            if (s[l] != s[h]) return false;
-            l++;
-            h--;
+            if (s[l++] != s[h--]) {
+                return false;
+            }
         }
         return true;
     }

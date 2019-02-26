@@ -27,38 +27,32 @@
 class Solution {
 public:
     vector<int> spiralOrder(vector<vector<int>>& matrix) {
-        int rb = 0;
         int re = matrix.size() - 1;
-        if (re < 0) {
-            return vector<int>{};
-        }
-        int cb = 0;
+        if (re < 0) return {};
         int ce = matrix[0].size() - 1;
-        if (ce < 0) {
-            return vector<int>{};
-        }
-        vector<int> ans{};
-        while (rb <= re && cb <= ce) {
-            for (int j = cb; j <= ce; j++) {
-                ans.emplace_back(matrix[rb][j]);
+        if (ce < 0) return {};
+        int rs = 0, cs = 0;
+        vector<int> ans;
+        while (rs <= re && cs <= ce) {
+            for (int j = cs; j <= ce; j++) {
+                ans.emplace_back(matrix[rs][j]);
             }
-            rb++;
-            for (int i = rb; i <= re; i++) {
+            rs++;
+            for (int i = rs; i <= re; i++) {
                 ans.emplace_back(matrix[i][ce]);
             }
             ce--;
-            if (rb <= re) {
-                for (int j = ce; j >= cb; j--) {
-                    ans.emplace_back(matrix[re][j]);
-                }
+            if (rs <= re){
+            for (int j = ce; j >= cs; j--) {
+                ans.emplace_back(matrix[re][j]);
             }
-            re--;
-            if (cb <= ce) {
-                for (int i = re; i >= rb; i--) {
-                    ans.emplace_back(matrix[i][cb]);
-                }
+            re--;}
+            if (cs <= ce) {
+            for (int i = re; i >= rs; i--) {
+                ans.emplace_back(matrix[i][cs]);
             }
-            cb++;
+            cs++;
+            }
         }
         return ans;
     }

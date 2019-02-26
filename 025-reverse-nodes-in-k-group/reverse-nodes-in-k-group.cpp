@@ -35,10 +35,10 @@ public:
     ListNode* reverseKGroup(ListNode* head, int k) {
         if (!head || k == 1) return head;
         ListNode dummy(0);
-        auto prev = &dummy;
-        auto fast = prev;
-        int t = 0;
+        ListNode* prev = &dummy;
+        ListNode* fast = prev;
         dummy.next = head;
+        int t = 0;
         while (fast->next) {
             t++;
             fast = fast->next;

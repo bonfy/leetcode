@@ -45,7 +45,6 @@
 class Solution {
 public:
     bool isValidBST(TreeNode* root) {
-        if (!root) return true;
         TreeNode* prev = nullptr;
         stack<TreeNode*> stk;
         while (root || !stk.empty()) {
@@ -55,7 +54,9 @@ public:
             }
             root = stk.top();
             stk.pop();
-            if (prev && prev->val >= root->val) return false;
+            if (prev && prev->val >= root->val) {
+                return false;
+            }
             prev = root;
             root = root->right;
         }
