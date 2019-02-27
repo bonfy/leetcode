@@ -36,7 +36,7 @@ public:
             int m = l + (h - l) / 2;
             if (m + 1 < nums.size() && nums[m] > nums[m + 1]) {
                 h = m;
-            } else {
+            }  else {
                 l = m + 1;
             }
         }

@@ -42,17 +42,19 @@ public:
 
     // Decodes your encoded data to tree.
     TreeNode* deserialize(string data) {
-        stringstream ss(data);
-        return mydecode(ss);
+        stringstream s(data);
+        return decoder(s);
     }
-    TreeNode* mydecode(stringstream& ss) {
-        string cur;
-        ss >> cur;
-        if (cur == "n") return nullptr;
-        TreeNode* r = new TreeNode(stoi(cur));
-        r->left = mydecode(ss);
-        r->right = mydecode(ss);
-        return r;
+    TreeNode* decoder(stringstream& s) {
+        string k;
+        s >> k;
+        if (k == "n") {
+            return nullptr;
+        }
+        TreeNode* root = new TreeNode(stoi(k));
+        root->left = decoder(s);
+        root->right = decoder(s);
+        return root;
     }
 };
 

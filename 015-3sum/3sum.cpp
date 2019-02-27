@@ -21,27 +21,31 @@
 class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
-        vector<vector<int>> ans;
-        int n = nums.size();
-        for (int i = 0; i <= n - 3; i++) {
-            if (i && nums[i] == nums[i - 1]) continue;
-            int l = i + 1, h = nums.size() - 1;
-            while (l < h) {
-                int sum = nums[l] + nums[i] + nums[h];
-                if (sum == 0) {
-                    ans.emplace_back(vector<int>{nums[i], nums[l], nums[h]});
-                    while (l < h && nums[l] == nums[l + 1]) l++;
-                    while (l < h && nums[h] == nums[h - 1]) h--;
-                    l++;
-                    h--;
-                } else if (sum > 0) {
-                    h--;
-                } else {
-                    l++;
+        map<int, int> mp;
+        set<vector<int>> st;
+        for (int n: nums) {
+            mp[n]++;
+        }
+        for (auto it_a = mp.begin(); it_a != mp.end(); it_a++) {
+            for (auto it_b = it_a; it_b != mp.end(); it_b++) {
+                int a = it_a->first;
+                int b = it_b->first;
+                int c = 0 - a - b;
+                if (mp.count(c)) {
+                    mp[a]--;
+                    mp[b]--;
+                    mp[c]--;
+                    if (mp[a] >= 0 && mp[b] >= 0 && mp[c] >= 0) {
+                        vector<int> v{a, b, c};
+                        sort(v.begin(), v.end());
+                        st.emplace(v);
+                    }
+                    mp[a]++;
+                    mp[b]++;
+                    mp[c]++;
                 }
             }
         }
-        return ans;
+        return vector<vector<int>>(st.begin(), st.end());
     }
 };

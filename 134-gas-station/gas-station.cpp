@@ -54,8 +54,8 @@
 class Solution {
 public:
     int canCompleteCircuit(vector<int>& gas, vector<int>& cost) {
-        int i, j, n = gas.size();
-        for (i = 0; i < n; i += j) {
+        int n = gas.size();
+        for (int i = 0, j = 1; i < n; i++) {
             int gas_left = 0;
             for (j = 1; j <= n; j++) {
                 int k = (i + j - 1) % n;
