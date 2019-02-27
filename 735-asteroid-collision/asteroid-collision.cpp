@@ -57,15 +57,10 @@ class Solution {
 public:
     vector<int> asteroidCollision(vector<int>& asteroids) {
         vector<int> ans;
-        for (auto& e: asteroids) {
-            if (e > 0) {
-                ans.emplace_back(e);
-            } else {
-                while (ans.size() && ans.back() > 0 && ans.back() < -e) ans.pop_back();
-                if (ans.empty() || ans.back() < 0) {
-                    ans.emplace_back(e);
-                } else if (ans.back() == -e) ans.pop_back();
-            }
+        for (auto x: asteroids) {
+            while (ans.size() && ans.back() > 0 && ans.back() < -x) ans.pop_back();
+            if (ans.empty() || x > 0 || ans.back() < 0) ans.emplace_back(x);
+            else if (ans.back() == -x) ans.pop_back();
         }
         return ans;
     }
