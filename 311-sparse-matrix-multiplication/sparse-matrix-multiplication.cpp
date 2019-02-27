@@ -30,16 +30,16 @@
 class Solution {
 public:
     vector<vector<int>> multiply(vector<vector<int>>& A, vector<vector<int>>& B) {
-        int m = A.size();
-        int n = B.size();
-        int k = B[0].size();
-        vector<vector<int>> ans(m, vector<int>(k, 0));
-        for (int i = 0; i < m; i++) {
-            for (int y = 0; y < n; y++) {
-                if (A[i][y] == 0) continue;
-                for (int x = 0; x < k; x++) {
-                    if (B[y][x] == 0) continue;
-                    ans[i][x] += A[i][y] * B[y][x];
+        int k = A.size();
+        int m = B.size();
+        int n = B[0].size();
+        vector<vector<int>> ans(k, vector<int>(n, 0));
+        for (int i = 0; i < k; i++) {
+            for (int j = 0; j < m; j++) {
+                if (!A[i][j]) continue;
+                for (int k = 0; k < n; k++) {
+                    if (!B[j][k]) continue;
+                    ans[i][k] += A[i][j] * B[j][k];
                 }
             }
         }

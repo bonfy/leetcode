@@ -20,15 +20,14 @@ class Solution {
 public:
     int findMinArrowShots(vector<pair<int, int>>& points) {
         if (points.empty()) return 0;
-        auto cmp = [](pair<int, int> a, pair<int, int> b){return a.second < b.second;};
-        sort(points.begin(), points.end(), cmp);
-        int cnt = 1;
+        sort(points.begin(), points.end(), [](pair<int, int> a, pair<int, int> b){return a.second < b.second;});
+        int ans = 1;
         int end = points[0].second;
         for (int i = 1; i < points.size(); i++) {
             if (points[i].first <= end) continue;
-            cnt++;
+            ans++;
             end = points[i].second;
         }
-        return cnt;
+        return ans;
     }
 };

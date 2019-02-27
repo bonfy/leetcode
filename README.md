@@ -1,7 +1,7 @@
 # :pencil2: Leetcode Solutions with Cpp,Python,Python3  
-Update time:  2019-02-26 20:17:44  
+Update time:  2019-02-27 02:33:23  
 Auto created by [leetcode_generate](https://github.com/bonfy/leetcode)  
-I have solved **728   /   949** problems  
+I have solved **729   /   949** problems  
 while there are **140** problems still locked.  
 If you want to use this tool please follow this [Usage Guide](https://github.com/bonfy/leetcode/blob/master/README_leetcode_generate.md)  
 If you have any question, please give me an [issue](https://github.com/fr42k/leetcode/issues).  
@@ -157,7 +157,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |145|[binary-tree-postorder-traversal](https://leetcode.com/problems/binary-tree-postorder-traversal)|[Cpp](https://github.com/fr42k/leetcode/blob/master/145-binary-tree-postorder-traversal/binary-tree-postorder-traversal.cpp)|[:memo:](https://leetcode.com/articles/binary-tree-postorder-transversal/)|Hard|
 |146|[lru-cache](https://leetcode.com/problems/lru-cache)|[Cpp](https://github.com/fr42k/leetcode/blob/master/146-lru-cache/lru-cache.cpp)|[:memo:](https://leetcode.com/articles/lru-cache/)|Hard|
 |147|[insertion-sort-list](https://leetcode.com/problems/insertion-sort-list)|||Medium|
-|148|[sort-list](https://leetcode.com/problems/sort-list)|||Medium|
+|148|[sort-list](https://leetcode.com/problems/sort-list)|[Cpp](https://github.com/fr42k/leetcode/blob/master/148-sort-list/sort-list.cpp)||Medium|
 |149|[max-points-on-a-line](https://leetcode.com/problems/max-points-on-a-line)||[:memo:](https://leetcode.com/articles/max-points-on-a-line/)|Hard|
 |150|[evaluate-reverse-polish-notation](https://leetcode.com/problems/evaluate-reverse-polish-notation)|||Medium|
 |151|[reverse-words-in-a-string](https://leetcode.com/problems/reverse-words-in-a-string)|||Medium|
@@ -438,7 +438,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |449|[serialize-and-deserialize-bst](https://leetcode.com/problems/serialize-and-deserialize-bst)|||Medium|
 |450|[delete-node-in-a-bst](https://leetcode.com/problems/delete-node-in-a-bst)|||Medium|
 |451|[sort-characters-by-frequency](https://leetcode.com/problems/sort-characters-by-frequency)|||Medium|
-|452|[minimum-number-of-arrows-to-burst-balloons](https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons)|||Medium|
+|452|[minimum-number-of-arrows-to-burst-balloons](https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons)|[Cpp](https://github.com/fr42k/leetcode/blob/master/452-minimum-number-of-arrows-to-burst-balloons/minimum-number-of-arrows-to-burst-balloons.cpp)||Medium|
 |453|[minimum-moves-to-equal-array-elements](https://leetcode.com/problems/minimum-moves-to-equal-array-elements)||[:memo:](https://leetcode.com/articles/minimum-moves-to-equal-array-elements/)|Easy|
 |454|[4sum-ii](https://leetcode.com/problems/4sum-ii)|||Medium|
 |455|[assign-cookies](https://leetcode.com/problems/assign-cookies)|||Easy|
@@ -848,7 +848,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |923|[super-egg-drop](https://leetcode.com/problems/super-egg-drop)||[:memo:](https://leetcode.com/articles/super-egg-drop/)|Hard|
 |924|[fair-candy-swap](https://leetcode.com/problems/fair-candy-swap)||[:memo:](https://leetcode.com/articles/fair-candy-swap/)|Easy|
 |925|[construct-binary-tree-from-preorder-and-postorder-traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-postorder-traversal)||[:memo:](https://leetcode.com/articles/construct-binary-tree-from-preorder-and-postorder-/)|Medium|
-|926|[find-and-replace-pattern](https://leetcode.com/problems/find-and-replace-pattern)||[:memo:](https://leetcode.com/articles/find-and-replace-pattern/)|Medium|
+|926|[find-and-replace-pattern](https://leetcode.com/problems/find-and-replace-pattern)|[Cpp](https://github.com/fr42k/leetcode/blob/master/926-find-and-replace-pattern/find-and-replace-pattern.cpp)|[:memo:](https://leetcode.com/articles/find-and-replace-pattern/)|Medium|
 |927|[sum-of-subsequence-widths](https://leetcode.com/problems/sum-of-subsequence-widths)||[:memo:](https://leetcode.com/articles/sum-of-subsequence-widths/)|Hard|
 |928|[surface-area-of-3d-shapes](https://leetcode.com/problems/surface-area-of-3d-shapes)||[:memo:](https://leetcode.com/articles/surface-area-of-3d-shapes/)|Easy|
 |929|[groups-of-special-equivalent-strings](https://leetcode.com/problems/groups-of-special-equivalent-strings)||[:memo:](https://leetcode.com/articles/groups-of-special-equivalent-strings/)|Easy|
