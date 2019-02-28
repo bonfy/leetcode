@@ -33,29 +33,30 @@
 class Solution {
 public:
     void wallsAndGates(vector<vector<int>>& rooms) {
-        vector<int> dir = {0, 1, 0 , -1, 0};
         int m = rooms.size();
         if (!m) return;
         int n = rooms[0].size();
         queue<pair<int, int>> q;
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
                 if (rooms[i][j] == 0) {
                     q.emplace(i, j);
                 }
             }
         }
-        while (!q.empty()) {
-            auto idx = q.front();
-            q.pop();
-            int x = idx.first, y = idx.second;
-            for (int i = 0; i < 4; i++) {
-                int newx = x + dir[i], newy = y + dir[i + 1];
-                if (newx >= 0 && newy >= 0 && newx < m && newy < n && rooms[newx][newy] == INT_MAX) {
-                    rooms[newx][newy] = 1 + rooms[x][y];
-                    q.emplace(newx, newy);
+        while (q.size()) {
+            // for (int idx = q.size(); idx > 0; --idx) {
+                auto [i, j] = q.front();
+                q.pop();
+                for (int k = 0; k < 4; ++k) {
+                    int x = i + dir[k], y = j + dir[k + 1];
+                    if (x < 0 || y < 0 || x >= m || y >= n || rooms[x][y] != INT_MAX) continue;
+                    rooms[x][y] = 1 + rooms[i][j];
+                    q.emplace(x, y);
                 }
-            }
+            // }
         }
+        
     }
+    vector<int> dir{0, -1, 0, 1, 0};
 };
