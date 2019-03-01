@@ -35,32 +35,26 @@
 class Solution {
 public:
     vector<int> findOrder(int numCourses, vector<pair<int, int>>& prerequisites) {
-        vector<unordered_set<int>> graph(numCourses);
-        vector<int> degree(numCourses, 0);
+        vector<vector<int>> graph(numCourses);
+        vector<int> visited(numCourses, 0), onpath(numCourses, 0);
+        for (auto e: prerequisites) {
+            graph[e.second].emplace_back(e.first);
+        }
         vector<int> ans;
-        
-        for (auto p: prerequisites) {
-            graph[p.second].emplace(p.first);
-            degree[p.first]++;
-        }
         for (int i = 0; i < numCourses; i++) {
-            if (!degree[i]) {
-                ans.emplace_back(i);
-            }
+            if (!visited[i] && find_circle(graph, visited, onpath, i, ans)) return {};
         }
-        
-        for (int i = 0; i < ans.size(); i++) {
-            for (int k: graph[ans[i]]) {
-                if (--degree[k] == 0) {
-                    ans.emplace_back(k);
-                }
-            }
-        }
-        for (int i = 0; i < numCourses; i++) {
-            if (degree[i] != 0) {
-                return {};
-            }
-        }
+        reverse(ans.begin(), ans.end());
         return ans;
+    }
+    bool find_circle(vector<vector<int>>& graph, vector<int>& visited, vector<int>& onpath, int idx, vector<int>& ans) {
+        if (visited[idx]) return false;
+        visited[idx] = onpath[idx] = 1;
+        for (auto next: graph[idx]) {
+            if (onpath[next] || find_circle(graph, visited, onpath, next, ans)) return true;
+        }
+        onpath[idx] = 0;
+        ans.emplace_back(idx);
+        return false;
     }
 };

@@ -1,7 +1,7 @@
 # :pencil2: Leetcode Solutions with Cpp,Python,Python3  
-Update time:  2019-03-01 06:20:05  
+Update time:  2019-03-01 12:36:30  
 Auto created by [leetcode_generate](https://github.com/bonfy/leetcode)  
-I have solved **732   /   949** problems  
+I have solved **734   /   949** problems  
 while there are **140** problems still locked.  
 If you want to use this tool please follow this [Usage Guide](https://github.com/bonfy/leetcode/blob/master/README_leetcode_generate.md)  
 If you have any question, please give me an [issue](https://github.com/fr42k/leetcode/issues).  
@@ -12,7 +12,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |:---:|:---:|:---:|:---:|:---:|
 |1|[two-sum](https://leetcode.com/problems/two-sum)||[:memo:](https://leetcode.com/articles/two-sum/)|Easy|
 |2|[add-two-numbers](https://leetcode.com/problems/add-two-numbers)||[:memo:](https://leetcode.com/articles/add-two-numbers/)|Medium|
-|3|[longest-substring-without-repeating-characters](https://leetcode.com/problems/longest-substring-without-repeating-characters)||[:memo:](https://leetcode.com/articles/longest-substring-without-repeating-characters/)|Medium|
+|3|[longest-substring-without-repeating-characters](https://leetcode.com/problems/longest-substring-without-repeating-characters)|[Cpp](https://github.com/fr42k/leetcode/blob/master/003-longest-substring-without-repeating-characters/longest-substring-without-repeating-characters.cpp)|[:memo:](https://leetcode.com/articles/longest-substring-without-repeating-characters/)|Medium|
 |4|[median-of-two-sorted-arrays](https://leetcode.com/problems/median-of-two-sorted-arrays)||[:memo:](https://leetcode.com/articles/median-of-two-sorted-arrays/)|Hard|
 |5|[longest-palindromic-substring](https://leetcode.com/problems/longest-palindromic-substring)|[Cpp](https://github.com/fr42k/leetcode/blob/master/005-longest-palindromic-substring/longest-palindromic-substring.cpp)|[:memo:](https://leetcode.com/articles/longest-palindromic-substring/)|Medium|
 |6|[zigzag-conversion](https://leetcode.com/problems/zigzag-conversion)||[:memo:](https://leetcode.com/articles/zigzag-conversion/)|Medium|
@@ -443,7 +443,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |454|[4sum-ii](https://leetcode.com/problems/4sum-ii)|||Medium|
 |455|[assign-cookies](https://leetcode.com/problems/assign-cookies)|||Easy|
 |456|[132-pattern](https://leetcode.com/problems/132-pattern)||[:memo:](https://leetcode.com/articles/132-pattern/)|Medium|
-|457|[circular-array-loop](https://leetcode.com/problems/circular-array-loop)|||Medium|
+|457|[circular-array-loop](https://leetcode.com/problems/circular-array-loop)|[Cpp](https://github.com/fr42k/leetcode/blob/master/457-circular-array-loop/circular-array-loop.cpp)||Medium|
 |458|[poor-pigs](https://leetcode.com/problems/poor-pigs)|||Hard|
 |459|[repeated-substring-pattern](https://leetcode.com/problems/repeated-substring-pattern)|||Easy|
 |460|[lfu-cache](https://leetcode.com/problems/lfu-cache)|||Hard|
@@ -856,7 +856,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |931|[maximum-frequency-stack](https://leetcode.com/problems/maximum-frequency-stack)||[:memo:](https://leetcode.com/articles/maximum-frequency-stack/)|Hard|
 |932|[monotonic-array](https://leetcode.com/problems/monotonic-array)||[:memo:](https://leetcode.com/articles/monotonic-array/)|Easy|
 |933|[increasing-order-search-tree](https://leetcode.com/problems/increasing-order-search-tree)||[:memo:](https://leetcode.com/articles/increasing-order-search-tree/)|Easy|
-|934|[bitwise-ors-of-subarrays](https://leetcode.com/problems/bitwise-ors-of-subarrays)||[:memo:](https://leetcode.com/articles/bitwise-ors-of-subarrays/)|Medium|
+|934|[bitwise-ors-of-subarrays](https://leetcode.com/problems/bitwise-ors-of-subarrays)|[Cpp](https://github.com/fr42k/leetcode/blob/master/934-bitwise-ors-of-subarrays/bitwise-ors-of-subarrays.cpp)|[:memo:](https://leetcode.com/articles/bitwise-ors-of-subarrays/)|Medium|
 |935|[orderly-queue](https://leetcode.com/problems/orderly-queue)||[:memo:](https://leetcode.com/articles/orderly-queue/)|Hard|
 |936|[rle-iterator](https://leetcode.com/problems/rle-iterator)||[:memo:](https://leetcode.com/articles/rle-iterator/)|Medium|
 |937|[online-stock-span](https://leetcode.com/problems/online-stock-span)||[:memo:](https://leetcode.com/articles/online-stock-span/)|Medium|
