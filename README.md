@@ -1,7 +1,7 @@
 # :pencil2: Leetcode Solutions with Cpp,Python,Python3  
-Update time:  2019-02-28 17:11:43  
+Update time:  2019-03-01 00:04:00  
 Auto created by [leetcode_generate](https://github.com/bonfy/leetcode)  
-I have solved **731   /   949** problems  
+I have solved **732   /   949** problems  
 while there are **140** problems still locked.  
 If you want to use this tool please follow this [Usage Guide](https://github.com/bonfy/leetcode/blob/master/README_leetcode_generate.md)  
 If you have any question, please give me an [issue](https://github.com/fr42k/leetcode/issues).  
@@ -748,7 +748,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |816|[design-hashset](https://leetcode.com/problems/design-hashset)|||Easy|
 |817|[design-hashmap](https://leetcode.com/problems/design-hashmap)|||Easy|
 |818|[similar-rgb-color](https://leetcode.com/problems/similar-rgb-color)|:lock:|[:memo:](https://leetcode.com/articles/similar-rgb-color/)|Easy|
-|819|[minimum-swaps-to-make-sequences-increasing](https://leetcode.com/problems/minimum-swaps-to-make-sequences-increasing)||[:memo:](https://leetcode.com/articles/minimum-swaps-to-make-sequences-increasing/)|Medium|
+|819|[minimum-swaps-to-make-sequences-increasing](https://leetcode.com/problems/minimum-swaps-to-make-sequences-increasing)|[Cpp](https://github.com/fr42k/leetcode/blob/master/819-minimum-swaps-to-make-sequences-increasing/minimum-swaps-to-make-sequences-increasing.cpp)|[:memo:](https://leetcode.com/articles/minimum-swaps-to-make-sequences-increasing/)|Medium|
 |820|[find-eventual-safe-states](https://leetcode.com/problems/find-eventual-safe-states)||[:memo:](https://leetcode.com/articles/find-eventual-safe-states/)|Medium|
 |821|[bricks-falling-when-hit](https://leetcode.com/problems/bricks-falling-when-hit)||[:memo:](https://leetcode.com/articles/bricks-falling-when-hit/)|Hard|
 |822|[unique-morse-code-words](https://leetcode.com/problems/unique-morse-code-words)||[:memo:](https://leetcode.com/articles/unique-morse-code-words/)|Easy|
@@ -766,7 +766,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |834|[ambiguous-coordinates](https://leetcode.com/problems/ambiguous-coordinates)||[:memo:](https://leetcode.com/articles/ambiguous-coordinates/)|Medium|
 |835|[linked-list-components](https://leetcode.com/problems/linked-list-components)||[:memo:](https://leetcode.com/articles/linked-list-components/)|Medium|
 |836|[race-car](https://leetcode.com/problems/race-car)||[:memo:](https://leetcode.com/articles/race-car/)|Hard|
-|837|[most-common-word](https://leetcode.com/problems/most-common-word)||[:memo:](https://leetcode.com/articles/most-common-word/)|Easy|
+|837|[most-common-word](https://leetcode.com/problems/most-common-word)|[Cpp](https://github.com/fr42k/leetcode/blob/master/837-most-common-word/most-common-word.cpp)|[:memo:](https://leetcode.com/articles/most-common-word/)|Easy|
 |838|[design-linked-list](https://leetcode.com/problems/design-linked-list)|||Easy|
 |839|[short-encoding-of-words](https://leetcode.com/problems/short-encoding-of-words)||[:memo:](https://leetcode.com/articles/short-encoding-of-words/)|Medium|
 |841|[shortest-distance-to-a-character](https://leetcode.com/problems/shortest-distance-to-a-character)||[:memo:](https://leetcode.com/articles/shortest-distance-to-a-character/)|Easy|
@@ -842,7 +842,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |917|[boats-to-save-people](https://leetcode.com/problems/boats-to-save-people)|[Cpp](https://github.com/fr42k/leetcode/blob/master/917-boats-to-save-people/boats-to-save-people.cpp)|[:memo:](https://leetcode.com/articles/boats-to-save-people/)|Medium|
 |918|[reachable-nodes-in-subdivided-graph](https://leetcode.com/problems/reachable-nodes-in-subdivided-graph)||[:memo:](https://leetcode.com/articles/reachable-nodes-in-subdivided-graph/)|Hard|
 |919|[projection-area-of-3d-shapes](https://leetcode.com/problems/projection-area-of-3d-shapes)|[Cpp](https://github.com/fr42k/leetcode/blob/master/919-projection-area-of-3d-shapes/projection-area-of-3d-shapes.cpp)|[:memo:](https://leetcode.com/articles/projection-area-of-3d-shapes/)|Easy|
-|920|[uncommon-words-from-two-sentences](https://leetcode.com/problems/uncommon-words-from-two-sentences)||[:memo:](https://leetcode.com/articles/uncommon-words-from-two-sentences/)|Easy|
+|920|[uncommon-words-from-two-sentences](https://leetcode.com/problems/uncommon-words-from-two-sentences)|[Cpp](https://github.com/fr42k/leetcode/blob/master/920-uncommon-words-from-two-sentences/uncommon-words-from-two-sentences.cpp)|[:memo:](https://leetcode.com/articles/uncommon-words-from-two-sentences/)|Easy|
 |921|[spiral-matrix-iii](https://leetcode.com/problems/spiral-matrix-iii)||[:memo:](https://leetcode.com/articles/spiral-matrix-iii/)|Medium|
 |922|[possible-bipartition](https://leetcode.com/problems/possible-bipartition)||[:memo:](https://leetcode.com/articles/possible-bipartition/)|Medium|
 |923|[super-egg-drop](https://leetcode.com/problems/super-egg-drop)||[:memo:](https://leetcode.com/articles/super-egg-drop/)|Hard|
