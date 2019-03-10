@@ -1,7 +1,7 @@
 # :pencil2: Leetcode Solutions with Cpp,Python,Python3  
-Update time:  2019-03-09 21:39:19  
+Update time:  2019-03-10 04:54:17  
 Auto created by [leetcode_generate](https://github.com/bonfy/leetcode)  
-I have solved **743   /   953** problems  
+I have solved **747   /   957** problems  
 while there are **140** problems still locked.  
 If you want to use this tool please follow this [Usage Guide](https://github.com/bonfy/leetcode/blob/master/README_leetcode_generate.md)  
 If you have any question, please give me an [issue](https://github.com/fr42k/leetcode/issues).  
@@ -84,7 +84,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |72|[edit-distance](https://leetcode.com/problems/edit-distance)||[:memo:](https://leetcode.com/articles/edit-distance/)|Hard|
 |73|[set-matrix-zeroes](https://leetcode.com/problems/set-matrix-zeroes)||[:memo:](https://leetcode.com/articles/set-matrix-zeroes/)|Medium|
 |74|[search-a-2d-matrix](https://leetcode.com/problems/search-a-2d-matrix)|||Medium|
-|75|[sort-colors](https://leetcode.com/problems/sort-colors)|||Medium|
+|75|[sort-colors](https://leetcode.com/problems/sort-colors)|[Cpp](https://github.com/fr42k/leetcode/blob/master/solutions/075-sort-colors/sort-colors.cpp)||Medium|
 |76|[minimum-window-substring](https://leetcode.com/problems/minimum-window-substring)||[:memo:](https://leetcode.com/articles/minimum-window-substring/)|Hard|
 |77|[combinations](https://leetcode.com/problems/combinations)|||Medium|
 |78|[subsets](https://leetcode.com/problems/subsets)|||Medium|
@@ -316,7 +316,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |321|[create-maximum-number](https://leetcode.com/problems/create-maximum-number)|||Hard|
 |322|[coin-change](https://leetcode.com/problems/coin-change)||[:memo:](https://leetcode.com/articles/coin-change/)|Medium|
 |323|[number-of-connected-components-in-an-undirected-graph](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph)|:lock:||Medium|
-|324|[wiggle-sort-ii](https://leetcode.com/problems/wiggle-sort-ii)|||Medium|
+|324|[wiggle-sort-ii](https://leetcode.com/problems/wiggle-sort-ii)|[Cpp](https://github.com/fr42k/leetcode/blob/master/solutions/324-wiggle-sort-ii/wiggle-sort-ii.cpp)||Medium|
 |325|[maximum-size-subarray-sum-equals-k](https://leetcode.com/problems/maximum-size-subarray-sum-equals-k)|:lock:||Medium|
 |326|[power-of-three](https://leetcode.com/problems/power-of-three)||[:memo:](https://leetcode.com/articles/power-of-three/)|Easy|
 |327|[count-of-range-sum](https://leetcode.com/problems/count-of-range-sum)|||Hard|
@@ -614,7 +614,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |671|[second-minimum-node-in-a-binary-tree](https://leetcode.com/problems/second-minimum-node-in-a-binary-tree)||[:memo:](https://leetcode.com/articles/second-minimum-node-in-a-binary-tree/)|Easy|
 |672|[bulb-switcher-ii](https://leetcode.com/problems/bulb-switcher-ii)||[:memo:](https://leetcode.com/articles/bulb-switcher-ii/)|Medium|
 |673|[number-of-longest-increasing-subsequence](https://leetcode.com/problems/number-of-longest-increasing-subsequence)||[:memo:](https://leetcode.com/articles/number-of-longest-increasing-subsequence/)|Medium|
-|674|[longest-continuous-increasing-subsequence](https://leetcode.com/problems/longest-continuous-increasing-subsequence)||[:memo:](https://leetcode.com/articles/longest-continuous-increasing-subsequence/)|Easy|
+|674|[longest-continuous-increasing-subsequence](https://leetcode.com/problems/longest-continuous-increasing-subsequence)|[Cpp](https://github.com/fr42k/leetcode/blob/master/solutions/674-longest-continuous-increasing-subsequence/longest-continuous-increasing-subsequence.cpp)|[:memo:](https://leetcode.com/articles/longest-continuous-increasing-subsequence/)|Easy|
 |675|[cut-off-trees-for-golf-event](https://leetcode.com/problems/cut-off-trees-for-golf-event)||[:memo:](https://leetcode.com/articles/cutoff-trees-for-golf-event/)|Hard|
 |676|[implement-magic-dictionary](https://leetcode.com/problems/implement-magic-dictionary)||[:memo:](https://leetcode.com/articles/implement-magic-dictionary/)|Medium|
 |677|[map-sum-pairs](https://leetcode.com/problems/map-sum-pairs)||[:memo:](https://leetcode.com/articles/map-sum-pairs/)|Medium|
@@ -782,7 +782,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |857|[positions-of-large-groups](https://leetcode.com/problems/positions-of-large-groups)||[:memo:](https://leetcode.com/articles/positions-of-large-groups/)|Easy|
 |858|[masking-personal-information](https://leetcode.com/problems/masking-personal-information)||[:memo:](https://leetcode.com/articles/masking-personal-information/)|Medium|
 |859|[design-circular-deque](https://leetcode.com/problems/design-circular-deque)|||Medium|
-|860|[design-circular-queue](https://leetcode.com/problems/design-circular-queue)|||Medium|
+|860|[design-circular-queue](https://leetcode.com/problems/design-circular-queue)|[Cpp](https://github.com/fr42k/leetcode/blob/master/solutions/860-design-circular-queue/design-circular-queue.cpp)||Medium|
 |861|[flipping-an-image](https://leetcode.com/problems/flipping-an-image)||[:memo:](https://leetcode.com/articles/flipping-an-image/)|Easy|
 |862|[find-and-replace-in-string](https://leetcode.com/problems/find-and-replace-in-string)||[:memo:](https://leetcode.com/articles/find-and-replace-in-string/)|Medium|
 |863|[sum-of-distances-in-tree](https://leetcode.com/problems/sum-of-distances-in-tree)||[:memo:](https://leetcode.com/articles/sum-of-distances-in-tree/)|Hard|
@@ -942,7 +942,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |1023|[time-based-key-value-store](https://leetcode.com/problems/time-based-key-value-store)||[:memo:](https://leetcode.com/articles/time-based-key-value-store/)|Medium|
 |1024|[triples-with-bitwise-and-equal-to-zero](https://leetcode.com/problems/triples-with-bitwise-and-equal-to-zero)|||Hard|
 |1025|[minimum-cost-for-tickets](https://leetcode.com/problems/minimum-cost-for-tickets)||[:memo:](https://leetcode.com/articles/minimum-cost-for-tickets/)|Medium|
-|1026|[string-without-aaa-or-bbb](https://leetcode.com/problems/string-without-aaa-or-bbb)||[:memo:](https://leetcode.com/articles/string-without-aaa-or-bbb/)|Easy|
+|1026|[string-without-aaa-or-bbb](https://leetcode.com/problems/string-without-aaa-or-bbb)||[:memo:](https://leetcode.com/articles/string-without-aaa-or-bbb/)|Medium|
 |1027|[sum-of-even-numbers-after-queries](https://leetcode.com/problems/sum-of-even-numbers-after-queries)||[:memo:](https://leetcode.com/articles/sum-of-even-numbers-after-queries/)|Easy|
 |1028|[interval-list-intersections](https://leetcode.com/problems/interval-list-intersections)||[:memo:](https://leetcode.com/articles/interval-list-intersections/)|Medium|
 |1029|[vertical-order-traversal-of-a-binary-tree](https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree)||[:memo:](https://leetcode.com/articles/vertical-order-traversal-of-a-binary-tree/)|Medium|
@@ -963,3 +963,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |1044|[find-common-characters](https://leetcode.com/problems/find-common-characters)|||Easy|
 |1045|[check-if-word-is-valid-after-substitutions](https://leetcode.com/problems/check-if-word-is-valid-after-substitutions)|||Medium|
 |1046|[max-consecutive-ones-iii](https://leetcode.com/problems/max-consecutive-ones-iii)|||Medium|
+|1047|[maximize-sum-of-array-after-k-negations](https://leetcode.com/problems/maximize-sum-of-array-after-k-negations)|[Cpp](https://github.com/fr42k/leetcode/blob/master/solutions/1047-maximize-sum-of-array-after-k-negations/maximize-sum-of-array-after-k-negations.cpp)||Easy|
+|1048|[clumsy-factorial](https://leetcode.com/problems/clumsy-factorial)|[Cpp](https://github.com/fr42k/leetcode/blob/master/solutions/1048-clumsy-factorial/clumsy-factorial.cpp)||Medium|
+|1049|[minimum-domino-rotations-for-equal-row](https://leetcode.com/problems/minimum-domino-rotations-for-equal-row)|[Cpp](https://github.com/fr42k/leetcode/blob/master/solutions/1049-minimum-domino-rotations-for-equal-row/minimum-domino-rotations-for-equal-row.cpp)||Medium|
+|1050|[construct-binary-search-tree-from-preorder-traversal](https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal)|[Cpp](https://github.com/fr42k/leetcode/blob/master/solutions/1050-construct-binary-search-tree-from-preorder-traversal/construct-binary-search-tree-from-preorder-traversal.cpp)||Medium|

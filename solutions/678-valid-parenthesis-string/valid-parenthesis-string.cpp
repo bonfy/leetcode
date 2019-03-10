@@ -52,7 +52,7 @@ public:
                 low--;
                 high++;
             }
-            low = max(low, 0);
+            low = max(0, low);
             if (high < 0) return false;
         }
         return low == 0;

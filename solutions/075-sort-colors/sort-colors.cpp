@@ -23,15 +23,14 @@
 class Solution {
 public:
     void sortColors(vector<int>& nums) {
-        int pivot = 1;
-        int l = 0, idx = 0, h = nums.size() - 1;
-        while (idx <= h) {
-            if (nums[idx] < pivot) {
-                swap(nums[l++], nums[idx++]);
-            } else if (nums[idx] == pivot) {
-                idx++;
+        int lt = 0, i = 0, ht = nums.size() - 1;
+        while (i <= ht) {
+            if (nums[i] < 1) {
+                swap(nums[lt++], nums[i++]);
+            } else if (nums[i] > 1) {
+                swap(nums[i], nums[ht--]);
             } else {
-                swap(nums[idx], nums[h--]);
+                i++;
             }
         }
     }
