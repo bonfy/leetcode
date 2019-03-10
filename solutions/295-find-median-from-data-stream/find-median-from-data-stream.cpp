@@ -39,7 +39,7 @@ class MedianFinder {
 public:
     /** initialize your data structure here. */
     MedianFinder() {
-        
+        mem.clear();
     }
     
     void addNum(int num) {
@@ -56,11 +56,10 @@ public:
     }
     
     double findMedian() {
-        int m = mem.size() / 2;
-        if (mem.size() & 1) {
-            return mem[m];
+        if (mem.size() % 2) {
+            return mem[(mem.size() - 1)/2];
         } else {
-            return (mem[m] + mem[m - 1]) / 2.0;
+            return (mem[(mem.size() - 1)/2] + mem[(mem.size() - 1)/2 + 1]) / 2.0;
         }
     }
     vector<int> mem;

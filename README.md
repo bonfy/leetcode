@@ -1,5 +1,5 @@
 # :pencil2: Leetcode Solutions with Cpp,Python,Python3  
-Update time:  2019-03-10 11:10:12  
+Update time:  2019-03-10 13:41:04  
 Auto created by [leetcode_generate](https://github.com/bonfy/leetcode)  
 I have solved **747   /   957** problems  
 while there are **140** problems still locked.  
@@ -281,7 +281,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |286|[walls-and-gates](https://leetcode.com/problems/walls-and-gates)|:lock:|[:memo:](https://leetcode.com/articles/walls-and-gates/)|Medium|
 |287|[find-the-duplicate-number](https://leetcode.com/problems/find-the-duplicate-number)||[:memo:](https://leetcode.com/articles/find-the-duplicate-number/)|Medium|
 |288|[unique-word-abbreviation](https://leetcode.com/problems/unique-word-abbreviation)|:lock:|[:memo:](https://leetcode.com/articles/unique-word-abbreviation/)|Medium|
-|289|[game-of-life](https://leetcode.com/problems/game-of-life)|[Cpp](https://github.com/fr42k/leetcode/blob/master/solutions/289-game-of-life/game-of-life.cpp)||Medium|
+|289|[game-of-life](https://leetcode.com/problems/game-of-life)|||Medium|
 |290|[word-pattern](https://leetcode.com/problems/word-pattern)|||Easy|
 |291|[word-pattern-ii](https://leetcode.com/problems/word-pattern-ii)|:lock:||Hard|
 |292|[nim-game](https://leetcode.com/problems/nim-game)||[:memo:](https://leetcode.com/articles/nim-game/)|Easy|
@@ -878,7 +878,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |954|[maximum-sum-circular-subarray](https://leetcode.com/problems/maximum-sum-circular-subarray)||[:memo:](https://leetcode.com/articles/maximum-sub-circular-subarray/)|Medium|
 |955|[complete-binary-tree-inserter](https://leetcode.com/problems/complete-binary-tree-inserter)||[:memo:](https://leetcode.com/articles/complete-binary-tree-inserter/)|Medium|
 |956|[number-of-music-playlists](https://leetcode.com/problems/number-of-music-playlists)||[:memo:](https://leetcode.com/articles/number-of-music-playlists/)|Hard|
-|957|[minimum-add-to-make-parentheses-valid](https://leetcode.com/problems/minimum-add-to-make-parentheses-valid)|[Cpp](https://github.com/fr42k/leetcode/blob/master/solutions/957-minimum-add-to-make-parentheses-valid/minimum-add-to-make-parentheses-valid.cpp)|[:memo:](https://leetcode.com/articles/minimum-add-to-make-parentheses-valid/)|Medium|
+|957|[minimum-add-to-make-parentheses-valid](https://leetcode.com/problems/minimum-add-to-make-parentheses-valid)||[:memo:](https://leetcode.com/articles/minimum-add-to-make-parentheses-valid/)|Medium|
 |958|[sort-array-by-parity-ii](https://leetcode.com/problems/sort-array-by-parity-ii)||[:memo:](https://leetcode.com/articles/sort-array-by-parity-ii/)|Easy|
 |959|[3sum-with-multiplicity](https://leetcode.com/problems/3sum-with-multiplicity)||[:memo:](https://leetcode.com/articles/3sum-with-multiplicity/)|Medium|
 |960|[minimize-malware-spread](https://leetcode.com/problems/minimize-malware-spread)||[:memo:](https://leetcode.com/articles/minimize-malware-spread/)|Hard|
