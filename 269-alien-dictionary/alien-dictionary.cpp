@@ -56,42 +56,37 @@
 class Solution {
 public:
     string alienOrder(vector<string>& words) {
-        unordered_map<char, unordered_set<char>> pre, suc;
-        unordered_set<char> letters;
+        map<char, set<char>> suc, pre;
+        set<char> letters;
         string last;
-        for (int i = 0; i < words.size(); ++i) {
-            letters.insert(words[i].begin(), words[i].end());
-            int len = min(last.size(), words[i].size());
-            for (int j = 0; j < len; ++j) {
-                if (last[j] != words[i][j]) {
-                    suc[last[j]].emplace(words[i][j]);
-                    pre[words[i][j]].emplace(last[j]);
+        for (auto s: words) {
+            letters.insert(s.begin(), s.end());
+            for (int i = 0; i < min(last.size(), s.size()); i++) {
+                char a = last[i], b = s[i];
+                if (a != b) {
+                    suc[a].emplace(b);
+                    pre[b].emplace(a);
                     break;
                 }
             }
-            last = words[i];
+            last = s;
         }
-        set<char> nopre(letters.begin(), letters.end()), next;
-        for (auto& it: pre) {
-            nopre.erase(it.first);
+        set<char> nopre(letters);
+        for (auto p: pre) {
+            nopre.erase(p.first);
         }
         string ans;
         while (!nopre.empty()) {
-            for (int k = nopre.size(); k > 0; --k) {
-                char u = *(nopre.begin());
-                nopre.erase(u);
-                ans += u;
-                for (auto& v: suc[u]) {
-                    if (!pre.count(v)) continue;
-                    pre[v].erase(u);
-                    if (pre[v].empty()) {
-                        pre.erase(v);
-                        next.emplace(v);
-                    }
+            char c = *(nopre.begin());
+            nopre.erase(c);
+            ans += c;
+            for (char z: suc[c]) {
+                pre[z].erase(c);
+                if (pre[z].empty()) {
+                    pre.erase(z);
+                    nopre.emplace(z);
                 }
             }
-            swap(next, nopre);
-            next.clear();
         }
         return ans.size() == letters.size()? ans: "";
     }

@@ -47,30 +47,28 @@
 
 
 class Solution {
+    unordered_map<string, vector<string>> mem;
+    vector<string> combine(string& word, vector<string> prev) {
+        for (int i = 0; i < prev.size(); i++) {
+            prev[i] += " " + word;
+        }
+        return prev;
+    }
 public:
     vector<string> wordBreak(string s, vector<string>& wordDict) {
         if (mem.count(s)) return mem[s];
-        if (!d) d = new unordered_set<string>(wordDict.begin(), wordDict.end());
-        auto dict = *d;
+        unordered_set<string> dict(wordDict.begin(), wordDict.end());
         vector<string> ans;
         if (dict.count(s)) ans.emplace_back(s);
         for (int i = 1; i < s.size(); i++) {
-            auto suffix = s.substr(i);
+            string suffix = s.substr(i);
             if (dict.count(suffix)) {
-                auto prefix = s.substr(0, i);
-                auto prev = combine(suffix, wordBreak(prefix, wordDict));
+                string prefix = s.substr(0, i);
+                vector<string> prev = combine(suffix, wordBreak(prefix, wordDict));
                 ans.insert(ans.end(), prev.begin(), prev.end());
             }
         }
         mem[s] = ans;
         return ans;
     }
-    vector<string> combine(string s, vector<string> prev) {
-        for (int i = 0; i < prev.size(); i++) {
-            prev[i] += " " + s;
-        }
-        return prev;
-    }
-    unordered_map<string, vector<string>> mem;
-    unordered_set<string>* d;
 };

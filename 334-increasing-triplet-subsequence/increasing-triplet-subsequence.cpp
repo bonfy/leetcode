@@ -29,12 +29,12 @@
 class Solution {
 public:
     bool increasingTriplet(vector<int>& nums) {
-        int l1 = INT_MAX, l2 = INT_MAX;
-        for (int n: nums) {
-            if (n <= l1) {
-                l1 = n;
-            } else if (n <= l2) {
-                l2 = n;
+        int l = INT_MAX, m = INT_MAX, h = INT_MAX;
+        for (int e: nums) {
+            if (e <= l) {
+                l = e;
+            } else if (e <= m) {
+                m = e;
             } else {
                 return true;
             }

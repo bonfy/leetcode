@@ -18,22 +18,20 @@
 
 class Solution {
 public:
-    int hIndex(vector<int>& citations) {
-        int n = citations.size();
-        vector<int> bucket(n + 1, 0);
-        for (int c: citations) {
-            if (c > n) {
-                bucket[n]++;
+    int hIndex(vector<int>& c) {
+        int n = c.size();
+        vector<int> h(n + 1, 0);
+        for (int i: c) {
+            if (i >= n) {
+                h[n]++;
             } else {
-                bucket[c]++;
+                h[i]++;
             }
         }
-        for (int i = n, sum = 0; i >= 0; i--) {
-            sum += bucket[i];
-            if (sum >= i) {
-                return i;
-            }
+        int cnt = 0;
+        for (int i = n; i >= 0; i--) {
+            cnt += h[i];
+            if (cnt >= i) return i;
         }
-        return 0;
     }
 };

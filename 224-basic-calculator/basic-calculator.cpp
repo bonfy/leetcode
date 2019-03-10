@@ -35,18 +35,17 @@ public:
         int ans = 0;
         vector<int> sym(2, 1);
         for (int i = 0; i < s.size(); i++) {
-            if (s[i] == ' ') continue;
-            if (isdigit(s[i])) {
+            if ('0' <= s[i] && s[i] <= '9') {
                 int num = 0;
-                while (i < s.size() && isdigit(s[i])) {
-                    num = 10 * num + s[i++] - '0';
+                while ('0' <= s[i] && s[i] <= '9' && i < s.size()) {
+                    num = num * 10 + s[i++] - '0';
                 }
-                ans += num * sym.back();
+                ans += sym.back() * num;
                 sym.pop_back();
                 i--;
             } else if (s[i] == ')') {
                 sym.pop_back();
-            } else {
+            } else if (s[i] != ' ') {
                 sym.emplace_back(sym.back() * (s[i] == '-'? -1: 1));
             }
         }

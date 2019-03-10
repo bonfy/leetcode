@@ -47,16 +47,16 @@
 class Solution {
 public:
     int compareVersion(string version1, string version2) {
-        int a = 0, b = 0, stop = 0;
-        for (int i = 0, j = 0; !stop; ++i, ++j) {
-            stop = 1;
-            for (a = 0; i < version1.size() && version1[i] != '.'; ++i) {
+        int a = 0, b = 0, f = 0;
+        for (int i = 0, j = 0; f != 1; i++, j++) {
+            f = 1;
+            for (a = 0; i < version1.size() && version1[i] != '.'; i++) {
                 a = a * 10 + version1[i] - '0';
-                stop = 0;
+                f = 0;
             }
-            for (b = 0; j < version2.size() && version2[j] != '.'; ++j) {
+            for (b = 0; j < version2.size() && version2[j] != '.'; j++) {
                 b = b * 10 + version2[j] - '0';
-                stop = 0;
+                f = 0;
             }
             if (a > b) return 1;
             if (a < b) return -1;

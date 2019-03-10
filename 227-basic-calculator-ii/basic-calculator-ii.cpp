@@ -33,38 +33,36 @@
 class Solution {
 public:
     int calculate(string s) {
-        int ans = 0, last_v = 0;
-        char sym = 0;
-        int n = s.size();
-        for (int i = 0; i < n; i++) {
+        long ans = 0, last = 0;
+        char opr = 0;
+        for (int i = 0; i < s.size(); ++i) {
             if (s[i] == ' ') continue;
             if (isdigit(s[i])) {
-                int num = 0;
-                while (i < n && isdigit(s[i])) {
-                    num = num * 10 + s[i++] - '0';
+                long val = 0;
+                while (i < s.size() && isdigit(s[i])) {
+                    val = val * 10 + s[i++] - '0';
                 }
-                i--;
-                if (sym == 0) {
-                    ans = num;
-                    last_v = num;
+                --i;
+                if (opr == 0) {
+                    ans = last = val;
                 } else {
-                    if (sym == '+') {
-                        ans += num;
-                        last_v = num;
-                    } else if (sym == '-') {
-                        ans -= num;
-                        last_v = -num;
-                    } else if (sym == '*') {
-                        ans = ans - last_v + last_v * num;
-                        last_v *= num;
-                    } else if (sym == '/') {
-                        ans = ans - last_v + last_v / num;
-                        last_v /= num;
+                    if (opr == '+') {
+                        ans += val;
+                        last = val;
+                    } else if (opr == '-') {
+                        ans -= val;
+                        last = -val;
+                    } else if (opr == '*') {
+                        ans = ans - last + last * val;
+                        last *= val;
+                    } else if (opr == '/') {
+                        ans = ans - last + last / val;
+                        last /= val;
                     }
-                    sym = 0;
+                    opr = 0;
                 }
             } else {
-                sym = s[i];
+                opr = s[i];
             }
         }
         return ans;

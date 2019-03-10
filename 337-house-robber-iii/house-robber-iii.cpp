@@ -44,16 +44,16 @@
 class Solution {
 public:
     int rob(TreeNode* root) {
-        auto p = robr(root);
-        return max(p.first, p.second);
+        auto v = rrob(root);
+        return max(v[0], v[1]);
     }
-    pair<int, int> robr(TreeNode* root) {
-        if (!root) return pair<int, int>(0, 0);
-        auto leftv = robr(root->left);
-        auto rightv = robr(root->right);
-        pair<int, int> p;
-        p.first = max(leftv.first, leftv.second) + max(rightv.first, rightv.second);
-        p.second = root->val + leftv.first + rightv.first;
-        return p;
+    // (not rob, rob) current
+    vector<int> rrob(TreeNode* root) {
+        if (!root) return {0, 0};
+        auto l = rrob(root->left);
+        auto r = rrob(root->right);
+        int notrob = max(l[0], l[1]) + max(r[0], r[1]);
+        int rob = root->val + l[0] + r[0];
+        return {notrob, rob};
     }
 };

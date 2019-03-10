@@ -37,22 +37,22 @@
 class Solution {
 public:
     vector<int> findAnagrams(string s, string p) {
-        vector<int> dict(256, 0);
-        for (int i = 0; i < p.size(); i++) {
-            dict[p[i]]++;
+        vector<int> cnt(26, 0);
+        for (char& c: p) {
+            ++cnt[c - 'a'];
         }
         vector<int> ans;
-        for (int slow = 0, fast = 0, cnt = 0; fast < s.size(); fast++) {
-            if (dict[s[fast]]-- > 0) {
-                cnt++;
+        for (int slow = 0, fast = 0, same = 0; fast < s.size(); ++fast) {
+            if (cnt[s[fast] - 'a']-- > 0) {
+                ++same;
             }
-            while (cnt == p.size()) {
+            while (same == p.size()) {
                 int len = fast - slow + 1;
-                if (len == p.size()) {
+                if (len == same) {
                     ans.emplace_back(slow);
                 }
-                if (++dict[s[slow++]] > 0) {
-                    cnt--;
+                if (++cnt[s[slow++] - 'a'] > 0) {
+                    --same;
                 }
             }
         }

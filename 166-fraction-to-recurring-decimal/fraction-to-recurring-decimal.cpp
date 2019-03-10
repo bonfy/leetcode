@@ -27,22 +27,21 @@
 class Solution {
 public:
     string fractionToDecimal(int numerator, int denominator) {
-        if (numerator == 0) return "0";
+        if (!numerator) return "0";
         string ans;
         if ((numerator < 0) ^ (denominator < 0)) {
-            ans += '-';
+            ans += "-";
         }
-        long num = labs(numerator), den = labs(denominator);
+        long num = labs(numerator);
+        long den = labs(denominator);
         ans += to_string(num / den);
-        if (num % den == 0) {
-            return ans;
-        }
-        ans += '.';
-        unordered_map<long, int> pos;
-        for (long r = num % den; r != 0; r %= den) {
+        if (num % den == 0) return ans;
+        ans += ".";
+        unordered_map<int, int> pos;
+        for (long r = num % den; r; r %= den) {
             if (pos.count(r)) {
                 ans.insert(pos[r], 1, '(');
-                ans += ')';
+                ans += ")";
                 break;
             }
             pos[r] = ans.size();

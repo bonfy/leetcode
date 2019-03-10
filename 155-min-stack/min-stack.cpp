@@ -38,30 +38,27 @@ public:
     }
     
     void push(int x) {
-        all.emplace(x);
         if (mins.empty() || x <= mins.top()) {
             mins.emplace(x);
         }
+        cache.emplace(x);
     }
     
     void pop() {
-        if (all.empty()) return;
-        if (mins.top() == all.top()) {
+        if (cache.top() == mins.top()) {
             mins.pop();
         }
-        all.pop();
+        cache.pop();
     }
     
     int top() {
-        if (all.empty()) return -1;
-        return all.top();
+        return cache.top();
     }
     
     int getMin() {
-        if (mins.empty()) return -1;
         return mins.top();
     }
-    stack<int> all, mins;
+    stack<int> cache, mins;
 };
 
 /**

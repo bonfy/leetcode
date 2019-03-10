@@ -300,7 +300,15 @@ class Leetcode:
             for cookie in webdriver_cookies
         }
         self.session.cookies.update(self.cookies)
-        r = self.session.get(api_url, proxies=PROXIES)
+        needSleep = True;
+        while needSleep:
+            try:
+                r = self.session.get(api_url, proxies=PROXIES)
+                needSleep = False
+            except:
+                print("please check your Internet Connection")
+                for i in tqdm(range(5 * 60)):
+                    time.sleep(1)
         if r.status_code != 200:
             return False
 

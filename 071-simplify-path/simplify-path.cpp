@@ -56,21 +56,25 @@
 class Solution {
 public:
     string simplifyPath(string path) {
-        vector<string> dir;
+        vector<string> sep;
         stringstream ss(path);
         while (getline(ss, path, '/')) {
             if (path.empty() || path == ".") continue;
             if (path == "..") {
-                if (!dir.empty()) dir.pop_back();
+                if (sep.size()) sep.pop_back();
             } else {
-                dir.emplace_back(path);
+                sep.emplace_back(path);
             }
         }
-        if (dir.empty()) return "/";
-        string ans;
-        for (auto s: dir) {
-            ans += '/' + s;
+        if (sep.empty()) {
+            return "/";
+        } else {
+            string ans;
+            for (auto& v: sep) {
+                ans +='/';
+                ans += v;
+            }
+            return ans;
         }
-        return ans;
     }
 };
