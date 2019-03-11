@@ -28,17 +28,22 @@
 class Solution {
 public:
     int minSwapsCouples(vector<int>& row) {
-        for (int& n: row) {
-            n /= 2;
+        int n = row.size();
+        vector<int> pos(n);
+        for (int i = 0; i < n; i++) {
+            pos[row[i]] = i;
         }
         int ans = 0;
-        for (auto it = row.begin(); it != row.end(); it += 2) {
-            if (*it != *(it + 1)) {
-                auto toswap = find(it + 2, row.end(), *it);
-                iter_swap(it + 1, toswap);
+        for (int i = 0; i < n; i++) {
+            for (int j = neigh(pos[neigh(row[i])]); j != i; j = neigh(pos[neigh(row[i])])) {
                 ans++;
+                swap(row[i], row[j]);
+                swap(pos[row[i]], pos[row[j]]);
             }
         }
         return ans;
+    }
+    int neigh(int i) {
+        return (i & 1)? i - 1: i + 1;
     }
 };

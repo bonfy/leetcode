@@ -42,18 +42,18 @@ public:
     }
     TreeNode* decode(string& s, int& pos) {
         if (pos >= s.size()) return nullptr;
-        int sym = 1;
+        bool neg = false;
         if (s[pos] == '-') {
-            sym = -1;
+            neg = true;
             ++pos;
         }
         int val = 0;
         while (pos < s.size() && isdigit(s[pos])) {
-            val *= 10;
-            val += s[pos] - '0';
+            val = val * 10 + s[pos] - '0';
             ++pos;
         }
-        TreeNode* root = new TreeNode(val * sym);
+        if (neg) val = -val;
+        TreeNode* root = new TreeNode(val);
         if (pos < s.size() && s[pos] == '(') {
             root->left = decode(s, ++pos);
             ++pos;

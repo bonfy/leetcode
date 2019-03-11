@@ -26,35 +26,51 @@
 //
 
 
-/*
-// Definition for a Node.
-class Node {
-public:
-    int val;
-    Node* next;
-    Node* random;
-
-    Node() {}
-
-    Node(int _val, Node* _next, Node* _random) {
-        val = _val;
-        next = _next;
-        random = _random;
-    }
-};
-*/
+/**
+ * Definition for singly-linked list with a random pointer.
+ * struct RandomListNode {
+ *     int label;
+ *     RandomListNode *next, *random;
+ *     RandomListNode(int x) : label(x), next(NULL), random(NULL) {}
+ * };
+ */
 class Solution {
 public:
-    Node* copyRandomList(Node* head) {
-        if (!head) return head;
-        unordered_map<Node*, Node*> image;
+    RandomListNode *copyRandomList(RandomListNode *head) {
+        /*
+        unordered_map<RandomListNode*, RandomListNode*> image;
         for (auto l = head; l; l = l->next) {
-            image[l] = new Node(l->val, nullptr, nullptr);
+            if (!image.count(l)) {
+                image[l] = new RandomListNode(l->label);
+            }
         }
         for (auto l = head; l; l = l->next) {
             image[l]->next = image[l->next];
             image[l]->random = image[l->random];
         }
         return image[head];
+        */
+        if (!head) return head;
+        RandomListNode* newhead = nullptr;
+        for (auto l1 = head; l1; l1 = l1->next->next) {
+            auto l2 = new RandomListNode(l1->label);
+            l2->next = l1->next;
+            l1->next = l2;
+        }
+        newhead = head->next;
+        for (auto l1 = head; l1; l1 = l1->next->next) {
+            auto l2 = l1->next;
+            if (l1->random)
+            l2->random = l1->random->next;
+        }
+        for (auto l1 = head; l1; l1 = l1->next) {
+            auto l2 = l1->next;
+            if (l2) {
+                l1->next = l2->next;
+                if (l2->next)
+                l2->next = l2->next->next;
+            }
+        }
+        return newhead;
     }
 };
