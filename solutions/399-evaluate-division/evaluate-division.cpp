@@ -22,54 +22,52 @@
 class Solution {
 public:
     vector<double> calcEquation(vector<pair<string, string>> equations, vector<double>& values, vector<pair<string, string>> queries) {
-        unordered_map<string, Node*> mp;
-        for (int i = 0; i < equations.size(); i++) {
-            auto s1 = equations[i].first, s2 = equations[i].second;
-            if (!mp.count(s1) && !mp.count(s2)) {
-                mp[s1] = new Node(values[i]);
-                mp[s2] = new Node();
-                mp[s1]->parent = mp[s2];
-            } else if (!mp.count(s1)) {
-                mp[s1] = new Node(values[i] * mp[s2]->v);
-                mp[s1]->parent = mp[s2];
-            } else if (!mp.count(s2)) {
-                mp[s2] = new Node(mp[s1]->v / values[i]);
-                mp[s2]->parent = mp[s1];
+        unordered_map<string, string> uf;
+        unordered_map<string, double> vals;
+        for (int i = 0; i < values.size(); i++) {
+            auto u = equations[i].first;
+            auto v = equations[i].second;
+            if (!uf.count(u) && !uf.count(v)) {
+                vals[u] = values[i];
+                vals[v] = 1.0;
+                uf[u] = u;
+                uf[v] = u;
+            } else if (!uf.count(u)) {
+                auto pv = ufind(uf, v);
+                uf[u] = pv;
+                vals[u] = values[i] * vals[v];
+            } else if (!uf.count(v)) {
+                auto pu = ufind(uf, u);
+                uf[v] = pu;
+                vals[v] = vals[u] / values[i];
             } else {
-                unionf(mp[s1], mp[s2], values[i], mp);
+                auto pu = ufind(uf, u);
+                auto pv = ufind(uf, v);
+                auto ratio = (vals[v] * values[i]) / vals[u];
+                for (auto p: vals) {
+                    if (ufind(uf, p.first) == pu) {
+                        vals[p.first] *= ratio;
+                    }
+                }
+                uf[pu] = pv;
             }
         }
         vector<double> ans;
-        for (auto p: queries) {
-            if (!mp.count(p.first) || !mp.count(p.second) || findp(mp[p.first]) != findp(mp[p.second])) {
-                ans.emplace_back(-1);
+        for (auto q: queries) {
+            auto u = q.first;
+            auto v = q.second;
+            if (!uf.count(u) || !uf.count(v) || ufind(uf, u) != ufind(uf, v)) {
+                ans.emplace_back(-1.0);
             } else {
-                ans.emplace_back(mp[p.first]->v / mp[p.second]->v);
+                ans.emplace_back(vals[u] / vals[v]);
             }
         }
         return ans;
     }
-    struct Node {
-        double v;
-        Node* parent;
-        Node(double a = 1.0): v(a) {parent = this;};
-    };
-    void unionf(Node* a, Node* b, double num, unordered_map<string, Node*>& mp) {
-        auto pa = findp(a);
-        auto pb = findp(b);
-        auto ratio = b->v * num / pa->v;
-        for (auto it = mp.begin(); it != mp.end(); it++) {
-            if (findp(it->second) == pa) {
-                it->second->v *= ratio;
-            }
+    string ufind(unordered_map<string, string>& uf, string k) {
+        if (uf[k] != k) {
+            uf[k] = ufind(uf, uf[k]);
         }
-        pa->parent = pb;
-    }
-    Node* findp(Node* node) {
-        if (node->parent == node) {
-            return node;
-        }
-        node->parent = findp(node->parent);
-        return node->parent;
+        return uf[k];
     }
 };

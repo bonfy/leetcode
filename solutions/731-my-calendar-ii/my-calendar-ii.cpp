@@ -40,28 +40,23 @@
 
 class MyCalendarTwo {
 public:
-    map<int, int> mp;
     MyCalendarTwo() {
         
     }
     
     bool book(int start, int end) {
-        int sum = 0;
-        mp[start] += 1;
-        mp[end] -= 1;
-        bool canadd = true;
-        for (auto p: mp) {
-            sum += p.second;
-            if (sum >= 3) {
-                canadd = false;
+        for (auto u: db) {
+            if (max(start, u.first) < min(end, u.second)) return false;
+        }
+        for (auto u: single) {
+            if (max(start, u.first) < min(end, u.second)) {
+                db.emplace_back(max(start, u.first), min(end, u.second));
             }
         }
-        if (!canadd) {
-            mp[start] -= 1;
-            mp[end] += 1;
-        }
-        return canadd;
+        single.emplace_back(start, end);
+        return true;
     }
+    vector<pair<int, int>> single, db;
 };
 
 /**

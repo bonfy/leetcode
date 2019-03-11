@@ -45,23 +45,24 @@
 class Solution {
 public:
     TreeNode* constructMaximumBinaryTree(vector<int>& nums) {
-        TreeNode* root = nullptr;
-        stack<TreeNode*> stk;
-        for (int i = 0; i < nums.size(); ++i) {
-            TreeNode* left = nullptr;
-            while (stk.size() && stk.top()->val < nums[i]) {
-                left = stk.top();
-                stk.pop();
-            }
-            TreeNode* cur = new TreeNode(nums[i]);
-            cur->left = left;
-            if (stk.empty()) {
-                root = cur;
-            } else {
-                stk.top()->right = cur;
-            }
-            stk.emplace(cur);
-        }
+        int n = nums.size();
+        return construct(nums, 0, n);
+    }
+    TreeNode* construct(vector<int>& nums, int l, int h) {
+        if (l >= h) return nullptr;
+        int p = pos(nums, l, h);
+        TreeNode* root = new TreeNode(nums[p]);
+        root->left = construct(nums, l, p);
+        root->right = construct(nums, p + 1, h);
         return root;
+    }
+    int pos(vector<int>& nums, int l, int h) {
+        int p = l;
+        for (int i = l; i < h; i++) {
+            if (nums[i] > nums[p]) {
+                p = i;
+            }
+        }
+        return p;
     }
 };

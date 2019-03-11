@@ -27,29 +27,29 @@
 class Solution {
 public:
     vector<vector<string>> accountsMerge(vector<vector<string>>& accounts) {
-        unordered_map<string, string> owner, uf;
+        unordered_map<string, string> uf, owner;
         unordered_map<string, set<string>> mails;
-        for (auto act: accounts) {
-            owner[act[1]] = act[0];
-            for (int i = 1; i < act.size(); i++) {
-                uf[act[i]] = act[i];
+        for (auto acct: accounts) {
+            owner[acct[1]] = acct[0];
+            for (int i = 1; i < acct.size(); i++) {
+                uf[acct[i]] = acct[i];
             }
         }
-        for (auto act: accounts) {
-            auto r = ufind(uf, act[1]);
-            for (int i = 2; i < act.size(); i++) {
-                uf[ufind(uf, act[i])] = r;
+        for (auto acct: accounts) {
+            auto r = ufind(uf, acct[1]);
+            for (int i = 2; i < acct.size(); i++) {
+                uf[ufind(uf, acct[i])] = r;
             }
         }
-        for (auto act: accounts) {
-            for (int i = 1; i < act.size(); i++) {
-                mails[ufind(uf, act[i])].emplace(act[i]);
+        for (auto acct: accounts) {
+            for (int i = 1; i < acct.size(); i++) {
+                mails[ufind(uf, acct[i])].emplace(acct[i]);
             }
         }
         vector<vector<string>> ans;
-        for (auto p: mails) {
-            ans.emplace_back(p.second.begin(), p.second.end());
-            ans.back().insert(ans.back().begin(), owner[p.first]);
+        for (auto it: mails) {
+            ans.emplace_back(it.second.begin(), it.second.end());
+            ans.back().insert(ans.back().begin(), owner[it.first]);
         }
         return ans;
     }

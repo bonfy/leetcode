@@ -48,10 +48,16 @@ class Solution {
 public:
     TreeNode* subtreeWithAllDeepest(TreeNode* root) {
         if (!root) return root;
-        int bias = dep(root->left) - dep(root->right);
-        return !bias? root: (bias > 0? subtreeWithAllDeepest(root->left): subtreeWithAllDeepest(root->right));
+        
+        auto l = depth(root->left);
+        auto r = depth(root->right);
+        if (l == r) return root;
+        return l > r? subtreeWithAllDeepest(root->left): subtreeWithAllDeepest(root->right);
     }
-    int dep(TreeNode* root) {
-        return !root ? 0: 1 + max(dep(root->left), dep(root->right));
-    }
+    int depth(TreeNode* p){
+            if (!p) return 0;
+            auto l = depth(p->left);
+            auto r = depth(p->right);
+            return 1 + max(l, r);
+        };
 };

@@ -70,27 +70,24 @@ public:
     vector<string> fullJustify(vector<string>& words, int maxWidth) {
         vector<string> ans;
         for (int i = 0, j = 0; i < words.size(); i = j) {
-            int width = words[i].size();
-            for (j = i + 1; j < words.size() && width + words[j].size() + j - i <= maxWidth; j++) {
+            int width = 0;
+            for (j = i; j < words.size() && width + words[j].size() + j - i <= maxWidth; j++) {
                 width += words[j].size();
             }
-            int gap = 1, extra = 0;
-            if (j < words.size() && j != i + 1) {
-                gap = (maxWidth - width) / (j - i - 1);
+            int space = 1, extra = 0;
+            if (j != i + 1 && j < words.size()) {
+                space = (maxWidth - width) / (j - i - 1);
                 extra = (maxWidth - width) % (j - i - 1);
             }
-            string line = words[i];
+            string line(words[i]);
             for (int k = i + 1; k < j; k++) {
-                line += string(gap, ' ');
-                if (extra > 0) {
-                    extra--;
+                line += string(space, ' ');
+                if (extra-- > 0) {
                     line += " ";
                 }
                 line += words[k];
             }
-            if (line.size() < maxWidth) {
-                line += string(maxWidth - line.size(), ' ');
-            }
+            line += string(maxWidth - line.size(), ' ');
             ans.emplace_back(line);
         }
         return ans;

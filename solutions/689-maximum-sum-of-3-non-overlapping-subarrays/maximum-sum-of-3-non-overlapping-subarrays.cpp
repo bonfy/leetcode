@@ -26,35 +26,36 @@
 class Solution {
 public:
     vector<int> maxSumOfThreeSubarrays(vector<int>& nums, int k) {
-        int n = nums.size(), maxs = INT_MIN;
-        vector<int> sum(n + 1, 0), lpos(n, 0), rpos(n, n - k), ans(3);
-        for (int i = 0; i < n; i++) {
+        const int n = nums.size();
+        vector<int> sum(n + 1, 0), posL(n, 0), posR(n, n - k);
+        for (int i = 0; i < n; ++i) {
             sum[i + 1] = sum[i] + nums[i];
         }
-        for (int i = k + 1, lmax = sum[k] - sum[0]; i <= n - 2 * k; i++) {
-            int tmp = sum[i] - sum[i - k];
-            if (tmp > lmax) {
-                lmax = tmp;
-                lpos[i] = i - k;
+        for (int idx = k + 1, maxL = sum[k] - sum[0]; idx <= n - 2 * k; ++idx) {
+            int cursum = sum[idx] - sum[idx - k];
+            if (cursum > maxL) {
+                maxL = cursum;
+                posL[idx] = idx - k;
             } else {
-                lpos[i] = lpos[i - 1];
+                posL[idx] = posL[idx - 1];
             }
         }
-        for (int i = n - 2 * k - 1, rmax = sum[n] - sum[n - k]; i >= k; i--) {
-            int tmp = sum[i + 2 * k] - sum[i + k];
-            if (tmp > rmax) {
-                rmax = tmp;
-                rpos[i] = i + k;
+        for (int idx = n - 2 * k - 1, maxR = sum[n] - sum[n - k]; idx >= k; --idx) {
+            int cursum = sum[idx + 2 * k] - sum[idx + k];
+            if (cursum > maxR) {
+                maxR = cursum;
+                posR[idx] = idx + k;
             } else {
-                rpos[i] = rpos[i + 1];
+                posR[idx] = posR[idx + 1];
             }
         }
-        for (int i = k; i <= n - 2 * k; i++) {
-            int l = lpos[i], r = rpos[i];
-            int tmp = sum[l + k] - sum[l] + sum[i + k] - sum[i] + sum[r + k] - sum[r];
-            if (tmp > maxs) {
-                maxs = tmp;
-                ans = {l, i, r};
+        vector<int> ans;
+        for (int idx = k, maxsum = 0; idx <= n - 2 * k; ++idx) {
+            int l = posL[idx], r = posR[idx];
+            int cursum = sum[l + k] - sum[l] + sum[idx + k] - sum[idx] + sum[r + k] - sum[r];
+            if (cursum > maxsum) {
+                maxsum = cursum;
+                ans = {l, idx, r};
             }
         }
         return ans;
