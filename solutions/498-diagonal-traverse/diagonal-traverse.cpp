@@ -29,18 +29,17 @@
 class Solution {
 public:
     vector<int> findDiagonalOrder(vector<vector<int>>& matrix) {
+        vector<vector<int>> dir{{-1, 1}, {1, -1}};
         int m = matrix.size();
         if (!m) return {};
         int n = matrix[0].size();
         if (!n) return {};
-        int total = m * n;
-        vector<int> ans;
         int i = 0, j = 0, k = 0;
-        vector<int> dir{-1, 1, -1};
-        while (i * n + j < total) {
+        vector<int> ans;
+        while (ans.size() < m * n) {
             ans.emplace_back(matrix[i][j]);
-            i += dir[k];
-            j += dir[k + 1];
+            i += dir[k][0];
+            j += dir[k][1];
             if (i >= m) {
                 i = m - 1;
                 j += 2;
@@ -59,6 +58,7 @@ public:
                 j = 0;
                 k = 1 - k;
             }
+            
         }
         return ans;
     }

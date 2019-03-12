@@ -28,10 +28,10 @@ public:
         int l = 0, h = nums.size() - 1;
         while (nums[l] > nums[h]) {
             int m = l + (h - l) / 2;
-            if (nums[l] > nums[m]) {
-                h = m;
-            } else {
+            if (nums[l] <= nums[m]) {
                 l = m + 1;
+            } else {
+                h = m;
             }
         }
         return nums[l];

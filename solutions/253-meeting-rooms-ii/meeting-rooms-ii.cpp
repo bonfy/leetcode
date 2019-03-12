@@ -26,22 +26,26 @@
 class Solution {
 public:
     int minMeetingRooms(vector<Interval>& intervals) {
-        int n = intervals.size();
-        vector<int> start, end;
-        for (auto itv: intervals) {
-            start.emplace_back(itv.start);
-            end.emplace_back(itv.end);
-        }
-        sort(start.begin(), start.end());
-        sort(end.begin(), end.end());
-        int j = 0, cnt = 0;
-        for (int i = 0; i < n; i++) {
-            if (start[i] < end[j]) {
-                cnt++;
-            } else if (j < n) {
-                j++;
+        if (intervals.empty()) return 0;
+        auto less_s = [&](const Interval& a, const Interval& b){
+            return a.start < b.start;
+        };
+        auto great_e = [&](const Interval& a, const Interval& b){
+            return a.end > b.end;
+        };
+        sort(intervals.begin(), intervals.end(), less_s);
+        priority_queue<Interval, vector<Interval>, decltype(great_e)> min_rooms(great_e);
+        min_rooms.emplace(intervals[0]);
+        for (int i = 1; i < intervals.size(); ++i) {
+            auto cur = min_rooms.top();
+            min_rooms.pop();
+            if (intervals[i].start < cur.end) {
+                min_rooms.emplace(intervals[i]);
+            } else {
+                cur.end = max(cur.end, intervals[i].end);
             }
+            min_rooms.emplace(cur);
         }
-        return cnt;
+        return min_rooms.size();
     }
 };

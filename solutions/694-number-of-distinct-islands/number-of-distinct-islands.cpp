@@ -42,31 +42,27 @@ public:
         int m = grid.size();
         if (!m) return 0;
         int n = grid[0].size();
-        unordered_set<string> islands;
-        string path;
-        function<void (int, int, char)> dfs = [&](int i, int j, char c) {
-            if (i < 0 || j < 0 || i >= m || j >= n || grid[i][j] != 1) {
-                path += 'f';
-                return;
-            }
-            path += c;
-            grid[i][j] = 0;
-            for (int k = 0; k < 4; ++k) {
-                int x = i + dir[k], y = j + dir[k + 1];
-                dfs(x, y, k + '1');
-            }
-        };
-        for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n; ++j) {
-                if (grid[i][j] == 1) {
-                    path.clear();
-                    dfs(i, j, '0');
-                    islands.emplace(path);
+        set<vector<vector<int>>> islands;
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                vector<vector<int>> newl;
+                if (dfs(i, j, i, j, m, n, grid, newl)) {
+                    islands.emplace(newl);
                 }
             }
         }
         return islands.size();
     }
     vector<int> dir{0, -1, 0, 1, 0};
-    
+    bool dfs(int i, int j, int x, int y, int m, int n, vector<vector<int>>& grid, vector<vector<int>>& newl) {
+        if (x < 0 || y < 0 || x >= m || y >= n || grid[x][y] != 1) {
+            return false;
+        }
+        newl.emplace_back(x - i, y - j);
+        grid[x][y] *= -1;
+        for (int k = 0; k < 4; k++) {
+            dfs(i, j, x + dir[k], y + dir[k + 1], m, n, grid, newl);
+        }
+        return true;
+    }
 };

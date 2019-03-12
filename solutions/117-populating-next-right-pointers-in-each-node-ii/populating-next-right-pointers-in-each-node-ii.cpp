@@ -37,48 +37,37 @@
 //
 
 
-/*
-// Definition for a Node.
-class Node {
-public:
-    int val;
-    Node* left;
-    Node* right;
-    Node* next;
-
-    Node() {}
-
-    Node(int _val, Node* _left, Node* _right, Node* _next) {
-        val = _val;
-        left = _left;
-        right = _right;
-        next = _next;
-    }
-};
-*/
+/**
+ * Definition for binary tree with next pointer.
+ * struct TreeLinkNode {
+ *  int val;
+ *  TreeLinkNode *left, *right, *next;
+ *  TreeLinkNode(int x) : val(x), left(NULL), right(NULL), next(NULL) {}
+ * };
+ */
 class Solution {
 public:
-    Node* connect(Node* root) {
-        Node n_level;
-        Node* q;
-        auto p = root;
-        while (p) {
-            q = &n_level;
-            while (p) {
+    void connect(TreeLinkNode *root) {
+        if (!root) return;
+        queue<TreeLinkNode*> q;
+        q.emplace(root);
+        q.emplace(nullptr);
+        while (!q.empty()) {
+            auto p = q.front();
+            q.pop();
+            if (!p) {
+                if (!q.empty()) {
+                    q.emplace(p);
+                }
+            } else {
                 if (p->left) {
-                    q->next = p->left;
-                    q = q->next;
+                    q.emplace(p->left);
                 }
                 if (p->right) {
-                    q->next = p->right;
-                    q = q->next;
+                    q.emplace(p->right);
                 }
-                p = p->next;
+                p->next = q.front();
             }
-            q->next = nullptr;
-            p = n_level.next;
-            n_level.next = nullptr;
         }
-        return root;
     }
 };

@@ -45,17 +45,20 @@
 class Solution {
 public:
     int kthSmallest(TreeNode* root, int k) {
-        int n = cnt(root->left);
-        if (n + 1 == k) {
-            return root->val;
-        } else if (k <= n) {
-            return kthSmallest(root->left, k);
-        } else {
-            return kthSmallest(root->right, k - n - 1);
+        stack<TreeNode*> stk;
+        auto p = root;
+        int ans = 0;
+        while ((stk.size() || p) && k > 0) {
+            while (p) {
+                stk.emplace(p);
+                p = p->left;
+            }
+            p = stk.top();
+            stk.pop();
+            ans = p->val;
+            --k;
+            p = p->right;
         }
-    }
-    int cnt(TreeNode* root) {
-        if (!root) return 0;
-        return 1 + cnt(root->left) + cnt(root->right);
+        return ans;
     }
 };

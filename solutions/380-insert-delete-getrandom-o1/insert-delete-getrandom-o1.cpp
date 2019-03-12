@@ -46,29 +46,23 @@ public:
     
     /** Inserts a value to the set. Returns true if the set did not already contain the specified element. */
     bool insert(int val) {
-        if (mem.count(val)) {
-            return false;
-        } else {
-            mem[val] = cache.size();
-            cache.emplace_back(val);
-            return true;
-        }
+        if (mem.count(val)) return false;
+        mem[val] = cache.size();
+        cache.emplace_back(val);
+        return true;
     }
     
     /** Removes a value from the set. Returns true if the set contained the specified element. */
     bool remove(int val) {
-        if (mem.count(val)) {
-            if (mem[val] != cache.size() - 1) {
-                auto last_val = cache.back();
-                mem[last_val] = mem[val];
-                cache[mem[val]] = last_val;
-            }
-            cache.pop_back();
-            mem.erase(val);
-            return true;
-        } else {
-            return false;
+        if (!mem.count(val)) return false;
+        if (mem[val] != cache.size() - 1) {
+            int next = cache.back();
+            mem[next] = mem[val];
+            cache[mem[next]] = next;
         }
+        mem.erase(val);
+        cache.pop_back();
+        return true;
     }
     
     /** Get a random element from the set. */

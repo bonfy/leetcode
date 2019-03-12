@@ -36,17 +36,18 @@ class Solution {
 public:
     int findPaths(int m, int n, int N, int i, int j) {
         vector<vector<int>> dp(m, vector<int>(n, 0));
-        for (int t = 0; t < N; t++) {
-            vector<int> prior(n, 0);
+        // init val of prev doesnt matter
+        vector<int> prev(n, 0);
+        int mod = 10e9 + 7;
+        for (int t = 1; t <= N; t++) {
             for (int x = 0; x < m; x++) {
                 for (int y = 0; y < n; y++) {
-                    long path = 0;
-                    path += x == 0? 1: prior[y]; // up
-                    path += y == 0? 1: prior[y - 1]; // left
-                    path += x == m - 1? 1: dp[x + 1][y]; // down
-                    path += y == n - 1? 1: dp[x][y + 1]; // right;
+                    long path = x == 0? 1: prev[y];
+                    path += y == 0? 1: prev[y - 1];
+                    path += x == m - 1? 1: dp[x + 1][y];
+                    path += y == n - 1? 1: dp[x][y + 1];
                     path %= 1000000007;
-                    prior[y] = dp[x][y];
+                    prev[y] = dp[x][y];
                     dp[x][y] = path;
                 }
             }
