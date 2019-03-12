@@ -24,25 +24,28 @@
 class Solution {
 public:
     bool splitArraySameAverage(vector<int>& A) {
-        int n = A.size(), k = n / 2, sum = accumulate(A.begin(), A.end(), 0);
+        int n = A.size(), k = n / 2, total = accumulate(A.begin(), A.end(), 0);
         bool sat = false;
-        for (int i = 1; i <= k && !sat; ++i) {
-            if (sum * i % n == 0) {
+        for (int i = 1; i <= k && !sat; i++) {
+            if (total * i % n == 0) {
                 sat = true;
             }
         }
         if (!sat) return false;
-        vector<unordered_set<int>> subsum(k + 1);
-        subsum[0].emplace(0);
-        for (int& e: A) {
-            for (int i = k; i > 0; --i) {
-                for (auto& presum: subsum[i - 1]) {
-                    subsum[i].emplace(presum + e);
+        // sum[x]: sums from x numbers of A
+        vector<unordered_set<int>> sum(k + 1);
+        sum[0].emplace(0);
+        for (int e: A) {
+            for (int i = k; i > 0; i--) {
+                for (int presum: sum[i - 1]) {
+                    sum[i].emplace(presum + e);
                 }
             }
         }
-        for (int i = 1; i <= k; ++i) {
-            if (sum * i % n == 0 and subsum[i].count(sum * i / n)) return true;
+        for (int i = 1; i <= k ; i++) {
+            if (total * i % n == 0 && sum[i].count(total * i / n)) {
+                return true;
+            }
         }
         return false;
     }

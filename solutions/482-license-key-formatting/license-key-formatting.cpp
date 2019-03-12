@@ -38,19 +38,15 @@
 class Solution {
 public:
     string licenseKeyFormatting(string S, int K) {
-        int n = S.size();
         string ans;
-        for (int i = n - 1, cnt = 0; i >= 0; i--) {
+        int n = S.size();
+        for (int i = n - 1; i >= 0; i--) {
             if (S[i] == '-') continue;
-            cnt++;
-            ans.insert(ans.begin(), 1, toupper(S[i]));
-            if (cnt == K) {
-                cnt = 0;
-                ans = "-" + ans;
+            if (ans.size() % (K + 1) == K) {
+                ans += "-";
             }
+            ans += toupper(S[i]);
         }
-        auto pos = ans.find_first_not_of("-");
-        if (pos != string::npos) ans = ans.substr(pos);
-        return ans;
+        return string(ans.rbegin(), ans.rend());
     }
 };
