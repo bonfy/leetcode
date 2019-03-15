@@ -25,23 +25,21 @@
 class Solution {
 public:
     ListNode* mergeKLists(vector<ListNode*>& lists) {
-        auto cmp = [](const ListNode* a, const ListNode* b){
-            return a->val > b->val;
-        };
-        priority_queue<ListNode*, vector<ListNode*>, decltype(cmp)> min_pq(cmp);
-        ListNode dummy(0);
-        ListNode* p = &dummy;
-        for (auto l: lists) {
-            if (!l) continue;
-            min_pq.emplace(l);
+        if (lists.empty()) return nullptr;
+        auto cmp = [](ListNode* a, ListNode* b){return a->val > b->val;};
+        priority_queue<ListNode*, vector<ListNode*>, decltype(cmp)> pq(cmp);
+        for (auto n: lists) {
+            if (!n) continue;
+            pq.emplace(n);
         }
-        while (!min_pq.empty()) {
-            auto l = min_pq.top();
-            min_pq.pop();
-            p->next = l;
+        ListNode ans(0);
+        ListNode* p = &ans;
+        while (!pq.empty()) {
+            p->next = pq.top();
+            pq.pop();
             p = p->next;
-            if (l->next) min_pq.emplace(l->next);
+            if (p->next) pq.emplace(p->next);
         }
-        return dummy.next;
+        return ans.next;
     }
 };

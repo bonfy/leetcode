@@ -53,11 +53,11 @@ public:
         for (int i = 0; i < n; i++) {
             bloomday[flowers[i] - 1] = i + 1;
         }
-        int left = 0, right = k + 1, ans = INT_MAX;
-        for (int i = 1; right < n; i++) {
+        int ans = INT_MAX, left = 0, right = k + 1;
+        for (int i = 0; i < n && right < n; i++) {
             if (bloomday[left] > bloomday[i] || bloomday[i] <= bloomday[right]) {
                 if (i == right) {
-                    ans = min(ans, max(bloomday[left], bloomday[i]));
+                    ans = min(ans, max(bloomday[left], bloomday[right]));
                 }
                 left = i;
                 right = i + k + 1;

@@ -18,19 +18,19 @@ class Solution {
 public:
     vector<string> generateAbbreviations(string word) {
         vector<string> ans;
-        function<void (int, string, bool)> generate=[&](int pos, string path, bool canNum){
-            if (pos == word.size()) {
-                ans.emplace_back(path);
-            } else {
-                generate(pos + 1, path + word[pos], true);
-                if (canNum) {
-                    for (int len = 1; pos + len <= word.size(); ++len) {
-                        generate(pos + len, path + to_string(len), false);
-                    }
-                }
-            }
-        };
-        generate(0, "", true);
+        generate(word, "", 0, true, ans);
         return ans;
+    }
+    void generate(string& word, string path, int pos, bool can_use_num, vector<string>& ans) {
+        if (pos == word.size()) {
+            ans.emplace_back(path);
+            return;
+        }
+        generate(word, path + word[pos], pos + 1, true, ans);
+        if (can_use_num) {
+            for (int len = 1; len + pos <= word.size(); len++) {
+                generate(word, path + to_string(len), pos + len, false, ans);
+            }
+        }
     }
 };

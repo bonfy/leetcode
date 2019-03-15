@@ -28,38 +28,28 @@ class Solution {
 public:
     vector<int> topKFrequent(vector<int>& nums, int k) {
         unordered_map<int, int> freq;
-        vector<int> uniq;
-        for (auto& e: nums) {
-            if (++freq[e] == 1) {
-                uniq.emplace_back(e);
-            }
+        for (int n: nums) {
+            freq[n]++;
         }
-        auto greater = [&](const int a, const int b){return freq[a] > freq[b];};
-        function <int (int, int)> partition = [&](int l, int h){
-            int idx = rand() % (h - l + 1) + l;
-            swap(uniq[idx], uniq[l]);
-            int pivot = uniq[l];
-            while (l < h) {
-                while (l < h && greater(pivot, uniq[h])) --h;
-                if (l < h) swap(uniq[l++], uniq[h]);
-                while (l < h && greater(uniq[l], pivot)) ++l;
-                if (l < h) swap(uniq[l], uniq[h--]);
-            }
-            uniq[l] = pivot;
-            return l;
+        auto cmp = [](const pair<int, int>& a, const pair<int, int>& b){
+            return a.second > b.second;
         };
-        int l = 0, h = uniq.size() - 1;
-        while (l < h) {
-            int m = partition(l, h);
-            if (m == k - 1) {
-                break;
-            }
-            if (m < k - 1) {
-                l = m + 1;
+        priority_queue<pair<int, int>, vector<pair<int, int>>, decltype(cmp)> min_pq(cmp);
+        for (pair<int, int> p: freq) {
+            if (min_pq.size() >= k) {
+                if (min_pq.top().second < p.second) {
+                    min_pq.pop();
+                    min_pq.emplace(p);
+                }
             } else {
-                h = m - 1;
+                min_pq.emplace(p);
             }
         }
-        return vector<int>(uniq.begin(), uniq.begin() + k);
+        vector<int> ans(k);
+        for (int i = k - 1; i >= 0; i--) {
+            ans[i] = min_pq.top().first;
+            min_pq.pop();
+        }
+        return ans;
     }
 };

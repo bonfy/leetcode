@@ -22,18 +22,18 @@
 class Solution {
 public:
     string nextClosestTime(string time) {
-        vector<int> digit{600, 60, 10, 1};
-        auto split = time.find(":");
-        int cur = stoi(time) * 60 + stoi(time.substr(split + 1));
+        vector<int> t{600, 60, 10, 1};
+        auto p = time.find(":");
+        int cur = stoi(time) * 60 + stoi(time.substr(p + 1));
         string next("0000");
         for (int i = 1, d = 0; i <= 1440 && d < 4; i++) {
-            int t = (cur + i) % 1440;
+            int nt = (cur + i) % 1440;
             for (d = 0; d < 4; d++) {
-                next[d] = '0' + t / digit[d];
-                t %= digit[d];
+                next[d] = (nt / t[d]) + '0';
+                nt %= t[d];
                 if (time.find(next[d]) == string::npos) break;
             }
         }
-        return next.substr(0, 2) + ":" + next.substr(2); 
+        return next.substr(0, 2) + ":" + next.substr(2);
     }
 };

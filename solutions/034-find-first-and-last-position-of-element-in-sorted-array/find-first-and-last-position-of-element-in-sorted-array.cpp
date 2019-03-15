@@ -21,9 +21,10 @@
 class Solution {
 public:
     vector<int> searchRange(vector<int>& nums, int target) {
-        if (nums.empty()) return {-1, -1};
-        vector<int> ans(2, -1);
-        int l = 0, h = nums.size() - 1;
+        int n = nums.size();
+        vector<int> ans{-1, -1};
+        if (!n) return ans;
+        int l = 0, h = n - 1;
         while (l < h) {
             int m = l + (h - l) / 2;
             if (nums[m] < target) {
@@ -35,8 +36,8 @@ public:
         if (nums[l] != target) {
             return ans;
         }
+        h = n - 1;
         ans[0] = l;
-        h = nums.size() - 1;
         while (l < h) {
             int m = l + (h - l) / 2 + 1;
             if (nums[m] > target) {

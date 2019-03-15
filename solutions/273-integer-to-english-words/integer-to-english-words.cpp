@@ -32,33 +32,32 @@
 class Solution {
 public:
     string numberToWords(int num) {
-        if (!num) return "Zero";
+        if (num == 0) return "Zero";
         string ans;
-        int i = 0;
+        int k = 0;
         while (num) {
             if (num % 1000) {
-                ans = less1000(num % 1000) + thousand[i] + " " + ans;
+                ans = less1000(num % 1000) + thousands[k] + " " + ans;
             }
-            i++;
+            ++k;
             num /= 1000;
         }
         auto p = ans.find_last_not_of(" ");
-        if (p != string::npos) ans = ans.substr(0, p + 1);
+        if (p != string::npos) {
+            ans = ans.substr(0, p + 1);
+        }
         return ans;
     }
-    vector<string> less20{"", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
-    vector<string> tens{"", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};
-    vector<string> thousand{"", "Thousand", "Million", "Billion"};
-    
-    string less1000(int n) {
-        if (!n) {
-            return "";
-        } else if (n < 20) {
-            return less20[n] + " ";
-        } else if (n < 100) {
-            return tens[n / 10] + " " + less1000(n % 10);
+    string less1000(int num) {
+        if (num == 0) return "";
+        else if (num < 20) return less20[num] + " ";
+        else if (num < 100) {
+            return tens[num / 10] + " " + less1000(num % 10);
         } else {
-            return less20[n / 100] + " Hundred " + less1000(n % 100);
+            return less20[num / 100] + " Hundred " + less1000(num % 100);
         }
     }
+    vector<string> thousands{"", "Thousand", "Million", "Billion"};
+    vector<string> less20{"", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
+    vector<string> tens{"", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};
 };

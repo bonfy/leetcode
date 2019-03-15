@@ -31,13 +31,19 @@
 class Solution {
 public:
     bool isIsomorphic(string s, string t) {
-        vector<int> m(256, -1), n(256, -1);
+        return my(s) == my(t);
+    }
+    string my(string s) {
+        vector<int> pos(256, -1);
         for (int i = 0; i < s.size(); i++) {
-            if (m[s[i]] != n[t[i]]) {
-                return false;
+            if (pos[s[i]] == -1) {
+                pos[s[i]] = i;
             }
-            m[s[i]] = n[t[i]] = i;
         }
-        return true;
+        string ans;
+        for (int i = 0; i < s.size(); i++) {
+            ans += pos[s[i]];
+        }
+        return ans;
     }
 };

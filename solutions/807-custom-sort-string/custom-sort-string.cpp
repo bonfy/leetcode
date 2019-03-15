@@ -35,10 +35,10 @@ public:
             ++freq[c];
         }
         string ans;
-        for (char& c: S) {
-            if (freq.count(c)) {
-                ans += string(freq[c], c);
-                freq.erase(c);
+        for (int i = 0; i < S.size(); ++i) {
+            if (freq.count(S[i])) {
+                ans += string(freq[S[i]], S[i]);
+                freq.erase(S[i]);
             }
         }
         for (auto& it: freq) {

@@ -38,13 +38,11 @@
 class Solution {
 public:
     string licenseKeyFormatting(string S, int K) {
-        string ans;
         int n = S.size();
+        string ans;
         for (int i = n - 1; i >= 0; i--) {
             if (S[i] == '-') continue;
-            if (ans.size() % (K + 1) == K) {
-                ans += "-";
-            }
+            if (ans.size() % (K + 1) == K) ans += '-';
             ans += toupper(S[i]);
         }
         return string(ans.rbegin(), ans.rend());

@@ -19,18 +19,18 @@ public:
     vector<vector<int>> permuteUnique(vector<int>& nums) {
         vector<vector<int>> ans;
         sort(nums.begin(), nums.end());
-        backtrack(nums, 0, ans);
+        pmt(nums, 0, ans);
         return ans;
     }
-    void backtrack(vector<int> nums, int idx, vector<vector<int>>& ans) {
+    void pmt(vector<int> nums, int idx, vector<vector<int>>& ans) {
         if (idx == nums.size()) {
             ans.emplace_back(nums);
         }
         for (int i = idx; i < nums.size(); i++) {
-            if (i == idx || nums[i] != nums[idx]) {
-                swap(nums[i], nums[idx]);
-                backtrack(nums, idx + 1, ans);
-            }
+            if (i > idx && nums[i] == nums[idx]) continue;
+            swap(nums[i], nums[idx]);
+            pmt(nums, idx + 1, ans);
+            //swap(nums[i], nums[idx]);
         }
     }
 };

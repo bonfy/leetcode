@@ -62,40 +62,41 @@
 
 class Solution {
 public:
+    class Point {
+        public:
+        int x, y, l;
+        Point(int x_, int y_, int l_) : x(x_), y(y_), l(l_) {}
+    };
     int shortestDistance(vector<vector<int>>& maze, vector<int>& start, vector<int>& destination) {
         int m = maze.size();
         if (!m) return -1;
         int n = maze[0].size();
-        if (maze[start[0]][start[1]] == 1 || maze[destination[0]][destination[1]] == 1) return -1;
-        bool reach = false;
-        queue<tuple<int, int, int>> q;
-        q.emplace(start[0], start[1], 0);
+        if (!n) return -1;
         vector<vector<int>> dist(m, vector<int>(n, INT_MAX));
-        int ans = INT_MAX;
-        while (q.size() && !reach) {
-            for (int it = q.size(); it > 0; --it) {
-                auto [i, j, w] = q.front();
-                q.pop();
-                if (dist[i][j] < w) continue;
-                dist[i][j] = w;
-                if (i == destination[0] and j == destination[1]) {
-                    ans = min(ans, w);
+        vector<int> dir{0, 1, 0, -1, 0};
+        auto cmp = [](Point& a, Point& b){return a.l > b.l;};
+        priority_queue<Point, vector<Point>, decltype(cmp)> pq(cmp);
+        pq.emplace(start[0], start[1], 0);
+        while (!pq.empty()) {
+            auto p = pq.top();
+            pq.pop();
+            if (dist[p.x][p.y] <= p.l) continue;
+            dist[p.x][p.y] = p.l;
+            for (int i = 0; i < 4; i++) {
+                int x = p.x, y = p.y, l = p.l;
+                while (0 <= x && x < m && 0 <= y && y < n && maze[x][y] == 0) {
+                    x += dir[i];
+                    y += dir[i + 1];
+                    l++;
                 }
-                for (int k = 0; k < 4; ++k) {
-                    int x = i, y = j, z = w;
-                    while (0 <= x + dir[k] and x + dir[k] < m and 0 <= y + dir[k + 1] and y + dir[k + 1] < n and maze[x + dir[k]][y + dir[k + 1]] == 0) {
-                        x += dir[k];
-                        y += dir[k + 1];
-                        z += 1;
-                    }
-                    if (0 <= x and x < m and 0 <= y and y < n and maze[x][y] == 0 && z < dist[x][y]) {
-                        q.emplace(x, y, z);
-                    }
-                    
-                }
+                // position before the wall
+                x -= dir[i];
+                y -= dir[i + 1];
+                l--;
+                pq.emplace(Point(x, y, l));
             }
         }
+        int ans = dist[destination[0]][destination[1]];
         return ans == INT_MAX? -1: ans;
     }
-    vector<int> dir{0, -1, 0, 1, 0};
 };

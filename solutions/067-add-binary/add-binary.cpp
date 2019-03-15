@@ -19,14 +19,19 @@
 class Solution {
 public:
     string addBinary(string a, string b) {
+        int m = a.size(), n = b.size();
+        int i = m - 1, j = n - 1, c = 0;
         string ans;
-        int la = a.size() - 1, lb = b.size() - 1, c = 0;
-        while (la >= 0 || lb >= 0 || c) {
-            int sum = c;
-            if (la >= 0) sum += a[la--] - '0';
-            if (lb >= 0) sum += b[lb--] - '0';
-            c = sum / 2;
-            ans.insert(ans.begin(), 1, sum % 2 + '0');
+        while (i >= 0 || j >= 0 || c) {
+            int val = c;
+            if (i >= 0) {
+                val += a[i--] - '0';
+            }
+            if (j >= 0) {
+                val += b[j--] - '0';
+            }
+            c = val / 2;
+            ans.insert(ans.begin(), 1, val % 2 + '0');
         }
         return ans;
     }

@@ -27,31 +27,31 @@
 class Solution {
 public:
     vector<int> spiralOrder(vector<vector<int>>& matrix) {
-        int re = matrix.size() - 1;
-        if (re < 0) return {};
-        int ce = matrix[0].size() - 1;
-        if (ce < 0) return {};
-        int rs = 0, cs = 0;
+        int m = matrix.size();
+        if (!m) return {};
+        int n = matrix[0].size();
         vector<int> ans;
+        int rs = 0, re = m - 1, cs = 0, ce = n - 1;
         while (rs <= re && cs <= ce) {
-            for (int j = cs; j <= ce; j++) {
+            for (int j = cs; j <= ce; ++j) {
                 ans.emplace_back(matrix[rs][j]);
             }
-            rs++;
-            for (int i = rs; i <= re; i++) {
+            ++rs;
+            for (int i = rs; i <= re; ++i) {
                 ans.emplace_back(matrix[i][ce]);
             }
-            ce--;
-            if (rs <= re){
-            for (int j = ce; j >= cs; j--) {
-                ans.emplace_back(matrix[re][j]);
+            --ce;
+            if (rs <= re && cs <= ce) {
+                for (int j = ce; j >= cs; --j) {
+                    ans.emplace_back(matrix[re][j]);
+                }
+                --re;
             }
-            re--;}
-            if (cs <= ce) {
-            for (int i = re; i >= rs; i--) {
-                ans.emplace_back(matrix[i][cs]);
-            }
-            cs++;
+            if (rs <= re && cs <= ce) {
+                for (int i = re; i >= rs; --i) {
+                    ans.emplace_back(matrix[i][cs]);
+                }
+                ++cs;
             }
         }
         return ans;

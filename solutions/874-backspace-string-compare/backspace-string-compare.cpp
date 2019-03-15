@@ -59,18 +59,41 @@
 class Solution {
 public:
     bool backspaceCompare(string S, string T) {
-        stack<char> a, b;
-        auto giv = [](string& t, stack<char>& f){
-            for (auto c: t) {
-                if (c == '#') {
-                    if (f.size()) f.pop();
+        int i = S.size() - 1, j = T.size() - 1;
+        int skips = 0, skipt = 0;
+        
+        while (i >= 0 || j >= 0) {
+            while (i >= 0) {
+                if (S[i] == '#') {
+                    i--;
+                    skips++;
+                } else if (skips > 0) {
+                    skips--;
+                    i--;
                 } else {
-                    f.emplace(c);
+                    break;
                 }
-            };
-        };
-        giv(S, a);
-        giv(T,b);
-        return a == b;
+            }
+            while (j >= 0) {
+                if (T[j] == '#') {
+                    j--;
+                    skipt++;
+                } else if (skipt > 0) {
+                    skipt--;
+                    j--;
+                } else {
+                    break;
+                }
+            }
+            if (i >= 0 && j >= 0 && S[i] != T[j]) {
+                return false;
+            }
+            if ((i >= 0) != (j >= 0)) {
+                return false;
+            }
+            i--;
+            j--;
+        }
+        return true;
     }
 };

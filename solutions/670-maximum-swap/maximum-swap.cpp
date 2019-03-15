@@ -29,18 +29,19 @@
 class Solution {
 public:
     int maximumSwap(int num) {
-        string s = to_string(num);
+        string s(to_string(num));
         int n = s.size();
-        vector<int> maxpos(n, n - 1);
-        for (int i = n - 2, pos = n - 1; i >= 0; i--) {
-            if (s[i] > s[pos]) {
-                pos = i;
+        int curMaxP = n - 1;
+        vector<int> dppos(n, -1);
+        for (int i = n - 1; i >= 0; i--) {
+            if (s[i] > s[curMaxP]) {
+                curMaxP = i;
             }
-            maxpos[i] = pos;
+            dppos[i] = curMaxP;
         }
         for (int i = 0; i < n; i++) {
-            if (s[i] != s[maxpos[i]]) {
-                swap(s[i], s[maxpos[i]]);
+            if (s[i] != s[dppos[i]]) {
+                swap(s[i], s[dppos[i]]);
                 break;
             }
         }

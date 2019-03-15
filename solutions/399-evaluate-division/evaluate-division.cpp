@@ -22,44 +22,42 @@
 class Solution {
 public:
     vector<double> calcEquation(vector<pair<string, string>> equations, vector<double>& values, vector<pair<string, string>> queries) {
+        int n = values.size();
         unordered_map<string, string> uf;
-        unordered_map<string, double> vals;
-        for (int i = 0; i < values.size(); i++) {
-            auto u = equations[i].first;
-            auto v = equations[i].second;
-            if (!uf.count(u) && !uf.count(v)) {
-                vals[u] = values[i];
-                vals[v] = 1.0;
-                uf[u] = u;
-                uf[v] = u;
-            } else if (!uf.count(u)) {
-                auto pv = ufind(uf, v);
-                uf[u] = pv;
-                vals[u] = values[i] * vals[v];
-            } else if (!uf.count(v)) {
-                auto pu = ufind(uf, u);
-                uf[v] = pu;
-                vals[v] = vals[u] / values[i];
+        unordered_map<string, double> v;
+        
+        for (int i = 0; i < n; i++) {
+            string a = equations[i].first, b = equations[i].second;
+            if (!uf.count(a) && !uf.count(b)) {
+                uf[a] = a;
+                uf[b] = a;
+                v[a] = values[i];
+                v[b] = 1.0;
+            } else if (!uf.count(a)) {
+                uf[a] = ufind(uf, b);
+                v[a] = v[b] * values[i];
+            } else if (!uf.count(b)) {
+                uf[b] = ufind(uf, a);
+                v[b] = v[a] / values[i];
             } else {
-                auto pu = ufind(uf, u);
-                auto pv = ufind(uf, v);
-                auto ratio = (vals[v] * values[i]) / vals[u];
-                for (auto p: vals) {
-                    if (ufind(uf, p.first) == pu) {
-                        vals[p.first] *= ratio;
+                string pa = ufind(uf, a);
+                string pb = ufind(uf, b);
+                double ratio = v[b] * values[i] / v[a];
+                for (auto it: v) {
+                    if (ufind(uf, it.first) == pa) {
+                        v[it.first] *= ratio;
                     }
                 }
-                uf[pu] = pv;
+                uf[pb] = pa;
             }
         }
         vector<double> ans;
         for (auto q: queries) {
-            auto u = q.first;
-            auto v = q.second;
-            if (!uf.count(u) || !uf.count(v) || ufind(uf, u) != ufind(uf, v)) {
+            string a = q.first, b = q.second;
+            if (!uf.count(a) || !uf.count(b) || ufind(uf, a) != ufind(uf, b)) {
                 ans.emplace_back(-1.0);
             } else {
-                ans.emplace_back(vals[u] / vals[v]);
+                ans.emplace_back(v[a] / v[b]);
             }
         }
         return ans;

@@ -79,18 +79,19 @@ class Solution {
 public:
     void cleanRoom(Robot& robot) {
         unordered_map<int, unordered_map<int, int>> visited;
-        backtrack(robot, visited, 0, 0, 0);
+        myclean(robot, visited, 0, 0, 0);
     }
     vector<int> dir{0, -1, 0, 1, 0};
-    void backtrack(Robot& robot, unordered_map<int, unordered_map<int, int>>& visited, int i, int j, int d) {
-        int path = visited[i][j];
-        if (path) return;
+    void myclean(Robot& robot, unordered_map<int, unordered_map<int, int>>& visited, int i, int j, int d) {
+        if (visited[i][j] == 1) {
+            return;
+        }
         visited[i][j] = 1;
         robot.clean();
         for (int k = 0; k < 4; k++) {
             if (robot.move()) {
-                int x = i + dir[(d + k) % 4], y = j + dir[1 + (d + k) % 4];
-                backtrack(robot, visited, x, y, (d + k) % 4);
+                int x = i + dir[(d + k) % 4], y = j + dir[(d + k) % 4 + 1];
+                myclean(robot, visited, x, y, (d + k) % 4);
                 robot.turnLeft();
                 robot.turnLeft();
                 robot.move();

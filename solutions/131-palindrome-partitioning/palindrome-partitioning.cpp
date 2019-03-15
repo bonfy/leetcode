@@ -28,16 +28,24 @@ public:
             ans.emplace_back(path);
         }
         for (int i = idx; i < s.size(); i++) {
-            int l = idx, h = i;
-            while (l < h && s[l] == s[h]) {
-                l++;
-                h--;
-            }
-            if (l >= h) {
-                path.emplace_back(s.substr(idx, i - idx + 1));
+            auto cur = s.substr(idx, i - idx + 1);
+            if (pal(cur)) {
+                path.emplace_back(cur);
                 backtrack(s, i + 1, path, ans);
                 path.pop_back();
             }
         }
+    }
+    unordered_map<string, bool> mem;
+    bool pal(string s) {
+        if (mem.count(s)) return mem[s];
+        for (int l = 0, h = s.size() - 1; l < h; l++, h--) {
+            if (s[l] != s[h]) {
+                mem[s] = false;
+                return false;
+            }
+        }
+        mem[s] = true;
+        return true;
     }
 };

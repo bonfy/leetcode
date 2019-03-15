@@ -23,26 +23,28 @@
 class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-        int c = 0;
-        ListNode* head = new ListNode(0);
-        ListNode* p = head;
-        while (l1 || l2) {
-            int sum = c;
-            if (l1) {
-                sum += l1->val;
-                l1 = l1->next;
-            }
-            if (l2) {
-                sum += l2->val;
-                l2 = l2->next;
-            }
-            c = sum / 10;
+        int extra = 0, v1 = 0, v2 = 0, sum = 0;
+        ListNode* p = new ListNode(0);
+        auto& ret = p->next;
+        while (l1 != NULL || l2 != NULL) {
+            v1 = getValAndMove(l1);
+            v2 = getValAndMove(l2);
+            sum = v1 + v2 + extra;
             p->next = new ListNode(sum % 10);
             p = p->next;
+            extra = sum / 10;
         }
-        if (c) {
-            p->next = new ListNode(c);
+        if (extra > 0) {
+            p->next = new ListNode(extra);
         }
-        return head->next;
+        return ret;
+    }
+    inline int getValAndMove(ListNode* &l) {
+        int x = 0;
+        if (l != NULL) {
+            x = l->val;
+            l = l->next;
+        }
+        return x;
     }
 };

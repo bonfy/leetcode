@@ -19,16 +19,17 @@
 class Solution {
 public:
     int subarraySum(vector<int>& nums, int k) {
-        int cnt = 0;
-        unordered_map<int, int> presum;
-        presum[0] = 1;
-        for (int i = 0, sum = 0; i < nums.size(); i++) {
+        unordered_map<int, int> cnt;
+        int sum = 0;
+        cnt[sum] = 1;
+        int ans = 0;
+        for (int i = 0; i < nums.size(); ++i) {
             sum += nums[i];
-            if (presum.count(sum - k)) {
-                cnt += presum[sum - k];
+            if (cnt.count(sum - k)) {
+                ans += cnt[sum - k];
             }
-            presum[sum]++;
+            ++cnt[sum];
         }
-        return cnt;
+        return ans;
     }
 };

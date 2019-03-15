@@ -43,19 +43,19 @@ public:
         for (int i = 0, k = 0; i < 10 && k < 6; i++) {
             string s = wordlist[rand() % wordlist.size()];
             k = master.guess(s);
-            vector<string> tmp;
+            vector<string> next;
             for (auto v: wordlist) {
                 if (k == match(s, v)) {
-                    tmp.emplace_back(v);
+                    next.emplace_back(v);
                 }
             }
-            wordlist.swap(tmp);
+            wordlist.swap(next);
         }
     }
     int match(string a, string b) {
         int cnt = 0;
-        for (int i = 0; i < a.size(); i++) {
-            cnt += a[i] == b[i];
+        for (int i = 0; i < 6; i++) {
+            if (a[i] == b[i]) cnt++;
         }
         return cnt;
     }

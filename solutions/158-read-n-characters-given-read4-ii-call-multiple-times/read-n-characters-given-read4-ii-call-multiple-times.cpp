@@ -89,26 +89,26 @@ class Solution {
 public:
     /**
      * @param buf Destination buffer
-     * @param n   Maximum number of characters to read
-     * @return    The number of characters read
+     * @param n   Number of characters to read
+     * @return    The number of actual characters read
      */
-    queue<int> mem;
     int read(char *buf, int n) {
         int cnt = 0;
-        while (!mem.empty() && n > 0) {
-            buf[cnt++] = mem.front();
-            mem.pop();
-            n--;
+        while (cache.size() && n > 0) {
+            buf[cnt++] = cache.front();
+            cache.pop();
+            --n;
         }
         int len = 4;
-        while (n > 0 && len == 4) {
+        while (len == 4 && n > 0) {
             len = read4(buf + cnt);
-            for (int i = n; i < len; i++) {
-                mem.emplace(buf[i + cnt]);
+            for (int i = n; i < len; ++i) {
+                cache.emplace(buf[cnt + i]);
             }
             cnt += min(n, len);
             n -= len;
         }
         return cnt;
     }
+    queue<char> cache;
 };

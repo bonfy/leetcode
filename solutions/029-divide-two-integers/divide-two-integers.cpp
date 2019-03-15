@@ -29,24 +29,21 @@
 class Solution {
 public:
     int divide(int dividend, int divisor) {
-        if (divisor == -1 and dividend == INT_MIN) return INT_MAX;
-        if (divisor == 1) return dividend;
-        if (divisor == -1) return -dividend;
-        bool neg = (dividend < 0) ^ (divisor < 0);
-        long dvd = labs(dividend), dvs = labs(divisor);
-        int cnt = 0;
+        if (divisor == 0 || (dividend == INT_MIN && divisor == -1)) return INT_MAX;
+        bool posi = (dividend < 0) ^ (divisor < 0)? false: true;
+        long dvd = labs(dividend);
+        long dvs = labs(divisor);
+        int ans = 0;
         while (dvd >= dvs) {
-            int t = 1;
+            int cnt = 1;
             long tmp = dvs;
-            while (dvd >= tmp << 1) {
-                t <<= 1;
+            while (dvd >= (tmp << 1)) {
                 tmp <<= 1;
+                cnt <<= 1;
             }
+            ans += cnt;
             dvd -= tmp;
-            cnt += t;
         }
-        cnt = neg? -cnt: cnt;
-        //cout << dividend - cnt * divisor << endl;
-        return cnt;
+        return posi? ans: -ans;
     }
 };
