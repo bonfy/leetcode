@@ -21,30 +21,30 @@
 class Solution {
 public:
     int findKthLargest(vector<int>& nums, int k) {
-        int l = 0, h = nums.size() - 1;
-        k -= 1;
+        const int n = nums.size();
+        int l = 0, h = n - 1;
+        function<int (int, int)> partition = [&](int l, int h){
+            int idx = rand() % (h - l + 1) + l;
+            swap(nums[l], nums[idx]);
+            int pivot = nums[l];
+            while (l < h) {
+                while (l < h && pivot > nums[h]) --h;
+                if (l < h) swap(nums[l++], nums[h]);
+                while (l < h && nums[l] > pivot) ++l;
+                if (l < h) swap(nums[l], nums[h--]);
+            }
+            nums[l] = pivot;
+            return l;
+        };
         while (l < h) {
-            int idx = partition(nums, l, h);
-            if (idx == k) return nums[idx];
-            if (idx < k) {
-                l = idx + 1;
+            int m = partition(l, h);
+            if (m == k - 1) return nums[m];
+            if (m < k - 1) {
+                l = m + 1;
             } else {
-                h = idx - 1;
+                h = m - 1;
             }
         }
         return nums[l];
-    }
-    int partition(vector<int>& nums, int l, int h) {
-        int ix = random() % (h - l + 1) + l;
-        swap(nums[l], nums[ix]);
-        int pivot = nums[l];
-        while (l < h) {
-            while (l < h && pivot > nums[h]) h--;
-            if (l < h) swap(nums[l++], nums[h]); 
-            while (l < h && nums[l] > pivot) l++;
-            if (l < h) swap(nums[l], nums[h--]); // 此处h-- 对边界更改 不可少
-        }
-        nums[l] = pivot;
-        return l;
     }
 };

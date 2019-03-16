@@ -90,24 +90,20 @@
 class Solution {
 public:
     vector<vector<int>> verticalOrder(TreeNode* root) {
-        if (!root) return{};
         vector<vector<int>> ans;
-        map<int, vector<int>> mp;
-        queue<pair<int, TreeNode*>> q;
-        q.emplace(0, root);
+        if (!root) return ans;
+        map<int, vector<int>> vtk;
+        queue<pair<TreeNode*, int>> q;
+        q.emplace(root, 0);
         while (!q.empty()) {
-            int s = q.size();
-            for (int i = 0; i < s; i++) {
-                TreeNode* t = q.front().second;
-                int v = q.front().first;
-                q.pop();
-                mp[v].emplace_back(t->val);
-                if (t->left) q.emplace(v-1, t->left);
-                if (t->right) q.emplace(v+1, t->right);
-            }
+            auto [p, idx] = q.front();
+            q.pop();
+            vtk[idx].emplace_back(p->val);
+            if (p->left) q.emplace(p->left, idx - 1);
+            if (p->right) q.emplace(p->right, idx + 1);
         }
-        for (auto p: mp) {
-            ans.emplace_back(p.second);
+        for (auto& it: vtk) {
+            ans.emplace_back(it.second);
         }
         return ans;
     }

@@ -25,11 +25,7 @@
 class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {
-        unordered_set<int> s;
-        for (int e: nums) {
-            if (s.count(e)) return true;
-            s.emplace(e);
-        }
-        return false;
+        unordered_set<int> st(nums.begin(), nums.end());
+        return !(st.size() == nums.size());
     }
 };

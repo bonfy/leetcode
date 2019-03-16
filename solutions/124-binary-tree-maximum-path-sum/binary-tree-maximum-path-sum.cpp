@@ -42,15 +42,15 @@
 class Solution {
 public:
     int maxPathSum(TreeNode* root) {
-        int ans = INT_MIN;
-        function<int (TreeNode*)> maxSubpath=[&](TreeNode* p){
-            if (!p) return INT_MIN;
-            auto l = max(0, maxSubpath(p->left));
-            auto r = max(0, maxSubpath(p->right));
-            ans = max(ans, p->val + l + r);
-            return p->val + max(l, r);
-        };
-        maxSubpath(root);
-        return ans;
+        int imax = INT_MIN;
+        search(root, imax);
+        return imax;
+    }
+    int search(TreeNode* root, int& imax) {
+        if (!root) return INT_MIN;
+        int l = max(0, search(root->left, imax));
+        int r = max(0, search(root->right, imax));
+        imax = max(imax, root->val + l + r);
+        return root->val + max(l, r);
     }
 };

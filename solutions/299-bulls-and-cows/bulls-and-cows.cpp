@@ -28,18 +28,19 @@
 class Solution {
 public:
     string getHint(string secret, string guess) {
-        vector<int> sec(10), gue(10);
+        int n = secret.size();
         int a = 0, b = 0;
-        for (int i = 0; i < secret.size(); i++) {
+        vector<int> c1(10, 0), c2(10, 0);
+        for (int i = 0; i < n; i++) {
             if (secret[i] == guess[i]) {
                 a++;
             } else {
-                sec[secret[i] - '0']++;
-                gue[guess[i] - '0']++;
+                c1[secret[i] - '0']++;
+                c2[guess[i] - '0']++;
             }
         }
         for (int i = 0; i < 10; i++) {
-            b += min(sec[i], gue[i]);
+            b += min(c1[i], c2[i]);
         }
         return to_string(a) + "A" + to_string(b) + "B";
     }

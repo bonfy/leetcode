@@ -19,15 +19,16 @@
 class Solution {
 public:
     int firstUniqChar(string s) {
-        int n = s.size();
-        if (!n) return -1;
+        if (s.empty()) return -1;
         vector<int> cnt(26, 0);
-        int slow = 0;
-        for (int fast = 0; fast < n; ++fast) {
+        for (int slow = 0, fast = 0; fast <= s.size(); ++fast) {
+            if (fast == s.size()) return slow;
             ++cnt[s[fast] - 'a'];
-            while (slow < n && cnt[s[slow] - 'a'] > 1) ++slow;
-            if (slow == n) return -1;
+            while (slow < s.size() && cnt[s[slow] - 'a'] > 1) {
+                ++slow;
+            }
+            if (slow == s.size()) return -1;
         }
-        return slow;
+        return -1;
     }
 };

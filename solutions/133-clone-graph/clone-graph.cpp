@@ -47,14 +47,14 @@ public:
         queue<UndirectedGraphNode*> q;
         q.emplace(node);
         while (!q.empty()) {
-            auto raw = q.front();
+            UndirectedGraphNode* p = q.front();
             q.pop();
-            for (auto neigh: raw->neighbors) {
+            for (auto neigh: p->neighbors) {
                 if (!image.count(neigh)) {
                     image[neigh] = new UndirectedGraphNode(neigh->label);
                     q.emplace(neigh);
                 }
-                image[raw]->neighbors.emplace_back(image[neigh]);
+                image[p]->neighbors.emplace_back(image[neigh]);
             }
         }
         return image[node];

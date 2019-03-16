@@ -25,36 +25,34 @@ class Solution {
 public:
     vector<vector<int>> palindromePairs(vector<string>& words) {
         unordered_map<string, int> pos;
-        for (int i = 0; i < words.size(); ++i) {
+        for (int i = 0; i < words.size(); i++) {
             pos[words[i]] = i;
         }
         vector<vector<int>> ans;
-        function<bool (string&)> pal = [&](string& s){
-            int l = 0, h = s.size() - 1;
-            while (l < h) {
-                if (s[l] != s[h]) return false;
-                l++;
-                h--;
-            }
-            return true;
-        };
-        for (int i = 0; i < words.size(); ++i) {
-            for (int j = 0; j <= words[i].size(); ++j) {
-                string left(words[i].substr(0, j)), right(words[i].substr(j));
+        for (int i = 0; i < words.size(); i++) {
+            for (int j = 0; j <= words[i].size(); j++) {
+                auto left = words[i].substr(0, j);
+                auto right = words[i].substr(j);
                 if (pal(left)) {
-                    string t(right.rbegin(), right.rend());
-                    if (pos.count(t) && pos[t] != i) {
-                        ans.emplace_back(vector<int>{pos[t], i});
+                    string r(right.rbegin(), right.rend());
+                    if (pos.count(r) && pos[r] != i) {
+                        ans.emplace_back(vector<int>({pos[r], i}));
                     }
                 }
-                if (pal(right) && j != words[i].size()) {
-                    string t(left.rbegin(), left.rend());
-                    if (pos.count(t)) {
-                        ans.emplace_back(vector<int>{i, pos[t]});
+                if (!right.empty() && pal(right)) {
+                    string r(left.rbegin(), left.rend());
+                    if (pos.count(r) && pos[r] != i) {
+                        ans.emplace_back(vector<int>({i, pos[r]}));
                     }
                 }
             }
         }
         return ans;
+    }
+    bool pal(string s) {
+        for (int l = 0, h = s.size() - 1; l < h; l++, h--) {
+            if (s[l] != s[h]) return false;
+        }
+        return true;
     }
 };

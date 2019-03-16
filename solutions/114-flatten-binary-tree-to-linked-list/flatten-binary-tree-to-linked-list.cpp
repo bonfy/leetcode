@@ -40,13 +40,11 @@
 class Solution {
 public:
     void flatten(TreeNode* root) {
-        // TreeNode* p = nullptr;
-        // flt(root, p);
-        auto now = root;
+        TreeNode* now = root;
         while (now) {
             if (now->left) {
                 auto prev = now->left;
-                while (prev->right) {
+                while (prev && prev->right) {
                     prev = prev->right;
                 }
                 prev->right = now->right;
@@ -56,24 +54,4 @@ public:
             now = now->right;
         }
     }
-    // void flt(TreeNode* p, TreeNode*& next) {
-    //     if (!p) return;
-    //     flt(p->right, next);
-    //     flt(p->left, next);
-    //     p->left = nullptr;
-    //     p->right = next;
-    //     next = p;
-    // }
-    // void flt2(TreeNode* p, TreeNode*& prev) {
-    //     if (!p) return;
-    //     auto l = p->left;
-    //     auto r = p->right;
-    //     if (prev) {
-    //         prev->left = nullptr;
-    //         prev->right = p;
-    //     }
-    //     prev = p;
-    //     flt2(l, prev);
-    //     flt2(r, prev);
-    // }
 };

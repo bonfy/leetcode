@@ -20,14 +20,14 @@
 class Solution {
 public:
     int maxProduct(vector<int>& nums) {
-        const int n = nums.size();
         int ans = INT_MIN;
-        for (int i = 0, l = 1, r = 1; i < n; ++i) {
+        int n = nums.size();
+        for (int i = 0, l = 1, r = 1; i < nums.size(); i++) {
             l *= nums[i];
             r *= nums[n - 1 - i];
             ans = max(ans, max(l, r));
-            if (l == 0) l = 1;
-            if (r == 0) r = 1;
+            l = !l? 1: l;
+            r = !r? 1: r;
         }
         return ans;
     }

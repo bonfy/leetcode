@@ -70,18 +70,17 @@ class Solution {
 public:
     int compress(vector<char>& chars) {
         int i = 0;
-        for (int j = 0; j < chars.size(); j++) {
-            int k = j;
-            while (j + 1 < chars.size() && chars[j + 1] == chars[k]) {
-                j++;
-            }
-            int cnt = j - k + 1;
-            chars[i++] = chars[k];
-            if (cnt > 1) {
-                string num = to_string(cnt);
-                for (char x: num) {
-                    chars[i++] = x;
+        for (int j = 0, cnt = 0; j < chars.size(); j++) {
+            cnt++;
+            if (j == chars.size() - 1 || chars[j] != chars[j + 1]) {
+                chars[i++] = chars[j];
+                if (cnt > 1) {
+                    auto num = to_string(cnt);
+                    for (int k = 0; k < num.size(); k++) {
+                        chars[i++] = num[k];
+                    }
                 }
+                cnt = 0;
             }
         }
         return i;

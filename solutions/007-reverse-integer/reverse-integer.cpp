@@ -29,12 +29,33 @@
 class Solution {
 public:
     int reverse(int x) {
-        string sx = x > 0? to_string(x): to_string(-x);
-        std::reverse(sx.begin(), sx.end());
-        try {
-            return x > 0? stoi(sx): stoi("-" + sx);
-        } catch (std::out_of_range e) {
-            return 0;
+        if (x == 0) {
+            return x;
         }
+        int sig = (x > 0) ? 1 : -1;
+        int abs_x = abs(x);
+        int res = abs_x;
+        int i = 10;
+        vector<int> num;
+        while (res > 0) {
+            num.emplace_back(res % i);
+            res = res/i;
+        }
+        int digit = num.size();
+        double ans = 0;
+        double limit = pow(2,31);
+        for (int j = 0; j < digit; ++j) {
+            ans += num[j] * pow(10, digit - j - 1);
+        }
+        if (sig > 0) {
+            if (ans > limit - 1) {
+                return 0;
+            }
+        } else {
+            if (ans > limit) {
+                return 0;
+            }
+        }
+        return sig * ans;
     }
 };

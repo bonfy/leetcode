@@ -29,22 +29,20 @@
 class Solution {
 public:
     vector<string> findItinerary(vector<pair<string, string>> tickets) {
-        unordered_map<string, multiset<string>> graph;
-        for (auto& p: tickets) {
-            auto& [u, v] = p;
-            graph[u].emplace(v);
+        map<string, multiset<string>> trip;
+        vector<string> r_ans;
+        for (auto p: tickets) {
+            trip[p.first].emplace(p.second);
         }
-        vector<string> ans;
-        function<void (string)> top_sort = [&](string u){
-            while (graph[u].size()) {
-                auto v = *(graph[u].begin());
-                graph[u].erase(graph[u].find(v));
-                top_sort(v);
-            }
-            ans.emplace_back(u);
-        };
-        top_sort("JFK");
-        reverse(ans.begin(), ans.end());
-        return ans;
+        visit("JFK", trip, r_ans);
+        return vector<string>(r_ans.rbegin(), r_ans.rend());
+    }
+    void visit(string airport, map<string, multiset<string>>& trip, vector<string>& r_ans) {
+        while (!trip[airport].empty()) {
+            auto next = *trip[airport].begin();
+            trip[airport].erase(trip[airport].begin());
+            visit(next, trip, r_ans);
+        }
+        r_ans.emplace_back(airport);
     }
 };

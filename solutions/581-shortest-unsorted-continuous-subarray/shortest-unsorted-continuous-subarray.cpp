@@ -25,11 +25,11 @@ public:
         if (!n) return 0;
         int beg = 0, end = -1;
         int imax = nums[0], imin = nums[n - 1];
-        for (int i = 1; i < n; i++) {
+        for (int i = 0; i < n; i++) {
             imax = max(imax, nums[i]);
             imin = min(imin, nums[n - 1 - i]);
             if (nums[i] < imax) end = i;
-            if (nums[n - 1 - i] > imin) beg = n - 1 - i;
+            if (imin < nums[n - 1 - i]) beg = n - 1 - i;
         }
         return end - beg + 1;
     }
