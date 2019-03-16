@@ -42,27 +42,30 @@
 class Solution {
 public:
     bool canCross(vector<int>& stones) {
-        return check(stones, 0, 0);
+        return able(stones, 0, 0);
     }
-    bool check(vector<int>& stones, int pos, int k) {
-        string key = to_string(pos) + "_" + to_string(k);
-        if (status.count(key)) return status[key];
-        for (int i = pos + 1; i < stones.size(); i++) {
-            int gap = stones[i] - stones[pos];
+    bool able(vector<int>& stones, int pos, int k) {
+        // pos < 2^11
+        int key = (k << 11) | pos;
+        if (mem.count(key)) {
+            return mem[key];
+        }
+        for (int next = pos + 1; next < stones.size(); next++) {
+            int gap = stones[next] - stones[pos];
             if (gap < k - 1) {
                 continue;
             }
             if (gap > k + 1) {
-                status[key] = false;
-                return false;
+                mem[key] = false;
+                return mem[key];
             }
-            if (check(stones, i, gap)) {
-                status[key] = true;
-                return true;
+            if (able(stones, next, gap)) {
+                mem[key] = true;
+                return mem[key];
             }
         }
-        status[key] = pos == stones.size() - 1;
-        return status[key];
+        mem[key] = pos == stones.size() - 1;
+        return mem[key];
     }
-    unordered_map<string, bool> status;
+    unordered_map<int, bool> mem;
 };

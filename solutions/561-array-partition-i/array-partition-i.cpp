@@ -22,22 +22,12 @@
 class Solution {
 public:
     int arrayPairSum(vector<int>& nums) {
-        vector<int> hash(20001, 0);
-        int flag = 0;
-        int ans = 0;
-        for (auto n: nums) {
-            hash[n + 10000]++;
+        int size = nums.size();
+        int res = 0;
+        sort(nums.begin(), nums.end());
+        for (int i = 0; i < size; i += 2) {
+            res += nums[i];
         }
-        for (int i = 0; i < 20001;) {
-            if (hash[i] <= 0) {i++;continue;}
-            if (flag == 0) {
-                ans += i - 10000;
-                flag = 1;
-            } else {
-                flag = 0;
-            }
-            hash[i]--;
-        }
-        return ans;
+        return res;
     }
 };

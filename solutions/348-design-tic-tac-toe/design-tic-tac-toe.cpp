@@ -60,7 +60,7 @@
 class TicTacToe {
 public:
     /** Initialize your data structure here. */
-    TicTacToe(int n): N(n), diag(0), adiag(0) {
+    TicTacToe(int n): cap(n), diag(0), antidiag(0) {
         rows.resize(n, 0);
         cols.resize(n, 0);
     }
@@ -74,23 +74,28 @@ public:
                 1: Player 1 wins.
                 2: Player 2 wins. */
     int move(int row, int col, int player) {
-        int delta = player == 1? 1: -1;
-        rows[row] += delta;
-        if (rows[row] == N * delta) return player;
-        cols[col] += delta;
-        if (cols[col] == N * delta) return player;
-        if (row == col) {
-            diag += delta;
-            if (diag == N * delta) return player;
-        }
-        if (row + col == N - 1) {
-            adiag += delta;
-            if (adiag == N * delta) return player;
+        if (player == 1) {
+            rows[row]++;
+            cols[col]++;
+            if (row == col) diag++;
+            if (cap - 1 == row + col) antidiag++;
+            if (rows[row] == cap || cols[col] == cap || diag == cap || antidiag == cap) {
+                return 1;
+            }
+        } else {
+            rows[row]--;
+            cols[col]--;
+            if (row == col) diag--;
+            if (cap - 1 == row + col) antidiag--;
+            if (rows[row] == -cap || cols[col] == -cap || diag == -cap || antidiag == -cap) {
+                return 2;
+            }
         }
         return 0;
     }
-    int N, diag, adiag;
+    int cap, diag, antidiag;
     vector<int> rows, cols;
+    
 };
 
 /**

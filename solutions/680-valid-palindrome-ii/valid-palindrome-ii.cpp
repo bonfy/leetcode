@@ -28,22 +28,22 @@
 class Solution {
 public:
     bool validPalindrome(string s) {
-        int l = 0, h = s.size() - 1;
-        while (l < h) {
-            if (s[l] != s[h]) {
-                return pal(s.substr(l, h - l)) || pal(s.substr(l + 1, h - l));
+        const int n = s.size();
+        int i = 0, j = n - 1;
+        function <bool (int, int)> pal = [&](int l, int h){
+            while (l < h) {
+                if (s[l] != s[h]) return false;
+                ++l;
+                --h;
             }
-            h--;
-            l++;
-        }
-        return true;
-    }
-    bool pal(string s) {
-        int l = 0, h = s.size() - 1;
-        while (l < h) {
-            if (s[l++] != s[h--]) {
-                return false;
+            return true;
+        };
+        while (i < j) {
+            if (s[i] != s[j]) {
+                return pal(i, j - 1) || pal(i + 1, j);
             }
+            ++i;
+            --j;
         }
         return true;
     }

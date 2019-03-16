@@ -41,51 +41,42 @@ public:
         int m = grid.size();
         if (!m) return {};
         int n = grid[0].size();
-        vector<int> uf(m * n, 0), cnt(m * n, 0);
         for (auto h: hits) {
-            grid[h[0]][h[1]]--;
+            grid[h[0]][h[1]] = grid[h[0]][h[1]] == 1? 0: -1;
         }
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                if (grid[i][j] == 1) {
-                    addOneBrick(grid, uf, cnt, i, j, m, n, false);
-                }
+        for (int j = 0; j < n; j++) {
+            if (grid[0][j] == 1) {
+                fix(grid, 0, j, m, n);
             }
         }
-        vector<int> ans(hits.size());
-        for (int k = hits.size() - 1; k >= 0; k--) {
-            if (++grid[hits[k][0]][hits[k][1]] <= 0) {
-                ans[k] = 0;
-            } else {
-                ans[k] = addOneBrick(grid, uf, cnt, hits[k][0], hits[k][1], m, n, true);
+        vector<int> ans(hits.size(), 0);
+        for (int t = hits.size() - 1; t >= 0; t--) {
+            int i = hits[t][0], j = hits[t][1];
+            if (grid[i][j] == 0) {
+                bool findFixed = false;
+                for (int k = 0; k < 4 && !findFixed; k++) {
+                    int x = i + dir[k], y = j + dir[k + 1];
+                    if (x >= m || y < 0 || y >= n) continue;
+                    if (x < 0 || grid[x][y] == 2) findFixed = true;
+                }
+                if (findFixed) {
+                    ans[t] = fix(grid, i, j, m, n) - 1;
+                } else {
+                    grid[i][j] = 1;
+                }
             }
         }
         return ans;
     }
-    int addOneBrick(vector<vector<int>>& grid, vector<int>& uf, vector<int>& cnt, int i, int j, int m, int n, bool u4) {
-        int idx = i * n + j;
-        uf[idx] = idx;
-        cnt[idx] = 1;
-        int fixed = idx < n? 1: 0;
-        if (i > 0 && grid[i - 1][j] == 1) fixed += unionf(uf, cnt, idx - n, idx, n);
-        if (j > 0 && grid[i][j - 1] == 1) fixed += unionf(uf, cnt, idx - 1, idx, n);
-        if (u4 && i + 1 < m && grid[i + 1][j] == 1) fixed += unionf(uf, cnt, idx + n, idx, n);
-        if (u4 && j + 1 < n && grid[i][j + 1] == 1) fixed += unionf(uf, cnt, idx + 1, idx, n);
-        return max(0, fixed - 1);
-    }
-    
-    int unionf(vector<int>& uf, vector<int>& cnt, int k1, int k2, int n) {
-        while (uf[k1] != k1) k1 = uf[k1];
-        while (uf[k2] != k2) k2 = uf[k2];
-        if (k1 == k2) return 0;
-        if (k1 < n || k2 >= n) {
-            cnt[k1] += cnt[k2];
-            uf[k2] = k1;
-            if (k1 < n && k2 >= n) return cnt[k2];
-            return 0;
+    vector<int> dir{0, -1, 0, 1, 0};
+    int fix(vector<vector<int>>& grid, int i, int j, int m, int n) {
+        int ans = 1;
+        grid[i][j] = 2;
+        for (int k = 0; k < 4; k++) {
+            int x = i + dir[k], y = j + dir[k + 1];
+            if (x < 0 || x >= m || y < 0 || y >= n || grid[x][y] != 1) continue;
+            ans += fix(grid, x, y, m, n);
         }
-        cnt[k2] += cnt[k1];
-        uf[k1] = k2;
-        return cnt[k1];
+        return ans;
     }
 };
