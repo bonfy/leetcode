@@ -42,17 +42,20 @@
 class Solution {
 public:
     vector<TreeNode*> findDuplicateSubtrees(TreeNode* root) {
-        unordered_map<string, int> freq;
+        unordered_map<string, vector<TreeNode*>> mp;
+        seralize(root, mp);
         vector<TreeNode*> ans;
-        form(root, freq, ans);
+        for (auto p: mp) {
+            if (p.second.size() > 1) {
+                ans.emplace_back(p.second[0]);
+            }
+        }
         return ans;
     }
-    string form(TreeNode* root, unordered_map<string, int>& freq, vector<TreeNode*>& ans) {
-        if (!root) return {};
-        string s("+" + to_string(root->val) + "(" + form(root->left, freq, ans) + ")" + form(root->right, freq, ans) + "-");
-        if (freq[s]++ == 1) {
-            ans.emplace_back(root);
-        }
-        return s;
+    string seralize(TreeNode* root, unordered_map<string, vector<TreeNode*>>& mp) {
+        if (!root) return "";
+        string s = "(" + seralize(root->left, mp) + ")" + to_string(root->val) + "(" + seralize(root->right, mp) + ")";
+        mp[s].emplace_back(root);
+        return move(s);
     }
 };
