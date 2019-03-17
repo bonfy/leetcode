@@ -44,12 +44,16 @@
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
-        int i = 0;
-        for (int n: nums) {
-            if (!i || n > nums[i - 1]) {
-                nums[i++] = n;
+        int s = nums.size();
+        if (s < 2) {
+            return s;
+        }
+        int j = 0;
+        for (int i = 1; i < s; i++) {
+            if (nums[i] > nums[j]) {
+                swap(nums[++j], nums[i]);
             }
         }
-        return i;
+        return j + 1;
     }
 };

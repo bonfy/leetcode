@@ -41,17 +41,17 @@
 class Solution {
 public:
     string findReplaceString(string S, vector<int>& indexes, vector<string>& sources, vector<string>& targets) {
-        map<int, pair<string, string>> m;
-        string ans;
+        unordered_map<int, vector<string>> dict;
         for (int i = 0; i < indexes.size(); i++) {
-            m[indexes[i]] = {sources[i], targets[i]};
+            dict[indexes[i]] = vector<string>{sources[i], targets[i]};
         }
-        for (int i = 0; i < S.size();) {
-            if (m.count(i) && S.find(m[i].first, i) == i) {
-                ans += m[i].second;
-                i += m[i].first.size();
+        string ans;
+        for (int i = 0; i < S.size(); i++) {
+            if (dict.count(i) && S.find(dict[i][0], i) == i) {
+                ans += dict[i][1];
+                i += dict[i][0].size() - 1;
             } else {
-                ans += S[i++];
+                ans += S[i];
             }
         }
         return ans;

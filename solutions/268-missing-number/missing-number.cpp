@@ -21,19 +21,11 @@
 class Solution {
 public:
     int missingNumber(vector<int>& nums) {
-        int n = nums.size();
-        /*
-        int a = n;
-        for (int i = 0; i < n; i++) {
-            a ^= i;
-            a ^= nums[i];
+        int xo = 0, i = 0;
+        int size = nums.size();
+        for (; i < size; i++) {
+            xo = xo ^ i ^ nums[i];
         }
-        return a;
-        */
-        int sum = n * (n + 1) / 2;
-        for (int m: nums) {
-            sum -= m;
-        }
-        return sum;
+        return xo ^ i;
     }
 };

@@ -39,19 +39,19 @@ class Solution {
 public:
     vector<int> exclusiveTime(int n, vector<string>& logs) {
         vector<int> ans(n, 0);
+        int prev = 0, running = 0;
         stack<int> stk;
-        int running = 0, prev = 0;
         for (auto log: logs) {
             int fn = stoi(log);
-            auto p = log.find("start");
             int t = stoi(log.substr(log.rfind(":") + 1));
-            if (p != string::npos) {
-                ans[running] += t - prev;
+            auto start_p = log.find("start");
+            ans[running] += t - prev;
+            if (start_p != string::npos) {
                 stk.emplace(running);
                 running = fn;
             } else {
-                t += 1;
-                ans[running] += t - prev;
+                t++;
+                ans[running]++;
                 running = stk.top();
                 stk.pop();
             }

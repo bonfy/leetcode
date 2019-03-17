@@ -37,12 +37,14 @@ public:
         while (i < word.size() && j < abbr.size()) {
             if (isdigit(abbr[j])) {
                 if (abbr[j] == '0') return false;
-                int len = 0;
+                int v = 0;
                 while (j < abbr.size() && isdigit(abbr[j])) {
-                    len = len * 10 + abbr[j++] - '0';
+                    v = 10 * v + abbr[j++] - '0';
                 }
-                i += len;
-            } else if (word[i++] != abbr[j++]) return false;
+                i += v;
+            } else {
+                if (word[i++] != abbr[j++]) return false;
+            }
         }
         return i == word.size() && j == abbr.size();
     }

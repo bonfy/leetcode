@@ -42,17 +42,15 @@
 class Solution {
 public:
     int findCheapestPrice(int n, vector<vector<int>>& flights, int src, int dst, int K) {
-        vector<int> cost(n, 10e8);
+        vector<int> cost(n, 1e9);
         cost[src] = 0;
-        int ans = cost[dst];
-        for (int t = K; t >= 0; t--) {
-            vector<int> cur(n, 10e8);
-            for (auto v: flights) {
-                cur[v[1]] = min(cur[v[1]], cost[v[0]] + v[2]);
+        for (int k = 0; k <= K; k++) {
+            auto cur = cost;
+            for (auto f: flights) {
+                cur[f[1]] = min(cur[f[1]], cost[f[0]] + f[2]);
             }
             cost.swap(cur);
-            ans = min(ans, cost[dst]);
         }
-        return ans == 10e8? -1: ans;
+        return cost[dst] == 1e9? -1: cost[dst];
     }
 };

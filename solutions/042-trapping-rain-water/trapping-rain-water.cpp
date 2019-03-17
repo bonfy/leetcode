@@ -14,10 +14,9 @@
 class Solution {
 public:
     int trap(vector<int>& height) {
-        int n = height.size();
-        int l = 0, h = n - 1, water = 0, level = 0;
+        int water = 0, level = 0, l = 0, h = height.size() - 1;
         while (l < h) {
-            int lower = height[l] < height[h]? height[l++]: height[h--];
+            int lower = height[height[l] < height[h]? l++: h--];
             level = max(level, lower);
             water += level - lower;
         }
