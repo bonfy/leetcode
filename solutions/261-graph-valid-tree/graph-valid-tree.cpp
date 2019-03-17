@@ -19,20 +19,25 @@
 class Solution {
 public:
     bool validTree(int n, vector<pair<int, int>>& edges) {
-        vector<int> uf(n, 0);
-        iota(uf.begin(), uf.end(), 0);
-        function<int (int)> root = [&](int k){
-            if (uf[k] != k) {
-                uf[k] = root(uf[k]);
-            }
-            return uf[k];
-        };
-        for (auto [u, v]: edges) {
-            auto p = root(u), q = root(v);
-            if (p == q) return false;
-            uf[p] = q;
-            --n;
+        vector<int> uf(n, -1);
+        for (int i = 0; i < n; i++) {
+            uf[i] = i;
         }
-        return n == 1;
+        int cnt = n;
+        for (auto v: edges) {
+            int pa = ufind(uf, v.first);
+            int pb = ufind(uf, v.second);
+            if (pa == pb) return false;
+            uf[pa] = min(pa, pb);
+            uf[pb] = min(pa, pb);
+            cnt--;
+        }
+        return cnt == 1;
+    }
+    int ufind(vector<int>& uf, int k) {
+        if (uf[k] != k) {
+            uf[k] = ufind(uf, uf[k]);
+        }
+        return uf[k];
     }
 };

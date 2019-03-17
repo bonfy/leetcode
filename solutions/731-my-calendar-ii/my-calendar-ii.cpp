@@ -45,12 +45,14 @@ public:
     }
     
     bool book(int start, int end) {
-        for (auto u: db) {
-            if (max(start, u.first) < min(end, u.second)) return false;
+        for (auto p: db) {
+            if (max(start, p.first) < min(end, p.second)) {
+                return false;
+            }
         }
-        for (auto u: single) {
-            if (max(start, u.first) < min(end, u.second)) {
-                db.emplace_back(max(start, u.first), min(end, u.second));
+        for (auto p: single) {
+            if (max(start, p.first) < min(end, p.second)) {
+                db.emplace_back(max(start, p.first), min(end, p.second));
             }
         }
         single.emplace_back(start, end);

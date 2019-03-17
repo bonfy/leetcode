@@ -24,58 +24,51 @@
 //
 
 
-class Trie {
-public:
+struct Trie {
     bool w;
-    vector<Trie*> v;
-    Trie() {
-        w = false;
-        v.resize(26, nullptr);
+    vector<Trie*> next;
+    Trie(): w(false) {
+        next.resize(26);
     }
 };
 class WordDictionary {
 public:
     /** Initialize your data structure here. */
     WordDictionary() {
-        trie = new Trie();
+        root = new Trie();
     }
     
     /** Adds a word into the data structure. */
     void addWord(string word) {
-        auto p = trie;
-        for (auto c: word) {
-            if (!p->v[c - 'a']) {
-                p->v[c - 'a'] = new Trie();
+        auto p = root;
+        for (char& c: word) {
+            if (!p->next[c - 'a']) {
+                p->next[c - 'a'] = new Trie();
             }
-            p = p->v[c - 'a'];
+            p = p->next[c - 'a'];
         }
         p->w = true;
     }
     
     /** Returns if the word is in the data structure. A word could contain the dot character '.' to represent any one letter. */
     bool search(string word) {
-        return query(word, trie);
+        return query(word, 0, root);
     }
-    bool query(string word, Trie* root) {
-        if (!root) return false;
-        for (int i = 0; i < word.size(); i++) {
-            char c = word[i];
-            if (c == '.') {
-                for (auto r: root->v) {
-                    if (query(word.substr(i + 1), r)) return true;
-                }
-                return false;
-            } else {
-                if (!root->v[c - 'a']) return false;
-                root = root->v[c-'a'];
-            }
+    bool query(string& s, int pos, Trie* p) {
+        if (pos == s.size() && p) {
+            return p->w;
         }
-        return root && root->w;
+        if (s[pos] == '.') {
+            for (int i = 0; i < 26; ++i) {
+                if (p->next[i] && query(s, pos + 1, p->next[i])) return true;
+            }
+            return false;
+        } else {
+            return p->next[s[pos] - 'a'] && query(s, pos + 1, p->next[s[pos] - 'a']);
+        }
     }
-    
-    Trie* trie;
+    Trie* root;
 };
-
 
 /**
  * Your WordDictionary object will be instantiated and called as such:

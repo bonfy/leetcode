@@ -35,13 +35,13 @@
 class Solution {
 public:
     int thirdMax(vector<int>& nums) {
-        set<int> st;
-        for (int n: nums) {
-            st.emplace(n);
-            if (st.size() > 3) {
-                st.erase(st.begin());
+        set<int> res;
+        for (int x: nums) {
+            res.emplace(x);
+            if (res.size() > 3) {
+                res.erase(res.begin());
             }
         }
-        return st.size() > 2? *st.begin(): *st.rbegin();
+        return (res.size() > 2) ? *res.begin() : *res.rbegin();
     }
 };

@@ -37,25 +37,25 @@ class Solution {
 public:
     string crackSafe(int n, int k) {
         string s(n, '0');
+        int total = pow(k, n);
         unordered_set<string> visited;
         visited.emplace(s);
-        int num = pow(k, n);
-        search(s, visited, n, k, num);
+        canReach(s, visited, n, k, total);
         return s;
     }
-    bool search(string& s, unordered_set<string>& visited, int n, int k, int num) {
-        if (visited.size() == num) {
+    bool canReach(string& s, unordered_set<string>& visited, int n, int k, int total) {
+        if (visited.size() == total) {
             return true;
         }
         for (int i = 0; i < k; i++) {
-            s += ('0' + i);
-            string key = s.substr(s.size() - n);
-            if (!visited.count(key)) {
-                visited.emplace(key);
-                if (search(s, visited, n, k, num)) {
+            s += i + '0';
+            string pwd = s.substr(s.size() - n);
+            if (!visited.count(pwd)) {
+                visited.emplace(pwd);
+                if (canReach(s, visited, n, k, total)) {
                     return true;
                 }
-                visited.erase(key);
+                visited.erase(pwd);
             }
             s.pop_back();
         }

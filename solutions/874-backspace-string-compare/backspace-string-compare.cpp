@@ -60,15 +60,14 @@ class Solution {
 public:
     bool backspaceCompare(string S, string T) {
         int i = S.size() - 1, j = T.size() - 1;
-        int skips = 0, skipt = 0;
-        
+        int bi = 0, bj = 0;
         while (i >= 0 || j >= 0) {
             while (i >= 0) {
                 if (S[i] == '#') {
                     i--;
-                    skips++;
-                } else if (skips > 0) {
-                    skips--;
+                    bi++;
+                } else if (bi > 0) {
+                    bi--;
                     i--;
                 } else {
                     break;
@@ -77,20 +76,16 @@ public:
             while (j >= 0) {
                 if (T[j] == '#') {
                     j--;
-                    skipt++;
-                } else if (skipt > 0) {
-                    skipt--;
+                    bj++;
+                } else if (bj > 0) {
+                    bj--;
                     j--;
                 } else {
                     break;
                 }
             }
-            if (i >= 0 && j >= 0 && S[i] != T[j]) {
-                return false;
-            }
-            if ((i >= 0) != (j >= 0)) {
-                return false;
-            }
+            if (i >= 0 && j >= 0 && S[i] != T[j]) return false;
+            if ((i >= 0) != (j >= 0)) return false;
             i--;
             j--;
         }

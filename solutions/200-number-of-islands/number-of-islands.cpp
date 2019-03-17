@@ -31,35 +31,40 @@ public:
         int m = grid.size();
         if (!m) return 0;
         int n = grid[0].size();
-        if (!n) return 0;
+        int ans = 0;
         vector<int> uf(m * n, -1);
-        int cnt = 0;
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
+        function<int (int)> ufind = [&](int k){
+            if (uf[k] != k) {
+                uf[k] = ufind(uf[k]);
+            }
+            return uf[k];
+        };
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
                 if (grid[i][j] == '1') {
-                    cnt++;
-                    uf[i * n + j] = i * n + j;
-                    for (int k = 0; k < 4; k++) {
+                    ++ans;
+                    int idx = i * n + j;
+                    uf[idx] = idx;
+                    for (int k = 0; k < 4; ++k) {
                         int x = i + dir[k], y = j + dir[k + 1];
-                        if (x < 0 || y < 0 || x >= m || y >= n || uf[x * n + y] == -1) continue;
-                        auto pa = ufind(uf, i * n + j);
-                        auto pb = ufind(uf, x * n + y);
-                        if (pa != pb) {
-                            cnt--;
-                            uf[pa] = min(pa, pb);
-                            uf[pb] = uf[pa];
-                        }
+                        if (x < 0 || y < 0 || x >= m || y >= n || uf[x* n +y] == -1) continue;
+                        int nid = ufind(x * n + y);
+                        if (nid == idx) continue;
+                        --ans;
+                        uf[nid] = idx;
                     }
                 }
             }
         }
-        return cnt;
+        return ans;
     }
-    vector<int> dir{0, 1, 0, -1, 0};
-    int ufind(vector<int>& uf, int k) {
-        if (uf[k] != k) {
-            uf[k] = ufind(uf, uf[k]);
+    void dfs(vector<vector<char>>& grid, int i, int j, int m, int n) {
+        if (i < 0 || j < 0 || i >= m || j >= n || grid[i][j] != '1') return;
+        grid[i][j] = '2';
+        for (int k = 0; k < 4; ++k) {
+            int x = i + dir[k], y = j + dir[k + 1];
+            dfs(grid, x, y, m, n);
         }
-        return uf[k];
     }
+    vector<int> dir{0, -1, 0, 1, 0};
 };

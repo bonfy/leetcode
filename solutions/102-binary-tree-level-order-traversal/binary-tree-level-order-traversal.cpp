@@ -37,22 +37,19 @@ public:
     vector<vector<int>> levelOrder(TreeNode* root) {
         if (!root) return {};
         vector<vector<int>> ans;
-        vector<int> level;
         queue<TreeNode*> q;
         q.emplace(root);
-        q.emplace(nullptr);
         while (!q.empty()) {
-            auto p = q.front();
-            q.pop();
-            if (p) {
+            int n = q.size();
+            vector<int> level;
+            for (int i = 0; i < n; i++) {
+                auto p = q.front();
+                q.pop();
                 level.emplace_back(p->val);
                 if (p->left) q.emplace(p->left);
                 if (p->right) q.emplace(p->right);
-            } else {
-                ans.emplace_back(level);
-                level.clear();
-                if (!q.empty()) q.emplace(p);
             }
+            ans.emplace_back(level);
         }
         return ans;
     }

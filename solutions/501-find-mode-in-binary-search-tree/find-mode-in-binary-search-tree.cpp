@@ -43,78 +43,48 @@
 class Solution {
 public:
     vector<int> findMode(TreeNode* root) {
-        if (!root) return {};
         int maxf = 0;
-        int prev = INT_MAX;
-        auto p = root;
         int cnt = 0;
-        while (p) {
-            if (!p->left) {
-                if (prev == p->val) {
-                    cnt++;
-                } else {
-                    cnt = 1;
-                }
-                maxf = max(maxf, cnt);
-                prev = p->val;
-                p = p->right;
-            } else {
-                auto tmp = p->left;
-                while (tmp->right && tmp->right != p) {
-                    tmp = tmp->right;
-                }
-                if (!tmp->right) {
-                    tmp->right = p;
-                    p = p->left;
-                } else {
-                    tmp->right = nullptr;
-                    if (prev == p->val) {
-                        cnt++;
-                    } else {
-                        cnt = 1;
-                    }
-                    maxf = max(maxf, cnt);
-                    prev = p->val;
-                    p = p->right;
-                }
+        int prev = INT_MAX;
+        stack<TreeNode*> stk;
+        TreeNode* p = root;
+        while (p || !stk.empty()) {
+            while (p) {
+                stk.emplace(p);
+                p = p->left;
             }
+            p = stk.top();
+            stk.pop();
+            if (p->val == prev) {
+                cnt++;
+            } else {
+                cnt = 1;
+            }
+            maxf = max(maxf, cnt);
+            prev = p->val;
+            p = p->right;
         }
-        prev = INT_MAX;
-        p = root;
-        cnt = 0;
         vector<int> ans;
-        while (p) {
-            if (!p->left) {
-                if (prev == p->val) {
-                    cnt++;
-                    
-                } else {
-                    cnt = 1;
-                }
-                if (cnt == maxf) ans.emplace_back(p->val);
-                prev = p->val;
-                p = p->right;
-            } else {
-                auto tmp = p->left;
-                while (tmp->right && tmp->right != p) {
-                    tmp = tmp->right;
-                }
-                if (!tmp->right) {
-                    tmp->right = p;
-                    p = p->left;
-                } else {
-                    tmp->right = nullptr;
-                    if (prev == p->val) {
-                        cnt++;
-                        
-                    } else {
-                        cnt = 1;
-                    }
-                    if (cnt == maxf) ans.emplace_back(p->val);
-                    prev = p->val;
-                    p = p->right;
-                }
+        p = root;
+        prev = INT_MAX;
+        cnt = 0;
+        while (p || !stk.empty()) {
+            while (p) {
+                stk.emplace(p);
+                p = p->left;
             }
+            p = stk.top();
+            stk.pop();
+            if (p->val == prev) {
+                cnt++;
+            } else {
+                cnt = 1;
+            }
+            if (cnt == maxf) {
+                ans.emplace_back(p->val);
+            }
+            prev = p->val;
+            p = p->right;
         }
         return ans;
     }
