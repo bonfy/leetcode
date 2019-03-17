@@ -25,12 +25,27 @@
 class Solution {
 public:
     int hammingDistance(int x, int y) {
-        int ans = 0;
-        while (x || y) {
-            ans += (x & 1) ^ (y & 1);
-            x >>= 1;
-            y >>= 1;
+        int cnt = 0;
+        vector<int> vx;
+        vector<int> vy;
+        trans2(&vx, x);
+        trans2(&vy, y);
+        for (int i = 0; i < 32; i++) {
+            if (vx[i] != vy[i]) {
+                cnt++;
+            }
         }
-        return ans;
+        return cnt;
+    }
+    
+private:
+    void trans2(vector<int>* inv, int v) {
+        while (v) {
+            inv->emplace_back(v % 2);
+            v /= 2;
+        }
+        while (inv->size() < 32) {
+            inv->emplace_back(0);
+        }
     }
 };

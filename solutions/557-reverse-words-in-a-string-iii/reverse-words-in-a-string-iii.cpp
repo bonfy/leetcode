@@ -15,14 +15,21 @@
 class Solution {
 public:
     string reverseWords(string s) {
-        string ans;
-        stringstream ss(s);
-        while (getline(ss, s, ' ')) {
-            if (!ans.empty()) {
-                ans += " ";
+        int i = 0, j = 0;
+        string ns = s;
+        int size = s.size();
+        for (; j <= size; j++) {
+            if (s[j] == ' ' || j == size) {
+                reverseTerm(&ns, i, j);
+                i = j + 1;
             }
-            ans += string(s.rbegin(), s.rend());
         }
-        return ans;
+        return move(ns);
+    }
+    void reverseTerm(string* ns, int i, int j) {
+        int e = j - 1;
+        while (i < e) {
+            swap(ns->at(i++), ns->at(e--));
+        }
     }
 };

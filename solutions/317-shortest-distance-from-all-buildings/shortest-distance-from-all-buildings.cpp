@@ -34,28 +34,28 @@ public:
         int m = grid.size();
         if (!m) return -1;
         int n = grid[0].size();
-        vector<vector<int>> ng(grid);
+        if (!n) return -1;
+        vector<vector<int>> ngrid(grid);
         vector<vector<int>> total(m, vector<int>(n, 0));
+        vector<int> dir{0, -1, 0, 1, 0};
         int canReach = 0;
-        vector<int> dir{0, 1, 0, -1, 0};
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (grid[i][j] == 1) {
                     queue<pair<int, int>> q;
-                    vector<vector<int>> dist(m, vector<int>(n, 0));
                     q.emplace(i, j);
+                    vector<vector<int>> localdist(m, vector<int>(n, 0));
                     while (!q.empty()) {
-                        int x = q.front().first;
-                        int y = q.front().second;
+                        auto p = q.front();
                         q.pop();
                         for (int i = 0; i < 4; i++) {
-                            int nx = x + dir[i];
-                            int ny = y + dir[i + 1];
-                            if (nx >= 0 && ny >= 0 && nx < m && ny < n && ng[nx][ny] == canReach) {
-                                ng[nx][ny]--;
-                                dist[nx][ny] = 1 + dist[x][y];
-                                total[nx][ny] += dist[nx][ny];
-                                q.emplace(nx, ny);
+                            int x = p.first + dir[i];
+                            int y = p.second + dir[i + 1];
+                            if (0 <= x && x < m && 0 <= y && y < n && ngrid[x][y] == canReach) {
+                                ngrid[x][y]--;
+                                localdist[x][y] = 1 + localdist[p.first][p.second];
+                                total[x][y] += localdist[x][y];
+                                q.emplace(x, y);
                             }
                         }
                     }
@@ -63,14 +63,14 @@ public:
                 }
             }
         }
-        int d = INT_MAX;
+        int ans = INT_MAX;
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                if (ng[i][j] == canReach && total[i][j]) {
-                    d = min(total[i][j], d);
+                if (ngrid[i][j] == canReach && total[i][j] < ans) {
+                    ans = total[i][j];
                 }
             }
         }
-        return d == INT_MAX? -1: d;
+        return ans == INT_MAX? -1: ans;
     }
 };

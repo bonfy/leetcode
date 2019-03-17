@@ -18,18 +18,19 @@ class Solution {
 public:
     vector<int> countSmaller(vector<int>& nums) {
         int n = nums.size();
+        if (!n) return {};
         vector<int> ans(n), index(n);
         for (int i = 0; i < n; i++) {
             index[i] = i;
         }
-        compute_inverse(nums, index, 0, n, ans);
+        compute_inverse(nums, 0, n, index, ans);
         return ans;
     }
-    void compute_inverse(vector<int>& nums, vector<int>& index, int l, int h, vector<int>& ans) {
-        if (h - l <= 1) return;
+    void compute_inverse(vector<int>& nums, int l, int h, vector<int>& index, vector<int>& ans) {
+        if (l + 1 >= h) return;
         int m = l + (h - l) / 2;
-        compute_inverse(nums, index, l, m, ans);
-        compute_inverse(nums, index, m, h, ans);
+        compute_inverse(nums, l, m, index, ans);
+        compute_inverse(nums, m, h, index, ans);
         int p1 = l, p2 = m, rightcount = 0;
         vector<int> updated_index;
         while (p1 < m || p2 < h) {
@@ -42,7 +43,7 @@ public:
                 rightcount++;
                 p2++;
             }
-        }
+        } 
         move(updated_index.begin(), updated_index.end(), index.begin() + l);
     }
 };

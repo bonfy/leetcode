@@ -23,24 +23,24 @@
 class Solution {
 public:
     vector<vector<string>> groupAnagrams(vector<string>& strs) {
-        unordered_map<string, vector<string>> mp;
-        for (auto s: strs) {
-            mp[st(s)].emplace_back(s);
-        }
         vector<vector<string>> ans;
-        for (auto p: mp) {
+        unordered_map<string, vector<string>> anas;
+        for (auto s: strs) {
+            anas[mysort(s)].emplace_back(s);
+        }
+        for (auto p: anas) {
             ans.emplace_back(p.second);
         }
         return ans;
     }
-    string st(string s) {
-        vector<int> dict(26, 0);
+    string mysort(string s) {
+        vector<int> cnt(26, 0);
         for (char c: s) {
-            dict[c - 'a']++;
+            cnt[c - 'a']++;
         }
         string ans;
         for (int i = 0; i < 26; i++) {
-            ans.append(dict[i], i + 'a');
+            ans.append(cnt[i], i + 'a');
         }
         return ans;
     }

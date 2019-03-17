@@ -21,17 +21,19 @@ public:
     int numberOfBoomerangs(vector<pair<int, int>>& points) {
         int ans = 0;
         for (int i = 0; i < points.size(); i++) {
-            unordered_map<int, int> numof;
+            int xi = points[i].first, yi = points[i].second;
+            unordered_map<int, int> cnt;
             for (int j = 0; j < points.size(); j++) {
                 if (i == j) continue;
-                int dx = points[i].first - points[j].first;
-                int dy = points[i].second - points[j].second;
+                int xj = points[j].first, yj = points[j].second;
+                int dx = xi - xj, dy = yi - yj;
                 int d = dx * dx + dy * dy;
-                numof[d]++;
+                cnt[d]++;
             }
-            for (auto p: numof) {
-                if (p.second > 1) {
-                    ans += p.second * (p.second - 1);
+            for (auto it: cnt) {
+                if (it.second > 1) {
+                    // c (x, 2) * a(2, 2);
+                    ans += (it.second) * (it.second - 1);
                 }
             }
         }

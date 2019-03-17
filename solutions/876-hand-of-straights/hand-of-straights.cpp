@@ -38,24 +38,25 @@
 class Solution {
 public:
     bool isNStraightHand(vector<int>& hand, int W) {
+        if (hand.empty() || hand.size() % W != 0) return false;
         map<int, int> cnt;
-        for (auto v: hand) {
-            cnt[v]++;
+        for (int e: hand) {
+            cnt[e]++;
         }
-        queue<int> q;
-        int last = -1, open = 0;
-        for (auto v: cnt) {
-            int x, y;
-            tie(x, y) = v;
-            if ((open > 0 && last + 1 < x) || y < open) return false;
-            q.emplace(y - open);
-            last = x;
-            open = y;
-            if (q.size() == W) {
-                open -= q.front();
-                q.pop();
+        while (!cnt.empty()) {
+            int x = cnt.begin()->first;
+            int num = cnt.begin()->second;
+            for (int i = 0; i < W; i++) {
+                if (!cnt.count(x) || cnt[x] < num) {
+                    return false;
+                }
+                cnt[x] -= num;
+                if (cnt[x] == 0) {
+                    cnt.erase(x);
+                }
+                x++;
             }
         }
-        return open == 0;
+        return true;
     }
 };

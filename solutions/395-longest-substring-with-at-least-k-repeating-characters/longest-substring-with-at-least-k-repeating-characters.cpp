@@ -31,22 +31,24 @@ class Solution {
 public:
     int longestSubstring(string s, int k) {
         vector<int> dict(26, 0);
-        for (char c: s) {
-            dict[c - 'a']++;
+        for (char& c: s) {
+            ++dict[c - 'a'];
         }
-        int i = 0, maxlen = 0;
-        int n = s.size();
-        while (i <= n - k) {
-            while (i <= n - k && dict[s[i] - 'a'] < k) i++;
+        int maxlen = 0;
+        int i = 0;
+        const int n = s.size();
+        while (i + k - 1 < n) {
+            while (i + k - 1 < n && dict[s[i] - 'a'] < k) ++i;
             vector<int> tmp_dict(26, 0);
-            int len = 0, useless = 0;
-            for (int j = i; j < n; j++) {
-                if (++tmp_dict[s[j] - 'a'] == 1) useless++;
-                if (tmp_dict[s[j] - 'a'] == k) useless--;
+            int len = 0;
+            for (int j = i, useless = 0; j < n; ++j) {
+                ++tmp_dict[s[j] - 'a'];
+                if (tmp_dict[s[j] - 'a'] == 1) ++useless;
+                if (tmp_dict[s[j] - 'a'] == k) --useless;
                 if (useless == 0) len = j - i + 1;
             }
-            maxlen = max(maxlen, len);
-            i += len + 1;
+            maxlen = max(len, maxlen);
+            i += max(1, len);
         }
         return maxlen;
     }
