@@ -1,5 +1,5 @@
 # :pencil2: Leetcode Solutions with Cpp,Python,Python3  
-Update time:  2019-03-17 01:38:59  
+Update time:  2019-03-17 07:55:40  
 Auto created by [leetcode_generate](https://github.com/bonfy/leetcode)  
 I have solved **757   /   961** problems  
 while there are **140** problems still locked.  
@@ -970,4 +970,4 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
 |1054|[complement-of-base-10-integer](https://leetcode.com/problems/complement-of-base-10-integer)|[Cpp](https://github.com/fr42k/leetcode/blob/master/solutions/1054-complement-of-base-10-integer/complement-of-base-10-integer.cpp)||Easy|
 |1055|[pairs-of-songs-with-total-durations-divisible-by-60](https://leetcode.com/problems/pairs-of-songs-with-total-durations-divisible-by-60)|[Cpp](https://github.com/fr42k/leetcode/blob/master/solutions/1055-pairs-of-songs-with-total-durations-divisible-by-60/pairs-of-songs-with-total-durations-divisible-by-60.cpp)||Easy|
 |1056|[capacity-to-ship-packages-within-d-days](https://leetcode.com/problems/capacity-to-ship-packages-within-d-days)|[Cpp](https://github.com/fr42k/leetcode/blob/master/solutions/1056-capacity-to-ship-packages-within-d-days/capacity-to-ship-packages-within-d-days.cpp)||Medium|
-|1057|[numbers-with-1-repeated-digit](https://leetcode.com/problems/numbers-with-1-repeated-digit)|[Python3](https://github.com/fr42k/leetcode/blob/master/solutions/1057-numbers-with-1-repeated-digit/numbers-with-1-repeated-digit.py) [Cpp](https://github.com/fr42k/leetcode/blob/master/solutions/1057-numbers-with-1-repeated-digit/numbers-with-1-repeated-digit.cpp)||Hard|
+|1057|[numbers-with-repeated-digits](https://leetcode.com/problems/numbers-with-repeated-digits)|[Python3](https://github.com/fr42k/leetcode/blob/master/solutions/1057-numbers-with-repeated-digits/numbers-with-repeated-digits.py) [Cpp](https://github.com/fr42k/leetcode/blob/master/solutions/1057-numbers-with-repeated-digits/numbers-with-repeated-digits.cpp)||Hard|
