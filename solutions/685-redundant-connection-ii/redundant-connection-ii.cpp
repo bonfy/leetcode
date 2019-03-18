@@ -38,38 +38,42 @@ class Solution {
 public:
     vector<int> findRedundantDirectedConnection(vector<vector<int>>& edges) {
         int n = edges.size();
-        vector<int> uf(n + 1, 0), firstViolate{}, lastViolate{};
+        vector<int> firstVio, secondVio;
+        unordered_map<int, int> parent;
         for (auto& e: edges) {
-            if (uf[e[1]] == 0) {
-                uf[e[1]] = e[0];
-            } else {
-                firstViolate = {uf[e[1]], e[1]};
-                lastViolate = e;
+            int u = e[0], v = e[1];
+            if (parent.count(v)) {
+                firstVio = vector<int>{parent[v], v};
+                secondVio = e;
                 e[1] = -e[1];
+            } else {
+                parent[v] = u;
             }
         }
-        for (int i = 1; i <= n; i++) uf[i] = i;
+        vector<int> uf(n + 1, -1);
+        for (int i = 1; i <= n; i++) {
+            uf[i] = i;
+        }
         for (auto& e: edges) {
-            int l = e[0], r = e[1];
-            if (e[1] < 0) {
+            int u = e[0], v = e[1];
+            if (v < 0) {
                 e[1] = -e[1];
                 continue;
             }
-            int pl = ufind(uf, l);
-            if (pl == r) {
-                if (firstViolate.empty()) {
-                    return e;
-                }
-                return firstViolate;
+            int pu = ufind(uf, u), pv = ufind(uf, v);
+            if (pu == pv) {
+                if (!firstVio.empty()) return firstVio;
+                return e;
             }
-            uf[r] = pl;
+            uf[pu] = min(pu, pv);
+            uf[pv] = uf[pu];
         }
-        return lastViolate;
+        return secondVio;
     }
-    int ufind(vector<int>& uf, int r) {
-        if (r != uf[r]) {
-            uf[r] = ufind(uf, uf[r]);
+    int ufind(vector<int>& uf, int k) {
+        if (uf[k] != k) {
+            uf[k] = ufind(uf, uf[k]);
         }
-        return uf[r];
+        return uf[k];
     }
 };

@@ -29,13 +29,12 @@
 class Solution {
 public:
     bool search(vector<int>& nums, int target) {
-        if (nums.empty()) return false;
-        int l = 0, h = nums.size() - 1;
+        int n = nums.size();
+        if (!n) return false;
+        int l = 0, h = n - 1;
         while (l < h) {
             int m = l + (h - l) / 2;
-            if (nums[m] == target) {
-                return true;
-            }
+            if (target == nums[m]) return true;
             if (nums[l] == nums[m] && nums[m] == nums[h]) {
                 l++;
                 h--;

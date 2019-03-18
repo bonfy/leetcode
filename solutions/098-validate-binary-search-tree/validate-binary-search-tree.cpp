@@ -46,9 +46,10 @@ class Solution {
 public:
     bool isValidBST(TreeNode* root) {
         /*
-        TreeNode* prev = nullptr;
+        if (!root) return true;
         stack<TreeNode*> stk;
-        auto p = root;
+        TreeNode* p = root;
+        TreeNode* prev = nullptr;
         while (p || !stk.empty()) {
             while (p) {
                 stk.emplace(p);
@@ -62,11 +63,12 @@ public:
         }
         return true;
         */
-        return bst(root, nullptr, nullptr);
+        return valid(root, nullptr, nullptr);
     }
-    bool bst(TreeNode* node, TreeNode* imin, TreeNode* imax) {
-        if (!node) return true;
-        if ((imin && imin->val >= node->val) || (imax && node->val >= imax->val)) return false;
-        return bst(node->left, imin, node) && bst(node->right, node, imax);
+    bool valid(TreeNode* root, TreeNode* imin, TreeNode* imax) {
+        if (!root) return true;
+        if (imin && imin->val >= root->val) return false;
+        if (imax && root->val >= imax->val) return false;
+        return valid(root->left, imin, root) && valid(root->right, root, imax);
     }
 };

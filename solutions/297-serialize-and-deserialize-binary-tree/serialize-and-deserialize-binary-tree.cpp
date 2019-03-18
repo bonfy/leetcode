@@ -46,10 +46,10 @@ public:
         return decode(ss);
     }
     TreeNode* decode(stringstream& ss) {
-        string val;
-        ss >> val;
-        if (val == "n") return nullptr;
-        auto root = new TreeNode(stoi(val));
+        string tmp;
+        ss >> tmp;
+        if (tmp == "n") return nullptr;
+        auto root = new TreeNode(stoi(tmp));
         root->left = decode(ss);
         root->right = decode(ss);
         return root;

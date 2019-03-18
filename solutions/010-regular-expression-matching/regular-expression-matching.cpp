@@ -69,20 +69,39 @@ class Solution {
 public:
     bool isMatch(string s, string p) {
         int m = s.size(), n = p.size();
-        vector<vector<int>> dp(m + 1, vector<int>(n + 1, 0));
-        dp[0][0] = 1;
+        // vector<vector<int>> dp(m + 1, vector<int>(n + 1, 0));
+        // dp[0][0] = 1;
+        // for (int j = 2; j <= n; ++j) {
+        //     dp[0][j] = p[j - 1] == '*' and dp[0][j - 2];
+        // }
+        // for (int i = 1; i <= m; ++i) {
+        //     for (int j = 1; j <= n; ++j) {
+        //         if (p[j - 1] == '*') {
+        //             dp[i][j] = (j >= 2) && (dp[i][j - 2] || (dp[i - 1][j] && (s[i - 1] == p[j - 2] || p[j - 2] == '.')));
+        //         } else {
+        //             dp[i][j] = dp[i - 1][j - 1] && ((s[i - 1] == p[j - 1]) || (p[j - 1] == '.'));
+        //         }
+        //     }
+        // }
+        // return dp[m][n];
+        vector<int> dp(n + 1, 0);
+        dp[0] = 1;
         for (int j = 2; j <= n; ++j) {
-            dp[0][j] = (p[j - 1] == '*') && dp[0][j - 2];
+            dp[j] = dp[j - 2] && p[j - 1] == '*';
         }
         for (int i = 1; i <= m; ++i) {
+            int topleft = dp[0];
+            dp[0] = 0;
             for (int j = 1; j <= n; ++j) {
+                int top = dp[j];
                 if (p[j - 1] == '*') {
-                    dp[i][j] = (j >= 2) && (dp[i][j - 2] || (dp[i - 1][j] && (p[j - 2] == '.' || p[j - 2] == s[i - 1])));
+                    dp[j] = (j >= 2) && (dp[j - 2] || (top && (p[j - 2] == '.' || p[j - 2] == s[i - 1])));
                 } else {
-                    dp[i][j] = dp[i - 1][j - 1] && (p[j - 1] == '.' || p[j - 1] == s[i - 1]);
+                    dp[j] = topleft && (p[j - 1] == '.' || p[j - 1] == s[i - 1]);
                 }
+                topleft = top;
             }
         }
-        return dp[m][n];
+        return dp[n];
     }
 };

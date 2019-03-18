@@ -30,23 +30,32 @@
 class WordFilter {
 public:
     WordFilter(vector<string> words) {
-        for (int z = 0; z < words.size(); z++) {
-            auto w = words[z];
-            for (int i = 0; i <= w.size(); i++) {
-                for (int j = 0; j <= w.size(); j++) {
-                    weight[w.substr(0, i) + "#" + w.substr(j)] = z;
-                }
+        for (int w = 0; w < words.size(); w++) {
+            for (int i = 0; i <= words[w].size(); i++) {
+                pre[words[w].substr(0, i)].emplace_back(w);
+                suf[words[w].substr(i)].emplace_back(w);
             }
         }
     }
     
     int f(string prefix, string suffix) {
-        if (weight.count(prefix + "#" + suffix)) {
-            return weight[prefix + "#" + suffix];
+        if (!pre.count(prefix) || !suf.count(suffix)) {
+            return -1;
+        }
+        auto p = pre[prefix], s = suf[suffix];
+        int i = p.size() - 1, j = s.size() - 1;
+        while (i >= 0 && j >= 0) {
+            if (p[i] == s[j]) {
+                return p[i];
+            } else if (p[i] > s[j]) {
+                i--;
+            } else {
+                j--;
+            }
         }
         return -1;
     }
-    unordered_map<string, int> weight;
+    unordered_map<string, vector<int>> pre, suf;
 };
 
 /**

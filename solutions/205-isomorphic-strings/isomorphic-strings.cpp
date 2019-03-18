@@ -31,19 +31,11 @@
 class Solution {
 public:
     bool isIsomorphic(string s, string t) {
-        return my(s) == my(t);
-    }
-    string my(string s) {
-        vector<int> pos(256, -1);
+        vector<int> m1(256, -1), m2(256, -1);
         for (int i = 0; i < s.size(); i++) {
-            if (pos[s[i]] == -1) {
-                pos[s[i]] = i;
-            }
+            if (m1[s[i]] != m2[t[i]]) return false;
+            m1[s[i]] = m2[t[i]] = i;
         }
-        string ans;
-        for (int i = 0; i < s.size(); i++) {
-            ans += pos[s[i]];
-        }
-        return ans;
+        return true;
     }
 };

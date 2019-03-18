@@ -65,30 +65,30 @@ public:
         int m = maze.size();
         if (!m) return false;
         int n = maze[0].size();
-        set<pair<int, int>> visited;
+        if (!n || maze[start[0]][start[1]] || maze[destination[0]][destination[1]]) return false;
         queue<pair<int, int>> q;
         q.emplace(start[0], start[1]);
-        pair<int, int> dest = make_pair(destination[0], destination[1]);
-        vector<int> dir{0, 1, 0, -1, 0};
+        vector<vector<int>> inqueue(m, vector<int>(n));
+        inqueue[start[0]][start[1]] = 1;
         while (!q.empty()) {
-            auto cur = q.front();
+            auto p = q.front();
             q.pop();
-            if (visited.count(cur)) continue;
-            visited.emplace(cur);
-            if (visited.count(dest)) return true;
-            for (int i = 0; i < 4; i++) {
-                int x = cur.first + dir[i];
-                int y = cur.second + dir[i + 1];
+            if (p.first == destination[0] && p.second == destination[1]) return true;
+            for (int k = 0; k < 4; k++) {
+                int x = p.first, y = p.second;
                 while (0 <= x && x < m && 0 <= y && y < n && maze[x][y] == 0) {
-                    x += dir[i];
-                    y += dir[i + 1];
+                    x += dir[k];
+                    y += dir[k + 1];
                 }
-                x -= dir[i];
-                y -= dir[i + 1];
-                q.emplace(x, y);
+                x -= dir[k];
+                y -= dir[k + 1];
+                if (inqueue[x][y] == 0) {
+                    q.emplace(x, y);
+                    inqueue[x][y] = 1;
+                }
             }
         }
-        if (visited.count(dest)) return true;
         return false;
     }
+    vector<int> dir{0, -1, 0, 1, 0};
 };

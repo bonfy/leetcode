@@ -24,7 +24,7 @@ class Solution {
 public:
     int lengthOfLongestSubstringKDistinct(string s, int k) {
         vector<int> counter(256, 0);
-        int slow = 0, ans = 0, n = s.size(), diff = 0;
+        int n = s.size(), slow = 0, diff = 0, ans = 0;
         for (int fast = 0; fast < n; fast++) {
             if (counter[s[fast]]++ == 0) diff++;
             while (diff > k) {

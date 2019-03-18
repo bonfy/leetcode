@@ -27,17 +27,23 @@
 class Solution {
 public:
     int numberOfArithmeticSlices(vector<int>& A) {
-        int n = A.size();
-        if (n < 3) return 0;
-        vector<int> dp(n, 0);
-        dp[2] = (A[2] + A[0] == 2 * A[1]);
-        int ans = dp[2];
-        for (int i = 3; i < n; ++i) {
+        int size = A.size();
+        if (size < 3) {
+            return 0;
+        }
+        int t = 0;
+        int sum = 0;
+        for (int i = 2; i < size; i++) {
             if (A[i] + A[i - 2] == 2 * A[i - 1]) {
-                dp[i] = 1 + dp[i - 1];
-                ans += dp[i];
+                t++;
+            } else {
+                sum += calc(t);
+                t = 0;
             }
         }
-        return ans;
+        return sum + calc(t);
+    }
+    int calc(int t) {
+        return (t*(t+1) >> 1);
     }
 };

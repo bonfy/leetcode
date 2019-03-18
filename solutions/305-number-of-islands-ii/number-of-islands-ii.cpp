@@ -58,40 +58,35 @@
 class Solution {
 public:
     vector<int> numIslands2(int m, int n, vector<pair<int, int>>& positions) {
-        vector<int> ans;
-        vector<int> dir{0, 1, 0, -1, 0};
         vector<int> uf(m * n, -1);
-        int cnt = 0;
+        vector<int> ans;
+        int island = 0;
+        vector<int> dir{0, 1, 0, -1, 0};
         for (auto p: positions) {
-            int x = p.first, y = p.second;
-            int idx = x * n + y;
-            uf[idx] = idx;
-            cnt++;
-            for (int k = 0; k < 4; k++) {
-                int xp = x + dir[k], yp = y + dir[k + 1];
-                int idxp = xp * n + yp;
-                if (valid(xp, yp, m, n) && uf[idxp] != -1) {
-                    int p1 = ufind(uf, idx), p2 = ufind(uf, idxp);
-                    if (p1 == p2) continue;
-                    make_union(uf, p1, p2);
-                    cnt--;
+            int x_ = p.first, y_ = p.second;
+            int idx_ = x_ * n + y_;
+            uf[idx_] = idx_;
+            island++;
+            for (int i = 0; i < 4; i++) {
+                int x = x_ + dir[i], y = y_ + dir[i + 1];
+                int idx = x * n + y;
+                if (0 <= x && x < m && 0 <= y && y < n && uf[idx] != -1) {
+                    int p_old = ufind(uf, idx_), p_new = ufind(uf, idx);
+                    if (p_old != p_new) {
+                        island--;
+                        uf[p_old] = min(p_old, p_new);
+                        uf[p_new] = uf[p_old];
+                    }
                 }
             }
-            ans.emplace_back(cnt);
+            ans.emplace_back(island);
         }
         return ans;
-    }
-    bool valid(int x, int y, int m, int n) {
-        return (0 <= x && x < m && 0 <= y && y < n);
     }
     int ufind(vector<int>& uf, int k) {
         if (uf[k] != k) {
             uf[k] = ufind(uf, uf[k]);
         }
         return uf[k];
-    }
-    void make_union(vector<int>& uf, int p1, int p2) {
-        uf[p1] = min(p1, p2);
-        uf[p2] = uf[p1];
     }
 };

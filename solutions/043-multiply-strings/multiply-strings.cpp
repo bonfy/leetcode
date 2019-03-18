@@ -30,21 +30,18 @@ public:
         int m = num1.size(), n = num2.size();
         string ans(m + n, '0');
         for (int i = m - 1; i >= 0; i--) {
-            int a = num1[i] - '0';
             for (int j = n - 1; j >= 0; j--) {
                 int pos = i + j + 1, c_pos = i + j;
-                int b = num2[j] - '0';
-                int product = a * b + ans[pos] - '0';
-                ans[c_pos] += product / 10;
-                ans[pos] = product % 10 + '0';
+                int num = ans[pos] - '0' + (num1[i] - '0') * (num2[j] - '0');
+                ans[c_pos] += num / 10;
+                ans[pos] = num % 10 + '0';
             }
         }
-        auto p = ans.find_first_not_of('0');
+        auto p = ans.find_first_not_of("0");
         if (p == string::npos) {
-            ans = "0";
-        } else {
-            ans = ans.substr(p);
+            return "0";
         }
+        ans = ans.substr(p);
         return ans;
     }
 };

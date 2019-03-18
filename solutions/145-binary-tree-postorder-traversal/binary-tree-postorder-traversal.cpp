@@ -33,9 +33,11 @@ public:
         vector<int> ans;
         stack<TreeNode*> stk;
         stk.emplace(root);
+        stack<int> rans;
         while (stk.size()) {
             auto p = stk.top();
             stk.pop();
+            rans.emplace(p->val);
             ans.emplace_back(p->val);
             if (p->left) {
                 stk.emplace(p->left);
@@ -45,6 +47,12 @@ public:
             }
         }
         reverse(ans.begin(), ans.end());
-        return ans;
+        vector<int> ans2;
+        while (!rans.empty()) {
+            ans2.emplace_back(rans.top());
+            rans.pop();
+         
+        }
+        return ans2;
     }
 };

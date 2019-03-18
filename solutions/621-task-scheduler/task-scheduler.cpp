@@ -30,16 +30,14 @@ public:
     int leastInterval(vector<char>& tasks, int n) {
         unordered_map<char, int> freq;
         int maxfreq = 0;
-        for (auto& c: tasks) {
+        for (char& c: tasks) {
             maxfreq = max(maxfreq, ++freq[c]);
         }
-        int ans = (maxfreq - 1) * (n + 1);
+        int base = (maxfreq - 1) * (n + 1);
         for (auto& it: freq) {
-            if (it.second == maxfreq) {
-                ++ans;
-            }
+            if (it.second == maxfreq) ++base;
         }
-        const int t = tasks.size();
-        return max(ans, t);
+        const int len = tasks.size();
+        return max(len, base);
     }
 };

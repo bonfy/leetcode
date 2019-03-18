@@ -35,25 +35,26 @@ public:
         int m = matrix.size();
         if (!m) return 0;
         int n = matrix[0].size();
-        int ans = 0;
-        vector<vector<int>> mem(m, vector<int>(n, -1));
-        function<int (int, int)> search = [&](int i, int j){
-            if (mem[i][j] != -1) return mem[i][j];
-            int step = 0;
-            for (int k = 0; k < 4; ++k) {
-                int x = i + dir[k], y = j + dir[k + 1];
-                if (x < 0 || y < 0 || x >= m || y >= n || matrix[x][y] <= matrix[i][j]) continue;
-                step = max(step, search(x, y));
-            }
-            mem[i][j] = step + 1;
-            return mem[i][j];
-        };
-        for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n; ++j) {
-                ans = max(search(i, j), ans);
+        if (!n) return 0;
+        int ans = 1;
+        vector<vector<int>> cache(m, vector<int>(n, -1));
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                ans = max(ans, dfs(matrix, i, j, m, n, cache));
             }
         }
         return ans;
     }
-    vector<int> dir{0, -1, 0, 1, 0};
+    int dfs(vector<vector<int>>& matrix, int i, int j, int m, int n, vector<vector<int>>& cache) {
+        if (cache[i][j] != -1) return cache[i][j];
+        int ans = 1;
+        for (int k = 0; k < 4; k++) {
+            int x = i + dir[k], y = j + dir[k + 1];
+            if (x < 0 || x >= m || y < 0 || y >= n || matrix[x][y] <= matrix[i][j]) continue;
+            ans = max(ans, 1 + dfs(matrix, x, y, m, n, cache));
+        }
+        cache[i][j] = ans;
+        return ans;
+    }
+    vector<int> dir{0, 1, 0, -1, 0};
 };

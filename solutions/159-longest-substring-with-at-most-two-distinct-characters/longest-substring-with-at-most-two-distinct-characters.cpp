@@ -20,20 +20,22 @@
 class Solution {
 public:
     int lengthOfLongestSubstringTwoDistinct(string s) {
-        int n = s.size();
-        vector<int> count(256, 0);
-        int len = 0;
-        for (int slow = 0, fast = 0, diff = 0; fast < n; fast++) {
-            if (count[s[fast]]++ == 0) {
-                diff++;
-            }
+        vector<int> counter(256, 0);
+        int n = s.size(), slow = 0, ans = 0, diff = 0;
+        for (int fast = 0; fast < n; fast++) {
+            if (counter[s[fast]]++ == 0) diff++;
             while (diff > 2) {
-                if (--count[s[slow++]] == 0) {
-                    diff--;
-                }
+                ans = max(ans, fast - slow);
+                if (--counter[s[slow]] == 0) diff--;
+                slow++;
             }
-            len = max(len, fast - slow + 1);
         }
-        return len;
+        if (diff == 2) {
+            ans = max(ans, n - slow);
+        }
+        if (diff < 2) {
+            ans = n;
+        }
+        return ans;
     }
 };
