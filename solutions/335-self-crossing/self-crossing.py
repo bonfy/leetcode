@@ -5,46 +5,43 @@
 #
 # Write a one-pass algorithm with O(1) extra space to determine, if your path crosses itself, or not.
 #
+#  
+#
 # Example 1:
 #
 #
+# ┌───┐
+# │   │
+# └───┼──>
+#     │
+#
 # Input: [2,1,1,2]
-#
-# ?????
-# ?   ?
-# ???????>
-#     ?
-#
-# Input: true 
-# Explanation: self crossing
+# Output: true
 #
 #
 # Example 2:
 #
 #
+# ┌──────┐
+# │      │
+# │
+# │
+# └────────────>
+#
 # Input: [1,2,3,4]
-#
-# ????????
-# ?      ?
-# ?
-# ?
-# ?????????????>
-#
 # Output: false 
-# Explanation: not self crossing
 #
 #
 # Example 3:
 #
 #
+# ┌───┐
+# │   │
+# └───┼>
+#
 # Input: [1,1,1,1]
-#
-# ?????
-# ?   ?
-# ?????>
-#
 # Output: true 
-# Explanation: self crossing
+#
 #
 
 
