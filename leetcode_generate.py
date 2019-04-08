@@ -20,6 +20,7 @@ from selenium import webdriver
 from collections import namedtuple, OrderedDict
 
 HOME = Path.cwd()
+MAX_DIGIT_LEN = 4 # 1000+ PROBLEMS
 SOLUTION_FOLDER_NAME = 'solutions'
 SOLUTION_FOLDER = Path.joinpath(HOME, SOLUTION_FOLDER_NAME)
 CONFIG_FILE = Path.joinpath(HOME, 'config.cfg')
@@ -466,7 +467,7 @@ class Leetcode:
             )
             return
 
-        qname = '{id}-{title}'.format(id=str(qid).zfill(3), title=qtitle)
+        qname = '{id}-{title}'.format(id=str(qid).zfill(MAX_DIGIT_LEN), title=qtitle)
         print('begin download ' + qname)
         path = Path.joinpath(SOLUTION_FOLDER, qname)
         check_and_make_dir(path)
@@ -555,7 +556,7 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
                 if item.solutions:
                     dirname = '{folder}/{id}-{title}'.format(
                         folder=SOLUTION_FOLDER_NAME,
-                        id=str(item.question_id).zfill(3),
+                        id=str(item.question_id).zfill(MAX_DIGIT_LEN),
                         title=item.question__title_slug,
                     )
                     language = ''
