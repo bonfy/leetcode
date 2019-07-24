@@ -14,8 +14,6 @@
 # return [0, 1].
 #
 #
-#  
-#
 
 
 class Solution(object):

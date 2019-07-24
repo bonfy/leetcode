@@ -11,8 +11,6 @@
 // return [0, 1].
 //
 //
-//  
-//
 
 
 use std::collections::HashMap;

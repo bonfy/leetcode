@@ -27,6 +27,7 @@
 # 	1 <= S.length <= 1000
 # 	1 <= N <= 10^9
 #
+#
 
 
 class Solution(object):

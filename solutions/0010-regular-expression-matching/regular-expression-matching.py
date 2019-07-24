@@ -34,7 +34,7 @@
 # s = "aa"
 # p = "a*"
 # Output: true
-# Explanation: '*' means zero or more of the precedeng element, 'a'. Therefore, by repeating 'a' once, it becomes "aa".
+# Explanation: '*' means zero or more of the preceding element, 'a'. Therefore, by repeating 'a' once, it becomes "aa".
 #
 #
 # Example 3:
@@ -54,7 +54,7 @@
 # s = "aab"
 # p = "c*a*b"
 # Output: true
-# Explanation: c can be repeated 0 times, a can be repeated 1 time. Therefore it matches "aab".
+# Explanation: c can be repeated 0 times, a can be repeated 1 time. Therefore, it matches "aab".
 #
 #
 # Example 5:
