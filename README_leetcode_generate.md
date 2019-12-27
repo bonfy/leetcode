@@ -44,7 +44,7 @@ $ pipenv install
 
 Edit your own username, password, language and repo in the **config.cfg.example** file and then rename it to **config.cfg**.
 
-driverpath - Please input the path of your chromedriver
+driverpath - Set the path of chromedriver. For Windows users, please include **chromedriver.exe** in path.
 
 ```
 [leetcode]
