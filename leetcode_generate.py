@@ -37,6 +37,7 @@ HEADERS = {
     'Host': 'leetcode.com',
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36',  # NOQA
 }
+REPO_BRANCH = os.popen('git rev-parse --abbrev-ref HEAD').read().rstrip()
 
 
 def get_config_from_file():
@@ -327,7 +328,7 @@ class Leetcode:
             submissions_url = '{}/api/submissions/?format=json&limit={}&offset={}&last_key={}'.format(
                 self.base_url, limit, offset, last_key
             )
-            
+
             resp = self.session.get(submissions_url, proxies=PROXIES)
             # print(submissions_url, ':', resp.status_code)
             assert resp.status_code == 200
@@ -567,7 +568,8 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
                     ]
                     while language_lst:
                         lan = language_lst.pop()
-                        language += '[{language}]({repo}/blob/master/{dirname}/{title}.{ext})'.format(
+                        language += '[{language}]({repo}/blob/{branch}/{dirname}/{title}.{ext})'.format(
+                            branch=REPO_BRANCH,
                             language=lan.capitalize(),
                             repo=CONFIG['repo'],
                             dirname=dirname,
@@ -595,7 +597,9 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
         cmd_git_commit = 'git commit -m "update at {date}"'.format(
             date=strdate
         )
-        cmd_git_push = 'git push -u origin master'
+        cmd_git_push = 'git push -u origin {branch}'.format(
+            branch=REPO_BRANCH
+        )
         os.system(cmd_git_add)
         os.system(cmd_git_commit)
         os.system(cmd_git_push)
