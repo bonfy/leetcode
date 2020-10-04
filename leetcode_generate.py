@@ -590,6 +590,17 @@ If you are loving solving problems in leetcode, please contact me to enjoy it to
             f.write(md)
 
     def push_to_github(self):
+        with os.popen(r"git diff -- README.md", "r") as f:
+            diff = f.read()
+        r = re.findall(r"I have solved \*\*(\w+)   /", diff, re.S)
+        if len(r) < 2 or r[0] == r[1]:
+            print("Nothing to commit, reset to HEAD and clean")
+            reset = "git reset --hard HEAD"
+            clean = "git clean -fd"
+            os.system(reset)
+            os.system(clean)
+            return
+        
         strdate = datetime.datetime.now().strftime('%Y-%m-%d')
         cmd_git_add = 'git add .'
         cmd_git_commit = 'git commit -m "update at {date}"'.format(
