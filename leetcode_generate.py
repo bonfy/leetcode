@@ -206,7 +206,7 @@ class Leetcode:
         options.add_argument('--disable-gpu')
         executable_path = CONFIG.get('driverpath')
         driver = webdriver.Chrome(
-            chrome_options=options, executable_path=executable_path
+            options=options, executable_path=executable_path
         )
         driver.get(LOGIN_URL)
 
