@@ -10,7 +10,7 @@ certifi = "==2018.1.18"
 chardet = "==3.0.4"
 cssselect = "==1.0.3"
 idna = "==2.6"
-lxml = "==4.2.1"
+lxml = "==4.9.1"
 pyquery = "==1.4.0"
 "urllib3" = ">=1.23"
 
