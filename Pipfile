@@ -6,7 +6,7 @@ name = "pypi"
 [packages]
 requests = ">=2.20.0"
 selenium = "==3.11.0"
-certifi = "==2018.1.18"
+certifi = "==2022.12.7"
 chardet = "==3.0.4"
 cssselect = "==1.0.3"
 idna = "==2.6"
